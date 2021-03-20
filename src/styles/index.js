@@ -492,6 +492,7 @@ export const landingPageStyles = makeStyles((theme) => ({
         height: '80vh',
         textAlign: 'center',
         alignSelf: 'center',
+
         [theme.breakpoints.down('700')]: {
             width: '100vw',
             paddingTop: '35px',
@@ -500,6 +501,11 @@ export const landingPageStyles = makeStyles((theme) => ({
     landingPageRight: {
         height: '90vh',
         width: '50vw',
+        '& img': {
+            borderRadius: '0 0 0 22%',
+            borderLeft: '10px solid #58D573',
+            borderBottom: '10px solid #58D573',
+        },
         [theme.breakpoints.down('700')]: {
             display: 'none',
         },
