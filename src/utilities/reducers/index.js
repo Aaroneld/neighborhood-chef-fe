@@ -139,6 +139,9 @@ export const rootReducer = (state = initialState, { type, payload }) => {
             ...state.user.UserEvents,
             owned: state.user.UserEvents.owned.filter((event) => event.id !== payload),
             favorited: state.user.UserEvents.favorited.filter((id) => id !== Number(payload)),
+            attending: state.user.UserEvents.attending.filter((event) => event.id !== payload),
+            invited: state.user.UserEvents.invited.filter((event) => event.id !== payload),
+            local: state.user.UserEvents.local.filter((event) => event.id !== payload),
           },
         },
       };
