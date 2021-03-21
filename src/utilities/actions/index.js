@@ -9,7 +9,6 @@ export const CREATE_EVENT_SUCCESS = 'CREATE_EVENT_SUCCESS';
 export const FILTER_USERS_SUCCESS = 'FILTER_USERS_SUCCESS';
 export const DELETE_INVITATION_SUCCESS = 'DELETE_INVITATION_SUCCESS';
 export const RESET_INVITE_SUCCESS = 'RESET_INVITE_SUCCESS';
-export const UPDATE_EVENT_SUCCESS = 'UPDATE_EVENT_SUCCESS';
 export const SAVE_USER = 'SAVE_USER';
 export const CHANGE_STATUS_FOR_SINGLE_EVENT = 'CHANGE_STATUS_FOR_SINGLE_EVENT';
 
@@ -63,9 +62,4 @@ export const filterUserListSuccess = (users) => ({
 export const deleteInvitationSuccess = (invite) => ({
   type: DELETE_INVITATION_SUCCESS,
   payload: invite,
-});
-
-export const updateEventSuccess = (event) => ({
-  type: UPDATE_EVENT_SUCCESS,
-  payload: event,
 });

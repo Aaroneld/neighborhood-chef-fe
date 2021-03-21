@@ -23,13 +23,8 @@ const initialState = {
   isGettingEvents: false,
   update: false,
   eventList: [],
-  newEvent: {},
   userList: [],
   inviteList: [],
-  isEditing: false,
-  eventToEdit: {},
-  currentEvent: {},
-  favoriteEvents: [],
   savedUserUpdateInfo: {},
 };
 
@@ -92,7 +87,6 @@ export const rootReducer = (state = initialState, { type, payload }) => {
       };
 
     case CREATE_EVENT_SUCCESS:
-      console.log(state.user.UserEvents.owned, payload.id);
       const filteredEvents = state.user.UserEvents.owned.filter((event) => event.id !== payload.id);
 
       return {
@@ -134,22 +128,6 @@ export const rootReducer = (state = initialState, { type, payload }) => {
         ...state,
         inviteList: payload,
       };
-
-    case UPDATE_EVENT_SUCCESS:
-      return {
-        ...state,
-        user: {
-          ...state.user,
-          UserEvents: {
-            ...state.user.UserEvents,
-            owned: [...this.user.UserEvents.owned, payload],
-          },
-        },
-        isEditing: false,
-        eventToEdit: {},
-        inviteList: payload.users,
-      };
-
     default:
       return {
         ...state,
