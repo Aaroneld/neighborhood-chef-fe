@@ -9,7 +9,6 @@ import CatagoryInput from './category-input/catagory-input';
 import MapboxGeocoder from './mapbox-geocoder/mapbox-geocoder';
 
 import { formPageOneStyles } from './FormPageOne.styles';
-import { buttonStyles } from '../../CreateEvent.styles';
 import EventButtons from '../event-buttons/EventButtons';
 
 export const scrollToTop = () => {
@@ -22,7 +21,6 @@ export const scrollToTop = () => {
 const FormPageOne = ({ setStepper, errors, values, setValues, validate }) => {
   const { push } = useHistory();
   const styles = formPageOneStyles();
-  const btnStyles = buttonStyles();
 
   const validateAndTurnPage = () => {
     const isValid = validate();

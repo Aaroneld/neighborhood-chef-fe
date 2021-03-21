@@ -67,7 +67,7 @@ const EventDetails = ({ event, attending, setAttending }) => {
         date: `${startTime.getFullYear()}-${startTime.getMonth() + 1 < 10 ? '0' : ''}${startTime.getMonth() + 1}-${startTime.getDate() < 10 ? '0' : ''}${startTime.getDate()}`,
         modifiers: event.modifiers ? event.modifiers : [],
         hashtags: event.hashtags ? event.hashtags : [],
-        allergenWarnings: event.allergyWarnings ? event.allergyWarnings : [],
+        allergenWarnings: event.allergenWarnings ? event.allergenWarnings : [],
         dietaryWarnings: event.dietaryWarnings ? event.dietaryWarnings : [],
       },
       'secret'

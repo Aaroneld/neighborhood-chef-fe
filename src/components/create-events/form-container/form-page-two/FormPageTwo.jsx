@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import strollerIcon from '@iconify/icons-vs/stroller';
 import baselineOutdoorGrill from '@iconify/icons-ic/baseline-outdoor-grill';
@@ -18,8 +18,6 @@ import Typography from '@material-ui/core/Typography';
 
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-
-import { buttonStyles } from '../../CreateEvent.styles';
 import { formPageTwoStyles } from './FormPageTwo.styles';
 
 export const modifierData = [
@@ -35,7 +33,6 @@ const FormPageTwo = (props) => {
   const [showAdvancedOptions, setShowAdvancedOptions] = useState(
     showOptions(props.values.allergenWarnings, props.values.dietaryWarnings)
   );
-  const btnStyles = buttonStyles();
   const styles = formPageTwoStyles();
 
   return (

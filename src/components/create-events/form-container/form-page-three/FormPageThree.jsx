@@ -8,11 +8,9 @@ import { scrollToTop } from '../form-page-one/FormPageOne.jsx';
 import { convertTime, chooseDefaultPicture } from '../../../../utilities/functions';
 
 import { formPageThreeStyles } from './FormPageThree.styles';
-import { buttonStyles } from '../../CreateEvent.styles';
 
 const FormPageThree = (props) => {
   const styles = formPageThreeStyles();
-  const btnStyles = buttonStyles();
 
   return (
     <div className={styles.root}>
