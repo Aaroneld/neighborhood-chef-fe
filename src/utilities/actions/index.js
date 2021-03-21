@@ -11,6 +11,7 @@ export const DELETE_INVITATION_SUCCESS = 'DELETE_INVITATION_SUCCESS';
 export const RESET_INVITE_SUCCESS = 'RESET_INVITE_SUCCESS';
 export const SAVE_USER = 'SAVE_USER';
 export const CHANGE_STATUS_FOR_SINGLE_EVENT = 'CHANGE_STATUS_FOR_SINGLE_EVENT';
+export const DELETE_EVENT = 'DELETE_EVENT';
 
 export const changeStatusForSingleEvent = (data) => (dispatch) => {
   axiosWithAuth()
@@ -62,4 +63,9 @@ export const filterUserListSuccess = (users) => ({
 export const deleteInvitationSuccess = (invite) => ({
   type: DELETE_INVITATION_SUCCESS,
   payload: invite,
+});
+
+export const deleteEvent = (id) => ({
+  type: DELETE_EVENT,
+  payload: id,
 });

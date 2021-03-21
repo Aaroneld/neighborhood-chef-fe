@@ -5,9 +5,9 @@ import {
   FILTER_USERS_SUCCESS,
   DELETE_INVITATION_SUCCESS,
   RESET_INVITE_SUCCESS,
-  UPDATE_EVENT_SUCCESS,
   SAVE_USER,
   CHANGE_STATUS_FOR_SINGLE_EVENT,
+  DELETE_EVENT,
 } from '../actions';
 
 const initialDate = new Date();
@@ -127,6 +127,20 @@ export const rootReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         inviteList: payload,
+      };
+    case DELETE_EVENT:
+      console.log(state.user);
+      return {
+        ...state,
+        eventList: state.eventList.filter((event) => event !== payload),
+        user: {
+          ...state.user,
+          UserEvents: {
+            ...state.user.UserEvents,
+            owned: state.user.UserEvents.owned.filter((event) => event.id !== payload),
+            favorited: state.user.UserEvents.favorited.filter((id) => id !== Number(payload)),
+          },
+        },
       };
     default:
       return {
