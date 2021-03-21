@@ -10,6 +10,7 @@ import MapboxGeocoder from './mapbox-geocoder/mapbox-geocoder';
 
 import { formPageOneStyles } from './FormPageOne.styles';
 import { buttonStyles } from '../../CreateEvent.styles';
+import EventButtons from '../event-buttons/EventButtons';
 
 export const scrollToTop = () => {
   window.scrollTo({
@@ -47,20 +48,14 @@ const FormPageOne = ({ setStepper, errors, values, setValues, validate }) => {
           <CatagoryInput errors={errors} values={values} setValues={setValues} validate={validate} />
         </div>
       </div>
-
-      <div className={btnStyles.buttonContainer}>
-        <button
-          className={btnStyles.leftBtn}
-          onClick={() => {
-            push('/dashboard');
-          }}
-        >
-          Cancel
-        </button>
-        <button type="button" className={btnStyles.rightBtn} onClick={validateAndTurnPage}>
-          Next
-        </button>
-      </div>
+      <EventButtons
+        leftBtnText="Cancel"
+        leftBtnClick={() => {
+          push('/dashboard');
+        }}
+        rightBtnText="Next"
+        rightBtnClick={validateAndTurnPage}
+      />
     </>
   );
 };

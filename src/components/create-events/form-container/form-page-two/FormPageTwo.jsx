@@ -10,6 +10,7 @@ import foodApple from '@iconify/icons-mdi/food-apple';
 import EventImageUpload from '../../../shared/event-image-upload/EventImageUpload';
 import Modifier from './modifier/Modifier.jsx';
 import AddHashtag from './add-hashtag/AddHashtag.jsx';
+import EventButtons from '../event-buttons/EventButtons';
 import { scrollToTop } from '../form-page-one/FormPageOne.jsx';
 import AdvancedOptions from './advanced-options/AdvancedOptions.jsx';
 import { showOptions } from '../../../../utilities/functions';
@@ -87,27 +88,18 @@ const FormPageTwo = (props) => {
           </>
         )}
       </div>
-
-      <div className={btnStyles.buttonContainer}>
-        <button
-          className={btnStyles.leftBtn}
-          onClick={() => {
-            props.setStepper(1);
-            scrollToTop();
-          }}
-        >
-          Previous
-        </button>
-        <button
-          className={btnStyles.rightBtn}
-          onClick={() => {
-            props.setStepper(3);
-            scrollToTop();
-          }}
-        >
-          Next
-        </button>
-      </div>
+      <EventButtons
+        leftBtnText="Previous"
+        leftBtnClick={() => {
+          props.setStepper(1);
+          scrollToTop();
+        }}
+        rightBtnText="Next"
+        rightBtnClick={() => {
+          props.setStepper(3);
+          scrollToTop();
+        }}
+      />
     </>
   );
 };
