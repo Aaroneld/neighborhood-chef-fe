@@ -19,105 +19,77 @@ import globeIcon from '@iconify/icons-flat-color-icons/globe';
 
 //data/function imports
 import StatusButtons from '../../../dashboard/event-view/recent-card/status-buttons/status-buttons';
-import {
-    parseTime,
-    chooseDefaultPicture,
-} from '../../../../utilities/functions';
+import { parseTime, chooseDefaultPicture } from '../../../../utilities/functions';
 
 const EventSummary = ({ selectedEvent }) => {
-    const userId = useSelector((state) => state.user.id);
-    const classes = cardStyles();
-    const event = useSelector((state) => state.currentEvent);
+  const userId = useSelector((state) => state.user.id);
+  const classes = cardStyles();
+  let timeObject, parsedAddressURL, photo;
 
-    const photo =
-        selectedEvent.photo !== 'null'
-            ? selectedEvent.photo
-            : chooseDefaultPicture(event.category_id);
+  if (Object.keys(selectedEvent).length > 0) {
+    timeObject = parseTime(selectedEvent.startTime, selectedEvent.endTime);
+    parsedAddressURL = `https://www.google.com/maps/search/${selectedEvent.address.replace(' ', '+')}`;
+    photo = selectedEvent.photo ? selectedEvent.photo : chooseDefaultPicture(selectedEvent.title.charAt(0));
+  }
 
-    let timeObject, parsedAddressURL;
-
-    if (Object.keys(selectedEvent).length > 0) {
-        timeObject = parseTime(selectedEvent.startTime, selectedEvent.endTime);
-        parsedAddressURL = `https://www.google.com/maps/search/${selectedEvent.address.replace(
-            ' ',
-            '+'
-        )}`;
-    }
-
-    return (
-        <div className="event-details-container">
-            {Object.keys(selectedEvent).length > 0 ? (
-                <Card className={`${classes.root} ${classes.fullEvent}`}>
-                    <CardHeader
-                        title={
-                            <Link to={`/events/${selectedEvent.id}`}>
-                                <Typography variant="h3">
-                                    {selectedEvent.title}
-                                </Typography>
-                            </Link>
-                        }
-                        subheader={
-                            <Typography variant="caption">
-                                <span>created by</span>
-                                {`${selectedEvent.User.firstName} ${selectedEvent.User.lastName}`}
-                            </Typography>
-                        }
-                    />
-                    <CardMedia
-                        component="img"
-                        src={photo}
-                        title="Event Details Photo"
-                    />
-                    <p> {selectedEvent.description}</p>
-                    <div>
-                        Confirmed Attending:{' '}
-                        {selectedEvent.EventUsers.attending.length}
-                    </div>
-                    <div>
-                        <span>
-                            <Icon height="20" icon={calendarIcon} />
-                        </span>
-                        {timeObject.formattedDate}
-                    </div>
-                    <div>
-                        <span>
-                            <Icon height="20" icon={clockIcon} />
-                        </span>
-                        {`${timeObject.startTime} ${
-                            timeObject.endTime !== 'Invalid date'
-                                ? '- ' + timeObject.endTime
-                                : ''
-                        }`}
-                    </div>
-                    <div>
-                        <span>
-                            <Icon height="20" icon={globeIcon} />
-                        </span>
-                        <a
-                            href={parsedAddressURL}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            {selectedEvent.address}
-                        </a>
-                    </div>
-                    <div>
-                        <Typography variant="h6">
-                            Will you be attending this event?
-                        </Typography>
-                        <StatusButtons
-                            id={selectedEvent.id}
-                            currentUserId={userId}
-                        />
-                    </div>
-                </Card>
-            ) : (
-                <Typography variant="h6">
-                    Please select an event to view its details
+  return (
+    <div className={classes.eventDetailsContainer}>
+      {Object.keys(selectedEvent).length > 0 ? (
+        <Card className={`${classes.root} ${classes.fullEvent}`}>
+          <CardHeader
+            style={{ marginLeft: '-4%' }}
+            title={
+              <Link to={`/events/${selectedEvent.id}`}>
+                <Typography variant="h3">
+                  {selectedEvent.title.length <= 15
+                    ? selectedEvent.title
+                    : `${selectedEvent.title.slice(0, 15)}...`}
                 </Typography>
-            )}
-        </div>
-    );
+              </Link>
+            }
+            subheader={
+              <Typography variant="caption">
+                <span>created by</span>
+                {`${selectedEvent.User.firstName} ${selectedEvent.User.lastName}`}
+              </Typography>
+            }
+          />
+          <CardMedia className={classes.img} component="img" src={photo} title="Event Details Photo" />
+          <div>Confirmed Attending: {selectedEvent.EventUsers.attending.length}</div>
+          <div className={classes.iconContainer}>
+            <span>
+              <Icon height="20" icon={calendarIcon} />
+            </span>
+            {timeObject.formattedDate}
+          </div>
+          <div className={classes.iconContainer}>
+            <span>
+              <Icon height="20" icon={clockIcon} />
+            </span>
+            {`${timeObject.startTime} ${
+              timeObject.endTime !== 'Invalid date' ? '- ' + timeObject.endTime : ''
+            }`}
+          </div>
+          <div className={classes.iconContainer}>
+            <span>
+              <Icon height="20" icon={globeIcon} />
+            </span>
+            <a href={parsedAddressURL} target="_blank" rel="noopener noreferrer">
+              {selectedEvent.address}
+            </a>
+          </div>
+          <div>
+            <Typography variant="h6">Will you be attending this event?</Typography>
+            <div className={classes.statusButtonContainer}>
+              <StatusButtons id={selectedEvent.id} currentUserId={userId} />
+            </div>
+          </div>
+        </Card>
+      ) : (
+        <Typography variant="h6">Please select an event to view its details</Typography>
+      )}
+    </div>
+  );
 };
 
 export default EventSummary;

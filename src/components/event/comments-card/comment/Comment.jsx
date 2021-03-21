@@ -53,7 +53,7 @@ const Comment = (props) => {
         const newComment = {
             comment: reply,
             root_id: Number(props.id),
-            parent_id: 0,
+            parent_id: Number(props.User.id),
             event_id: Number(props.eventId),
             user_id: Number(user.id),
         };
@@ -75,6 +75,11 @@ const Comment = (props) => {
                     firstName: user.firstName,
                     lastName: user.lastName,
                 };
+                newComment.Parent = {
+                    id: props.User.id,
+                    firstName: props.User.firstName,
+                    lastName: props.User.lastName,
+                };
                 newComment.dateCreated = Date.now();
                 setSubComments([...subComments, newComment]);
             },
@@ -83,81 +88,61 @@ const Comment = (props) => {
     };
 
     return (
-        <div
-            className={classes.singleCommentParent}
-            // props.parent_id < 0
-            //   ? classes.singleCommentParent
-            //   : classes.singleCommentChild
-            // }
-        >
-            <div
-                style={{
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    alignItems: 'center',
-                }}
-            >
-                <Avatar
-                    key={props.User.id}
-                    title={`${props.User.firstName} ${props.User.lastName}`}
-                    aria-label="avatar"
-                    className={classes.avatar}
-                    src={!props.User.photo ? null : props.User.photo}
-                    style={{
-                        marginRight: '5px',
-                        width: '26px',
-                        height: '26px',
-                    }}
-                >
-                    {!props.User.photo && (
-                        <Typography variant="body2">
-                            {`${props.User.firstName.split('')[0]}${
-                                props.User.lastName.split('')[0]
-                            }`}
+        <>
+            <div className={classes.singleCommentParent}>
+                <div className={classes.avatarContainer}>
+                    <Avatar
+                        key={props.User.id}
+                        title={`${props.User.firstName} ${props.User.lastName}`}
+                        aria-label="avatar"
+                        className={classes.avatar}
+                        src={!props.User.photo ? null : props.User.photo}
+                        className={classes.photoContainer}
+                    >
+                        {!props.User.photo && (
+                            <Typography variant="body2">
+                                {`${props.User.firstName.split('')[0]}${
+                                    props.User.lastName.split('')[0]
+                                }`}
+                            </Typography>
+                        )}
+                    </Avatar>
+                    {user && (
+                        <Typography variant="body1">
+                            {`${props.User.firstName} ${props.User.lastName}`}
                         </Typography>
                     )}
-                </Avatar>
-                {user && (
-                    <Typography variant="body1">
-                        {`${props.User.firstName} ${props.User.lastName}`}
-                    </Typography>
-                )}
-            </div>
-            <Typography variant="caption" style={{ marginLeft: '17px' }}>
-                {props.comment}
-            </Typography>
-            <div
-                style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                }}
-            >
-                <div style={{ display: 'flex' }}>
-                    <ReplyButton
-                        name={`${props.User.firstName} ${props.User.lastName}`}
-                        description={props.comment}
-                        addReply={addReply}
-                    />
-                    <ReactButton
-                        name={`${props.User.firstName} ${props.User.lastName}`}
-                        toggleEmoji={toggleEmoji}
-                    />
-                    {reactions &&
-                        reactions.map((item, index) => {
-                            return <ShowEmoji key={index} item={item} />;
-                        })}
                 </div>
-                <Typography variant="body2" color="textSecondary">
-                    {timeObject.commentTime}
+                <Typography variant="caption" style={{ marginLeft: '17px' }}>
+                    {props.comment}
                 </Typography>
+                <div className={classes.replyBtnContainer}>
+                    <div style={{ display: 'flex' }}>
+                        <ReplyButton
+                            name={`${props.User.firstName} ${props.User.lastName}`}
+                            description={props.comment}
+                            addReply={addReply}
+                        />
+                        <ReactButton
+                            name={`${props.User.firstName} ${props.User.lastName}`}
+                            toggleEmoji={toggleEmoji}
+                        />
+                        {reactions &&
+                            reactions.map((item, index) => {
+                                return <ShowEmoji key={index} item={item} />;
+                            })}
+                    </div>
+                    <Typography variant="body2" color="textSecondary">
+                        {timeObject.commentTime}
+                    </Typography>
+                </div>
             </div>
             <SubComments
                 setSubComments={setSubComments}
                 subcomments={subComments}
                 eventId={props.eventId}
             />
-        </div>
+        </>
     );
 };
 

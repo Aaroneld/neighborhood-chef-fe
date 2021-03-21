@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { connect } from 'react-redux';
 import { buttonStyles } from '../../../../styles';
 import { changeStatusForSingleEvent } from '../../../../utilities/actions';
@@ -10,8 +11,11 @@ const StatusButton = ({
     eventId,
     userId,
     changeStatusForSingleEvent,
+    attending,
+    setAttending,
 }) => {
     const classes = buttonStyles();
+    const user = useSelector((state) => state.user);
 
     return (
         <button
@@ -27,6 +31,17 @@ const StatusButton = ({
                     eventId,
                     userId,
                 });
+                // the code below is for updating the participants on the single-event-page
+                if (attending && setAttending) {
+                    const updatedAttendingList = attending.filter(
+                        (user) => user.id !== userId
+                    );
+
+                    if (status === 'GOING') {
+                        updatedAttendingList.push(user);
+                    }
+                    setAttending(updatedAttendingList);
+                }
             }}
         >
             {status === 'GOING'

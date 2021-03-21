@@ -1,19 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Formik, Form } from 'formik';
-import { print } from 'graphql';
-import { axiosWithAuth } from '../../../utilities/axiosWithAuth';
 import { useDispatch, useSelector } from 'react-redux';
-import { setPage } from '../../../utilities/actions';
-
-// redux action imports
-import {
-    createEventSuccess,
-    updateEventSuccess,
-    cancelEdit,
-} from '../../../utilities/actions/index';
-
-// graphql query imports
-import { CREATE_EVENT } from '../../../graphql/events/event-mutations';
+import { createEventSuccess } from '../../../utilities/actions';
 
 // component and helper function imports
 import FormPageOne from './form-page-one/FormPageOne';
@@ -21,246 +8,159 @@ import FormPageTwo from './form-page-two/FormPageTwo';
 import FormPageThree from './form-page-three/FormPageThree';
 import FormPageFour from './form-page-four/FormPageFour';
 import { modifierData } from './form-page-two/FormPageTwo';
-import { restoreSavedModifiers } from '../../../utilities/functions';
+import { formContainerStyles } from './FormContainer.styles';
 
-const initialState = {
+import { print } from 'graphql';
+import { CREATE_EVENT } from '../../../graphql/events/event-mutations';
+import { axiosWithAuth } from '../../../utilities/axiosWithAuth';
+import jwtdecode from 'jwt-decode';
+import useForm2 from '../../../hooks/useForm.js';
+import * as yup from 'yup';
+
+const FormContainer = (props) => {
+  const styles = formContainerStyles();
+  const user = useSelector((state) => state.user);
+  const [stepper, setStepper] = useState(1);
+  const [initialValues, setInitialValues] = useState({
     title: '',
     description: '',
+    address: '',
     date: '',
     startTime: '',
     endTime: '',
     category: '',
-    address: '',
     latitude: '',
     longitude: '',
-};
+    hashtags: [],
+    modifiers: [],
+    allergenWarnings: [],
+    dietaryWarnings: [],
+    photo: null,
+  });
+  const [loadedFlag, flag] = useState(0);
+  const [loaded, setLoaded] = useState(false);
 
-const FormContainer = () => {
-    const user = useSelector((state) => state.user);
-    const page = useSelector((state) => state.page);
-    const [hashtags, setHashtags] = useState([]);
-    const [modifiers, setModifiers] = useState([]);
-    const [photo, setPhoto] = useState(null);
-    const [allergenList, setAllergenList] = useState([]);
-    const [dietWarnings, setDietWarnings] = useState([]);
-    const eventToEdit = useSelector((state) => state.eventToEdit);
-    const isEditing = useSelector((state) => state.isEditing);
-    const dispatch = useDispatch();
+  useEffect(() => {
+    if (window.location.pathname.split('/')[2]) {
+      setInitialValues(jwtdecode(window.location.pathname.split('/')[2]));
+    }
+  }, []);
 
-    const resetModifiers = () => {
-        return modifierData.map((mod) => (mod.active = false));
+  const { values, setValues, validate, errors } = useForm2(
+    initialValues,
+    yup.object().shape({
+      title: yup.string().required("'Title' is a required field"),
+      description: yup.string().required("'Description' is a required field"),
+      address: yup
+        .string()
+        .required("'Address' is a required field - Selecting an option from the dropdown menu is required'"),
+      date: yup.string().required("'Date' is a required field"),
+      startTime: yup.string().required("'Start Time' is a required field"),
+      endTime: yup.string(),
+      category: yup.string(),
+      latitude: yup.number().required(),
+      longitude: yup.mixed().required(),
+    })
+  );
+
+  useEffect(() => {
+    setValues(initialValues);
+  }, [initialValues]);
+
+  useEffect(() => {
+    if ((loadedFlag === 0 && values.title !== '') || !window.location.pathname.split('/')[2]) {
+      flag(1);
+      setLoaded(true);
+    }
+  }, [values]);
+
+  const dispatch = useDispatch();
+
+  const resetModifiers = () => {
+    return modifierData.map((mod) => (mod.active = false));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const requestValues = { ...values };
+    delete requestValues.date;
+    delete requestValues.iat;
+
+    if (requestValues.id) {
+      requestValues.id = Number(requestValues.id);
+    }
+
+    axiosWithAuth()({
+      url: `${process.env.REACT_APP_BASE_URL}/graphql`,
+      method: 'post',
+      data: {
+        query: print(CREATE_EVENT),
+        variables: {
+          input: {
+            ...requestValues,
+            user_id: Number(user.id),
+            createDateTime: new Date().toISOString(),
+            startTime: new Date(`${values.date} ${values.startTime}`),
+            endTime: values.endTime ? new Date(`${values.date} ${values.endTime}`) : null,
+          },
+        },
+      },
+    })
+      .then((res) => {
+        console.log(res);
+        dispatch(
+          createEventSuccess({
+            ...requestValues,
+            id: res.data.data.inputEvent.id,
+            createDateTime: Date.now().toString(),
+            startTime: new Date(`${values.date} ${values.startTime}`).getTime(),
+            endTime: values.endTime ? new Date(`${values.date} ${values.endTime}`).getTime() : null,
+            status: 'UNDECIDED',
+          })
+        );
+        setValues({ ...values, id: res.data.data.inputEvent.id, createDateTime: Date.now().toString() });
+        setStepper(4);
+      })
+      .catch((err) => {
+        console.dir(err);
+      });
+  };
+
+  // cleanup
+  useEffect(() => {
+    return () => {
+      resetModifiers();
     };
+  }, [dispatch]);
 
-    const modifiersWithoutIcon = () => {
-        return modifiers.map((mod) => {
-            return {
-                id: mod.id,
-                title: mod.title,
-                active: mod.active,
-            };
-        });
-    };
-
-    useEffect(() => {
-        if (isEditing) {
-            const savedHashtags = eventToEdit.hashtags;
-            const savedModifiers = eventToEdit.modifiers;
-            const savedAllergens = eventToEdit.allergenWarnings;
-            const savedDietWarnings = eventToEdit.dietaryWarnings;
-
-            if (savedModifiers && Object.keys(savedModifiers).length > 0) {
-                restoreSavedModifiers(
-                    modifierData,
-                    savedModifiers.modifiers,
-                    setModifiers
-                );
-            }
-
-            if (savedHashtags && Object.keys(savedHashtags).length > 0) {
-                setHashtags(savedHashtags.hashtags);
-            }
-
-            if (savedAllergens && Object.keys(savedAllergens).length > 0) {
-                setAllergenList(savedAllergens.allergenWarnings);
-            }
-
-            if (
-                savedDietWarnings &&
-                Object.keys(savedDietWarnings).length > 0
-            ) {
-                setDietWarnings(savedDietWarnings.dietaryWarnings);
-            }
-
-            if (eventToEdit.photo !== 'null') {
-                setPhoto(eventToEdit.photo);
-            }
-        }
-        //eslint-disable-next-line
-    }, [isEditing, eventToEdit, dispatch]);
-
-    // cleanup
-    useEffect(() => {
-        return () => {
-            resetModifiers();
-            dispatch(cancelEdit());
-            dispatch(setPage(1));
-        };
-    }, [dispatch]);
-
-    return (
+  return (
+    <form className={styles.form} onSubmit={handleSubmit}>
+      {loaded && (
         <>
-            <Formik
-                initialValues={isEditing ? eventToEdit : initialState}
-                onSubmit={(values, { resetForm }) => {
-                    let startTime = new Date(
-                        `${values.date} ${values.startTime}`
-                    );
-                    let endTime;
-                    if (values.endTime) {
-                        endTime = new Date(`${values.date} ${values.endTime}`);
-                    }
-                    const event = {
-                        title: values.title,
-                        description: values.description,
-                        category: values.category,
-                        address: values.address,
-                        startTime: startTime.toISOString(),
-                        endTime: values.endTime ? endTime.toISOString() : null,
-                        hashtags: JSON.stringify({ hashtags: [...hashtags] }),
-                        modifiers: JSON.stringify({
-                            modifiers: [...modifiersWithoutIcon()],
-                        }),
-                        longitude: values.longitude,
-                        latitude: values.latitude,
-                        photo: photo ? photo : null,
-                        user_id: parseInt(user.id),
-                        allergenWarnings: JSON.stringify({
-                            allergenWarnings: [...allergenList],
-                        }),
-                        dietaryWarnings: JSON.stringify({
-                            dietaryWarnings: [...dietWarnings],
-                        }),
-                    };
-
-                    if (isEditing) {
-                        event.id = eventToEdit.id;
-
-                        axiosWithAuth()
-                            .post(`${process.env.REACT_APP_BASE_URL}/graphql`, {
-                                query: print(CREATE_EVENT),
-                                variables: {
-                                    id: Number(eventToEdit.id),
-                                    input: event,
-                                },
-                            })
-                            .then((res) => {
-                                dispatch(
-                                    updateEventSuccess(
-                                        res.data.data.updateEvent
-                                    )
-                                );
-                                setHashtags([]);
-                                resetForm(initialState);
-                                resetModifiers();
-                                setModifiers([]);
-                                dispatch(setPage(4));
-                            })
-                            .catch((err) => console.log(err.message));
-                    } else {
-                        event.createDateTime = new Date().toISOString();
-                        axiosWithAuth()
-                            .post(`${process.env.REACT_APP_BASE_URL}/graphql`, {
-                                query: print(CREATE_EVENT),
-                                variables: { input: event },
-                            })
-                            .then((res) => {
-                                event.id = res.data.data.inputEvent.id;
-                                dispatch(createEventSuccess(event));
-                                setHashtags([]);
-                                resetForm(initialState);
-                                resetModifiers();
-                                setModifiers([]);
-                                dispatch(setPage(4));
-                            })
-                            .catch((err) => console.dir(err));
-                    }
-                }}
-            >
-                {({ handleSubmit, handleChange, values, setFieldValue }) => (
-                    <div
-                        style={{
-                            display: 'flex',
-                            flexDirection: ' column',
-                            width: '96%',
-                        }}
-                    >
-                        <Form
-                            style={{
-                                display: 'flex',
-                                flexDirection: 'column',
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                width: '100%',
-                            }}
-                            onSubmit={handleSubmit}
-                        >
-                            {page === 1 && (
-                                <>
-                                    <FormPageOne
-                                        values={values}
-                                        handleChange={handleChange}
-                                        setFieldValue={setFieldValue}
-                                    />
-                                </>
-                            )}
-
-                            {page === 2 && (
-                                <>
-                                    <FormPageTwo
-                                        values={values}
-                                        handleChange={handleChange}
-                                        hashtags={hashtags}
-                                        setHashtags={setHashtags}
-                                        modifiers={modifiers}
-                                        setModifiers={setModifiers}
-                                        photo={photo}
-                                        setPhoto={setPhoto}
-                                        allergenList={allergenList}
-                                        setAllergenList={setAllergenList}
-                                        dietWarnings={dietWarnings}
-                                        setDietWarnings={setDietWarnings}
-                                    />
-                                </>
-                            )}
-
-                            {page === 3 && (
-                                <>
-                                    <FormPageThree
-                                        hashtags={hashtags}
-                                        setHashtags={setHashtags}
-                                        values={values}
-                                        handleSubmit={handleSubmit}
-                                        modifiers={modifiers}
-                                        setModifiers={setModifiers}
-                                        photo={photo}
-                                        allergenList={allergenList}
-                                        setAllergenList={setAllergenList}
-                                        dietWarnings={dietWarnings}
-                                        setDietWarnings={setDietWarnings}
-                                    />
-                                </>
-                            )}
-                        </Form>
-                        {page === 4 && (
-                            <>
-                                <FormPageFour />
-                            </>
-                        )}
-                    </div>
-                )}
-            </Formik>
+          {stepper === 1 && (
+            <FormPageOne
+              setStepper={setStepper}
+              values={values}
+              setValues={setValues}
+              validate={validate}
+              errors={errors}
+            />
+          )}
+          {stepper === 2 && <FormPageTwo setStepper={setStepper} values={values} setValues={setValues} />}
+          {stepper === 3 && (
+            <FormPageThree
+              values={values}
+              setValues={setValues}
+              setStepper={setStepper}
+              handleSubmit={handleSubmit}
+            />
+          )}
         </>
-    );
+      )}
+      {stepper === 4 && <FormPageFour values={values} />}
+    </form>
+  );
 };
 
 export default FormContainer;

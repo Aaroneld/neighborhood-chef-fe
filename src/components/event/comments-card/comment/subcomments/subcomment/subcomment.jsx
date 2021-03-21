@@ -26,6 +26,7 @@ export default function SubComment({
     eventId,
     Reactions,
     setSubComments,
+    User,
 }) {
     const user = useSelector((state) => state.user);
     const timeObject = parseTime(dateCreated);
@@ -48,7 +49,6 @@ export default function SubComment({
             },
         })
             .then((res) => {
-                console.log(id);
                 setReactions(res.data.data.handleReaction);
             })
             .catch((err) => {
@@ -60,7 +60,7 @@ export default function SubComment({
         const newComment = {
             comment: reply,
             root_id: Number(root),
-            parent_id: Number(commentOwner.id),
+            parent_id: Number(User.id),
             event_id: Number(eventId),
             user_id: Number(user.id),
         };
@@ -84,8 +84,9 @@ export default function SubComment({
                 };
                 newComment.dateCreated = Date.now();
                 newComment.Parent = {
-                    firstName: parent.firstName,
-                    lastName: parent.lastName,
+                    id: User.id,
+                    firstName: User.firstName,
+                    lastName: User.lastName,
                 };
                 setSubComments((subComments) => [...subComments, newComment]);
             },
@@ -94,20 +95,8 @@ export default function SubComment({
     };
 
     return (
-        <div
-            className={classes.singleCommentParent}
-            // props.parent_id < 0
-            //   ? classes.singleCommentParent
-            //   : classes.singleCommentChild
-            // }
-        >
-            <div
-                style={{
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    alignItems: 'center',
-                }}
-            >
+        <div className={classes.singleCommentChild}>
+            <div className={classes.avatarContainer}>
                 {commentOwner && (
                     <>
                         <Avatar
@@ -118,11 +107,7 @@ export default function SubComment({
                             src={
                                 !commentOwner.photo ? null : commentOwner.photo
                             }
-                            style={{
-                                marginRight: '5px',
-                                width: '26px',
-                                height: '26px',
-                            }}
+                            className={classes.photoContainer}
                         >
                             {!commentOwner.photo && (
                                 <Typography variant="body2">
@@ -145,13 +130,7 @@ export default function SubComment({
                 </Typography>
                 <Typography variant="caption">{subcomment}</Typography>
             </div>
-            <div
-                style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                }}
-            >
+            <div className={classes.replyBtnContainer}>
                 <div style={{ display: 'flex' }}>
                     <ReplyButton
                         name={`${commentOwner.firstName} ${commentOwner.lastName}`}

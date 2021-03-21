@@ -4,62 +4,56 @@ import Hashtag from './hashtag/Hashtag';
 import Typography from '@material-ui/core/Typography';
 import { addModifierFormStyles } from '../../../CreateEvent.styles';
 
-const AddHashtag = ({ hashtags, setHashtags }) => {
-    const [formInput, setFormInput] = useState({ title: '' });
-    const styles = addModifierFormStyles();
+const AddHashtag = ({ hashtags, values, setValues }) => {
+  const [formInput, setFormInput] = useState('');
+  const styles = addModifierFormStyles();
 
-    const handleChange = (e) => {
-        e.preventDefault();
-        setFormInput({ ...formInput, [e.target.name]: e.target.value });
-    };
+  const handleChange = (e) => {
+    e.preventDefault();
+    setFormInput(e.target.value);
+  };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const newHashtag = {
-            id: hashtags.length + 1,
-            title: formInput.title,
-        };
-        setHashtags([...hashtags, newHashtag]);
-        setFormInput({ title: '' });
-    };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    e.persist();
+    setValues((values) => {
+      return { ...values, category: e.target.value };
+    });
+    if (values.hashtags.indexOf(formInput) === -1) {
+      setValues((values) => {
+        return { ...values, hashtags: [...values.hashtags, formInput] };
+      });
+    }
+    setFormInput('');
+  };
 
-    return (
-        <div className={styles.root}>
-            <Typography style={{ marginTop: '25px', marginBottom: '25px' }}>
-                Add some hashtags for your event.
-            </Typography>
-            <div className={styles.container}>
-                <input
-                    type="text"
-                    name="title"
-                    value={formInput.title}
-                    onChange={handleChange}
-                    className={styles.input}
-                />
-                <button
-                    onClick={handleSubmit}
-                    disabled={!formInput.title}
-                    className={`${styles.button} ${
-                        !formInput.title ? styles.inactive : ''
-                    }`}
-                >
-                    Add +
-                </button>
-            </div>
-            <div className={styles.modifierContainer}>
-                {hashtags.map((hashtag) => {
-                    return (
-                        <Hashtag
-                            key={hashtag.id}
-                            hashtag={hashtag}
-                            hashtags={hashtags}
-                            setHashtags={setHashtags}
-                        />
-                    );
-                })}
-            </div>
-        </div>
-    );
+  return (
+    <div className={styles.root}>
+      <Typography>Add some hashtags for your event.</Typography>
+      <div className={styles.container}>
+        <input
+          type="text"
+          name="formInput"
+          value={formInput}
+          onChange={handleChange}
+          className={styles.input}
+        />
+        <button
+          onClick={handleSubmit}
+          disabled={!formInput}
+          className={`${styles.button} ${!formInput ? styles.inactive : ''}`}
+        >
+          Add +
+        </button>
+      </div>
+      <div className={styles.modifierContainer}>
+        {values.hashtags.length > 0 &&
+          values.hashtags.map((hashtag) => {
+            return <Hashtag key={hashtag} hashtag={hashtag} values={values} setValues={setValues} />;
+          })}
+      </div>
+    </div>
+  );
 };
 
 export default AddHashtag;

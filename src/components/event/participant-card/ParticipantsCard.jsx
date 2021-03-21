@@ -2,6 +2,7 @@ import React from 'react';
 
 //style imports
 import { cardStyles } from '../../../styles';
+
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
@@ -18,10 +19,9 @@ const ParticipantCard = ({ attending }) => {
                     Attending:
                 </Typography>
                 {attending && attending.length > 0 ? (
-                    <CardContent>
+                    <CardContent className={classes.cardContent}>
                         <AvatarGroup max={4}>
                             {attending.map((user) => {
-                                // console.log(user.photo);
                                 return (
                                     <Avatar
                                         key={user.id}
