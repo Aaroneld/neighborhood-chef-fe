@@ -15,13 +15,11 @@ export default function MapboxAddressSearch({
   const [innerData, setInnerData] = useState([]);
 
   const handleChange = async (e) => {
-    console.log(addresses);
-    if (e && e.type === 'change') {
+    if (e && e.type === 'change' && e.target.value) {
       try {
         const response = await axios.get(
-          `https://api.mapbox.com/geocoding/v5/mapbox.places/${
-            e.target.value ? e.target.value.split(' ').join('%20') : 'random'
-          }.json?access_token=${process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}`
+          //prettier-ignore
+          `https://api.mapbox.com/geocoding/v5/mapbox.places/${e.target.value.replace('', '%20')}.json?access_token=${process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}`
         );
 
         setInnerData(
@@ -38,7 +36,7 @@ export default function MapboxAddressSearch({
         console.dir(err);
       }
     } else if (e && e.type === 'click') {
-      setOpen(false);
+      setOpen((prev) => !prev);
     }
   };
 
@@ -48,7 +46,6 @@ export default function MapboxAddressSearch({
   };
 
   const handleClick = () => {
-    console.log('here');
     setOpen(true);
   };
 

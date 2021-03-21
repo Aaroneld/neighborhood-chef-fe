@@ -25,7 +25,7 @@ const FormPageOne = ({ setStepper, errors, values, setValues, validate }) => {
 
   const validateAndTurnPage = () => {
     const isValid = validate();
-    console.log(isValid);
+
     if (isValid) {
       setStepper(2);
       scrollToTop();
