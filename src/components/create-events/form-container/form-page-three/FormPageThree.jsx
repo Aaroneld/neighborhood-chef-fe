@@ -3,7 +3,6 @@ import moment from 'moment';
 
 import DisplayEventModifiers from './display-event-modifiers/DisplayEventModifiers';
 import { scrollToTop } from '../form-page-one/FormPageOne.jsx';
-import { useDispatch } from 'react-redux';
 
 import { convertTime, chooseDefaultPicture } from '../../../../utilities/functions';
 
@@ -11,7 +10,6 @@ import { formPageThreeStyles } from './FormPageThree.styles';
 import { buttonStyles } from '../../CreateEvent.styles';
 
 const FormPageThree = (props) => {
-  const dispatch = useDispatch();
   const styles = formPageThreeStyles();
   const btnStyles = buttonStyles();
 

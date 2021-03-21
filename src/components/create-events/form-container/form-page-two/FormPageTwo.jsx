@@ -22,12 +22,12 @@ import { buttonStyles } from '../../CreateEvent.styles';
 import { formPageTwoStyles } from './FormPageTwo.styles';
 
 export const modifierData = [
-  { id: 1, title: 'BBQ', icon: baselineOutdoorGrill, active: false },
-  { id: 2, title: 'Kid-Friendly', icon: strollerIcon, active: false },
-  { id: 3, title: 'Alcohol Accepted', icon: bottleWine, active: false },
-  { id: 4, title: '18+ Event', icon: icon18Plus, active: false },
-  { id: 5, title: 'Pet-Friendly', icon: dogIcon, active: false },
-  { id: 6, title: 'Vegetarian', icon: foodApple, active: false },
+  { title: 'BBQ', icon: baselineOutdoorGrill },
+  { title: 'Kid-Friendly', icon: strollerIcon },
+  { title: 'Alcohol Accepted', icon: bottleWine },
+  { title: '18+ Event', icon: icon18Plus },
+  { title: 'Pet-Friendly', icon: dogIcon },
+  { title: 'Vegetarian', icon: foodApple },
 ];
 
 const FormPageTwo = (props) => {
@@ -55,13 +55,13 @@ const FormPageTwo = (props) => {
                 if (props.values.modifiers.includes(modifier.title)) {
                   return { ...modifier, active: true };
                 } else {
-                  return modifier;
+                  return { ...modifier, active: false };
                 }
               })
               .map((modifier) => {
                 return (
                   <Modifier
-                    key={modifier.id}
+                    key={modifier.title}
                     modifier={modifier}
                     values={props.values}
                     setValues={props.setValues}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as yup from 'yup';
 
-export default function useForm2(defaultValues, schemaInput) {
+export default function useForm(defaultValues, schemaInput) {
   const [values, setValues] = useState(defaultValues || {});
   const [errors, setErrors] = useState({});
   const [schema] = useState(schemaInput);

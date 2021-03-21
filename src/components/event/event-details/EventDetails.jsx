@@ -54,6 +54,7 @@ const EventDetails = ({ event, attending, setAttending }) => {
         address: event.address,
         latitude: event.latitude,
         longitude: event.longitude,
+        createDateTime: event.createDateTime,
         //prettier-ignore
         startTime: `${startTime.getHours() < 10 ? '0' : ''}${startTime.getHours()}:${startTime.getMinutes() < 10 ? '0' : ''}${startTime.getMinutes()}:00`,
         //prettier-ignore
@@ -61,7 +62,6 @@ const EventDetails = ({ event, attending, setAttending }) => {
         category: event.category ? event.category : '',
         //prettier-ignore
         date: `${startTime.getFullYear()}-${startTime.getMonth() + 1 < 10 ? '0' : ''}${startTime.getMonth() + 1}-${startTime.getDate() < 10 ? '0' : ''}${startTime.getDate()}`,
-        createDateTime: event.createDateTime,
         modifiers: event.modifiers ? event.modifiers : [],
         hashtags: event.hashtags ? event.hashtags : [],
         allergenWarnings: event.allergyWarnings ? event.allergyWarnings : [],
