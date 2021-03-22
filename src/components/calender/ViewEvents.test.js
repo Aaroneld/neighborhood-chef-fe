@@ -11,17 +11,17 @@ import thunk from 'redux-thunk';
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 describe('Test view event static properties', () => {
-    let ViewEventsComponent;
-    beforeEach(() => {
-        sessionStorage.setItem('user', JSON.stringify({ id: 1 }));
-        ViewEventsComponent = render(
-            <Provider store={store}>
-                <BrowserRouter>
-                    <ViewEvents />
-                </BrowserRouter>
-            </Provider>
-        );
-    });
+  let ViewEventsComponent;
+  beforeEach(() => {
+    sessionStorage.setItem('user', JSON.stringify({ id: 1 }));
+    ViewEventsComponent = render(
+      <Provider store={store}>
+        <BrowserRouter>
+          <ViewEvents />
+        </BrowserRouter>
+      </Provider>
+    );
+  });
 
-    test('ViewEvents component renders', () => {});
+  test('ViewEvents component renders', () => {});
 });

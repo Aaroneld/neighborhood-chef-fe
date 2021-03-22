@@ -9,22 +9,22 @@ import '@testing-library/jest-dom/extend-expect';
 const mockStore = configureStore([]);
 
 describe('Test FormContainer component', () => {
-    let store;
-    let FormContainerComponent;
+  let store;
+  let FormContainerComponent;
 
-    beforeEach(() => {
-        store = mockStore({});
+  beforeEach(() => {
+    store = mockStore({});
 
-        FormContainerComponent = render(
-            <Router>
-                <Provider store={store}>
-                    <FormContainer />
-                </Provider>
-            </Router>
-        );
-    });
+    FormContainerComponent = render(
+      <Router>
+        <Provider store={store}>
+          <FormContainer />
+        </Provider>
+      </Router>
+    );
+  });
 
-    test('FormContainer component renders', () => {
-        expect(FormContainerComponent).toBeDefined();
-    });
+  test('FormContainer component renders', () => {
+    expect(FormContainerComponent).toBeDefined();
+  });
 });

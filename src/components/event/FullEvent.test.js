@@ -12,18 +12,18 @@ import '@testing-library/jest-dom/extend-expect';
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 describe('Test FullEvent static properties', () => {
-    let FullEventComponent;
-    beforeEach(() => {
-        FullEventComponent = render(
-            <Provider store={store}>
-                <BrowserRouter>
-                    <FullEvent match={{ params: { id: 1 } }} />
-                </BrowserRouter>
-            </Provider>
-        );
-    });
+  let FullEventComponent;
+  beforeEach(() => {
+    FullEventComponent = render(
+      <Provider store={store}>
+        <BrowserRouter>
+          <FullEvent match={{ params: { id: 1 } }} />
+        </BrowserRouter>
+      </Provider>
+    );
+  });
 
-    test('FullEvent component renders', () => {
-        expect(FullEventComponent.getAllByText(/event/i));
-    });
+  test('FullEvent component renders', () => {
+    expect(FullEventComponent.getAllByText(/event/i));
+  });
 });

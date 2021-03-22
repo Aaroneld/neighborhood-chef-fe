@@ -12,31 +12,31 @@ const handleChange = jest.fn();
 const mockStore = configureStore([]);
 
 describe('Test FormPageTwo component', () => {
-    let FormPageTwoComponent;
-    let store;
+  let FormPageTwoComponent;
+  let store;
 
-    beforeEach(() => {
-        store = mockStore({});
-        FormPageTwoComponent = render(
-            <Provider store={store}>
-                <BrowserRouter>
-                    <Formik>
-                        <Form>
-                            <FormPageTwo
-                                handleChange={handleChange}
-                                hashtags={[{ id: 1, title: '#hashtags' }]}
-                                allergenList={[]}
-                                dietWarnings={[]}
-                            />
-                        </Form>
-                    </Formik>
-                </BrowserRouter>
-            </Provider>
-        );
-    });
+  beforeEach(() => {
+    store = mockStore({});
+    FormPageTwoComponent = render(
+      <Provider store={store}>
+        <BrowserRouter>
+          <Formik>
+            <Form>
+              <FormPageTwo
+                handleChange={handleChange}
+                hashtags={[{ id: 1, title: '#hashtags' }]}
+                allergenList={[]}
+                dietWarnings={[]}
+              />
+            </Form>
+          </Formik>
+        </BrowserRouter>
+      </Provider>
+    );
+  });
 
-    test('FormPageTwo component renders', () => {
-        expect(FormPageTwoComponent).toBeDefined();
-        expect(FormPageTwoComponent.getByText(/#hashtags/i));
-    });
+  test('FormPageTwo component renders', () => {
+    expect(FormPageTwoComponent).toBeDefined();
+    expect(FormPageTwoComponent.getByText(/#hashtags/i));
+  });
 });

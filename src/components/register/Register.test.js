@@ -12,18 +12,18 @@ import '@testing-library/jest-dom/extend-expect';
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 describe('Test register static properties', () => {
-    let RegisterComponent;
-    beforeEach(() => {
-        RegisterComponent = render(
-            <Provider store={store}>
-                <BrowserRouter>
-                    <Register />
-                </BrowserRouter>
-            </Provider>
-        );
-    });
+  let RegisterComponent;
+  beforeEach(() => {
+    RegisterComponent = render(
+      <Provider store={store}>
+        <BrowserRouter>
+          <Register />
+        </BrowserRouter>
+      </Provider>
+    );
+  });
 
-    test('Register component renders', () => {
-        expect(RegisterComponent.getByText(/Create a new account with us/i));
-    });
+  test('Register component renders', () => {
+    expect(RegisterComponent.getByText(/Create a new account with us/i));
+  });
 });

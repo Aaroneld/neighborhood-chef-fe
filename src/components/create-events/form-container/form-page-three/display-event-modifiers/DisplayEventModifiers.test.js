@@ -5,29 +5,29 @@ import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 describe('Test DisplayEventModifiers component', () => {
-    let DisplayEventModifiersComponent;
+  let DisplayEventModifiersComponent;
 
-    beforeEach(() => {
-        DisplayEventModifiersComponent = render(
-            <DisplayEventModifiers
-                modifiers={[
-                    {
-                        id: 1,
-                        title: '18+',
-                        icon: 'bottle icon',
-                        active: false,
-                    },
-                ]}
-                hashtags={[{ id: 1, title: '#hashtag' }]}
-                dietWarnings={[{ id: 1, diet: 'Vegan Only' }]}
-                allergenList={[]}
-            />
-        );
-    });
+  beforeEach(() => {
+    DisplayEventModifiersComponent = render(
+      <DisplayEventModifiers
+        modifiers={[
+          {
+            id: 1,
+            title: '18+',
+            icon: 'bottle icon',
+            active: false,
+          },
+        ]}
+        hashtags={[{ id: 1, title: '#hashtag' }]}
+        dietWarnings={[{ id: 1, diet: 'Vegan Only' }]}
+        allergenList={[]}
+      />
+    );
+  });
 
-    test('DisplayEventModifiers component renders', () => {
-        expect(DisplayEventModifiersComponent).toBeDefined();
-        expect(DisplayEventModifiersComponent.getByText(/#hashtag/i));
-        expect(DisplayEventModifiersComponent.getByText(/18+/i));
-    });
+  test('DisplayEventModifiers component renders', () => {
+    expect(DisplayEventModifiersComponent).toBeDefined();
+    expect(DisplayEventModifiersComponent.getByText(/#hashtag/i));
+    expect(DisplayEventModifiersComponent.getByText(/18+/i));
+  });
 });

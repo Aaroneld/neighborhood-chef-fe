@@ -15,110 +15,104 @@ import { print } from 'graphql';
 import { axiosWithAuth } from '../../../utilities/axiosWithAuth';
 
 const CommentsCard = ({ initialComments, eventId }) => {
-    const user = useSelector((state) => state.user);
-    const classes = cardStyles();
-    const buttonClass = buttonStyles();
-    const [commentFormInput, setCommentFormInput] = useState('');
-    const [comments, setComments] = useState(initialComments);
+  const user = useSelector((state) => state.user);
+  const classes = cardStyles();
+  const buttonClass = buttonStyles();
+  const [commentFormInput, setCommentFormInput] = useState('');
+  const [comments, setComments] = useState(initialComments);
 
-    const handleChange = (e) => {
-        setCommentFormInput(e.target.value);
+  const handleChange = (e) => {
+    setCommentFormInput(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newComment = {
+      comment: commentFormInput,
+      root_id: 0,
+      parent_id: 0,
+      event_id: Number(eventId),
+      user_id: Number(user.id),
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const newComment = {
-            comment: commentFormInput,
-            root_id: 0,
-            parent_id: 0,
-            event_id: Number(eventId),
-            user_id: Number(user.id),
+    axiosWithAuth()({
+      url: `${process.env.REACT_APP_BASE_URL}/graphql`,
+      method: 'post',
+      data: {
+        query: print(ADD_COMMENT),
+        variables: {
+          comment: newComment,
+        },
+      },
+    }).then(
+      (res) => {
+        newComment.id = res.data.data.inputComment.id;
+        newComment.User = {
+          id: user.id,
+          firstName: user.firstName,
+          lastName: user.lastName,
         };
-
-        axiosWithAuth()({
-            url: `${process.env.REACT_APP_BASE_URL}/graphql`,
-            method: 'post',
-            data: {
-                query: print(ADD_COMMENT),
-                variables: {
-                    comment: newComment,
-                },
-            },
-        }).then(
-            (res) => {
-                newComment.id = res.data.data.inputComment.id;
-                newComment.User = {
-                    id: user.id,
-                    firstName: user.firstName,
-                    lastName: user.lastName,
-                };
-                newComment.dateCreated = Date.now();
-                console.log(comments);
-                setComments([...comments, newComment]);
-                setCommentFormInput('');
-            },
-            (err) => console.dir(err)
-        );
-    };
-
-    return (
-        <div style={{ height: '100%' }}>
-            <Card className={`${classes.root} ${classes.comments}`}>
-                <Typography variant="h6" align="left">
-                    Comments
-                </Typography>
-                <CardContent>
-                    <div
-                        style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            overflowY: 'auto',
-                            height: '35vh',
-                            maxHeight: '35vh',
-                        }}
-                    >
-                        {comments &&
-                            comments.map((comment) => (
-                                <Comment
-                                    key={comment.id}
-                                    {...comment}
-                                    eventId={eventId}
-                                />
-                            ))}
-                    </div>
-                </CardContent>
-                <CardContent>
-                    <form
-                        noValidate
-                        autoComplete="off"
-                        style={{
-                            display: 'flex',
-                            flexDirection: 'row',
-                            justifyContent: 'space-between',
-                        }}
-                        onSubmit={handleSubmit}
-                    >
-                        <TextField
-                            name="comment"
-                            required
-                            variant="outlined"
-                            placeholder="Write a comment..."
-                            style={{ width: '60%' }}
-                            onChange={handleChange}
-                            value={commentFormInput}
-                        />
-                        <Button
-                            type="submit"
-                            disabled={!commentFormInput}
-                            className={`${buttonClass.root} ${buttonClass.single}`}
-                        >
-                            <Typography>Add Comment</Typography>
-                        </Button>
-                    </form>
-                </CardContent>
-            </Card>
-        </div>
+        newComment.dateCreated = Date.now();
+        console.log(comments);
+        setComments([...comments, newComment]);
+        setCommentFormInput('');
+      },
+      (err) => console.dir(err)
     );
+  };
+
+  return (
+    <div style={{ height: '100%' }}>
+      <Card className={`${classes.root} ${classes.comments}`}>
+        <Typography variant="h6" align="left">
+          Comments
+        </Typography>
+        <CardContent>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              overflowY: 'auto',
+              height: '35vh',
+              maxHeight: '35vh',
+            }}
+          >
+            {comments &&
+              comments.map((comment) => <Comment key={comment.id} {...comment} eventId={eventId} />)}
+          </div>
+        </CardContent>
+        <CardContent>
+          <form
+            noValidate
+            autoComplete="off"
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+            }}
+            onSubmit={handleSubmit}
+          >
+            <TextField
+              name="comment"
+              required
+              variant="outlined"
+              placeholder="Write a comment..."
+              style={{ width: '60%' }}
+              onChange={handleChange}
+              value={commentFormInput}
+            />
+            <Button
+              type="submit"
+              disabled={!commentFormInput}
+              className={`${buttonClass.root} ${buttonClass.single}`}
+            >
+              <Typography>Add Comment</Typography>
+            </Button>
+          </form>
+        </CardContent>
+      </Card>
+    </div>
+  );
 };
 
 export default CommentsCard;

@@ -43,19 +43,19 @@ EventUsers {
 }`;
 
 export const USER_WITHIN_RADIUS = gql`
-    query getUserWithinRadius($queryParams: UserInput!) {
-        Users(queryParams: $queryParams) {
-            id
-            email
-            firstName
-            lastName
-            gender
-            address
-            latitude
-            longitude
-            photo
-        }
+  query getUserWithinRadius($queryParams: UserInput!) {
+    Users(queryParams: $queryParams) {
+      id
+      email
+      firstName
+      lastName
+      gender
+      address
+      latitude
+      longitude
+      photo
     }
+  }
 `;
 
 export const USER_BY_EMAIL = gql`

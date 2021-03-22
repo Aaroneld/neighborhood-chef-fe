@@ -12,18 +12,18 @@ import '@testing-library/jest-dom/extend-expect';
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 describe('Test CommentsCard static properties', () => {
-    let CommentsCardComponent;
-    beforeEach(() => {
-        CommentsCardComponent = render(
-            <Provider store={store}>
-                <BrowserRouter>
-                    <CommentsCard />
-                </BrowserRouter>
-            </Provider>
-        );
-    });
+  let CommentsCardComponent;
+  beforeEach(() => {
+    CommentsCardComponent = render(
+      <Provider store={store}>
+        <BrowserRouter>
+          <CommentsCard />
+        </BrowserRouter>
+      </Provider>
+    );
+  });
 
-    test('CommentsCard component renders', () => {
-        expect(CommentsCardComponent.getByText(/comments/i));
-    });
+  test('CommentsCard component renders', () => {
+    expect(CommentsCardComponent.getByText(/comments/i));
+  });
 });

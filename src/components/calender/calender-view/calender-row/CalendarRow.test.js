@@ -12,16 +12,16 @@ import '@testing-library/jest-dom/extend-expect';
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 describe('Test CalendarRow static properties', () => {
-    let CalendarRowComponent;
-    beforeEach(() => {
-        CalendarRowComponent = render(
-            <Provider store={store}>
-                <BrowserRouter>
-                    <CalendarRow />
-                </BrowserRouter>
-            </Provider>
-        );
-    });
+  let CalendarRowComponent;
+  beforeEach(() => {
+    CalendarRowComponent = render(
+      <Provider store={store}>
+        <BrowserRouter>
+          <CalendarRow />
+        </BrowserRouter>
+      </Provider>
+    );
+  });
 
-    test('CalendarRow component renders', () => {});
+  test('CalendarRow component renders', () => {});
 });

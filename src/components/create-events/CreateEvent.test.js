@@ -9,22 +9,22 @@ import '@testing-library/jest-dom/extend-expect';
 const mockStore = configureStore([]);
 
 describe('Test create event static properties', () => {
-    let store;
-    let CreateEventComponent;
+  let store;
+  let CreateEventComponent;
 
-    beforeEach(() => {
-        store = mockStore({});
+  beforeEach(() => {
+    store = mockStore({});
 
-        CreateEventComponent = render(
-            <Provider store={store}>
-                <BrowserRouter>
-                    <CreateEvent />
-                </BrowserRouter>
-            </Provider>
-        );
-    });
+    CreateEventComponent = render(
+      <Provider store={store}>
+        <BrowserRouter>
+          <CreateEvent />
+        </BrowserRouter>
+      </Provider>
+    );
+  });
 
-    test('CreateEvent component renders', () => {
-        expect(CreateEventComponent).toBeDefined();
-    });
+  test('CreateEvent component renders', () => {
+    expect(CreateEventComponent).toBeDefined();
+  });
 });

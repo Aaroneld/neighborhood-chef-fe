@@ -6,16 +6,16 @@ import { BrowserRouter } from 'react-router-dom';
 import { assertAbstractType } from 'graphql';
 
 describe('Test AboutUs static properties', () => {
-    let AboutComponent;
-    beforeEach(() => {
-        AboutComponent = render(
-            <BrowserRouter>
-                <AboutUs />
-            </BrowserRouter>
-        );
-    });
+  let AboutComponent;
+  beforeEach(() => {
+    AboutComponent = render(
+      <BrowserRouter>
+        <AboutUs />
+      </BrowserRouter>
+    );
+  });
 
-    test.only('AboutUs contains text paragraph', () => {
-        expect(AboutComponent.getByText(/Welcome to Neighborhood Chef/i));
-    });
+  test.only('AboutUs contains text paragraph', () => {
+    expect(AboutComponent.getByText(/Welcome to Neighborhood Chef/i));
+  });
 });

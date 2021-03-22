@@ -12,25 +12,25 @@ import thunk from 'redux-thunk';
 import '@testing-library/jest-dom/extend-expect';
 
 class StorageMock {
-    constructor() {
-        this.store = {};
-    }
+  constructor() {
+    this.store = {};
+  }
 
-    clear() {
-        this.store = {};
-    }
+  clear() {
+    this.store = {};
+  }
 
-    getItem(key) {
-        return this.store[key] || null;
-    }
+  getItem(key) {
+    return this.store[key] || null;
+  }
 
-    setItem(key, value) {
-        this.store[key] = value;
-    }
+  setItem(key, value) {
+    this.store[key] = value;
+  }
 
-    removeItem(key) {
-        delete this.store[key];
-    }
+  removeItem(key) {
+    delete this.store[key];
+  }
 }
 
 global.localStorage = new StorageMock();
@@ -39,36 +39,36 @@ global.sessionStorage = new StorageMock();
 const mockStore = configureStore([]);
 
 describe('Test UserEditModal static properties', () => {
-    let UserEditModal;
-    beforeEach(() => {
-        sessionStorage.setItem(
-            'user',
-            JSON.stringify({
-                address: 'address',
-                firstName: 'firstName',
-                lastName: 'lastName',
-                id: 'id',
-                gender: 'gender',
-            })
-        );
+  let UserEditModal;
+  beforeEach(() => {
+    sessionStorage.setItem(
+      'user',
+      JSON.stringify({
+        address: 'address',
+        firstName: 'firstName',
+        lastName: 'lastName',
+        id: 'id',
+        gender: 'gender',
+      })
+    );
 
-        const store = mockStore({});
+    const store = mockStore({});
 
-        UserEditModal = render(
-            <Provider store={store}>
-                <BrowserRouter>
-                    <ThemeProvider theme={theme}>
-                        <UserEditModalContent />
-                    </ThemeProvider>
-                </BrowserRouter>
-            </Provider>
-        );
-    });
+    UserEditModal = render(
+      <Provider store={store}>
+        <BrowserRouter>
+          <ThemeProvider theme={theme}>
+            <UserEditModalContent />
+          </ThemeProvider>
+        </BrowserRouter>
+      </Provider>
+    );
+  });
 
-    test('UserEditModal component renders', () => {
-        console.log(sessionStorage.getItem('user'));
-        console.log('here');
+  test('UserEditModal component renders', () => {
+    console.log(sessionStorage.getItem('user'));
+    console.log('here');
 
-        expect(UserEditModal.getByText(/Change User Information/i));
-    });
+    expect(UserEditModal.getByText(/Change User Information/i));
+  });
 });

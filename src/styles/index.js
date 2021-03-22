@@ -559,35 +559,33 @@ export const theme = responsiveFontSizes(
 );
 
 export const landingPageStyles = makeStyles((theme) => ({
+  landingPageContainer: {
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
+  landingPageLeft: {
+    display: 'flex',
+    justifyContent: 'center',
+    width: '50vw',
+    height: '80vh',
+    textAlign: 'center',
+    alignSelf: 'center',
 
-    landingPageContainer: {
-        display: 'flex',
-        justifyContent: 'space-between',
+    [theme.breakpoints.down('700')]: {
+      width: '100vw',
+      paddingTop: '35px',
     },
-    landingPageLeft: {
-        display: 'flex',
-        justifyContent: 'center',
-        width: '50vw',
-        height: '80vh',
-        textAlign: 'center',
-        alignSelf: 'center',
-
-        [theme.breakpoints.down('700')]: {
-            width: '100vw',
-            paddingTop: '35px',
-        },
+  },
+  landingPageRight: {
+    height: '90vh',
+    width: '50vw',
+    '& img': {
+      borderRadius: '0 0 0 22%',
+      borderLeft: '10px solid #58D573',
+      borderBottom: '10px solid #58D573',
     },
-    landingPageRight: {
-        height: '90vh',
-        width: '50vw',
-        '& img': {
-            borderRadius: '0 0 0 22%',
-            borderLeft: '10px solid #58D573',
-            borderBottom: '10px solid #58D573',
-        },
-        [theme.breakpoints.down('700')]: {
-            display: 'none',
-        },
+    [theme.breakpoints.down('700')]: {
+      display: 'none',
     },
-
+  },
 }));

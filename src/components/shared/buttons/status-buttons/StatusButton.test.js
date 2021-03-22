@@ -12,23 +12,18 @@ import '@testing-library/jest-dom/extend-expect';
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 describe('Test StatusButton static properties', () => {
-    let StatusButtonComponent;
-    beforeEach(() => {
-        StatusButtonComponent = render(
-            <Provider store={store}>
-                <BrowserRouter>
-                    <StatusButton
-                        name={'Maybe'}
-                        color={'#58D573'}
-                        eventId={1}
-                        eventStatus={'Going'}
-                    />
-                </BrowserRouter>
-            </Provider>
-        );
-    });
+  let StatusButtonComponent;
+  beforeEach(() => {
+    StatusButtonComponent = render(
+      <Provider store={store}>
+        <BrowserRouter>
+          <StatusButton name={'Maybe'} color={'#58D573'} eventId={1} eventStatus={'Going'} />
+        </BrowserRouter>
+      </Provider>
+    );
+  });
 
-    test('StatusButton component renders (Maybe button)', () => {
-        expect(StatusButtonComponent.getByText(/Maybe/i));
-    });
+  test('StatusButton component renders (Maybe button)', () => {
+    expect(StatusButtonComponent.getByText(/Maybe/i));
+  });
 });

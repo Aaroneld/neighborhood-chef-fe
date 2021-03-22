@@ -10,34 +10,34 @@ import '@testing-library/jest-dom/extend-expect';
 const mockStore = configureStore([]);
 
 describe('Test ProfileFields static properties', () => {
-    let store;
-    let ProfileFieldsComponent;
+  let store;
+  let ProfileFieldsComponent;
 
-    beforeEach(() => {
-        store = mockStore({});
+  beforeEach(() => {
+    store = mockStore({});
 
-        ProfileFieldsComponent = render(
-            <Provider store={store}>
-                <BrowserRouter>
-                    <Formik>
-                        <ProfileFields
-                            setFieldValue={() => {}}
-                            submitting={false}
-                            values={{
-                                allergens: [],
-                                dietaryRestrictions: [],
-                                dietaryPreferences: [],
-                                children: [],
-                                pets: [],
-                            }}
-                        />
-                    </Formik>
-                </BrowserRouter>
-            </Provider>
-        );
-    });
+    ProfileFieldsComponent = render(
+      <Provider store={store}>
+        <BrowserRouter>
+          <Formik>
+            <ProfileFields
+              setFieldValue={() => {}}
+              submitting={false}
+              values={{
+                allergens: [],
+                dietaryRestrictions: [],
+                dietaryPreferences: [],
+                children: [],
+                pets: [],
+              }}
+            />
+          </Formik>
+        </BrowserRouter>
+      </Provider>
+    );
+  });
 
-    test('ProfileFields renders', () => {
-        expect(ProfileFieldsComponent.getByText(/Submit/i));
-    });
+  test('ProfileFields renders', () => {
+    expect(ProfileFieldsComponent.getByText(/Submit/i));
+  });
 });

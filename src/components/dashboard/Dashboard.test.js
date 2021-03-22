@@ -11,15 +11,15 @@ import thunk from 'redux-thunk';
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 describe('Test dashboard static properties', () => {
-    beforeEach(() => {
-        const DashboardComponent = render(
-            <Provider store={store}>
-                <BrowserRouter>
-                    <Dashboard />
-                </BrowserRouter>
-            </Provider>
-        );
-    });
+  beforeEach(() => {
+    const DashboardComponent = render(
+      <Provider store={store}>
+        <BrowserRouter>
+          <Dashboard />
+        </BrowserRouter>
+      </Provider>
+    );
+  });
 
-    test('Dashboard component renders', () => {});
+  test('Dashboard component renders', () => {});
 });

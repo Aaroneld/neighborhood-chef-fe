@@ -1,10 +1,10 @@
-import React from "react";
-import Sidebar from "./Sidebar";
-import { render } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
-import "@testing-library/jest-dom/extend-expect";
+import React from 'react';
+import Sidebar from './Sidebar';
+import { render } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
+import '@testing-library/jest-dom/extend-expect';
 
-describe("Test sidebar static properties", () => {
+describe('Test sidebar static properties', () => {
   let SidebarComponent;
   beforeEach(() => {
     SidebarComponent = render(

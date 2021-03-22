@@ -6,24 +6,24 @@ import { BrowserRouter } from 'react-router-dom';
 import '@testing-library/jest-dom/extend-expect';
 
 const allergyArray = [
-    { id: 1, name: 'Shellfish' },
-    { id: 2, name: 'Peanuts' },
+  { id: 1, name: 'Shellfish' },
+  { id: 2, name: 'Peanuts' },
 ];
 
 describe('Test AddAllergy component', () => {
-    let AddAllergyComponent;
-    beforeEach(() => {
-        AddAllergyComponent = render(
-            <BrowserRouter>
-                <AddAllergy allergenList={allergyArray} />
-            </BrowserRouter>
-        );
-    });
+  let AddAllergyComponent;
+  beforeEach(() => {
+    AddAllergyComponent = render(
+      <BrowserRouter>
+        <AddAllergy allergenList={allergyArray} />
+      </BrowserRouter>
+    );
+  });
 
-    test('add allergy component renders with text from props', () => {
-        expect(AddAllergyComponent).toBeDefined();
-        expect(AddAllergyComponent.getByText(/Add allergy/i));
-        expect(AddAllergyComponent.getByText(/Shellfish/i));
-        expect(AddAllergyComponent.getByText(/Peanuts/i));
-    });
+  test('add allergy component renders with text from props', () => {
+    expect(AddAllergyComponent).toBeDefined();
+    expect(AddAllergyComponent.getByText(/Add allergy/i));
+    expect(AddAllergyComponent.getByText(/Shellfish/i));
+    expect(AddAllergyComponent.getByText(/Peanuts/i));
+  });
 });

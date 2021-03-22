@@ -8,63 +8,63 @@ import '@testing-library/jest-dom/extend-expect';
 import SearchFriends from './SearchFriends';
 
 const event = {
-    title: 'BBQ',
-    address: '123 ABC St.',
-    date: new Date(),
-    user_id: 1,
-    startTime: '6:00pm',
-    endTime: '9:00pm',
+  title: 'BBQ',
+  address: '123 ABC St.',
+  date: new Date(),
+  user_id: 1,
+  startTime: '6:00pm',
+  endTime: '9:00pm',
 };
 
 const userList = [
-    {
-        id: 1,
-        firstName: 'Homer',
-        lastName: 'Simpson',
-        email: 'homer@gmail.com',
-    },
-    { id: 3, firstName: 'Bart', lastName: 'Simpson', email: 'bart@gmail.com' },
+  {
+    id: 1,
+    firstName: 'Homer',
+    lastName: 'Simpson',
+    email: 'homer@gmail.com',
+  },
+  { id: 3, firstName: 'Bart', lastName: 'Simpson', email: 'bart@gmail.com' },
 ];
 
 const inviteList = [
-    {
-        id: 4,
-        firstName: 'Lisa',
-        lastName: 'Simpson',
-        email: 'lisa@gmail.com',
-    },
-    {
-        id: 5,
-        firstName: 'Ralph',
-        lastName: 'Wiggum',
-        email: 'ralph@gmail.com',
-    },
+  {
+    id: 4,
+    firstName: 'Lisa',
+    lastName: 'Simpson',
+    email: 'lisa@gmail.com',
+  },
+  {
+    id: 5,
+    firstName: 'Ralph',
+    lastName: 'Wiggum',
+    email: 'ralph@gmail.com',
+  },
 ];
 
 const mockStore = configureStore([]);
 
 describe('Test SearchFriends component', () => {
-    let SearchFriendsComponent;
-    let store;
+  let SearchFriendsComponent;
+  let store;
 
-    beforeEach(() => {
-        store = mockStore({
-            userList: userList,
-            inviteList: inviteList,
-            newEvent: event,
-        });
-
-        SearchFriendsComponent = render(
-            <Router>
-                <Provider store={store}>
-                    <SearchFriends filteredList={userList} />
-                </Provider>
-            </Router>
-        );
+  beforeEach(() => {
+    store = mockStore({
+      userList: userList,
+      inviteList: inviteList,
+      newEvent: event,
     });
 
-    test('SearchFriendsComponent renders', () => {
-        expect(SearchFriendsComponent).toBeDefined();
-        expect(SearchFriendsComponent.getByText(/Invite Neighbors/i));
-    });
+    SearchFriendsComponent = render(
+      <Router>
+        <Provider store={store}>
+          <SearchFriends filteredList={userList} />
+        </Provider>
+      </Router>
+    );
+  });
+
+  test('SearchFriendsComponent renders', () => {
+    expect(SearchFriendsComponent).toBeDefined();
+    expect(SearchFriendsComponent.getByText(/Invite Neighbors/i));
+  });
 });

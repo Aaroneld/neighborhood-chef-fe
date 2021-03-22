@@ -11,38 +11,23 @@ import '@testing-library/jest-dom/extend-expect';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
-const months = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-];
+const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 describe('Test month picker properties', () => {
-    let MonthPickerComponent;
-    beforeEach(() => {
-        MonthPickerComponent = render(
-            <Provider store={store}>
-                <BrowserRouter>
-                    <MonthPicker />
-                </BrowserRouter>
-            </Provider>
-        );
-    });
+  let MonthPickerComponent;
+  beforeEach(() => {
+    MonthPickerComponent = render(
+      <Provider store={store}>
+        <BrowserRouter>
+          <MonthPicker />
+        </BrowserRouter>
+      </Provider>
+    );
+  });
 
-    test('MonthPicker component renders current month first', () => {
-        const initializeDate = new Date();
-        const currentMonth = `${
-            months[initializeDate.getMonth()]
-        } ${initializeDate.getUTCFullYear()}`;
-        expect(MonthPickerComponent.getByText(`${currentMonth}`));
-    });
+  test('MonthPicker component renders current month first', () => {
+    const initializeDate = new Date();
+    const currentMonth = `${months[initializeDate.getMonth()]} ${initializeDate.getUTCFullYear()}`;
+    expect(MonthPickerComponent.getByText(`${currentMonth}`));
+  });
 });

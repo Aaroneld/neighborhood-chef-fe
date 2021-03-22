@@ -9,22 +9,22 @@ import '@testing-library/jest-dom/extend-expect';
 const mockStore = configureStore([]);
 
 describe('Test CreateEventHeader static properties', () => {
-    let store;
-    let CreateEventHeaderComponent;
+  let store;
+  let CreateEventHeaderComponent;
 
-    beforeEach(() => {
-        store = mockStore({});
+  beforeEach(() => {
+    store = mockStore({});
 
-        CreateEventHeaderComponent = render(
-            <Provider store={store}>
-                <BrowserRouter>
-                    <CreateEventHeader />
-                </BrowserRouter>
-            </Provider>
-        );
-    });
+    CreateEventHeaderComponent = render(
+      <Provider store={store}>
+        <BrowserRouter>
+          <CreateEventHeader />
+        </BrowserRouter>
+      </Provider>
+    );
+  });
 
-    test('CreateEventHeader renders', () => {
-        expect(CreateEventHeaderComponent.getByText(/Create/i));
-    });
+  test('CreateEventHeader renders', () => {
+    expect(CreateEventHeaderComponent.getByText(/Create/i));
+  });
 });

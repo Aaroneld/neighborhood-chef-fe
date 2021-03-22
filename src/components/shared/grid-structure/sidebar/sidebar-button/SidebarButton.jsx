@@ -11,21 +11,17 @@ import { buttonStyles } from '../../../../../styles';
 import Typography from '@material-ui/core/Typography';
 
 const SidebarButton = ({ active, link, icon, text }) => {
-    const classes = buttonStyles();
-    return (
-        <Link to={`/${link}`}>
-            <Button
-                className={`${classes.root} ${
-                    active ? classes.active : classes.notActive
-                }`}
-            >
-                <span style={{ marginRight: '5px' }}>
-                    <Icon height="20" icon={icon} />
-                </span>
-                <Typography variant="caption">{text}</Typography>
-            </Button>
-        </Link>
-    );
+  const classes = buttonStyles();
+  return (
+    <Link to={`/${link}`}>
+      <Button className={`${classes.root} ${active ? classes.active : classes.notActive}`}>
+        <span style={{ marginRight: '5px' }}>
+          <Icon height="20" icon={icon} />
+        </span>
+        <Typography variant="caption">{text}</Typography>
+      </Button>
+    </Link>
+  );
 };
 
 export default SidebarButton;

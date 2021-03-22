@@ -9,28 +9,22 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { calendarStyles } from './Calendar.styles';
 
 const MonthPicker = () => {
-    const selectedMonth = useSelector((state) => state.selectedMonth);
-    const formattedMonth = parseTime(selectedMonth.valueOf()).monthYear;
-    const dispatch = useDispatch();
-    const styles = calendarStyles();
+  const selectedMonth = useSelector((state) => state.selectedMonth);
+  const formattedMonth = parseTime(selectedMonth.valueOf()).monthYear;
+  const dispatch = useDispatch();
+  const styles = calendarStyles();
 
-    return (
-        <div className={styles.monthPickerContainer}>
-            <div
-                onClick={() => dispatch(setMonth('previous'))}
-                style={{ cursor: 'pointer', width: '50px' }}
-            >
-                <ChevronLeftIcon style={{ fontSize: 25 }} />
-            </div>
-            <Typography variant="h6">{formattedMonth}</Typography>
-            <div
-                onClick={() => dispatch(setMonth('next'))}
-                style={{ cursor: 'pointer', width: '50px' }}
-            >
-                <ChevronRightIcon style={{ fontSize: 25 }} />
-            </div>
-        </div>
-    );
+  return (
+    <div className={styles.monthPickerContainer}>
+      <div onClick={() => dispatch(setMonth('previous'))} style={{ cursor: 'pointer', width: '50px' }}>
+        <ChevronLeftIcon style={{ fontSize: 25 }} />
+      </div>
+      <Typography variant="h6">{formattedMonth}</Typography>
+      <div onClick={() => dispatch(setMonth('next'))} style={{ cursor: 'pointer', width: '50px' }}>
+        <ChevronRightIcon style={{ fontSize: 25 }} />
+      </div>
+    </div>
+  );
 };
 
 export default MonthPicker;

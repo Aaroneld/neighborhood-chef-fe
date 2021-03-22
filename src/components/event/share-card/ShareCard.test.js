@@ -12,18 +12,18 @@ import '@testing-library/jest-dom/extend-expect';
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
 describe('Test ShareCard static properties', () => {
-    let ShareCardComponent;
-    beforeEach(() => {
-        ShareCardComponent = render(
-            <Provider store={store}>
-                <BrowserRouter>
-                    <ShareCard />
-                </BrowserRouter>
-            </Provider>
-        );
-    });
+  let ShareCardComponent;
+  beforeEach(() => {
+    ShareCardComponent = render(
+      <Provider store={store}>
+        <BrowserRouter>
+          <ShareCard />
+        </BrowserRouter>
+      </Provider>
+    );
+  });
 
-    test('ShareCard component renders', () => {
-        expect(ShareCardComponent.getByText(/share/i));
-    });
+  test('ShareCard component renders', () => {
+    expect(ShareCardComponent.getByText(/share/i));
+  });
 });
