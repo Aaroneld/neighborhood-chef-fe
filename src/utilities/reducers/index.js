@@ -5,9 +5,9 @@ import {
   FILTER_USERS_SUCCESS,
   DELETE_INVITATION_SUCCESS,
   RESET_INVITE_SUCCESS,
-  UPDATE_EVENT_SUCCESS,
   SAVE_USER,
   CHANGE_STATUS_FOR_SINGLE_EVENT,
+  DELETE_EVENT,
 } from '../actions';
 
 const initialDate = new Date();
@@ -23,13 +23,8 @@ const initialState = {
   isGettingEvents: false,
   update: false,
   eventList: [],
-  newEvent: {},
   userList: [],
   inviteList: [],
-  isEditing: false,
-  eventToEdit: {},
-  currentEvent: {},
-  favoriteEvents: [],
   savedUserUpdateInfo: {},
 };
 
@@ -92,7 +87,6 @@ export const rootReducer = (state = initialState, { type, payload }) => {
       };
 
     case CREATE_EVENT_SUCCESS:
-      console.log(state.user.UserEvents.owned, payload.id);
       const filteredEvents = state.user.UserEvents.owned.filter((event) => event.id !== payload.id);
 
       return {
@@ -134,22 +128,23 @@ export const rootReducer = (state = initialState, { type, payload }) => {
         ...state,
         inviteList: payload,
       };
-
-    case UPDATE_EVENT_SUCCESS:
+    case DELETE_EVENT:
+      console.log(state.eventList);
       return {
         ...state,
+        eventList: state.eventList.filter((event) => event.id !== payload),
         user: {
           ...state.user,
           UserEvents: {
             ...state.user.UserEvents,
-            owned: [...this.user.UserEvents.owned, payload],
+            owned: state.user.UserEvents.owned.filter((event) => event.id !== payload),
+            favorited: state.user.UserEvents.favorited.filter((id) => id !== Number(payload)),
+            attending: state.user.UserEvents.attending.filter((event) => event.id !== payload),
+            invited: state.user.UserEvents.invited.filter((event) => event.id !== payload),
+            local: state.user.UserEvents.local.filter((event) => event.id !== payload),
           },
         },
-        isEditing: false,
-        eventToEdit: {},
-        inviteList: payload.users,
       };
-
     default:
       return {
         ...state,

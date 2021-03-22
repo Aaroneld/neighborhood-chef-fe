@@ -30,7 +30,7 @@ const DisplayEventModifiers = ({ values, setValues }) => {
             {modifierData.map((modifier) => {
               if (values.modifiers.includes(modifier.title)) {
                 return (
-                  <Modifier key={modifier.id} modifier={modifier} values={values} setValues={setValues} />
+                  <Modifier key={modifier.title} modifier={modifier} values={values} setValues={setValues} />
                 );
               }
             })}

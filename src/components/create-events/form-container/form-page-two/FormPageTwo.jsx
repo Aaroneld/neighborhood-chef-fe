@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import strollerIcon from '@iconify/icons-vs/stroller';
 import baselineOutdoorGrill from '@iconify/icons-ic/baseline-outdoor-grill';
@@ -10,6 +10,7 @@ import foodApple from '@iconify/icons-mdi/food-apple';
 import EventImageUpload from '../../../shared/event-image-upload/EventImageUpload';
 import Modifier from './modifier/Modifier.jsx';
 import AddHashtag from './add-hashtag/AddHashtag.jsx';
+import EventButtons from '../event-buttons/EventButtons';
 import { scrollToTop } from '../form-page-one/FormPageOne.jsx';
 import AdvancedOptions from './advanced-options/AdvancedOptions.jsx';
 import { showOptions } from '../../../../utilities/functions';
@@ -17,8 +18,6 @@ import Typography from '@material-ui/core/Typography';
 
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-
-import { buttonStyles } from '../../CreateEvent.styles';
 import { formPageTwoStyles } from './FormPageTwo.styles';
 
 export const modifierData = [
@@ -34,7 +33,6 @@ const FormPageTwo = (props) => {
   const [showAdvancedOptions, setShowAdvancedOptions] = useState(
     showOptions(props.values.allergenWarnings, props.values.dietaryWarnings)
   );
-  const btnStyles = buttonStyles();
   const styles = formPageTwoStyles();
 
   return (
@@ -87,27 +85,18 @@ const FormPageTwo = (props) => {
           </>
         )}
       </div>
-
-      <div className={btnStyles.buttonContainer}>
-        <button
-          className={btnStyles.leftBtn}
-          onClick={() => {
-            props.setStepper(1);
-            scrollToTop();
-          }}
-        >
-          Previous
-        </button>
-        <button
-          className={btnStyles.rightBtn}
-          onClick={() => {
-            props.setStepper(3);
-            scrollToTop();
-          }}
-        >
-          Next
-        </button>
-      </div>
+      <EventButtons
+        leftBtnText="Previous"
+        leftBtnClick={() => {
+          props.setStepper(1);
+          scrollToTop();
+        }}
+        rightBtnText="Next"
+        rightBtnClick={() => {
+          props.setStepper(3);
+          scrollToTop();
+        }}
+      />
     </>
   );
 };

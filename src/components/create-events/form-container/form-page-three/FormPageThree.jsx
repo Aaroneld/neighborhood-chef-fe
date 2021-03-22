@@ -2,16 +2,15 @@ import React from 'react';
 import moment from 'moment';
 
 import DisplayEventModifiers from './display-event-modifiers/DisplayEventModifiers';
+import EventButtons from '../event-buttons/EventButtons';
 import { scrollToTop } from '../form-page-one/FormPageOne.jsx';
 
 import { convertTime, chooseDefaultPicture } from '../../../../utilities/functions';
 
 import { formPageThreeStyles } from './FormPageThree.styles';
-import { buttonStyles } from '../../CreateEvent.styles';
 
 const FormPageThree = (props) => {
   const styles = formPageThreeStyles();
-  const btnStyles = buttonStyles();
 
   return (
     <div className={styles.root}>
@@ -50,21 +49,15 @@ const FormPageThree = (props) => {
 
         <DisplayEventModifiers values={props.values} setValues={props.setValues} />
       </div>
-
-      <div className={btnStyles.buttonContainer}>
-        <button
-          className={btnStyles.leftBtn}
-          onClick={() => {
-            props.setStepper(2);
-            scrollToTop();
-          }}
-        >
-          Previous
-        </button>
-        <button className={btnStyles.rightBtn} onSubmit={props.handleSubmit}>
-          Done
-        </button>
-      </div>
+      <EventButtons
+        leftBtnText="Previous"
+        leftBtnClick={() => {
+          props.setStepper(2);
+          scrollToTop();
+        }}
+        rightBtnText="Done"
+        rightBtnClick={props.handleSubmit}
+      />
     </div>
   );
 };
