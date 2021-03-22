@@ -1,47 +1,62 @@
 import React, { useState } from 'react';
-import { Field } from 'formik';
 import { useDispatch } from 'react-redux';
-import { TextField } from 'formik-material-ui';
+import TextField from '@material-ui/core/TextField';
 import { Checkbox, Button } from '@material-ui/core';
 import { buttonStyles } from '../../../styles';
 import Typography from '@material-ui/core/Typography';
+import { validate } from 'graphql';
+import { ErrorMessage } from '@hookform/error-message';
+import { object } from 'yup';
 
-const AuthFields = (props) => {
+const AuthFields = ({ setStepper, setValues, errors, validate }) => {
   const buttonClass = buttonStyles();
-  const dispatch = useDispatch();
-  const [buttonDisable, setButtonDisable] = useState(true);
 
-  const checkValues = (e) => {
-    const email = document.querySelector("input[name='email']").value;
-    const terms = document.querySelector("input[type='checkbox']").checked;
-    if (/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(email) && terms === true) {
-      setButtonDisable(false);
-    } else {
-      setButtonDisable(true);
-    }
+  const [checked, setChecked] = useState(false);
+
+  const handleChange = (e) => {
+    e.persist();
+    setValues((values) => {
+      return { ...values, email: e.target.value };
+    });
   };
 
   return (
     <>
-      <Field
-        style={{ marginTop: '10%' }}
-        component={TextField}
+      <TextField
+        onChange={handleChange}
         type="email"
-        name="email"
+        id="email"
         className="email"
-        InputProps={{ onKeyUp: checkValues }}
         label="Email"
+        onBlur={() => {
+          validate('email');
+        }}
         required
       />
-      <label style={{ marginTop: '10%' }} className="terms">
-        <Field component={Checkbox} type="checkbox" name="terms" onChange={checkValues} />I accept the terms
-        and conditions.
+      {errors.email && errors.email.length > 0 && (
+        <ErrorMessage
+          name="email"
+          errors={errors}
+          message={errors.email[0]}
+          render={({ message }) => <p style={{ color: 'crimson' }}>{message}</p>}
+        />
+      )}
+      <label className="terms">
+        <Checkbox
+          type="checkbox"
+          name="terms"
+          onChange={() => {
+            setChecked(!checked);
+          }}
+        />
+        I accept the terms and conditions.
       </label>
       <Button
-        style={{ marginTop: '10%' }}
         className={`${buttonClass.root} ${buttonClass.active}`}
-        onClick={() => {}}
-        disabled={buttonDisable}
+        disabled={Object.keys(errors).length > 0 || !checked}
+        onClick={() => {
+          setStepper(2);
+        }}
       >
         <Typography variant="h5">Continue registering</Typography>
       </Button>

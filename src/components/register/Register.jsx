@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-import { Formik, Form } from 'formik';
+
 import AuthFields from './authfields/AuthFields';
 import ProfileFields from './profilefields/ProfileFields';
-import { useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 
 import { MobileStepper } from '@material-ui/core';
 import { cardStyles } from '../../styles';
@@ -15,123 +12,189 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Typography from '@material-ui/core/Typography';
 import food from '../../assets/food.jpg';
+import { landingPageStyles } from '../../styles';
+
+import useForm from '../../hooks/useForm';
+import * as yup from 'yup';
+
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
+
+{
+  /* <Formik */
+}
+// initialValues={{
+//   location: {
+//     latitude: null,
+//     longitude: null,
+//   },
+// }}
+// validate={(values) => {
+//   const errors = {};
+
+//   if (!values.email) {
+//     errors.email = 'Required';
+//   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+//     errors.email = 'Invalid email address';
+//   }
+//   if (!values.firstName) {
+//     errors.firstName = 'Required';
+//   }
+//   if (!values.lastName) {
+//     errors.lastName = 'Required';
+//   }
+//   if (!values.location.latitude) {
+//     errors.latitude = 'Required';
+//   }
+//   if (!values.location.longitude) {
+//     errors.longitude = 'Required';
+//   }
+//   if (!values.location.address) {
+//     errors.address = 'Required';
+//   }
+
+//   return errors;
+// }}
+// onSubmit={(values, { setSubmitting }) => {
+//   const userValues = {
+//     email: values.email,
+//     firstName: values.firstName,
+//     lastName: values.lastName,
+//     latitude: values.location.latitude,
+//     longitude: values.location.longitude,
+//     gender: values.gender,
+//     address: values.location.address,
+//     photo: values.photo,
+//   };
+
+//   axios
+//     .post(`${process.env.REACT_APP_BASE_URL}/auth/register`, userValues)
+//     .then((res) => {
+//       setSubmitting(false);
+//       history.push('/register-check-email');
+//     })
+//     .catch((err) => {
+//       setSubmitting(false);
+//       setErrMessage(err.response.data.message);
+//       console.dir({
+//         err,
+//         message: err.message,
+//         stack: err.stack,
+//       });
+//     });
+// }}
+// >
+// {({ isSubmitting, setFieldValue, values }) => (
+//   <Form
+//     style={{
+//       display: 'flex',
+//       flexDirection: 'column',
+//     }}
+//   >
+//     {currentPage === 1 && <AuthFields />}
+//     {currentPage === 2 && (
+//       <ProfileFields
+//         submitting={isSubmitting}
+//         setFieldValue={setFieldValue}
+//         values={values}
+//         errMessage={errMessage}
+//       />
+//     )}
+//   </Form>
+// )}
+// </Formik>
 
 const Register = () => {
-  const history = useHistory();
-  const currentPage = useSelector((state) => state.page);
   const cardClass = cardStyles();
-  const [errMessage, setErrMessage] = useState('');
+  const styles = landingPageStyles();
+
+  const [stepper, setStepper] = useState(1);
+  const [errorMessage, setErrorMessage] = useState(null);
+
+  const history = useHistory();
+
+  const { values, setValues, validate, errors } = useForm(
+    { email: '', address: '', longitude: null, latitude: null, gender: '', firstName: '', lastName: '' },
+    yup.object().shape({
+      email: yup.string().email().required(),
+      address: yup.string().required(),
+      longitude: yup.number().required(),
+      latitude: yup.number().required(),
+      gender: yup.string(),
+      firstName: yup.string().required(),
+      lastName: yup.string().required(),
+    })
+  );
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const userValues = {
+      email: values.email,
+      firstName: values.firstName,
+      lastName: values.lastName,
+      latitude: values.latitude,
+      longitude: values.longitude,
+      gender: values.gender,
+      address: values.address,
+      photo: values.photo,
+    };
+
+    axios
+      .post(`${process.env.REACT_APP_BASE_URL}/auth/register`, userValues)
+      .then((res) => {
+        // history.push('/register-check-email');
+      })
+      .catch((err) => {
+        setErrorMessage(err.response.data.message);
+        console.dir({
+          err,
+          message: err.message,
+          stack: err.stack,
+        });
+      });
+  };
 
   return (
     <div>
       <AuthHeader />
-      <div className="landing-page-container">
-        <div className="landing-page-left">
-          <Card className={`${cardClass.root} ${cardClass.landingPage}`} style={{ overflowY: 'auto' }}>
-            <CardContent style={{ marginTop: '2%' }}>
+      <div className={styles.landingPageContainer}>
+        <div className={styles.landingPageLeft}>
+          <Card className={`${cardClass.root} ${cardClass.landingPage}`}>
+            <CardContent>
               <Typography variant="h4">Create a new account with us</Typography>
               <Typography variant="caption" color="textSecondary">
                 Start eating well while making friends!
               </Typography>
-              <Formik
-                initialValues={{
-                  location: {
-                    latitude: null,
-                    longitude: null,
-                  },
-                }}
-                validate={(values) => {
-                  const errors = {};
-
-                  if (!values.email) {
-                    errors.email = 'Required';
-                  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
-                    errors.email = 'Invalid email address';
-                  }
-                  if (!values.firstName) {
-                    errors.firstName = 'Required';
-                  }
-                  if (!values.lastName) {
-                    errors.lastName = 'Required';
-                  }
-                  if (!values.location.latitude) {
-                    errors.latitude = 'Required';
-                  }
-                  if (!values.location.longitude) {
-                    errors.longitude = 'Required';
-                  }
-                  if (!values.location.address) {
-                    errors.address = 'Required';
-                  }
-
-                  return errors;
-                }}
-                onSubmit={(values, { setSubmitting }) => {
-                  const userValues = {
-                    email: values.email,
-                    firstName: values.firstName,
-                    lastName: values.lastName,
-                    latitude: values.location.latitude,
-                    longitude: values.location.longitude,
-                    gender: values.gender,
-                    address: values.location.address,
-                    photo: values.photo,
-                  };
-                  console.log('here');
-                  axios
-                    .post(`${process.env.REACT_APP_BASE_URL}/auth/register`, userValues)
-                    .then((res) => {
-                      setSubmitting(false);
-                      history.push('/register-check-email');
-                    })
-                    .catch((err) => {
-                      setSubmitting(false);
-                      setErrMessage(err.response.data.message);
-                      console.dir({
-                        err,
-                        message: err.message,
-                        stack: err.stack,
-                      });
-                    });
-                }}
-              >
-                {({ isSubmitting, setFieldValue, values }) => (
-                  <Form
-                    style={{
-                      display: 'flex',
-                      flexDirection: 'column',
-                    }}
-                  >
-                    {currentPage === 1 && <AuthFields />}
-                    {currentPage === 2 && (
-                      <ProfileFields
-                        submitting={isSubmitting}
-                        setFieldValue={setFieldValue}
-                        values={values}
-                        errMessage={errMessage}
-                      />
-                    )}
-                  </Form>
-                )}
-              </Formik>
             </CardContent>
-            <CardActions
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-              }}
-            >
-              <MobileStepper
-                style={{ background: 'white' }}
-                variant="dots"
-                steps={2}
-                position="static"
-                activeStep={currentPage - 1}
-              />
+
+            <form>
+              {stepper === 1 && (
+                <AuthFields
+                  setStepper={setStepper}
+                  setValues={setValues}
+                  validate={validate}
+                  errors={errors}
+                />
+              )}
+              {stepper === 2 && (
+                <ProfileFields
+                  setValues={setValues}
+                  errors={errors}
+                  values={values}
+                  validate={validate}
+                  handleSubmit={handleSubmit}
+                  setStepper={setStepper}
+                  errorMessage={errorMessage}
+                />
+              )}
+            </form>
+            <CardActions>
+              <MobileStepper variant="dots" steps={2} position="static" activeStep={stepper - 1} />
             </CardActions>
           </Card>
         </div>
-        <div className="landing-page-right" style={{ overflow: 'hidden' }}>
+        <div className={styles.landingPageRight} style={{ overflow: 'hidden' }}>
           <img src={food} alt="food community" height="100%" />
         </div>
       </div>
