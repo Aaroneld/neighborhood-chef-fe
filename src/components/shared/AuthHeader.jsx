@@ -75,7 +75,7 @@ const AuthHeader = () => {
           </button>
         )}
 
-        {url !== 'register' && (
+        {url !== 'register' && url !== 'register-check-email' && (
           <button className={`${buttonClass.root} ${buttonClass.single}`} onClick={() => push('/register')}>
             <Typography>Register</Typography>
           </button>
