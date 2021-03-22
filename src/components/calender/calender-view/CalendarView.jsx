@@ -41,15 +41,17 @@ const CalendarView = ({ eventList, setSelectedEvent, selectedEvent }) => {
       <div className={styles.calendarViewMain}>
         {!isLoading ? (
           !!eventsInMonth && eventsInMonth.length > 0 ? (
-            eventsInMonth.map((event, eventNum) => (
-              <CalendarRow
-                event={event}
-                key={event.id}
-                eventNum={eventNum}
-                selectedEvent={selectedEvent}
-                setSelectedEvent={setSelectedEvent}
-              />
-            ))
+            eventsInMonth
+              .sort((a, b) => a.startTime - b.startTime)
+              .map((event, eventNum) => (
+                <CalendarRow
+                  event={event}
+                  key={event.id}
+                  eventNum={eventNum}
+                  selectedEvent={selectedEvent}
+                  setSelectedEvent={setSelectedEvent}
+                />
+              ))
           ) : (
             <div
               style={{

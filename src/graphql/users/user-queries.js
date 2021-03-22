@@ -84,8 +84,8 @@ export const USER_BY_EMAIL = gql`
                     ${getBYEmailEventString}
                 }
             }
+        }
     }
-}
 `;
 
 export const RECENT_EVENTS = gql`
@@ -124,6 +124,6 @@ export const RECENT_EVENTS = gql`
                     ${getBYEmailEventString}
                 }
             }
+        }
     }
-}
 `;

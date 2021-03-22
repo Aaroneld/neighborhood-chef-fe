@@ -47,14 +47,16 @@ export default function EventView({ currentTab }) {
           }}
         >
           {events.length > 0 ? (
-            events.map((event) => (
-              <RecentCard
-                {...event}
-                key={event.id}
-                isFavorite={event.favorite}
-                currentUserId={currentUserId}
-              />
-            ))
+            events
+              .sort((a, b) => a.startTime - b.startTime)
+              .map((event) => (
+                <RecentCard
+                  {...event}
+                  key={event.id}
+                  isFavorite={event.favorite}
+                  currentUserId={currentUserId}
+                />
+              ))
           ) : (
             <Typography style={{ marginTop: '20px' }}>No recently created events.</Typography>
           )}

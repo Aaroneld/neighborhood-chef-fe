@@ -45,3 +45,11 @@ export const HANDLE_REACTION = gql`
     }
   }
 `;
+
+export const DELETE_EVENT = gql`
+  mutation removeEvent($id: ID!) {
+    removeEvent(id: $id) {
+      id
+    }
+  }
+`;
