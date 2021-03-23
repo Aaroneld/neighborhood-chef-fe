@@ -68,15 +68,7 @@ const CommentsCard = ({ initialComments, eventId }) => {
           Comments
         </Typography>
         <CardContent>
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              overflowY: 'auto',
-              height: '35vh',
-              maxHeight: '35vh',
-            }}
-          >
+          <div>
             {comments &&
               comments.map((comment) => <Comment key={comment.id} {...comment} eventId={eventId} />)}
           </div>

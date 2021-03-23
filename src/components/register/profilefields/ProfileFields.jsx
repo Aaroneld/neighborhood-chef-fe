@@ -13,8 +13,6 @@ import { buttonStyles } from '../../../styles';
 import Typography from '@material-ui/core/Typography';
 import EventImageUpload from '../../shared/event-image-upload/EventImageUpload';
 
-import RoomIcon from '@material-ui/icons/Room';
-
 import MapboxGeocoder from './mapbox-geocoder/mapbox-geocoder';
 
 import { ErrorMessage } from '@hookform/error-message';

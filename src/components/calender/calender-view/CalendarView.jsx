@@ -6,9 +6,6 @@ import moment from 'moment';
 //component imports
 import CalendarRow from './calender-row/CalendarRow';
 
-//icon imports
-import CircularProgress from '@material-ui/core/CircularProgress';
-
 //style import
 import { buttonStyles } from '../../../styles';
 
@@ -20,7 +17,7 @@ const CalendarView = ({ eventList, setSelectedEvent, selectedEvent }) => {
   const selectedMonth = useSelector((state) => state.selectedMonth);
   const classes = buttonStyles();
   const styles = calendarStyles();
-  const [isLoading, setIsLoading] = useState(false);
+
   const eventsInMonth =
     eventList &&
     eventList.filter((ev) => {
@@ -30,50 +27,27 @@ const CalendarView = ({ eventList, setSelectedEvent, selectedEvent }) => {
     });
 
   return (
-    <div
-      style={{
-        overflowY: 'auto',
-        overflowX: 'hidden',
-        width: '100%',
-        height: '80vh',
-      }}
-    >
+    <div>
       <div className={styles.calendarViewMain}>
-        {!isLoading ? (
-          !!eventsInMonth && eventsInMonth.length > 0 ? (
-            eventsInMonth
-              .sort((a, b) => a.startTime - b.startTime)
-              .map((event, eventNum) => (
-                <CalendarRow
-                  event={event}
-                  key={event.id}
-                  eventNum={eventNum}
-                  selectedEvent={selectedEvent}
-                  setSelectedEvent={setSelectedEvent}
-                />
-              ))
-          ) : (
-            <div
-              style={{
-                textAlign: 'center',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                height: '20vh',
-                marginTop: '10%',
-              }}
-            >
-              <h3>No events for selected month</h3>
-              <p>But it doesn't have to stay that way.</p>
-              <Link to="/create-event">
-                <div className={`${classes.single} ${classes.root}`}>Create New Event</div>
-              </Link>
-            </div>
-          )
+        {!!eventsInMonth && eventsInMonth.length > 0 ? (
+          eventsInMonth
+            .sort((a, b) => a.startTime - b.startTime)
+            .map((event, eventNum) => (
+              <CalendarRow
+                event={event}
+                key={event.id}
+                eventNum={eventNum}
+                selectedEvent={selectedEvent}
+                setSelectedEvent={setSelectedEvent}
+              />
+            ))
         ) : (
-          <div style={{ textAlign: 'center' }}>
-            <CircularProgress style={{ color: '#58D573' }} />
+          <div>
+            <h3>No events for selected month</h3>
+            <p>But it doesn't have to stay that way.</p>
+            <Link to="/create-event">
+              <div className={`${classes.single} ${classes.root}`}>Create New Event</div>
+            </Link>
           </div>
         )}
       </div>

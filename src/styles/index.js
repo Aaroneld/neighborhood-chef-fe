@@ -308,8 +308,6 @@ export const cardStyles = makeStyles((theme) => ({
     justifyContent: 'flex-start',
   },
   landingPage: {
-    width: '70%',
-    maxWidth: 450,
     justifyContent: 'space-between',
     height: 'auto',
     maxHeight: '100%',

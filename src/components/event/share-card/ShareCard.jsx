@@ -57,20 +57,8 @@ const ParticipantCard = () => {
         <Typography variant="h6" align="left">
           Share
         </Typography>
-        <CardContent
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            padding: '5px',
-          }}
-        >
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              marginBottom: '10px',
-            }}
-          >
+        <CardContent>
+          <div>
             {shareButtons.map((b) => {
               const TagName = Components[b.name];
               return (
@@ -84,13 +72,7 @@ const ParticipantCard = () => {
           </div>
 
           <div style={{ display: 'flex' }}>
-            <Typography
-              variant="caption"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-              }}
-            >
+            <Typography variant="caption">
               Copy Link:
               <CopyToClipboard text={url} onCopy={() => setCopied(true)}>
                 {copied ? (
@@ -98,7 +80,7 @@ const ParticipantCard = () => {
                     Copied!
                   </Typography>
                 ) : (
-                  <IconButton style={{ marginLeft: '10px' }}>
+                  <IconButton>
                     <LinkIcon fontSize="large" />
                   </IconButton>
                 )}
