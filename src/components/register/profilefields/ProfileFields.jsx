@@ -154,7 +154,9 @@ const ProfileFields = (props) => {
           color="primary"
           onClick={props.handleSubmit}
           disabled={Object.keys(props.errors) > 0}
-        ></Button>
+        >
+          Create Account
+        </Button>
 
         {props.errorMessage && (
           <ErrorMessage

@@ -5,7 +5,7 @@ export const authHeaderStyles = makeStyles({
     display: 'flex',
     alignItems: 'center',
     height: '8vh',
-    'box-shadow': '0px 13px 39px -1px #C9C9C9',
+    'box-shadow': '0px 13px 39px -1px rgba(201,201,201,.5)',
 
     '& .authheader-logo': {
       flexBasis: '30%',

@@ -1,27 +1,37 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+
+import { styles } from './authfields.styles';
+
 import TextField from '@material-ui/core/TextField';
 import { Checkbox, Button } from '@material-ui/core';
 import { buttonStyles } from '../../../styles';
 import Typography from '@material-ui/core/Typography';
-import { validate } from 'graphql';
+
 import { ErrorMessage } from '@hookform/error-message';
-import { object } from 'yup';
 
 const AuthFields = ({ setStepper, setValues, errors, validate }) => {
   const buttonClass = buttonStyles();
+  const classNames = styles();
 
   const [checked, setChecked] = useState(false);
 
   const handleChange = (e) => {
     e.persist();
+
     setValues((values) => {
       return { ...values, email: e.target.value };
     });
   };
 
+  const handleClick = (e) => {
+    validate('email');
+    if (!errors.email) {
+      setStepper(2);
+    }
+  };
+
   return (
-    <>
+    <div className={classNames.container}>
       <TextField
         onChange={handleChange}
         type="email"
@@ -54,13 +64,11 @@ const AuthFields = ({ setStepper, setValues, errors, validate }) => {
       <Button
         className={`${buttonClass.root} ${buttonClass.active}`}
         disabled={Object.keys(errors).length > 0 || !checked}
-        onClick={() => {
-          setStepper(2);
-        }}
+        onClick={handleClick}
       >
         <Typography variant="h5">Continue registering</Typography>
       </Button>
-    </>
+    </div>
   );
 };
 

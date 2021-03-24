@@ -1,44 +1,53 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export const registerStyles = makeStyles((theme) => ({
-  landingPageContainer: {
-    display: 'flex',
-    justifyContent: 'space-between',
-  },
-  landingPageLeft: {
-    display: 'flex',
-    justifyContent: 'center',
-    width: '50vw',
-    height: '80vh',
-    textAlign: 'center',
-    alignSelf: 'center',
-    [theme.breakpoints.down('700')]: {
-      width: '100vw',
-      paddingTop: '35px',
-    },
-  },
-  landingPageRight: {
-    height: '90vh',
-    width: '50vw',
-    [theme.breakpoints.down('700')]: {
-      display: 'none',
-    },
-  },
-  geocoderContainer: {
+export const styles = makeStyles((theme) => ({
+  container: {
+    height: '92vh',
+    maxHeight: '92vh',
+    overflow: 'hidden',
     display: 'flex',
     flexDirection: 'column',
-    width: '100%',
-  },
-  reactGeocoderResults: {
-    display: 'relative',
-    background: 'white',
-    border: '1px solid rgba(0, 0, 0, 0.4)',
-    cursor: 'pointer',
-    zIndex: '5',
-  },
-  toggleMap: {
-    [theme.breakpoints.down('700')]: {
-      visibility: 'hidden',
+
+    '& .register-card': {
+      position: 'relative',
+      zIndex: '1',
+      width: '33%',
+      height: '74vh',
+      top: '46vh',
+      transform: 'translateY(-51%)',
+      left: '10%',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'flex-start',
+
+      '& >*': {
+        padding: '0 2%',
+      },
+
+      '& .card-header': {
+        '& >:first-child': {
+          fontFamily: "'Poppins', sans-serif",
+          marginTop: '2%',
+          marginBottom: '4%',
+        },
+      },
+
+      '& form': {
+        marginTop: '5%',
+      },
+
+      '& .MuiCardActions-root': {
+        alignSelf: 'center',
+        position: 'absolute',
+        bottom: '5%',
+      },
+    },
+    '& .register-map, .overlays': {
+      overflow: 'hidden',
+      position: 'relative',
+      left: '50%',
+      transform: 'translate(-50%, -80%)',
+      zIndes: '0',
     },
   },
 }));
