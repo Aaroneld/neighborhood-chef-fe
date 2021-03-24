@@ -21,6 +21,7 @@ export const authHeaderStyles = makeStyles({
         '& p': {
           fontSize: '200%',
           fontFamily: "'Poppins', sans-serif",
+          whiteSpace: 'nowrap',
         },
       },
 
@@ -29,10 +30,8 @@ export const authHeaderStyles = makeStyles({
         marginLeft: '2%',
         marginTop: '-.5%',
         marginRight: '3%',
-        minWidth: '7%',
-        maxwidth: '7%',
-        width: '7%',
-        height: '15%',
+        width: '47px',
+        height: '47px',
       },
     },
 
