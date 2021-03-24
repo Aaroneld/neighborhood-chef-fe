@@ -40,6 +40,10 @@ export const styles = makeStyles((theme) => ({
         alignSelf: 'center',
         position: 'absolute',
         bottom: '5%',
+
+        '& .MuiMobileStepper-dotActive': {
+          background: '#58D573',
+        },
       },
     },
     '& .register-map, .overlays': {
