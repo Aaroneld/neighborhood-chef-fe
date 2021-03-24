@@ -128,7 +128,7 @@ const Register = () => {
             longitude={-30}
             zoom={3}
             {...mapStyle}
-            mapStyle="mapbox://styles/mapbox/streets-v11"
+            mapStyle="mapbox://styles/aaroneld/ckmo07imp12x617o7q66m3hwm"
           >
             <Marker longitude={-30} latitude={0} offsetLeft={-15} offsetTop={-15}>
               <span style={{ color: '#58D473' }}>
