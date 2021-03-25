@@ -4,7 +4,7 @@ export const eventImageUploadStyles = makeStyles(() => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'left',
+    alignItems: 'center',
   },
   p: {
     marginTop: '10px',
@@ -12,16 +12,22 @@ export const eventImageUploadStyles = makeStyles(() => ({
     textAlign: 'left',
   },
   button: {
+    marginTop: '3%',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     width: '70%',
+
+    '& label': {
+      width: '70%',
+      display: 'flex',
+      justifyContent: 'center',
+    },
   },
   img: {
-    maxWidth: '40%',
-    maxHeight: '120px',
-    borderRadius: '10px',
-    border: '2px solid rgba(0,0,0,.4)',
+    width: '40%',
+    borderRadius: '100%',
     cursor: 'pointer',
+    border: ' 5px solid #58D573',
   },
 }));

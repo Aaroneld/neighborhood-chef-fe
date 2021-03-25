@@ -8,13 +8,13 @@ export const styles = makeStyles((theme) => ({
     justifyContent: 'space-evenly',
     alignItems: 'center',
     '& .email': {
-      margin: '10% 0',
-      width: '70%',
+      margin: '7% 0',
+      width: '80%',
     },
 
     '& .terms': {
       width: '70%',
-      marginLeft: '-3.8%',
+      marginLeft: '-14.8%',
 
       '& .MuiSvgIcon-root': {
         fontSize: '3.5rem',
@@ -22,9 +22,13 @@ export const styles = makeStyles((theme) => ({
     },
 
     '& button': {
+      fontSize: '130%',
       marginTop: '15%',
-      width: '60%',
+      width: '50%',
+      padding: '4% 2%',
       alignSelf: 'center',
+      fontWeight: 'lighter',
+      fontFamily: '"Roboto", "Helvetica", "Poppins", sans-serif',
     },
   },
 }));

@@ -83,6 +83,12 @@ const Register = () => {
   return (
     <div>
       <AuthHeader />
+      {submitted && (
+        <>
+          <div className={classnames.overlay} />
+          <SubmissionSuccessModal />{' '}
+        </>
+      )}
       <div className={classnames.container}>
         <div>
           <Card className={`${cardClass.root} register-card`}>
@@ -92,7 +98,6 @@ const Register = () => {
                 Start eating well while making friends!
               </Typography>
             </CardContent>
-            {submitted && <SubmissionSuccessModal />}
             <form>
               {stepper === 1 && (
                 <AuthFields
@@ -124,13 +129,18 @@ const Register = () => {
             id="register-map"
             className={'register-map'}
             mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
-            latitude={0}
-            longitude={-30}
-            zoom={3}
+            latitude={values.latitude || 0}
+            longitude={values.longitude || -30}
+            zoom={values.latitude ? 16 : 2}
             {...mapStyle}
             mapStyle="mapbox://styles/aaroneld/ckmo07imp12x617o7q66m3hwm"
           >
-            <Marker longitude={-30} latitude={0} offsetLeft={-15} offsetTop={-15}>
+            <Marker
+              longitude={values.longitude || 0}
+              latitude={values.latitude || 90}
+              offsetLeft={-15}
+              offsetTop={-15}
+            >
               <span style={{ color: '#58D473' }}>
                 <Icon width="2em" icon={chefIcon} />
               </span>

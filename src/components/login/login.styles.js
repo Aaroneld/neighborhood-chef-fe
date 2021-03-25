@@ -47,9 +47,10 @@ export const landingPageStyles = makeStyles((theme) => ({
     height: '92vh',
     width: '45vw',
     '& img': {
-      borderRadius: '0 0 0 25%',
+      borderRadius: '0 0 0 30%',
       borderLeft: '6px solid rgba(88,213,115,.7)',
       borderBottom: '6px solid rgba(88,213,115,.95)',
+      filter: 'brightness(87%)',
     },
     [theme.breakpoints.down('700')]: {
       display: 'none',

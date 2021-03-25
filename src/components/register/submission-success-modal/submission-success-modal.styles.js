@@ -11,12 +11,14 @@ export const styles = makeStyles({
     transform: 'translate(-50%, -50%)',
     background: 'white',
     color: 'black',
-    zIndex: '10',
+    zIndex: 10000,
     borderLeft: '15px solid rgba(88,213,115,.5)',
     borderRight: '15px solid rgba(88,213,115,.5)',
     borderTop: '15px solid #58D573',
     borderBottom: '15px solid #58D573',
     display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
     flexDirection: 'column',
 
     '& h3': {
@@ -47,6 +49,7 @@ export const styles = makeStyles({
       alignSelf: 'center',
       marginTop: '7%',
       height: '7%',
+      fontSize: '130%',
 
       '&:hover': {
         border: '2px solid #58D573',

@@ -3,9 +3,12 @@ import { formPageOneStyles } from './../../../create-events/form-container/form-
 import SearchIcon from '@material-ui/icons/Search';
 import { ErrorMessage } from '@hookform/error-message';
 import MapboxAddressSearch from './mapbox-address-search';
+import { styles } from './mapbox-geocoder.styles';
 
-function MapboxGeocoder({ errors, setValues, values, validate, setViewport }) {
-  const styles = formPageOneStyles();
+import Typography from '@material-ui/core/Typography';
+
+function MapboxGeocoder({ errors, setValues, values, validate }) {
+  const classnames = styles();
   const [data, setData] = useState({});
   const [open, setOpen] = useState(false);
   const [flagAddressValidation, flag] = useState(0);
@@ -47,18 +50,15 @@ function MapboxGeocoder({ errors, setValues, values, validate, setViewport }) {
     setOpen(false);
   };
   return (
-    <>
-      <div className="createFormInputDiv">
-        <MapboxAddressSearch
-          setData={setData}
-          handleBlur={handleBlur}
-          open={open}
-          setOpen={setOpen}
-          mostRecentlyChosenAddress={mostRecentlyChosenAddress}
-          setViewport={setViewport}
-        />
-        <SearchIcon color="disabled" className={styles.icon} />
-      </div>
+    <div className={classnames.container}>
+      <MapboxAddressSearch
+        setData={setData}
+        handleBlur={handleBlur}
+        open={open}
+        setOpen={setOpen}
+        mostRecentlyChosenAddress={mostRecentlyChosenAddress}
+      />
+
       {errors.address && errors.address.length > 0 && (
         <ErrorMessage
           name="address"
@@ -67,7 +67,7 @@ function MapboxGeocoder({ errors, setValues, values, validate, setViewport }) {
           render={({ message }) => <p style={{ color: 'crimson' }}>{message}</p>}
         />
       )}
-    </>
+    </div>
   );
 }
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import { separateOperations } from 'graphql';
+import TextField from '@material-ui/core/TextField';
 
 export default function MapboxAddressSearch({
   setData,
@@ -10,7 +10,6 @@ export default function MapboxAddressSearch({
   open,
   setOpen,
   mostRecentlyChosenAddress,
-  setViewport,
 }) {
   const [addresses, setAddresses] = useState([]);
   const [innerData, setInnerData] = useState([]);
@@ -62,13 +61,13 @@ export default function MapboxAddressSearch({
       defaultValue={mostRecentlyChosenAddress}
       renderInput={(params) => (
         <div ref={params.InputProps.ref}>
-          <input
-            style={{ width: 300 }}
+          <TextField
             type="text"
             {...params.inputProps}
             onClick={handleClick}
             onBlur={handleBlur}
-            placeholder="Address"
+            label="Address"
+            autoComplete="chrome-off"
           />
         </div>
       )}

@@ -2,6 +2,8 @@ import makeStyles from '@material-ui/styles/makeStyles';
 
 export const authHeaderStyles = makeStyles({
   container: {
+    position: 'sticky',
+    zIndex: '3',
     display: 'flex',
     alignItems: 'center',
     height: '8vh',

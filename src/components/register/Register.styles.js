@@ -11,7 +11,7 @@ export const styles = makeStyles((theme) => ({
     '& .register-card': {
       position: 'relative',
       zIndex: '1',
-      width: '33%',
+      width: '25%',
       height: '74vh',
       top: '46vh',
       transform: 'translateY(-51%)',
@@ -39,7 +39,7 @@ export const styles = makeStyles((theme) => ({
       '& .MuiCardActions-root': {
         alignSelf: 'center',
         position: 'absolute',
-        bottom: '5%',
+        bottom: '2%',
 
         '& .MuiMobileStepper-dotActive': {
           background: '#58D573',
@@ -53,5 +53,15 @@ export const styles = makeStyles((theme) => ({
       transform: 'translate(-50%, -80%)',
       zIndes: '0',
     },
+  },
+  overlay: {
+    position: 'absolute',
+    zIndex: '9',
+    top: 0,
+    width: '100vw',
+    height: '100vh',
+    minHeight: '100vh',
+    background: 'black',
+    opacity: '.7',
   },
 }));

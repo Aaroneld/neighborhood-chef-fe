@@ -66,7 +66,7 @@ const AuthFields = ({ setStepper, setValues, errors, validate }) => {
         disabled={Object.keys(errors).length > 0 || !checked}
         onClick={handleClick}
       >
-        <Typography variant="h5">Continue registering</Typography>
+        Continue registering
       </Button>
     </div>
   );

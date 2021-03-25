@@ -23,6 +23,10 @@ export default function SubmissionSuccessModal() {
       push('/');
     }
   }, [countDown]);
+
+  const handleClick = (_) => {
+    push('/');
+  };
   return (
     <div className={classes.container}>
       <Typography variant="h1">Congratulations!</Typography>
@@ -32,7 +36,9 @@ export default function SubmissionSuccessModal() {
       <Typography variant="h1" id="redirect-time">
         {countDown}
       </Typography>
-      <button className={buttonClasses.root + ' ' + buttonClasses.single}>Redirect Now</button>
+      <button className={buttonClasses.root + ' ' + buttonClasses.single} onClick={handleClick}>
+        Redirect Now
+      </button>
     </div>
   );
 }
