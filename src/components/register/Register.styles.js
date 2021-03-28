@@ -30,10 +30,21 @@ export const styles = makeStyles((theme) => ({
           marginTop: '2%',
           marginBottom: '4%',
         },
+        [theme.breakpoints.down('lg')]: {
+          '& h1': {
+            fontSize: '3rem',
+          },
+          '& >:first-child': {
+            marginBottom: '2%',
+          },
+        },
       },
 
       '& form': {
         marginTop: '5%',
+        [theme.breakpoints.down('lg')]: {
+          marginTop: '0',
+        },
       },
 
       '& .MuiCardActions-root': {
@@ -45,6 +56,10 @@ export const styles = makeStyles((theme) => ({
           background: '#58D573',
         },
       },
+      [theme.breakpoints.down('lg')]: {
+        width: '30%',
+        height: '78vh',
+      },
     },
     '& .register-map, .overlays': {
       overflow: 'hidden',
@@ -52,6 +67,12 @@ export const styles = makeStyles((theme) => ({
       left: '50%',
       transform: 'translate(-50%, -80%)',
       zIndes: '0',
+      [theme.breakpoints.down('lg')]: {
+        transform: 'translate(-50%, -83.5%)',
+      },
+    },
+    [theme.breakpoints.down('lg')]: {
+      height: '90vh',
     },
   },
   overlay: {

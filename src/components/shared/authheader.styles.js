@@ -1,6 +1,6 @@
 import makeStyles from '@material-ui/styles/makeStyles';
 
-export const authHeaderStyles = makeStyles({
+export const authHeaderStyles = makeStyles((theme) => ({
   container: {
     position: 'sticky',
     zIndex: '3',
@@ -83,5 +83,8 @@ export const authHeaderStyles = makeStyles({
         border: '2px solid #58D573',
       },
     },
+    [theme.breakpoints.down('lg')]: {
+      height: '10vh',
+    },
   },
-});
+}));
