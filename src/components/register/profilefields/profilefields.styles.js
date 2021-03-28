@@ -1,6 +1,6 @@
 import makeStyles from '@material-ui/styles/makeStyles';
 
-export const styles = makeStyles({
+export const styles = makeStyles((theme) => ({
   container: {
     display: 'flex',
     flexDirection: 'column',
@@ -20,6 +20,9 @@ export const styles = makeStyles({
       '& div': {
         width: '98%',
       },
+      [theme.breakpoints.down('lg')]: {
+        marginBottom: '0',
+      },
     },
 
     '& .gender-field': {
@@ -28,6 +31,10 @@ export const styles = makeStyles({
 
       '& .MuiInputBase-root': {
         width: '98%',
+      },
+      [theme.breakpoints.down('lg')]: {
+        marginTop: '0',
+        marginBottom: '0',
       },
     },
 
@@ -49,4 +56,4 @@ export const styles = makeStyles({
       },
     },
   },
-});
+}));

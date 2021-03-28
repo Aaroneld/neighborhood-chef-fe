@@ -19,6 +19,14 @@ export const styles = makeStyles((theme) => ({
       '& .MuiSvgIcon-root': {
         fontSize: '3.5rem',
       },
+      [theme.breakpoints.down('lg')]: {
+        width: '90%',
+        fontSize: '1.4rem',
+        marginLeft: '3.5%',
+        '& .MuiSvgIcon-root': {
+          fontSize: '2rem',
+        },
+      },
     },
 
     '& button': {
@@ -29,6 +37,9 @@ export const styles = makeStyles((theme) => ({
       alignSelf: 'center',
       fontWeight: 'lighter',
       fontFamily: '"Roboto", "Helvetica", "Poppins", sans-serif',
+      [theme.breakpoints.down('lg')]: {
+        width: '70%',
+      },
     },
   },
 }));
