@@ -21,6 +21,7 @@ export const DashboardTabStyles = makeStyles({
     top: '50%',
     transform: 'translateX(-50%)',
     background: 'transparent',
+    cursor: 'pointer',
     '&::before': {
       content: '""',
       backgroundImage: `url(${tabImage})`,

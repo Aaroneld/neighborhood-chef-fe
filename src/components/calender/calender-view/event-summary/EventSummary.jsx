@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardMedia from '@material-ui/core/CardMedia';
-import { cardStyles } from '../../../../styles';
+import { cardStyles } from '../../Calendar.styles';
 
 //icon imports
 import { Icon } from '@iconify/react';
