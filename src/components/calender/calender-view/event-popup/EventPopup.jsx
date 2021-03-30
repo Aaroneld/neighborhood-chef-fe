@@ -3,11 +3,9 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import Typography from '@material-ui/core/Typography';
-import CardMedia from '@material-ui/core/CardMedia';
 import Card from '@material-ui/core/Card';
 
-import { cardStyles } from '../../Calendar.styles';
-import { parseTime, chooseDefaultPicture } from '../../../../utilities/functions';
+import { cardStyles } from './EventPopup.styles';
 import StatusButtons from '../../../dashboard/event-view/recent-card/status-buttons/status-buttons';
 
 const EventPopup = ({ selectedEvent }) => {
@@ -19,16 +17,7 @@ const EventPopup = ({ selectedEvent }) => {
     parsedAddressURL = `https://www.google.com/maps/search/${selectedEvent.address.replace(' ', '+')}`;
   }
   return (
-    <Card
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        width: '90%',
-        marginLeft: '5%',
-        fontSize: '1.2rem',
-        justifyContent: 'flex-start',
-      }}
-    >
+    <Card className={classes.card}>
       <Link to={`/events/${selectedEvent.id}`}>
         <Typography variant="p">
           {selectedEvent.title.length <= 15 ? selectedEvent.title : `${selectedEvent.title.slice(0, 15)}...`}
@@ -42,6 +31,7 @@ const EventPopup = ({ selectedEvent }) => {
       <a style={{ fontSize: '1.2rem' }} href={parsedAddressURL} target="_blank" rel="noopener noreferrer">
         {selectedEvent.address}
       </a>
+
       <div>
         <Typography variant="h6" style={{ marginBottom: '5px' }}>
           Will you be attending this event?
