@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useLayoutEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 //style imports
@@ -20,6 +20,11 @@ const CommentsCard = ({ initialComments, eventId }) => {
   const buttonClass = buttonStyles();
   const [commentFormInput, setCommentFormInput] = useState('');
   const [comments, setComments] = useState(initialComments);
+  const containerRef = useRef(null);
+
+  useLayoutEffect(() => {
+    containerRef.current.scrollTop = containerRef.current.scrollHeight;
+  }, [comments]);
 
   const handleChange = (e) => {
     setCommentFormInput(e.target.value);
@@ -63,7 +68,7 @@ const CommentsCard = ({ initialComments, eventId }) => {
 
   return (
     <div style={{ height: '100%' }}>
-      <Card className={`${classes.root} ${classes.comments}`}>
+      <Card className={`${classes.root} ${classes.comments}`} ref={containerRef}>
         <Typography variant="h6" align="left">
           Comments
         </Typography>

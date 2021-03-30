@@ -8,9 +8,12 @@ import { scrollToTop } from '../form-page-one/FormPageOne.jsx';
 import { convertTime, chooseDefaultPicture } from '../../../../utilities/functions';
 
 import { formPageThreeStyles } from './FormPageThree.styles';
+import { changePage } from '../../../../utilities/actions';
+import { useDispatch } from 'react-redux';
 
 const FormPageThree = (props) => {
   const styles = formPageThreeStyles();
+  const dispatch = useDispatch();
 
   return (
     <div className={styles.root}>
@@ -52,7 +55,7 @@ const FormPageThree = (props) => {
       <EventButtons
         leftBtnText="Previous"
         leftBtnClick={() => {
-          props.setStepper(2);
+          dispatch(changePage(2));
           scrollToTop();
         }}
         rightBtnText="Done"

@@ -32,7 +32,7 @@ const Register = () => {
     height: '96vh',
   };
 
-  const [stepper, setStepper] = useState(2);
+  const [stepper, setStepper] = useState(1);
   const [submitted, setSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
 

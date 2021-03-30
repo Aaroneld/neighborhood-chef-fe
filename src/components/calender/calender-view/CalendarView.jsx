@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
@@ -42,7 +42,16 @@ const CalendarView = ({ eventList, setSelectedEvent, selectedEvent }) => {
               />
             ))
         ) : (
-          <div>
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-around',
+              width: '90%',
+              marginLeft: '5%',
+              alignItems: 'center',
+            }}
+          >
             <h3>No events for selected month</h3>
             <p>But it doesn't have to stay that way.</p>
             <Link to="/create-event">

@@ -10,6 +10,8 @@ import MapboxGeocoder from './mapbox-geocoder/mapbox-geocoder';
 
 import { formPageOneStyles } from './FormPageOne.styles';
 import EventButtons from '../event-buttons/EventButtons';
+import { changePage } from '../../../../utilities/actions';
+import { useDispatch } from 'react-redux';
 
 export const scrollToTop = () => {
   window.scrollTo({
@@ -18,15 +20,16 @@ export const scrollToTop = () => {
   });
 };
 
-const FormPageOne = ({ setStepper, errors, values, setValues, validate }) => {
+const FormPageOne = ({ errors, values, setValues, validate }) => {
   const { push } = useHistory();
   const styles = formPageOneStyles();
+  const dispatch = useDispatch();
 
   const validateAndTurnPage = () => {
     const isValid = validate();
 
     if (isValid) {
-      setStepper(2);
+      dispatch(changePage(2));
       scrollToTop();
     }
   };

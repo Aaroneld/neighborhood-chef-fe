@@ -12,6 +12,7 @@ export const RESET_INVITE_SUCCESS = 'RESET_INVITE_SUCCESS';
 export const SAVE_USER = 'SAVE_USER';
 export const CHANGE_STATUS_FOR_SINGLE_EVENT = 'CHANGE_STATUS_FOR_SINGLE_EVENT';
 export const DELETE_EVENT = 'DELETE_EVENT';
+export const CHANGE_PAGE = 'CHANGE_PAGE';
 
 export const changeStatusForSingleEvent = (data) => (dispatch) => {
   axiosWithAuth()
@@ -68,4 +69,9 @@ export const deleteInvitationSuccess = (invite) => ({
 export const deleteEvent = (id) => ({
   type: DELETE_EVENT,
   payload: id,
+});
+
+export const changePage = (page) => ({
+  type: CHANGE_PAGE,
+  payload: page,
 });

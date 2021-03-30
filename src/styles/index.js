@@ -395,6 +395,7 @@ export const cardStyles = makeStyles((theme) => ({
   },
   comments: {
     maxWidth: '100%',
+    width: '97%',
     height: 'calc(100% - 36px)',
   },
   singleCommentParent: {
