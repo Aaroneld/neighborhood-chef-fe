@@ -79,9 +79,6 @@ export const calendarStyles = makeStyles((theme) => ({
       display: 'none',
     },
   },
-  eventDetailsContainer: {
-    width: '100%',
-  },
   accountbutton: {
     textAlign: 'right',
   },
@@ -109,7 +106,6 @@ export const cardStyles = makeStyles((theme) => ({
     '&::-webkit-scrollbar': { display: 'none' },
     '-ms-overflow-style': 'none',
   },
-
   eventDetailsContainer: {
     width: '100%',
   },

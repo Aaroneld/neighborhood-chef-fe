@@ -23,7 +23,7 @@ function App() {
   }, []);
 
   return (
-    <div style={{ height: '100vh', width: '100vw', overflow: 'hidden' }}>
+    <div style={{ height: '100vh', width: '100vw' }}>
       <Switch>
         <Route path="/login-redirect-url" component={LoginRedirect} />
         <Route path="/generic-redirect/:redirect_path" component={GenericRedirect} />

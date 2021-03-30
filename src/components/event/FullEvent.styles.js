@@ -5,7 +5,7 @@ export const fullEventStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'space-between',
     width: '100%',
-    height: '100%',
+
     [theme.breakpoints.down('700')]: {
       flexWrap: 'wrap',
     },
@@ -37,9 +37,9 @@ export const fullEventStyles = makeStyles((theme) => ({
     },
   },
   singleEventCommentCard: {
-    height: '100%',
+    maxHeight: '72%',
+    minHeight: '72%',
   },
-
   hidden: {
     display: 'none',
   },

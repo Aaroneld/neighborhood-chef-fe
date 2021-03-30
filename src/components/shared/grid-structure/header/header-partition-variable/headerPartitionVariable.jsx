@@ -40,11 +40,10 @@ function VariableHeader(props) {
 
   switch (urlLocation) {
     case 'dashboard':
-      return (
-        <section className={classes['container']}>
-          {matches ? <Logo /> : <Typography variant="h4">My Neighborhood</Typography>}
-        </section>
-      );
+      return '';
+      // <section className={classes['container']}>
+      //   {matches ? <Logo /> : <Typography variant="h4">My Neighborhood</Typography>}
+      // </section>
     case 'create-event':
       return <section className={classes['container']}>{matches ? <Logo /> : <CreateEventHeader />}</section>;
     case 'view-events':

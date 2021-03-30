@@ -58,7 +58,7 @@ const ParticipantCard = () => {
           Share
         </Typography>
         <CardContent>
-          <div>
+          <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
             {shareButtons.map((b) => {
               const TagName = Components[b.name];
               return (
