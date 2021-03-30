@@ -7,7 +7,7 @@ import dogIcon from '@iconify/icons-whh/dog';
 import icon18Plus from '@iconify/icons-uil/18-plus';
 import foodApple from '@iconify/icons-mdi/food-apple';
 
-import EventImageUpload from '../../../shared/event-image-upload/EventImageUpload';
+import EventImageUpload from './event-image-upload/EventImgUpload';
 import Modifier from './modifier/Modifier.jsx';
 import AddHashtag from './add-hashtag/AddHashtag.jsx';
 import EventButtons from '../event-buttons/EventButtons';
@@ -41,12 +41,7 @@ const FormPageTwo = (props) => {
   return (
     <>
       <div className={styles.container}>
-        <EventImageUpload
-          values={props.values}
-          avatar={props.values.photo}
-          setValues={props.setValues}
-          title="Upload a main picture for your event page"
-        />
+        <EventImageUpload values={props.values} setValues={props.setValues} />
         <AddHashtag values={props.values} setValues={props.setValues} />
         <div>
           <Typography className={styles.modifierLabel}>Pick modifiers for your event.</Typography>

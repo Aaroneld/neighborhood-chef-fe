@@ -6,7 +6,7 @@ export const fullEventStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     width: '100%',
 
-    [theme.breakpoints.down('700')]: {
+    [theme.breakpoints.down('md')]: {
       flexWrap: 'wrap',
     },
   },
@@ -18,7 +18,7 @@ export const fullEventStyles = makeStyles((theme) => ({
     maxHeight: 'calc(90vh - 20px)',
     width: '100%',
     display: 'flex',
-    [theme.breakpoints.down('700')]: {
+    [theme.breakpoints.down('md')]: {
       flexWrap: 'wrap',
       maxHeight: '100%',
       height: '100%',
@@ -32,7 +32,7 @@ export const fullEventStyles = makeStyles((theme) => ({
   },
   singleEventTopRow: {
     display: 'flex',
-    [theme.breakpoints.down('700')]: {
+    [theme.breakpoints.down('md')]: {
       flexWrap: 'wrap',
     },
   },

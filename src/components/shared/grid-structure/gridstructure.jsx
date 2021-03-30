@@ -89,6 +89,7 @@ const styles = makeStyles((theme) => {
       visibility: 'none',
 
       [theme.breakpoints.down('960')]: {
+        marginTop: '80px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',

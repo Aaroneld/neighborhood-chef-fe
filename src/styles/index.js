@@ -221,7 +221,7 @@ export const cardStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     justifyContent: 'space-between',
     width: 'calc(100% - 36px)',
-    padding: '10px',
+    padding: '5px',
     overflowY: 'auto',
     wordWrap: 'break-word',
     //these next two lines hide scrollbars on cards
@@ -234,6 +234,10 @@ export const cardStyles = makeStyles((theme) => ({
   },
   eventDetailsContainer: {
     maxWidth: '500px',
+    [theme.breakpoints.down('md')]: {
+      width: '100%',
+      maxWidth: '100%',
+    },
   },
   addressContainer: {
     display: 'flex',
@@ -248,6 +252,8 @@ export const cardStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
+    width: '100%',
+    marginLeft: '-15px',
   },
   dateOverlay: {
     display: 'flex',
@@ -281,10 +287,18 @@ export const cardStyles = makeStyles((theme) => ({
   },
   title: {
     wordWrap: 'break-word',
-    maxWidth: '440px',
+    maxWidth: '400px',
+    overflowWrap: 'break-word',
+    [theme.breakpoints.down('md')]: {
+      maxWidth: '90%',
+    },
+    [theme.breakpoints.down('sm')]: {
+      maxWidth: '380px',
+    },
   },
   fullEvent: {
-    maxWidth: '100%',
+    maxWidth: '97%',
+    width: '97%',
     height: 'calc(100% - 36px)',
   },
   cardContent: {
@@ -303,7 +317,7 @@ export const cardStyles = makeStyles((theme) => ({
   },
   participants: {
     maxHeight: 150,
-    width: '100%',
+    width: '97%',
     maxWidth: '100%',
     justifyContent: 'flex-start',
   },
@@ -337,7 +351,7 @@ export const cardStyles = makeStyles((theme) => ({
   share: {
     maxHeight: 150,
     width: '100%',
-    maxWidth: '100%',
+    maxWidth: '97%',
   },
   shareButtons: {
     width: '40px',
@@ -394,8 +408,8 @@ export const cardStyles = makeStyles((theme) => ({
     height: 'calc(100% - 36px)',
   },
   comments: {
-    maxWidth: '100%',
     width: '97%',
+    maxWidth: '100%',
     height: 'calc(100% - 36px)',
   },
   singleCommentParent: {
