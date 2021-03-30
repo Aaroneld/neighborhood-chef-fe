@@ -4,6 +4,7 @@ import tabImage from '../../../assets/tab.svg';
 export const DashboardTabStyles = makeStyles({
   container: {
     margin: '-6.5%',
+    // margin: '-6% 0 0 5%',
     maxWidth: '79vw',
     width: '100%',
     height: '5vw',
@@ -39,7 +40,6 @@ export const DashboardTabStyles = makeStyles({
   },
   tab: {
     color: 'black',
-
     padding: '1% 7% 2% 7%',
   },
   currentTab: {

@@ -10,6 +10,7 @@ import ChangePassword from './components/change-password/PasswordChangePage';
 import CheckEmail from './components/check-email/CheckEmail';
 import AboutUs from './components/about/AboutUs';
 import Community from './components/community/Community';
+import DatePicker from './components/create-events/form-container/form-page-one/date-input/datepicker';
 
 import Login from './components/login/Login';
 import GridStructure from './components/shared/grid-structure/gridstructure';
@@ -25,6 +26,13 @@ function App() {
   return (
     <div style={{ height: '100vh', width: '100vw', overflow: 'hidden' }}>
       <Switch>
+        <Route path="/date">
+          <DatePicker
+            setDate={(date) => {
+              return;
+            }}
+          />
+        </Route>
         <Route path="/login-redirect-url" component={LoginRedirect} />
         <Route path="/generic-redirect/:redirect_path" component={GenericRedirect} />
         <Route exact path="/" component={Login} />
