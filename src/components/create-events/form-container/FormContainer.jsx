@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createEventSuccess } from '../../../utilities/actions';
+import { createEventSuccess, changePage } from '../../../utilities/actions';
 
 // component and helper function imports
 import FormPageOne from './form-page-one/FormPageOne';
@@ -47,7 +47,7 @@ const validationSchema = yup.object().shape({
   longitude: yup.mixed().required(),
 });
 
-const createOrUpdateEvent = (values, user, dispatch, setValues, setStepper) => {
+const createOrUpdateEvent = (values, user, dispatch, setValues) => {
   const requestValues = { ...values };
   delete requestValues.date;
   delete requestValues.iat;
@@ -85,7 +85,7 @@ const createOrUpdateEvent = (values, user, dispatch, setValues, setStepper) => {
         })
       );
       setValues({ ...values, id: res.data.data.inputEvent.id, createDateTime: Date.now().toString() });
-      setStepper(4);
+      dispatch(changePage(4));
     })
     .catch((err) => {
       console.dir(err);
@@ -95,10 +95,10 @@ const createOrUpdateEvent = (values, user, dispatch, setValues, setStepper) => {
 const FormContainer = () => {
   const styles = formContainerStyles();
   const user = useSelector((state) => state.user);
-  const [stepper, setStepper] = useState(1);
   const [initialValues, setInitialValues] = useState(initValuesForNonEditMode);
   const [loadedFlag, flag] = useState(0);
   const [loaded, setLoaded] = useState(false);
+  const page = useSelector((state) => state.page);
 
   const { values, setValues, validate, errors } = useForm(initialValues, validationSchema);
 
@@ -112,6 +112,7 @@ const FormContainer = () => {
 
   useEffect(() => {
     setValues(initialValues);
+    return () => dispatch(changePage(1));
   }, [initialValues]);
 
   useEffect(() => {
@@ -123,32 +124,19 @@ const FormContainer = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    createOrUpdateEvent(values, user, dispatch, setValues, setStepper);
+    createOrUpdateEvent(values, user, dispatch, setValues);
   };
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
       {loaded && (
         <>
-          {stepper === 1 && (
-            <FormPageOne
-              setStepper={setStepper}
-              values={values}
-              setValues={setValues}
-              validate={validate}
-              errors={errors}
-            />
+          {page === 1 && (
+            <FormPageOne values={values} setValues={setValues} validate={validate} errors={errors} />
           )}
-          {stepper === 2 && <FormPageTwo setStepper={setStepper} values={values} setValues={setValues} />}
-          {stepper === 3 && (
-            <FormPageThree
-              values={values}
-              setValues={setValues}
-              setStepper={setStepper}
-              handleSubmit={handleSubmit}
-            />
-          )}
-          {stepper === 4 && <FormPageFour values={values} />}
+          {page === 2 && <FormPageTwo setValues={setValues} values={values} />}
+          {page === 3 && <FormPageThree values={values} setValues={setValues} handleSubmit={handleSubmit} />}
+          {page === 4 && <FormPageFour values={values} />}
         </>
       )}
     </form>

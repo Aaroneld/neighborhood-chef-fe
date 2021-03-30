@@ -8,6 +8,7 @@ import {
   SAVE_USER,
   CHANGE_STATUS_FOR_SINGLE_EVENT,
   DELETE_EVENT,
+  CHANGE_PAGE,
 } from '../actions';
 
 const initialDate = new Date();
@@ -144,6 +145,11 @@ export const rootReducer = (state = initialState, { type, payload }) => {
             local: state.user.UserEvents.local.filter((event) => event.id !== payload),
           },
         },
+      };
+    case CHANGE_PAGE:
+      return {
+        ...state,
+        page: payload,
       };
     default:
       return {

@@ -19,6 +19,8 @@ import Typography from '@material-ui/core/Typography';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import { formPageTwoStyles } from './FormPageTwo.styles';
+import { changePage } from '../../../../utilities/actions';
+import { useDispatch } from 'react-redux';
 
 export const modifierData = [
   { title: 'BBQ', icon: baselineOutdoorGrill },
@@ -34,6 +36,7 @@ const FormPageTwo = (props) => {
     showOptions(props.values.allergenWarnings, props.values.dietaryWarnings)
   );
   const styles = formPageTwoStyles();
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -88,12 +91,12 @@ const FormPageTwo = (props) => {
       <EventButtons
         leftBtnText="Previous"
         leftBtnClick={() => {
-          props.setStepper(1);
+          dispatch(changePage(1));
           scrollToTop();
         }}
         rightBtnText="Next"
         rightBtnClick={() => {
-          props.setStepper(3);
+          dispatch(changePage(3));
           scrollToTop();
         }}
       />
