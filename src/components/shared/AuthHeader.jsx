@@ -6,6 +6,7 @@ import { useHistory, useLocation } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import { buttonStyles } from '../../styles';
 import { authHeaderStyles } from './authheader.styles';
+import HamburgerMenu from './HamburgerMenu';
 
 import ls from 'local-storage';
 import { nanoid } from 'nanoid';
@@ -77,6 +78,7 @@ const AuthHeader = () => {
           <Typography>Register</Typography>
         </button>
       </div>
+      <HamburgerMenu />
     </div>
   );
 };

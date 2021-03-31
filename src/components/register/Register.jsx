@@ -6,7 +6,6 @@ import SubmissionSuccessModal from './submission-success-modal/sumission-success
 
 import { MobileStepper } from '@material-ui/core';
 import { styles } from './Register.styles';
-import { cardStyles } from '../../styles';
 import AuthHeader from '../shared/AuthHeader';
 
 import { Icon } from '@iconify/react';
@@ -25,8 +24,6 @@ import * as yup from 'yup';
 import axios from 'axios';
 
 const Register = () => {
-  const cardClass = cardStyles();
-
   const mapStyle = {
     width: '100vw',
     height: '96vh',
@@ -91,7 +88,7 @@ const Register = () => {
       )}
       <div className={classnames.container}>
         <div>
-          <Card className={`${cardClass.root} register-card`}>
+          <Card className="register-card">
             <CardContent class={'card-header'}>
               <Typography variant="h1">Create a new account with us</Typography>
               <Typography variant="h6" color="textSecondary">

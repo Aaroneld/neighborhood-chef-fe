@@ -8,12 +8,14 @@ export const eventImageUploadStyles = makeStyles((theme) => ({
   },
   p: {
     marginTop: '10px',
-    marginBottom: '10px',
+    marginBottom: '25px',
     textAlign: 'left',
   },
   imgBtn: {
     display: 'flex',
-    justifyContent: 'space-around',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: '70%',
   },
   button: {
     marginTop: '3%',
@@ -29,10 +31,11 @@ export const eventImageUploadStyles = makeStyles((theme) => ({
     },
   },
   img: {
-    width: '35%',
-    borderRadius: '100%',
+    maxWidth: '40%',
+    maxHeight: '120px',
+    borderRadius: '10px',
+    border: '2px solid rgba(0,0,0,.4)',
     cursor: 'pointer',
-    border: '5px solid #58D573',
     '&:hover': {
       filter: 'brightness(70%)',
     },

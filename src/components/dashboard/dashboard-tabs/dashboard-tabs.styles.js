@@ -4,14 +4,14 @@ import tabImage from '../../../assets/tab.svg';
 export const DashboardTabStyles = makeStyles((theme) => ({
   container: {
     margin: '-6.5%',
-    // margin: '-6% 0 0 5%',
+    //margin: '-6% 0 0 5%',
     maxWidth: '79vw',
     width: '100%',
     height: '5vw',
     borderBottom: '1px solid #43ff6b',
     position: 'absolute',
-    [theme.breakpoints.down('md')]: {
-      maxWidth: '80svw',
+    [theme.breakpoints.down('sm')]: {
+      maxWidth: '100vw',
     },
   },
   tabs: {
@@ -52,6 +52,11 @@ export const DashboardTabStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down('lg')]: {
       width: '70%',
+      marginTop: '.1%',
+    },
+
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
       marginTop: '.1%',
     },
   },

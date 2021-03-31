@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import Typography from '@material-ui/core/Typography';
-import Card from '@material-ui/core/Card';
-
 import { cardStyles } from './EventPopup.styles';
 import StatusButtons from '../../../dashboard/event-view/recent-card/status-buttons/status-buttons';
 
@@ -17,7 +15,7 @@ const EventPopup = ({ selectedEvent }) => {
     parsedAddressURL = `https://www.google.com/maps/search/${selectedEvent.address.replace(' ', '+')}`;
   }
   return (
-    <Card className={classes.card}>
+    <div className={classes.card}>
       <Link to={`/events/${selectedEvent.id}`}>
         <Typography variant="p">
           {selectedEvent.title.length <= 15 ? selectedEvent.title : `${selectedEvent.title.slice(0, 15)}...`}
@@ -40,7 +38,7 @@ const EventPopup = ({ selectedEvent }) => {
           <StatusButtons id={selectedEvent.id} currentUserId={userId} />
         </div>
       </div>
-    </Card>
+    </div>
   );
 };
 

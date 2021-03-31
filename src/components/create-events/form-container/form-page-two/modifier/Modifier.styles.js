@@ -8,7 +8,7 @@ export const modifierStyles = makeStyles(() => ({
     justifyContent: 'center',
     margin: '5px',
     cursor: 'pointer',
-    width: '118px',
+    width: '135px',
   },
   modifierNotActive: {
     display: 'flex',

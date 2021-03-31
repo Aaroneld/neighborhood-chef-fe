@@ -101,7 +101,6 @@ const EventDetails = ({ event, attending, setAttending }) => {
         <Card className={`${classes.root} ${classes.fullEvent}`}>
           <div className={classes.headerContainer}>
             <CardHeader
-              style={{ marginLeft: '-3%' }}
               title={
                 <Typography variant="h3" className={classes.title}>
                   {event.title}
