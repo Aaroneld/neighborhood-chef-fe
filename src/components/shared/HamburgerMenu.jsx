@@ -26,8 +26,8 @@ const HamburgerMenu = () => {
         <MenuIcon style={{ fontSize: '4.8rem' }} />
       </Button>
       <Menu id="simple-menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
-        <MenuItem onClick={() => handleClose('/register')}>Register</MenuItem>
         <MenuItem onClick={() => handleClose('/')}>Login</MenuItem>
+        <MenuItem onClick={() => handleClose('/register')}>Register</MenuItem>
         <MenuItem onClick={() => handleClose('/about')}>About</MenuItem>
         <MenuItem onClick={() => handleClose('/community')}>Community</MenuItem>
       </Menu>
