@@ -50,6 +50,12 @@ export const authHeaderStyles = makeStyles((theme) => ({
       '& >:first-child': {
         marginRight: '15%',
       },
+      [theme.breakpoints.down('lg')]: {
+        marginLeft: '3%',
+      },
+      [theme.breakpoints.down('md')]: {
+        display: 'none',
+      },
     },
 
     '& .login-register': {
@@ -82,9 +88,23 @@ export const authHeaderStyles = makeStyles((theme) => ({
         background: 'white',
         border: '2px solid #58D573',
       },
+      [theme.breakpoints.down('md')]: {
+        display: 'none',
+      },
     },
     [theme.breakpoints.down('lg')]: {
       height: '10vh',
+    },
+
+    [theme.breakpoints.down('md')]: {
+      justifyContent: 'space-between',
+    },
+  },
+  hamburgerMenu: {
+    display: 'none',
+    marginRight: '3%',
+    [theme.breakpoints.down('md')]: {
+      display: 'block',
     },
   },
 }));

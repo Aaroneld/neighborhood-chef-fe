@@ -20,7 +20,6 @@ const EventImageUpload = ({ values, setValues }) => {
         let file = e.target.files[0];
         let reader = new FileReader();
         reader.readAsDataURL(file);
-        console.log(reader.result);
         reader.onloadend = () => {
           setValues({ ...values, photo: reader.result });
         };

@@ -29,7 +29,7 @@ export const eventImageUploadStyles = makeStyles((theme) => ({
     },
   },
   img: {
-    width: '40%',
+    width: '35%',
     borderRadius: '100%',
     cursor: 'pointer',
     border: '5px solid #58D573',
