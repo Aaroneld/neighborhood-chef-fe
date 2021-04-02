@@ -27,7 +27,7 @@ function VariableMainContent(props) {
     case 'events':
       return <FullEvent {...props} />;
     case 'profile':
-      return <Profile {...props} />;
+      return <Profile />;
     default:
       return <p>you did a bad</p>;
   }
