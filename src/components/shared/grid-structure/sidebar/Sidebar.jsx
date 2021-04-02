@@ -8,6 +8,8 @@ import calendarPlus from '@iconify/icons-mdi/calendar-plus';
 //component import
 import SidebarButton from './sidebar-button/SidebarButton';
 
+import { styles } from './sidebar.style';
+
 const buttonList = [
   {
     active: false,
@@ -30,25 +32,11 @@ const buttonList = [
 ];
 
 const Sidebar = ({ active }) => {
+  const classnames = styles();
   return (
-    <div
-      style={{
-        paddingRight: '20px',
-        width: '255px',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-      }}
-    >
+    <div className={classnames.container}>
       <div>
-        <nav
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'flex-start',
-            textAlign: 'left',
-          }}
-        >
+        <nav>
           {buttonList.map((ele) => (
             <SidebarButton {...ele} active={active === ele.link} key={ele.text} />
           ))}

@@ -11,7 +11,7 @@ export const formPageOneStyles = makeStyles((theme) => ({
     },
   },
   leftContainer: {
-    width: '50%',
+    width: '40%',
     [theme.breakpoints.down('1000')]: {
       marginLeft: '5%',
     },
@@ -61,7 +61,7 @@ export const formPageOneStyles = makeStyles((theme) => ({
     borderRadius: '15px',
     outline: 'none',
     paddingTop: '10px',
-    paddingBottom: '138px',
+    paddingBottom: '30%',
     paddingLeft: '10px',
     paddingRight: '10px',
     fontSize: '1.6rem',
@@ -76,8 +76,8 @@ export const formPageOneStyles = makeStyles((theme) => ({
     },
   },
   rightContainer: {
-    width: '40%',
-    marginLeft: '5%',
+    width: '35%',
+    marginLeft: '10%',
     paddingRight: '30px',
     [theme.breakpoints.down('800')]: {
       display: 'flex',
@@ -90,16 +90,21 @@ export const formPageOneStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-around',
-    border: '2px solid #f0f0f0',
-    borderRadius: '15px',
+
     margin: '40px 0',
     [theme.breakpoints.down('800')]: {
       margin: '20px 0',
     },
   },
+
+  times: {
+    border: '2px solid #f0f0f0',
+    borderRadius: '15px',
+  },
   date: {
     border: 'none',
     borderRadius: '15px',
+    border: '2px dashed #f0f0f0',
     color: 'black',
     padding: '12px 30px',
     fontSize: '1.6rem',

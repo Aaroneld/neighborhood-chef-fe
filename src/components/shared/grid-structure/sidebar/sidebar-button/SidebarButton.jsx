@@ -15,8 +15,8 @@ const SidebarButton = ({ active, link, icon, text }) => {
   return (
     <Link to={`/${link}`}>
       <Button className={`${classes.root} ${active ? classes.active : classes.notActive}`}>
-        <span style={{ marginRight: '5px' }}>
-          <Icon height="20" icon={icon} />
+        <span>
+          <Icon icon={icon} />
         </span>
         <Typography variant="caption">{text}</Typography>
       </Button>

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { styles } from './datepicker.styles';
 
 import DateCell from './date-cell';
+import MonthYearPicker from './month-year-picker';
 
 const MONTHS = [];
 MONTHS[0] = 'January';
@@ -36,11 +37,14 @@ export default function DatePicker({ setDate }) {
 
   const [selectedDate, setSelectedDate] = useState(null);
 
+  const [open, setOpen] = useState(false);
+
   const selectDate = (e) => {
     setSelectedDate(Number(e.target.textContent));
   };
 
   useEffect(() => {
+    setSelectedDate(null);
     let date = new Date(currentSelectedYear, currentSelectedMonth, 1);
     const firstDay = date.getDay();
     let lastDay = '';
@@ -67,7 +71,7 @@ export default function DatePicker({ setDate }) {
 
     console.log(lastDay);
     date = new Date(currentSelectedYear, currentSelectedMonth, lastDay);
-    while (days.length !== 35) {
+    while (days.length < 35) {
       date.setDate(date.getDate() + 1);
       days.push({ date: date.getDate(), currentMonth: false });
     }
@@ -83,30 +87,51 @@ export default function DatePicker({ setDate }) {
   }, [selectedDate]);
 
   return (
-    <div className={classnames.container}>
-      <div className="display">
-        
-        <p>Date</p>
-        <div>
-          <p>{MONTHS[currentSelectedMonth]}</p>
-          <p>{currentSelectedYear}</p>
+    <div
+      className={classnames.container}
+      onClick={() => {
+        setOpen(false);
+      }}
+    >
+      <div>
+        <MonthYearPicker
+          currentSelectedMonth={currentSelectedMonth}
+          setSelectedMonth={setSelectedMonth}
+          currentSelectedYear={currentSelectedYear}
+          setSelectedYear={setSelectedYear}
+          open={open}
+          setOpen={setOpen}
+        />
+        <div className="display">
+          <p>Date</p>
+          <div
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              setOpen(true);
+            }}
+            className="year-month-button"
+          >
+            <p>{MONTHS[currentSelectedMonth].slice(0, 3)}</p>
+            <p>{currentSelectedYear}</p>
+          </div>
         </div>
-      </div>
-      <div className="picker">
-        {DAYS_OF_THE_WEEK.map((day) => (
-          <p key="day" className="picker-cell day">
-            {day}
-          </p>
-        ))}
-        {currentDaysInMonth &&
-          currentDaysInMonth.map((date, index) => (
-            <DateCell
-              date={date}
-              index={index}
-              setSelectedDate={setSelectedDate}
-              selectedDate={selectedDate}
-            />
+        <div className="picker">
+          {DAYS_OF_THE_WEEK.map((day) => (
+            <p key="day" className="picker-cell day">
+              {day}
+            </p>
           ))}
+          {currentDaysInMonth &&
+            currentDaysInMonth.map((date, index) => (
+              <DateCell
+                date={date}
+                index={index}
+                setSelectedDate={setSelectedDate}
+                selectedDate={selectedDate}
+              />
+            ))}
+        </div>
       </div>
     </div>
   );
