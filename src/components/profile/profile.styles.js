@@ -4,7 +4,7 @@ export const styles = makeStyles((theme) => ({
   root: {
     background: '#f2f2f2',
     borderRadius: '10px',
-    height: '100vh',
+    height: '100%',
     width: '100%',
     display: 'flex',
     justifyContent: 'center',
@@ -12,19 +12,29 @@ export const styles = makeStyles((theme) => ({
 
     '& .card': {
       display: 'flex',
-      justifyContent: 'center',
       flexDirection: 'column',
       width: '100%',
 
       '& .header': {
         display: 'flex',
         alignItems: 'center',
-        width: '90%',
+        justifyContent: 'center',
+        flexDirection: 'column',
+        width: '100%',
         padding: '20px',
+        marginTop: '30px',
 
         '& .avatar': {
-          minWidth: '200px',
-          minHeight: '200px',
+          width: '200px',
+          height: '200px',
+          fontSize: '5rem',
+          border: '5px solid rgba(33, 186, 66, 0.75)',
+          padding: '5px',
+        },
+
+        '& h2': {
+          fontWeight: 'bold',
+          padding: '5px',
         },
       },
     },

@@ -18,16 +18,14 @@ export const styles = makeStyles((theme) => ({
       height: '180px',
       outline: 'none',
       border: '2px solid #f0f0f0',
+      padding: '10px',
     },
     '& button': {
       display: 'flex',
       justifyContent: 'center',
       fontSize: '2rem',
       width: '20%',
-
-      '&:hover': {
-        opacity: '.7',
-      },
+      marginTop: '10px',
     },
   },
 }));
