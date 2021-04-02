@@ -13,6 +13,7 @@ import UserBioForm from './UserBioForm';
 
 const Profile = () => {
   const [user, setUser] = useState(null);
+  const [showForm, setShowForm] = useState(false);
   const { userid } = useParams();
   const classes = styles();
   const loggedInUserId = useSelector((state) => state.user.id);
@@ -54,7 +55,14 @@ const Profile = () => {
               {`${user.firstName} ${user.lastName}`}
             </Typography>
           </div>
-          {!user.bio && user.id === loggedInUserId && <UserBioForm setUser={setUser} />}
+          {!user.bio && user.id === loggedInUserId && !showForm && (
+            <Typography variant="h6" className={classes.title} onClick={() => setShowForm(true)}>
+              Add Bio
+            </Typography>
+          )}
+          {!user.bio && user.id === loggedInUserId && showForm && (
+            <UserBioForm setUser={setUser} setShowForm={setShowForm} />
+          )}
           {user.bio && <Typography>{user.bio}</Typography>}
         </Card>
       )}

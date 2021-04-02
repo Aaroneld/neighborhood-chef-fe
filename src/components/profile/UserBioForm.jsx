@@ -30,7 +30,7 @@ export const styles = makeStyles((theme) => ({
   },
 }));
 
-const UserBioForm = ({ setUser }) => {
+const UserBioForm = ({ setUser, setShowForm }) => {
   const [bio, setBio] = useState('');
   const btnStyles = buttonStyles();
   const classes = styles();
@@ -38,7 +38,9 @@ const UserBioForm = ({ setUser }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setBio('');
+    setShowForm(false);
   };
+
   return (
     <form onSubmit={handleSubmit} className={classes.root}>
       <textarea
@@ -47,6 +49,7 @@ const UserBioForm = ({ setUser }) => {
         placeholder="Add a biography to your profile"
         value={bio}
         onChange={(e) => setBio(e.target.value)}
+        autoFocus
       />
       <button
         style={{ opacity: !bio ? '.7' : '1' }}

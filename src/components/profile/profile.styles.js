@@ -37,6 +37,12 @@ export const styles = makeStyles((theme) => ({
           padding: '5px',
         },
       },
+      '& h6': {
+        cursor: 'pointer',
+        alignSelf: 'center',
+        fontWeight: 'bold',
+        color: 'rgba(33, 186, 66, 0.75)',
+      },
     },
   },
 }));
