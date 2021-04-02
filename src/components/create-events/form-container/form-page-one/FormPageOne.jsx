@@ -47,16 +47,16 @@ const FormPageOne = ({ errors, values, setValues, validate }) => {
           <DateInput errors={errors} values={values} setValues={setValues} validate={validate} />
           <TimeInputs errors={errors} values={values} setValues={setValues} validate={validate} />
           <CatagoryInput errors={errors} values={values} setValues={setValues} validate={validate} />
+          <EventButtons
+            leftBtnText="Cancel"
+            leftBtnClick={() => {
+              push('/dashboard');
+            }}
+            rightBtnText="Next"
+            rightBtnClick={validateAndTurnPage}
+          />
         </div>
       </div>
-      <EventButtons
-        leftBtnText="Cancel"
-        leftBtnClick={() => {
-          push('/dashboard');
-        }}
-        rightBtnText="Next"
-        rightBtnClick={validateAndTurnPage}
-      />
     </>
   );
 };

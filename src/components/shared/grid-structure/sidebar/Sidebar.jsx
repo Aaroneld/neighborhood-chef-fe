@@ -10,6 +10,8 @@ import userAvatar from '@iconify-icons/carbon/user-avatar';
 //component import
 import SidebarButton from './sidebar-button/SidebarButton';
 
+import { styles } from './sidebar.style';
+
 const buttonList = [
   {
     active: false,
@@ -39,17 +41,9 @@ const buttonList = [
 
 const Sidebar = ({ active }) => {
   const profileLink = `profile/${useSelector((state) => state.user.id)}`;
-
+  const classnames = styles();
   return (
-    <div
-      style={{
-        paddingRight: '20px',
-        width: '255px',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-      }}
-    >
+    <div className={classnames.container}>
       <div>
         <nav
           style={{

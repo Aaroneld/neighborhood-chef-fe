@@ -19,7 +19,7 @@ export default function TimeInputs({ errors, setValues, values, validate }) {
 
   return (
     <>
-      <div className={styles.timeDiv}>
+      <div className={styles.timeDiv + ' ' + styles.times}>
         <label htmlFor="greenSelect" className={styles.label}>
           The event starts at:
         </label>
@@ -52,7 +52,7 @@ export default function TimeInputs({ errors, setValues, values, validate }) {
         />
       )}
 
-      <div className={styles.timeDiv}>
+      <div className={styles.timeDiv + ' ' + styles.times}>
         <label htmlFor="redSelect" className={styles.label}>
           The event ends at:
         </label>

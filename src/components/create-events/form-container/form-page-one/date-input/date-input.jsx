@@ -3,7 +3,7 @@ import { formPageOneStyles } from '../FormPageOne.styles';
 import TextField from '@material-ui/core/TextField';
 import { ErrorMessage } from '@hookform/error-message';
 import moment from 'moment';
-import { ErrorSharp } from '@material-ui/icons';
+import DatePicker from './datepicker';
 
 export default function DateInput({ errors, setValues, values, validate }) {
   const today = moment().format('YYYY-MM-DD');
@@ -19,11 +19,11 @@ export default function DateInput({ errors, setValues, values, validate }) {
   return (
     <>
       <div className={styles.timeDiv}>
-        <label htmlFor="eventFormDate" className={styles.label}>
+        {/* <label htmlFor="eventFormDate" className={styles.label}>
           Date
-        </label>
+        </label> */}
 
-        <TextField
+        {/* <TextField
           name="date"
           type="date"
           className={styles.date}
@@ -36,7 +36,8 @@ export default function DateInput({ errors, setValues, values, validate }) {
           onBlur={() => {
             validate('date');
           }}
-        />
+        /> */}
+        <DatePicker setDate={() => {}} />
       </div>
       {errors.date && errors.date.length && (
         <ErrorMessage

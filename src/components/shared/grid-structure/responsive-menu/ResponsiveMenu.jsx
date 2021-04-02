@@ -6,6 +6,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import { useHistory } from 'react-router-dom';
 
+import { styles } from './responsive-menu.styles';
+
 const ResponsiveMenu = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const { push } = useHistory();
@@ -20,12 +22,21 @@ const ResponsiveMenu = () => {
     push(url);
   };
 
+  const classnames = styles();
+
   return (
     <div>
       <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
         <MenuIcon style={{ fontSize: '3rem' }} />
       </Button>
-      <Menu id="simple-menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
+      <Menu
+        className={classnames.container}
+        id="simple-menu"
+        anchorEl={anchorEl}
+        keepMounted
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+      >
         <MenuItem onClick={() => handleClose('/dashboard')}>My Neighborhood</MenuItem>
         <MenuItem onClick={() => handleClose('/view-events')}>Calendar</MenuItem>
         <MenuItem onClick={() => handleClose('/create-event')}>Create Event</MenuItem>
