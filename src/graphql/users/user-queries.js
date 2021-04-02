@@ -127,3 +127,30 @@ export const RECENT_EVENTS = gql`
         }
     }
 `;
+
+export const USER_BY_ID = gql`
+    query Users($queryParams: UserInput) {
+        Users(queryParams: $queryParams) {
+            id
+            email
+            firstName
+            lastName
+            gender
+            address
+            latitude
+            longitude
+            UserEvents {
+                attending {
+                    ${getBYEmailEventString}
+                }
+                invited {
+                    ${getBYEmailEventString}
+                }
+                favorited 
+                owned {
+                    ${getBYEmailEventString}
+                }
+            }
+        }
+    }
+`;

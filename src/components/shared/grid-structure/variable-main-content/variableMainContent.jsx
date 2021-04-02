@@ -4,6 +4,7 @@ import Dashboard from '../../../dashboard/Dashboard';
 import ViewEvents from '../../../calender/ViewEvents';
 import CreateEvent from '../../../create-events/CreateEvent';
 import FullEvent from '../../../event/FullEvent';
+import Profile from '../../../profile/Profile';
 
 function VariableMainContent(props) {
   const location = useLocation();
@@ -25,6 +26,8 @@ function VariableMainContent(props) {
       return <ViewEvents />;
     case 'events':
       return <FullEvent {...props} />;
+    case 'profile':
+      return <Profile {...props} />;
     default:
       return <p>you did a bad</p>;
   }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 //react router imports
 
@@ -109,7 +110,10 @@ const EventDetails = ({ event, attending, setAttending }) => {
               subheader={
                 <Typography variant="caption">
                   <span>created by </span>
-                  {`${event.User.firstName} ${event.User.lastName}`}
+                  <Link
+                    to={`/profile/${event.User.id}`}
+                    style={{ cursor: 'pointer' }}
+                  >{`${event.User.firstName} ${event.User.lastName}`}</Link>
                 </Typography>
               }
             />

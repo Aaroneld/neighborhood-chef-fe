@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -8,6 +9,7 @@ import { useHistory } from 'react-router-dom';
 const ResponsiveMenu = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const { push } = useHistory();
+  const userId = useSelector((state) => state.user.id);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -27,6 +29,7 @@ const ResponsiveMenu = () => {
         <MenuItem onClick={() => handleClose('/dashboard')}>My Neighborhood</MenuItem>
         <MenuItem onClick={() => handleClose('/view-events')}>Calendar</MenuItem>
         <MenuItem onClick={() => handleClose('/create-event')}>Create Event</MenuItem>
+        <MenuItem onClick={() => handleClose(`/profile/${userId}`)}>Profile</MenuItem>
       </Menu>
     </div>
   );

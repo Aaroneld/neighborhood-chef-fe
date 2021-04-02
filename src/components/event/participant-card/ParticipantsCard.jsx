@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 //style imports
 import { cardStyles } from '../../../styles';
@@ -23,17 +24,21 @@ const ParticipantCard = ({ attending }) => {
             <AvatarGroup max={4}>
               {attending.map((user) => {
                 return (
-                  <Avatar
-                    key={user.id}
-                    title={`${user.firstName} ${user.lastName}`}
-                    aria-label="avatar"
-                    className={classes.avatar}
-                    src={user.photo ? null : user.photo}
-                  >
-                    {!user.photo && (
-                      <Typography>{`${user.firstName.split('')[0]}${user.lastName.split('')[0]}`}</Typography>
-                    )}
-                  </Avatar>
+                  <Link to={`/profile/${user.id}`} style={{ cursor: 'pointer' }}>
+                    <Avatar
+                      key={user.id}
+                      title={`${user.firstName} ${user.lastName}`}
+                      aria-label="avatar"
+                      className={classes.avatar}
+                      src={user.photo ? null : user.photo}
+                    >
+                      {!user.photo && (
+                        <Typography>{`${user.firstName.split('')[0]}${
+                          user.lastName.split('')[0]
+                        }`}</Typography>
+                      )}
+                    </Avatar>
+                  </Link>
                 );
               })}
             </AvatarGroup>

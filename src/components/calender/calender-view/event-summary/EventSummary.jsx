@@ -50,7 +50,10 @@ const EventSummary = ({ selectedEvent }) => {
             subheader={
               <Typography variant="caption">
                 <span>created by</span>
-                {`${selectedEvent.User.firstName} ${selectedEvent.User.lastName}`}
+                <Link
+                  style={{ pointer: 'cursor' }}
+                  to={`/profile/${selectedEvent.User.id}`}
+                >{` ${selectedEvent.User.firstName} ${selectedEvent.User.lastName}`}</Link>
               </Typography>
             }
           />
