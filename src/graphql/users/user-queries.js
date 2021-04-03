@@ -111,9 +111,7 @@ export const RECENT_EVENTS = gql`
                     }
                     ${getBYEmailEventString}
                 }
-                favorited {
-                    id
-                }
+                favorited 
                 owned {
                     User {
                         id

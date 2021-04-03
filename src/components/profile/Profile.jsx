@@ -34,6 +34,7 @@ const Profile = () => {
       }).then(
         (res) => {
           setUser(res.data.data.Users[0]);
+          console.log(res.data.data.Users[0]);
         },
         (err) => console.dir(err)
       );

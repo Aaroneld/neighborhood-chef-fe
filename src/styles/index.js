@@ -347,6 +347,10 @@ export const cardStyles = makeStyles((theme) => ({
     backgroundColor: '#e8e8e8',
     color: 'black',
     letterSpacing: '3px',
+
+    '&:hover': {
+      filter: 'brightness(70%)',
+    },
   },
   share: {
     maxHeight: 150,

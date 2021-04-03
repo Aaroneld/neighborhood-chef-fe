@@ -13,7 +13,6 @@ import { Icon } from '@iconify/react';
 import { INVITE_USER, REMOVE_INVITATION } from '../../../../../../../graphql/events/event-mutations.js';
 
 const UserCard = ({ user, setAlreadyInvited, event_id, invited }) => {
-  console.log(user);
   const buttonClasses = buttonStyles();
   const classes = cardStyles();
   const currentUserId = useSelector((state) => state.user.id);
