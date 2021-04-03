@@ -55,7 +55,7 @@ const Sidebar = ({ active }) => {
         >
           {buttonList.map((ele) => {
             if (ele.text === 'Profile') ele.link = profileLink;
-            return <SidebarButton {...ele} active={active === ele.link} key={ele.text} />;
+            return <SidebarButton {...ele} active={active === ele.link.split('/')[0]} key={ele.text} />;
           })}
         </nav>
       </div>
