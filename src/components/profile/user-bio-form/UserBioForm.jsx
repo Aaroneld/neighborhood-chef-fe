@@ -38,6 +38,7 @@ export const styles = makeStyles((theme) => ({
         fontSize: '2rem',
         width: '20%',
         marginTop: '10px',
+        fontWeight: 'bold',
       },
     },
   },

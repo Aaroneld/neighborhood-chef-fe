@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import ls from 'local-storage';
+import Spinner from '../shared/spinner/Spinner';
 const qs = require('querystring');
 
 function LoginRedirect(props) {
@@ -44,7 +45,7 @@ function LoginRedirect(props) {
 
   if (authenticated) push('/generic-redirect/dashboard');
 
-  if (!authenticated) return <p>redirecting...</p>;
+  if (!authenticated) return <Spinner />;
   else return null;
 }
 

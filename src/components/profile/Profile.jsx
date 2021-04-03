@@ -10,65 +10,75 @@ import { axiosWithAuth } from '../../utilities/axiosWithAuth';
 import { USER_BY_ID } from '../../graphql/users/user-queries';
 import { styles } from './profile.styles.js';
 import UserBioForm from './user-bio-form/UserBioForm';
+import Spinner from '../shared/spinner/Spinner';
 
 const Profile = () => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const { userid } = useParams();
   const classes = styles();
   const loggedInUserId = useSelector((state) => state.user.id);
 
   useEffect(() => {
-    if (userid)
-      axiosWithAuth()({
-        url: `${process.env.REACT_APP_BASE_URL}/graphql`,
-        method: 'post',
-        data: {
-          query: print(USER_BY_ID),
-          variables: {
-            queryParams: {
-              id: Number(userid),
-            },
+    if (userid) setLoading(true);
+    axiosWithAuth()({
+      url: `${process.env.REACT_APP_BASE_URL}/graphql`,
+      method: 'post',
+      data: {
+        query: print(USER_BY_ID),
+        variables: {
+          queryParams: {
+            id: Number(userid),
           },
         },
-      }).then(
-        (res) => {
-          setUser(res.data.data.Users[0]);
-          console.log(res.data.data.Users[0]);
-        },
-        (err) => console.dir(err)
-      );
+      },
+    }).then(
+      (res) => {
+        setLoading(false);
+        setUser(res.data.data.Users[0]);
+        console.log(res.data.data.Users[0]);
+      },
+      (err) => {
+        console.dir(err);
+        setLoading(false);
+      }
+    );
   }, [userid]);
 
-  return (
-    <div className={classes.root}>
-      {user && (
-        <Card className="card">
-          <div className="header">
-            <Avatar
-              key={user.id}
-              title={`${user.firstName} ${user.lastName}`}
-              aria-label="avatar"
-              src={user.photo ? user.photo : curry}
-              className="avatar"
-            />
-            <Typography variant="h2" className={classes.title}>
-              {`${user.firstName} ${user.lastName}`}
-            </Typography>
-          </div>
-          {!user.bio && user.id === loggedInUserId && !showForm && (
-            <Typography variant="h6" className={classes.title} onClick={() => setShowForm(true)}>
-              Add Bio
-            </Typography>
-          )}
-          {!user.bio && user.id === loggedInUserId && showForm && (
-            <UserBioForm setUser={setUser} setShowForm={setShowForm} />
-          )}
-          {user.bio && <Typography>{user.bio}</Typography>}
-        </Card>
-      )}
-    </div>
-  );
+  if (loading) {
+    return <Spinner />;
+  } else {
+    return (
+      <div className={classes.root}>
+        {user && (
+          <Card className="card">
+            <div className="header">
+              <Avatar
+                key={user.id}
+                title={`${user.firstName} ${user.lastName}`}
+                aria-label="avatar"
+                src={user.photo ? user.photo : curry}
+                className="avatar"
+              />
+              <Typography variant="h2" className={classes.title}>
+                {`${user.firstName} ${user.lastName}`}
+              </Typography>
+            </div>
+            {!user.bio && user.id === loggedInUserId && !showForm && (
+              <Typography variant="h6" className={classes.title} onClick={() => setShowForm(true)}>
+                Add Bio
+              </Typography>
+            )}
+            {!user.bio && user.id === loggedInUserId && showForm && (
+              <UserBioForm setUser={setUser} setShowForm={setShowForm} />
+            )}
+            {user.bio && <Typography>{user.bio}</Typography>}
+          </Card>
+        )}
+      </div>
+    );
+  }
 };
 
 export default Profile;
