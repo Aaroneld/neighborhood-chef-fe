@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { formPageOneStyles } from '../FormPageOne.styles';
 import CreateIcon from '@material-ui/icons/Create';
 

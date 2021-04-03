@@ -1,4 +1,3 @@
-import { BorderTop } from '@material-ui/icons';
 import makeStyles from '@material-ui/styles/makeStyles';
 
 export const styles = makeStyles({

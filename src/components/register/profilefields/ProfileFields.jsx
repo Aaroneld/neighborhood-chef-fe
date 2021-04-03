@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import TextField from '@material-ui/core/TextField';
 import { Divider, Button } from '@material-ui/core';
@@ -20,13 +20,6 @@ import { ErrorMessage } from '@hookform/error-message';
 const ProfileFields = (props) => {
   const buttonClasses = buttonStyles();
   const classnames = styles();
-
-  const [photo, setPhoto] = useState('');
-
-  const changePhoto = (photo) => {
-    setPhoto(photo);
-    props.setFieldValue('photo', photo);
-  };
 
   const handleChange = (e) => {
     e.persist();
@@ -98,11 +91,7 @@ const ProfileFields = (props) => {
           <MenuItem value={'other'}>Other</MenuItem>
         </Select>
       </FormControl>
-      <EventImageUpload
-        avatar={photo}
-        setPhoto={changePhoto}
-        title="Upload a picture for your avatar (optional)"
-      />
+      <EventImageUpload values={props.values} setValues={props.setValues} />
 
       <Divider />
 

@@ -17,7 +17,6 @@ export default function SubComments({ subcomments, eventId, setSubComments, user
             eventId={eventId}
             Reactions={comment.Reactions}
             setSubComments={setSubComments}
-            User={comment.User}
           />
         ))}
     </div>

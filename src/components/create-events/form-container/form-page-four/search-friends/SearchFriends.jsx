@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import SearchIcon from '@material-ui/icons/Search';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { print } from 'graphql';
 import { axiosWithAuth } from '../../../../../utilities/axiosWithAuth';
 
 import { USER_WITHIN_RADIUS } from '../../../../../graphql/users/user-queries.js';
-import { searchForUsersSuccess } from '../../../../../utilities/actions';
 
 import UserList from './userlist/UserList';
 import { searchFriendsStyles } from './SearchFriends.styles';
@@ -36,7 +35,7 @@ const SearchFriends = ({ event_id }) => {
         setUsersWithinRadius(res.data.data.Users);
       })
       .catch((err) => console.dir(err));
-  }, []);
+  }, [user.latitude, user.longitude]);
 
   // filtering userList to allow search by first name, last name and email
   useEffect(() => {

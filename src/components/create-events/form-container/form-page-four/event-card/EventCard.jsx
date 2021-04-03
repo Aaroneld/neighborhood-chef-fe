@@ -1,5 +1,4 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import moment from 'moment';
 
 import { eventCardStyles } from './EventCard.styles';

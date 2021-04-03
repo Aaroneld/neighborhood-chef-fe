@@ -32,6 +32,8 @@ const DisplayEventModifiers = ({ values, setValues }) => {
                 return (
                   <Modifier key={modifier.title} modifier={modifier} values={values} setValues={setValues} />
                 );
+              } else {
+                return '';
               }
             })}
           </div>

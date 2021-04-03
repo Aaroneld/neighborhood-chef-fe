@@ -20,6 +20,7 @@ const EventPopup = ({ selectedEvent }) => {
       <img
         src={selectedEvent.photo ? selectedEvent.photo : chooseDefaultPicture(selectedEvent.title.charAt(0))}
         title="Event Details Photo"
+        alt="Event details Avatar"
       />
       <div className="container">
         <Link to={`/events/${selectedEvent.id}`}>

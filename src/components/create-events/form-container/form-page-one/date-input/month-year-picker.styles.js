@@ -1,5 +1,4 @@
 import makeStyles from '@material-ui/styles/makeStyles';
-import { findByLabelText } from '@testing-library/dom';
 
 export const styles = makeStyles((theme) => ({
   container: {

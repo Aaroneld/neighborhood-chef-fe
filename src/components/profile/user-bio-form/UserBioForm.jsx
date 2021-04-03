@@ -26,7 +26,6 @@ export const styles = makeStyles((theme) => ({
       justifyContent: 'center',
 
       '& :first-child': {
-        color: 'white',
         color: '#b3b3b3',
         border: '2px solid #e5e5e5',
         background: 'white',

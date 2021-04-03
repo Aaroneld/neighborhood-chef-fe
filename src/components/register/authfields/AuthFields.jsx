@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
-
 import { styles } from './authfields.styles';
-
 import TextField from '@material-ui/core/TextField';
 import { Checkbox, Button } from '@material-ui/core';
 import { buttonStyles } from '../../../styles';
-import Typography from '@material-ui/core/Typography';
-
 import { ErrorMessage } from '@hookform/error-message';
 
 const AuthFields = ({ setStepper, setValues, errors, validate }) => {

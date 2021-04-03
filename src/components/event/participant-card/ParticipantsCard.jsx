@@ -31,7 +31,6 @@ const ParticipantCard = ({ attending }) => {
                       aria-label="avatar"
                       className={classes.avatar}
                       src={user.photo ? null : user.photo}
-                      key={user.id}
                     >
                       {!user.photo && (
                         <Typography>{`${user.firstName.split('')[0]}${

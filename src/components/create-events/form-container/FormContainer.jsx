@@ -113,14 +113,14 @@ const FormContainer = () => {
   useEffect(() => {
     setValues(initialValues);
     return () => dispatch(changePage(1));
-  }, [initialValues]);
+  }, [initialValues, dispatch, setValues]);
 
   useEffect(() => {
     if ((loadedFlag === 0 && values.title !== '') || !window.location.pathname.split('/')[2]) {
       flag(1);
       setLoaded(true);
     }
-  }, [values]);
+  }, [values, loadedFlag]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

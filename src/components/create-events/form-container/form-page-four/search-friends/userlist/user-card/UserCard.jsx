@@ -1,10 +1,9 @@
 import React from 'react';
 import { axiosWithAuth } from '../../../../../../../utilities/axiosWithAuth';
 import { print } from 'graphql';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { cardStyles, buttonStyles } from '../../../../../../../styles';
 import Typography from '@material-ui/core/Typography';
-import { makeInitials } from '../../../../../../../utilities/functions';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import checkmarkIcon from '@iconify/icons-gridicons/checkmark';

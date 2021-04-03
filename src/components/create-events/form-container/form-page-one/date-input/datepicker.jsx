@@ -84,7 +84,7 @@ export default function DatePicker({ setDate }) {
     console.log(`${currentSelectedYear}-${currentSelectedMonth + 1 < 10? '0' : ''}${currentSelectedMonth + 1}-${selectDate < 10 ? '0' : ''}${selectedDate}`)
     //prettier-ignore
     setDate(`${currentSelectedYear}-${currentSelectedMonth + 1 < 10? '0' : ''}${currentSelectedMonth + 1}-${selectDate < 10 ? '0' : ''}${selectedDate}`)
-  }, [selectedDate]);
+  }, [selectedDate, currentSelectedYear, currentSelectedMonth, setDate]);
 
   return (
     <div

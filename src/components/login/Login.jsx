@@ -1,6 +1,4 @@
 import React from 'react';
-import { buttonStyles, cardStyles } from '../../styles';
-
 import AuthHeader from '../shared/AuthHeader';
 import food from '../../assets/food.jpg';
 import bgImage from '../../assets/chef.svg';
