@@ -9,7 +9,7 @@ import curry from '../../assets/curry.jpg';
 import { axiosWithAuth } from '../../utilities/axiosWithAuth';
 import { USER_BY_ID } from '../../graphql/users/user-queries';
 import { styles } from './profile.styles.js';
-import UserBioForm from './UserBioForm';
+import UserBioForm from './user-bio-form/UserBioForm';
 
 const Profile = () => {
   const [user, setUser] = useState(null);

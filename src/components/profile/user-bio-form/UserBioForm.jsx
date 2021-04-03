@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import makeStyles from '@material-ui/styles/makeStyles';
-import { buttonStyles } from '../../styles';
+import { buttonStyles } from '../../../styles';
 
 export const styles = makeStyles((theme) => ({
   root: {
@@ -20,12 +20,25 @@ export const styles = makeStyles((theme) => ({
       border: '2px solid #f0f0f0',
       padding: '10px',
     },
-    '& button': {
+    '& div': {
+      width: '100%',
       display: 'flex',
       justifyContent: 'center',
-      fontSize: '2rem',
-      width: '20%',
-      marginTop: '10px',
+
+      '& :first-child': {
+        color: 'white',
+        color: '#b3b3b3',
+        border: '2px solid #e5e5e5',
+        background: 'white',
+      },
+
+      '& button': {
+        display: 'flex',
+        justifyContent: 'center',
+        fontSize: '2rem',
+        width: '20%',
+        marginTop: '10px',
+      },
     },
   },
 }));
@@ -51,13 +64,18 @@ const UserBioForm = ({ setUser, setShowForm }) => {
         onChange={(e) => setBio(e.target.value)}
         autoFocus
       />
-      <button
-        style={{ opacity: !bio ? '.7' : '1' }}
-        disabled={!bio}
-        className={`${btnStyles.root} ${btnStyles.active}`}
-      >
-        Submit
-      </button>
+      <div>
+        <button onClick={() => setShowForm(false)} className={`${btnStyles.root} ${classes.leftBtn}`}>
+          Cancel
+        </button>
+        <button
+          style={{ opacity: !bio ? '.3' : '1' }}
+          disabled={!bio}
+          className={`${btnStyles.root} ${btnStyles.active}`}
+        >
+          Submit
+        </button>
+      </div>
     </form>
   );
 };
