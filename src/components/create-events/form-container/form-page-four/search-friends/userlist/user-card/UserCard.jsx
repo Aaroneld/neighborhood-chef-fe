@@ -8,12 +8,14 @@ import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import checkmarkIcon from '@iconify/icons-gridicons/checkmark';
 import { Icon } from '@iconify/react';
+import { styles } from './userCard.styles.js';
 
 import { INVITE_USER, REMOVE_INVITATION } from '../../../../../../../graphql/events/event-mutations.js';
 
 const UserCard = ({ user, setAlreadyInvited, event_id, invited }) => {
   const buttonClasses = buttonStyles();
-  const classes = cardStyles();
+  const cardClasses = cardStyles();
+  const classes = styles();
   const currentUserId = useSelector((state) => state.user.id);
 
   const inviteUser = () => {
@@ -52,39 +54,18 @@ const UserCard = ({ user, setAlreadyInvited, event_id, invited }) => {
       .catch((err) => console.dir(err));
   };
   return (
-    <div
-      style={{
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        width: '100%',
-        margin: '10px',
-      }}
-      key={user.id}
-    >
+    <div className={classes.root} key={user.id}>
       <div style={{ display: 'flex', alignItems: 'center', width: '80%' }}>
-        <Avatar aria-label="avatar" className={classes.avatar} src={!user.photo ? null : user.photo}>
+        <Avatar
+          aria-label="avatar"
+          className={cardClasses.avatarNoHover}
+          src={!user.photo ? null : user.photo}
+        >
           {!user.photo && <Typography>{`${user.firstName.charAt(0)}${user.lastName.charAt(0)}`}</Typography>}
         </Avatar>
 
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            marginLeft: '5%',
-            width: '20%',
-          }}
-        >
-          <div
-            style={{
-              display: 'flex',
-              textAlign: 'left',
-              fontSize: '1.4rem',
-              color: '#1A0F2C',
-              fontWeight: '500',
-              lineStyle: 'normal',
-            }}
-          >
+        <div className={classes.textContainer}>
+          <div>
             <p>
               {user.firstName}&nbsp;{user.lastName}
             </p>
@@ -100,14 +81,7 @@ const UserCard = ({ user, setAlreadyInvited, event_id, invited }) => {
         </div>
       </div>
       <div style={{ width: '50px' }}>{/* Not Invited */}</div>
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'flex-end',
-          width: '60px',
-        }}
-      >
+      <div className={classes.iconContainer}>
         <IconButton
           className={`${buttonClasses.icon} ${invited ? buttonClasses.iconGreen : ''}`}
           onClick={() => (invited ? removeInvite() : inviteUser())}
