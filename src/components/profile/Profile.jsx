@@ -11,6 +11,7 @@ import { USER_BY_ID } from '../../graphql/users/user-queries';
 import { styles } from './profile.styles.js';
 import UserBioForm from './user-bio-form/UserBioForm';
 import Spinner from '../shared/spinner/Spinner';
+import AccountEventCard from '../shared/grid-structure/header/header-partition-persistent/account-drawer/account-event-card/AccountEventCard';
 
 const Profile = () => {
   const [user, setUser] = useState(null);
@@ -37,7 +38,6 @@ const Profile = () => {
       (res) => {
         setLoading(false);
         setUser(res.data.data.Users[0]);
-        console.log(res.data.data.Users[0]);
       },
       (err) => {
         console.dir(err);
@@ -66,7 +66,7 @@ const Profile = () => {
               </Typography>
             </div>
             {!user.bio && user.id === loggedInUserId && !showForm && (
-              <Typography variant="h6" className={classes.title} onClick={() => setShowForm(true)}>
+              <Typography variant="h6" className="addBio" onClick={() => setShowForm(true)}>
                 Add Bio
               </Typography>
             )}
@@ -74,6 +74,16 @@ const Profile = () => {
               <UserBioForm setUser={setUser} setShowForm={setShowForm} />
             )}
             {user.bio && <Typography>{user.bio}</Typography>}
+            {user.UserEvents.owned.length > 0 && (
+              <div className="eventContainer">
+                <p variant="h5">{`${user.firstName}'s Events:`}</p>
+                <div className="events">
+                  {user.UserEvents.owned.map((event) => (
+                    <AccountEventCard event={event} />
+                  ))}
+                </div>
+              </div>
+            )}
           </Card>
         )}
       </div>

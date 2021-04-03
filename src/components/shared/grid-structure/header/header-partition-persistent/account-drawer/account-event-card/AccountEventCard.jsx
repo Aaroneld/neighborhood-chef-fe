@@ -12,7 +12,7 @@ const AccountEVentCard = ({ event }) => {
   const history = useHistory();
   const classes = cardStyles();
   const timeObject = parseTime(event.startTime);
-  const photo = event.photo !== 'null' ? event.photo : chooseDefaultPicture(event.category_id);
+  const photo = event.photo ? event.photo : chooseDefaultPicture(event.title.charAt(0));
   const attending = event.EventUsers.attending;
 
   return (

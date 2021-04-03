@@ -14,6 +14,8 @@ export const styles = makeStyles((theme) => ({
       display: 'flex',
       flexDirection: 'column',
       width: '100%',
+      height: '100%',
+      marginBottom: '40px',
 
       '& .header': {
         display: 'flex',
@@ -37,14 +39,28 @@ export const styles = makeStyles((theme) => ({
           padding: '5px',
         },
       },
-      '& h6': {
+      '& .addBio': {
         cursor: 'pointer',
         alignSelf: 'center',
         fontWeight: 'bold',
         color: 'rgba(33, 186, 66, 0.75)',
       },
-      [theme.breakpoints.down('sm')]: {
-        height: '90vh',
+    },
+    '& .eventContainer': {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: '100%',
+      height: '100%',
+      margin: '30px 0',
+
+      '& .events': {
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        width: '100%',
+        height: '100%',
       },
     },
   },
