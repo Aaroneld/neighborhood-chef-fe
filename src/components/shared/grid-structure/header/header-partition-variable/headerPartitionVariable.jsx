@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { useLocation } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
-import { useSelector } from 'react-redux';
 
 import MonthPicker from '../../../../calender/MonthPicker';
 import CreateEventHeader from '../../../../create-events/CreateEventHeader';
@@ -27,8 +26,7 @@ const styles = makeStyles({
   },
 });
 
-function VariableHeader(props) {
-  const event = useSelector((state) => state.currentEvent);
+function VariableHeader() {
   const classes = styles();
   const location = useLocation();
   const [urlLocation, setUrlLocation] = useState(location.pathname.split('/')[1]);
@@ -41,9 +39,9 @@ function VariableHeader(props) {
   switch (urlLocation) {
     case 'dashboard':
       return '';
-      // <section className={classes['container']}>
-      //   {matches ? <Logo /> : <Typography variant="h4">My Neighborhood</Typography>}
-      // </section>
+    // <section className={classes['container']}>
+    //   {matches ? <Logo /> : <Typography variant="h4">My Neighborhood</Typography>}
+    // </section>;
     case 'create-event':
       return <section className={classes['container']}>{matches ? <Logo /> : <CreateEventHeader />}</section>;
     case 'view-events':
@@ -68,6 +66,12 @@ function VariableHeader(props) {
       return (
         <section className={classes['container']}>
           {matches ? <Logo /> : <Typography variant="h4">Event Details</Typography>}
+        </section>
+      );
+    case 'profile':
+      return (
+        <section className={classes['container']}>
+          {matches ? <Logo /> : <Typography variant="h4"></Typography>}
         </section>
       );
     default:

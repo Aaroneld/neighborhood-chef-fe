@@ -23,7 +23,6 @@ export default function SubComment({
   eventId,
   Reactions,
   setSubComments,
-  User,
 }) {
   const user = useSelector((state) => state.user);
   const timeObject = parseTime(dateCreated);
@@ -57,7 +56,7 @@ export default function SubComment({
     const newComment = {
       comment: reply,
       root_id: Number(root),
-      parent_id: Number(User.id),
+      parent_id: Number(commentOwner.id),
       event_id: Number(eventId),
       user_id: Number(user.id),
     };
@@ -81,9 +80,9 @@ export default function SubComment({
         };
         newComment.dateCreated = Date.now();
         newComment.Parent = {
-          id: User.id,
-          firstName: User.firstName,
-          lastName: User.lastName,
+          id: commentOwner.id,
+          firstName: commentOwner.firstName,
+          lastName: commentOwner.lastName,
         };
         setSubComments((subComments) => [...subComments, newComment]);
       },
@@ -100,7 +99,6 @@ export default function SubComment({
               key={commentOwner.id}
               title={`${commentOwner.firstName} ${commentOwner.lastName}`}
               aria-label="avatar"
-              className={classes.avatar}
               src={!commentOwner.photo ? null : commentOwner.photo}
               className={classes.photoContainer}
             >

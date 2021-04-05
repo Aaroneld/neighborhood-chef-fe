@@ -24,6 +24,9 @@ export const styles = makeStyles((theme) => ({
             justifyContent: 'flex-start',
             '&  span': {
               fontSize: '150%',
+              [theme.breakpoints.down('lg')]: {
+                fontSize: '130%',
+              },
 
               '& span': {
                 marginLeft: '6%',

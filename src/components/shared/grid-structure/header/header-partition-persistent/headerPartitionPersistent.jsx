@@ -4,8 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 // import bxBell from "@iconify/icons-bx/bx-bell";
 // import magnifyingGlass from "@iconify/icons-entypo/magnifying-glass";
 // import Typography from "@material-ui/core/Typography";
-
-import AccountDrawer from './account-drawer/AccountDrawer';
+//import AccountDrawer from './account-drawer/AccountDrawer';
 
 const styles = makeStyles((theme) => ({
   container: {
@@ -13,7 +12,6 @@ const styles = makeStyles((theme) => ({
     height: '10vh',
     display: 'flex',
     justifyContent: 'flex-end',
-    display: 'flex',
     alignItems: 'center',
   },
   icons: {

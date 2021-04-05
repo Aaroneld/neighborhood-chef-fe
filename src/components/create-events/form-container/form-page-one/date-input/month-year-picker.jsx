@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { styles } from './month-year-picker.styles';
 
-import { Icon, InlineIcon } from '@iconify/react';
+import { Icon } from '@iconify/react';
 import triangleRight from '@iconify-icons/entypo/triangle-left';
 import triangleLeft from '@iconify-icons/entypo/triangle-right';
 

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useHistory, Route } from 'react-router-dom';
 import useValidate from '../../hooks/useValidate';
+import Spinner from '../shared/spinner/Spinner';
 
 //const qs = require('querystring');
 
@@ -19,7 +20,7 @@ function PrivateRoute({ component: Component, path, ...props }) {
   console.log(response);
 
   if (!response) {
-    return <p>...loading</p>;
+    return <Spinner />;
   }
 
   if (env === 'production' && response.status.toString().match(/2[0-9][0-9]/) && response.data.active) {

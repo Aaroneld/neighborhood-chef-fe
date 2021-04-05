@@ -102,7 +102,6 @@ export const formPageOneStyles = makeStyles((theme) => ({
     borderRadius: '15px',
   },
   date: {
-    border: 'none',
     borderRadius: '15px',
     border: '2px dashed #f0f0f0',
     color: 'black',

@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+// eslint-disable-next-line
+import React, { useState } from 'react';
 import * as yup from 'yup';
 
 export default function useForm(defaultValues, schemaInput) {

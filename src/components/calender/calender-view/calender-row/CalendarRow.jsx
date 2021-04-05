@@ -19,7 +19,7 @@ const CalendarRow = (props) => {
     if (windowWidth >= 1280) setShowEvent(false);
     else if (windowWidth < 1280 && props.selectedEvent) setShowEvent(true);
     return () => window.removeEventListener('resize', resizeWindow);
-  });
+  }, [windowWidth, props.selectedEvent]);
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>

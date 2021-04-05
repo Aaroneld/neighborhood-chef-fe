@@ -111,9 +111,7 @@ export const RECENT_EVENTS = gql`
                     }
                     ${getBYEmailEventString}
                 }
-                favorited {
-                    id
-                }
+                favorited 
                 owned {
                     User {
                         id
@@ -121,6 +119,33 @@ export const RECENT_EVENTS = gql`
                         lastName
                         status
                     }
+                    ${getBYEmailEventString}
+                }
+            }
+        }
+    }
+`;
+
+export const USER_BY_ID = gql`
+    query Users($queryParams: UserInput) {
+        Users(queryParams: $queryParams) {
+            id
+            email
+            firstName
+            lastName
+            gender
+            address
+            latitude
+            longitude
+            UserEvents {
+                attending {
+                    ${getBYEmailEventString}
+                }
+                invited {
+                    ${getBYEmailEventString}
+                }
+                favorited 
+                owned {
                     ${getBYEmailEventString}
                 }
             }

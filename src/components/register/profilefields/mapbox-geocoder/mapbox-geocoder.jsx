@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { formPageOneStyles } from './../../../create-events/form-container/form-page-one/FormPageOne.styles';
-import SearchIcon from '@material-ui/icons/Search';
 import { ErrorMessage } from '@hookform/error-message';
 import MapboxAddressSearch from './mapbox-address-search';
 import { styles } from './mapbox-geocoder.styles';
-
-import Typography from '@material-ui/core/Typography';
 
 function MapboxGeocoder({ errors, setValues, values, validate }) {
   const classnames = styles();
@@ -22,7 +18,7 @@ function MapboxGeocoder({ errors, setValues, values, validate }) {
         return { ...values, ...data };
       });
     }
-  }, [data]);
+  }, [data, setValues]);
 
   useEffect(() => {
     if (!values.address && flagAddressValidation === 1) {
@@ -31,7 +27,7 @@ function MapboxGeocoder({ errors, setValues, values, validate }) {
       validate('latitude');
       flag(0);
     }
-  }, [flagAddressValidation]);
+  }, [flagAddressValidation, validate, values.address]);
 
   const handleBlur = (e) => {
     e.persist();

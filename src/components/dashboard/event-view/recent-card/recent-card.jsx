@@ -84,10 +84,12 @@ const RecentCard = (props) => {
           </Avatar>
         }
         title={
-          <Typography variant="h6">
-            {`${props.User.firstName} ${props.User.lastName} `}
-            <span style={{ opacity: '.6' }}> created an event</span>
-          </Typography>
+          <Link to={`/profile/${props.User.id}`} style={{ cursor: 'pointer' }}>
+            <Typography variant="h6">
+              {`${props.User.firstName} ${props.User.lastName} `}
+              <span style={{ opacity: '.6' }}> created an event</span>
+            </Typography>
+          </Link>
         }
         subheader={
           <Typography variant="caption">

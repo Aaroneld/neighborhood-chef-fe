@@ -22,7 +22,7 @@ export default function SubmissionSuccessModal() {
     if (countDown === -1) {
       push('/');
     }
-  }, [countDown]);
+  }, [countDown, push]);
 
   const handleClick = (_) => {
     push('/');

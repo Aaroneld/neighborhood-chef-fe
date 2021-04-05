@@ -26,7 +26,7 @@ const UserList = ({ event_id, filteredList }) => {
         setAlreadyInvited(res.data.data.Events[0].EventUsers.currentUserInvited.map((user) => user.id));
       })
       .catch((err) => console.dir(err));
-  }, []);
+  }, [user_id, event_id]);
 
   useEffect(() => {}, [invitedUsers]);
 

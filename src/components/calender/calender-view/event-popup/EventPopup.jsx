@@ -20,6 +20,7 @@ const EventPopup = ({ selectedEvent }) => {
       <img
         src={selectedEvent.photo ? selectedEvent.photo : chooseDefaultPicture(selectedEvent.title.charAt(0))}
         title="Event Details Photo"
+        alt="Event details Avatar"
       />
       <div className="container">
         <Link to={`/events/${selectedEvent.id}`}>
@@ -31,7 +32,10 @@ const EventPopup = ({ selectedEvent }) => {
         </Link>
         <Typography variant="caption">
           <span>created by</span>
-          {` ${selectedEvent.User.firstName} ${selectedEvent.User.lastName}`}
+          <Link
+            style={{ pointer: 'cursor' }}
+            to={`/profile/${selectedEvent.User.id}`}
+          >{` ${selectedEvent.User.firstName} ${selectedEvent.User.lastName}`}</Link>
         </Typography>
         <p>Confirmed Attending: {selectedEvent.EventUsers.attending.length}</p>
         <a style={{ fontSize: '1.2rem' }} href={parsedAddressURL} target="_blank" rel="noopener noreferrer">

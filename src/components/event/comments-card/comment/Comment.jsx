@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Typography from '@material-ui/core/Typography';
 import { print } from 'graphql';
@@ -90,7 +90,6 @@ const Comment = (props) => {
             key={props.User.id}
             title={`${props.User.firstName} ${props.User.lastName}`}
             aria-label="avatar"
-            className={classes.avatar}
             src={!props.User.photo ? null : props.User.photo}
             className={classes.photoContainer}
           >

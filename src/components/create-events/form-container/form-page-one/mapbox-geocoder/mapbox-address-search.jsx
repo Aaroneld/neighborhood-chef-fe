@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-
 import Autocomplete from '@material-ui/lab/Autocomplete';
-import { separateOperations } from 'graphql';
 
 export default function MapboxAddressSearch({
   setData,

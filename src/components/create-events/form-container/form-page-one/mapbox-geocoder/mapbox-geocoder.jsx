@@ -19,7 +19,7 @@ function MapboxGeocoder({ errors, setValues, values, validate }) {
         return { ...values, ...data };
       });
     }
-  }, [data]);
+  }, [data, setValues]);
 
   useEffect(() => {
     if (!values.address && flagAddressValidation === 1) {
@@ -28,7 +28,7 @@ function MapboxGeocoder({ errors, setValues, values, validate }) {
       validate('latitude');
       flag(0);
     }
-  }, [flagAddressValidation]);
+  }, [flagAddressValidation, validate, values.address]);
 
   const handleBlur = (e) => {
     e.persist();
