@@ -14,6 +14,8 @@ import Spinner from '../shared/spinner/Spinner';
 import AccountEventCard from '../shared/grid-structure/header/header-partition-persistent/account-drawer/account-event-card/AccountEventCard';
 import globeIcon from '@iconify/icons-flat-color-icons/globe';
 import { Icon } from '@iconify/react';
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
+import WcIcon from '@material-ui/icons/Wc';
 
 const Profile = () => {
   const [user, setUser] = useState(null);
@@ -50,7 +52,7 @@ const Profile = () => {
         setLoading(false);
       }
     );
-  }, [userid]);
+  }, []);
 
   if (loading) {
     return <Spinner />;
@@ -86,9 +88,9 @@ const Profile = () => {
                 loggedInUserId={loggedInUserId}
               />
             )}
-            <div>
+            <div className="details">
               {user.biography && <Typography>{user.biography}</Typography>}
-              <div className="address">
+              <div className="textIconContainer" style={{ cursor: 'pointer' }}>
                 <span>
                   <Icon height="20" icon={globeIcon} />
                 </span>
@@ -96,8 +98,21 @@ const Profile = () => {
                   {user.address}
                 </a>
               </div>
-              <Typography>Contact: {user.email}</Typography>
-              <Typography>Gender: {user.gender}</Typography>
+              <div
+                className="textIconContainer"
+                style={{ cursor: 'pointer' }}
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.open(`mailto:${user.email}`);
+                }}
+              >
+                <MailOutlineIcon style={{ fontSize: '2rem' }} />
+                <Typography>{user.email}</Typography>
+              </div>
+              <div className="textIconContainer">
+                <WcIcon style={{ fontSize: '2rem' }} />
+                <Typography>{user.gender.charAt(0).toUpperCase() + user.gender.slice(1)}</Typography>
+              </div>
             </div>
             {user.UserEvents.owned.length > 0 && (
               <div className="eventContainer">

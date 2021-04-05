@@ -46,10 +46,16 @@ export const styles = makeStyles((theme) => ({
         color: 'rgba(33, 186, 66, 0.75)',
       },
 
-      '& .address': {
+      '& .details': {
         display: 'flex',
-        alignItems: 'center',
-        cursor: 'pointer',
+        flexDirection: 'column',
+        padding: '20px',
+
+        '& .textIconContainer': {
+          display: 'flex',
+          alignItems: 'center',
+          margin: '5px 0',
+        },
       },
     },
     '& .eventContainer': {
