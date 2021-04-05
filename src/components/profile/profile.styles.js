@@ -45,6 +45,12 @@ export const styles = makeStyles((theme) => ({
         fontWeight: 'bold',
         color: 'rgba(33, 186, 66, 0.75)',
       },
+
+      '& .address': {
+        display: 'flex',
+        alignItems: 'center',
+        cursor: 'pointer',
+      },
     },
     '& .eventContainer': {
       display: 'flex',

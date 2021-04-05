@@ -54,6 +54,7 @@ export const USER_WITHIN_RADIUS = gql`
       latitude
       longitude
       photo
+      biography
     }
   }
 `;
@@ -69,6 +70,7 @@ export const USER_BY_EMAIL = gql`
             address
             latitude
             longitude
+            biography
             UserEvents {
                 attending {
                     ${getBYEmailEventString}
@@ -137,6 +139,7 @@ export const USER_BY_ID = gql`
             address
             latitude
             longitude
+            biography
             UserEvents {
                 attending {
                     ${getBYEmailEventString}

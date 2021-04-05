@@ -24,7 +24,10 @@ const ParticipantCard = ({ attending }) => {
             <AvatarGroup max={4}>
               {attending.map((user) => {
                 return (
-                  <Link to={`/profile/${user.id}`} style={{ cursor: 'pointer' }}>
+                  <Link
+                    to={`/profile/${user.id}`}
+                    style={{ cursor: 'pointer', border: 'none', margin: '.5%' }}
+                  >
                     <Avatar
                       key={user.id}
                       title={`${user.firstName} ${user.lastName}`}

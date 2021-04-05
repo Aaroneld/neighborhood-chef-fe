@@ -12,11 +12,14 @@ import { styles } from './profile.styles.js';
 import UserBioForm from './user-bio-form/UserBioForm';
 import Spinner from '../shared/spinner/Spinner';
 import AccountEventCard from '../shared/grid-structure/header/header-partition-persistent/account-drawer/account-event-card/AccountEventCard';
+import globeIcon from '@iconify/icons-flat-color-icons/globe';
+import { Icon } from '@iconify/react';
 
 const Profile = () => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
   const [showForm, setShowForm] = useState(false);
+  const [parsedAddressURL, setParsedAddressURL] = useState('');
   const { userid } = useParams();
   const classes = styles();
   const loggedInUserId = useSelector((state) => state.user.id);
@@ -38,6 +41,9 @@ const Profile = () => {
       (res) => {
         setLoading(false);
         setUser(res.data.data.Users[0]);
+        setParsedAddressURL(
+          `https://www.google.com/maps/search/${res.data.data.Users[0].address.replace(' ', '+')}`
+        );
       },
       (err) => {
         console.dir(err);
@@ -49,6 +55,7 @@ const Profile = () => {
   if (loading) {
     return <Spinner />;
   } else {
+    console.log(user);
     return (
       <div className={classes.root}>
         {user && (
@@ -65,21 +72,39 @@ const Profile = () => {
                 {`${user.firstName} ${user.lastName}`}
               </Typography>
             </div>
-            {!user.bio && user.id === loggedInUserId && !showForm && (
+            {!user.biography && user.id === loggedInUserId && !showForm && (
               <Typography variant="h6" className="addBio" onClick={() => setShowForm(true)}>
                 Add Bio
               </Typography>
             )}
-            {!user.bio && user.id === loggedInUserId && showForm && (
-              <UserBioForm setUser={setUser} setShowForm={setShowForm} />
+            {!user.biography && user.id === loggedInUserId && showForm && (
+              <UserBioForm
+                user={user}
+                setUser={setUser}
+                setShowForm={setShowForm}
+                userId={userid}
+                loggedInUserId={loggedInUserId}
+              />
             )}
-            {user.bio && <Typography>{user.bio}</Typography>}
+            <div>
+              {user.biography && <Typography>{user.biography}</Typography>}
+              <div className="address">
+                <span>
+                  <Icon height="20" icon={globeIcon} />
+                </span>
+                <a href={parsedAddressURL} target="_blank" rel="noopener noreferrer">
+                  {user.address}
+                </a>
+              </div>
+              <Typography>Contact: {user.email}</Typography>
+              <Typography>Gender: {user.gender}</Typography>
+            </div>
             {user.UserEvents.owned.length > 0 && (
               <div className="eventContainer">
                 <p variant="h5">{`${user.firstName}'s Events:`}</p>
                 <div className="events">
                   {user.UserEvents.owned.map((event) => (
-                    <AccountEventCard event={event} />
+                    <AccountEventCard event={event} key={event.id} />
                   ))}
                 </div>
               </div>
