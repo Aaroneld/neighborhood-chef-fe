@@ -11,7 +11,7 @@ import { USER_BY_ID } from '../../graphql/users/user-queries';
 import { styles } from './profile.styles.js';
 import UserBioForm from './user-bio-form/UserBioForm';
 import Spinner from '../shared/spinner/Spinner';
-import AccountEventCard from '../shared/grid-structure/header/header-partition-persistent/account-drawer/account-event-card/AccountEventCard';
+import EventCard from './EventCard';
 import globeIcon from '@iconify/icons-flat-color-icons/globe';
 import { Icon } from '@iconify/react';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
@@ -117,25 +117,18 @@ const Profile = () => {
                   <Typography>{user.gender.charAt(0).toUpperCase() + user.gender.slice(1)}</Typography>
                 </div>
               </div>
-              <div>
+              <div className="buttons">
                 <button>Edit Personal Information</button>
-                <button
-                  onClick={() => {
-                    setShowForm(true);
-                    setFormState({ biography: user.biography, charsLeft: 255 - user.biography.length });
-                  }}
-                >
-                  Edit Bio
-                </button>
+                <button>Edit Bio</button>
               </div>
             </Card>
             <Card className="rightCard">
               {user.UserEvents.owned.length > 0 && (
                 <div className="eventContainer">
-                  <p variant="h5">{`${user.firstName}'s Events:`}</p>
+                  <Typography variant="h5">{`${user.firstName}'s Events:`}</Typography>
                   <div className="events">
                     {user.UserEvents.owned.map((event) => (
-                      <AccountEventCard event={event} key={event.id} />
+                      <EventCard event={event} key={event.id} />
                     ))}
                   </div>
                 </div>

@@ -14,6 +14,7 @@ export const styles = makeStyles((theme) => ({
       display: 'flex',
       flexDirection: 'column',
       width: '60%',
+      marginRight: '1%',
       [theme.breakpoints.down('md')]: {
         width: '100%',
       },
@@ -55,6 +56,16 @@ export const styles = makeStyles((theme) => ({
         '& .textIconContainer': {
           display: 'flex',
           alignItems: 'center',
+          margin: '5px 0',
+        },
+      },
+      '& .buttons': {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+
+        '& button': {
+          width: '40%',
           margin: '5px 0',
         },
       },
