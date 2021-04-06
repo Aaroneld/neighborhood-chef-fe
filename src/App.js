@@ -24,7 +24,7 @@ function App() {
   }, []);
 
   return (
-    <div style={{ height: '100vh', width: '100vw' }}>
+    <div style={{ height: '100vh', width: '100vw', overflow: 'hidden' }}>
       <Switch>
         <Route path="/date">
           <DatePicker

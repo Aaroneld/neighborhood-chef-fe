@@ -48,7 +48,11 @@ export default function TimeInputs({ errors, setValues, values, validate }) {
           name="startTime"
           errors={errors}
           message={errors.startTime[0]}
-          render={({ message }) => <p style={{ color: 'crimson' }}>{message}</p>}
+          render={({ message }) => (
+            <p className="error-message" style={{ color: 'crimson' }}>
+              {message}
+            </p>
+          )}
         />
       )}
 

@@ -14,6 +14,10 @@ export const styles = makeStyles((theme) => ({
     zIndex: 3,
     fontSize: '120%',
 
+    [theme.breakpoints.down('lg')]: {
+      fontSize: '90%',
+    },
+
     '& >div': {
       position: 'absolute',
       top: 0,
@@ -29,6 +33,10 @@ export const styles = makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+
+        [theme.breakpoints.down('lg')]: {
+          fontSize: '150%',
+        },
 
         '& >*:nth-child(2)': {
           margin: '0 5%',

@@ -37,7 +37,11 @@ export default function TitleInput({ errors, setValues, values, validate }) {
           name="title"
           errors={errors}
           message={errors.title[0]}
-          render={({ message }) => <p style={{ color: 'crimson' }}>{message}</p>}
+          render={({ message }) => (
+            <p className="error-message" style={{ color: 'crimson' }}>
+              {message}
+            </p>
+          )}
         />
       )}
     </>

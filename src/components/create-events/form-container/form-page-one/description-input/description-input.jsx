@@ -14,7 +14,7 @@ export default function DescriptionInput({ errors, setValues, values, validate }
 
   return (
     <>
-      <input
+      <textarea
         type="textarea"
         name="description"
         placeholder="Write a description for your event..."
@@ -30,7 +30,11 @@ export default function DescriptionInput({ errors, setValues, values, validate }
           name="description"
           errors={errors}
           message={errors.description[0]}
-          render={({ message }) => <p style={{ color: 'crimson' }}>{message}</p>}
+          render={({ message }) => (
+            <p className="error-message-descriptions" style={{ color: 'crimson' }}>
+              {message}
+            </p>
+          )}
         />
       )}
     </>

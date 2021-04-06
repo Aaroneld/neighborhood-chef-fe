@@ -1,50 +1,33 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { formPageOneStyles } from '../FormPageOne.styles';
-import TextField from '@material-ui/core/TextField';
 import { ErrorMessage } from '@hookform/error-message';
-import moment from 'moment';
 import DatePicker from './datepicker';
 
-export default function DateInput({ errors, setValues, values, validate }) {
-  const today = moment().format('YYYY-MM-DD');
+export default function DateInput({ errors, setValues, validate }) {
   const styles = formPageOneStyles();
-
-  const handleChange = (e) => {
-    e.persist();
-    setValues((values) => {
-      return { ...values, date: e.target.value };
-    });
-  };
 
   return (
     <>
       <div className={styles.timeDiv}>
-        {/* <label htmlFor="eventFormDate" className={styles.label}>
-          Date
-        </label> */}
-
-        {/* <TextField
-          name="date"
-          type="date"
-          className={styles.date}
-          InputProps={{
-            inputProps: { min: today },
-            disableUnderline: true,
+        <DatePicker
+          setDate={(date) => {
+            setValues((values) => ({ ...values, date }));
           }}
-          onChange={handleChange}
-          value={values.date}
-          onBlur={() => {
+          onMouseLeave={() => {
             validate('date');
           }}
-        /> */}
-        <DatePicker setDate={() => {}} />
+        />
       </div>
       {errors.date && errors.date.length && (
         <ErrorMessage
           name="date"
           errors={errors}
           message={errors.date[0]}
-          render={({ message }) => <p style={{ color: 'crimson' }}>{message}</p>}
+          render={({ message }) => (
+            <p className="error-message" style={{ color: 'crimson' }}>
+              {message}
+            </p>
+          )}
         />
       )}
     </>
