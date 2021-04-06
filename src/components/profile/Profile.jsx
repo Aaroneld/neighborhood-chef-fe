@@ -16,6 +16,7 @@ import globeIcon from '@iconify/icons-flat-color-icons/globe';
 import { Icon } from '@iconify/react';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import WcIcon from '@material-ui/icons/Wc';
+import { buttonStyles } from '../../styles';
 
 const Profile = () => {
   const [user, setUser] = useState(null);
@@ -26,6 +27,7 @@ const Profile = () => {
   const { userid } = useParams();
   const classes = styles();
   const loggedInUserId = useSelector((state) => state.user.id);
+  const btnStyles = buttonStyles();
 
   useEffect(() => {
     if (userid) setLoading(true);
@@ -62,19 +64,17 @@ const Profile = () => {
       <>
         {user && (
           <div className={classes.root}>
-            <Card className="leftCard">
-              <div className="header">
-                <Avatar
-                  key={user.id}
-                  title={`${user.firstName} ${user.lastName}`}
-                  aria-label="avatar"
-                  src={user.photo ? user.photo : curry}
-                  className="avatar"
-                />
-                <Typography variant="h2" className={classes.title}>
-                  {`${user.firstName} ${user.lastName}`}
-                </Typography>
-              </div>
+            <Card className="header">
+              <Avatar
+                key={user.id}
+                title={`${user.firstName} ${user.lastName}`}
+                aria-label="avatar"
+                src={user.photo ? user.photo : curry}
+                className="avatar"
+              />
+              <Typography variant="h2" className={classes.title}>
+                {`${user.firstName} ${user.lastName}`}
+              </Typography>
               {!user.biography && user.id === loggedInUserId && !showForm && (
                 <Typography variant="h6" className="addBio" onClick={() => setShowForm(true)}>
                   Add Bio
@@ -91,49 +91,56 @@ const Profile = () => {
                   loggedInUserId={loggedInUserId}
                 />
               )}
-              <div className="details">
-                {user.biography && <Typography>{user.biography}</Typography>}
-                <div className="textIconContainer" style={{ cursor: 'pointer' }}>
-                  <span>
-                    <Icon height="20" icon={globeIcon} />
-                  </span>
-                  <a href={parsedAddressURL} target="_blank" rel="noopener noreferrer">
-                    {user.address}
-                  </a>
-                </div>
-                <div
-                  className="textIconContainer"
-                  style={{ cursor: 'pointer' }}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    window.open(`mailto:${user.email}`);
-                  }}
-                >
-                  <MailOutlineIcon style={{ fontSize: '2rem' }} />
-                  <Typography>{user.email}</Typography>
-                </div>
-                <div className="textIconContainer">
-                  <WcIcon style={{ fontSize: '2rem' }} />
-                  <Typography>{user.gender.charAt(0).toUpperCase() + user.gender.slice(1)}</Typography>
-                </div>
-              </div>
-              <div className="buttons">
-                <button>Edit Personal Information</button>
-                <button>Edit Bio</button>
-              </div>
             </Card>
-            <Card className="rightCard">
-              {user.UserEvents.owned.length > 0 && (
-                <div className="eventContainer">
-                  <Typography variant="h5">{`${user.firstName}'s Events:`}</Typography>
-                  <div className="events">
-                    {user.UserEvents.owned.map((event) => (
-                      <EventCard event={event} key={event.id} />
-                    ))}
+            <div className="bottomSection">
+              <Card className="leftCard">
+                <div className="details">
+                  {user.biography && <Typography>{user.biography}</Typography>}
+                  <div className="textIconContainer" style={{ cursor: 'pointer' }}>
+                    <span>
+                      <Icon height="20" icon={globeIcon} />
+                    </span>
+                    <a href={parsedAddressURL} target="_blank" rel="noopener noreferrer">
+                      {user.address}
+                    </a>
+                  </div>
+                  <div
+                    className="textIconContainer"
+                    style={{ cursor: 'pointer' }}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.open(`mailto:${user.email}`);
+                    }}
+                  >
+                    <MailOutlineIcon style={{ fontSize: '2rem' }} />
+                    <Typography>{user.email}</Typography>
+                  </div>
+                  <div className="textIconContainer">
+                    <WcIcon style={{ fontSize: '2rem' }} />
+                    <Typography>{user.gender.charAt(0).toUpperCase() + user.gender.slice(1)}</Typography>
                   </div>
                 </div>
-              )}
-            </Card>
+                <div className="buttons">
+                  <button className={`${btnStyles.root} ${btnStyles.single}`}>
+                    Edit Personal Information
+                  </button>
+                  {user.biography && (
+                    <button className={`${btnStyles.root} ${btnStyles.single}`}>Edit Bio</button>
+                  )}
+                </div>
+              </Card>
+              <div className="rightCard">
+                {user.UserEvents.owned.length > 0 && (
+                  <div className="eventContainer">
+                    <div className="events">
+                      {user.UserEvents.owned.map((event) => (
+                        <EventCard event={event} key={event.id} />
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         )}
       </>
