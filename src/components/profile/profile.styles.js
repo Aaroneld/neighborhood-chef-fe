@@ -10,12 +10,13 @@ export const styles = makeStyles((theme) => ({
     justifyContent: 'center',
     padding: '10px',
 
-    '& .card': {
+    '& .leftCard': {
       display: 'flex',
       flexDirection: 'column',
-      width: '100%',
-      height: '100%',
-      marginBottom: '40px',
+      width: '60%',
+      [theme.breakpoints.down('md')]: {
+        width: '100%',
+      },
 
       '& .header': {
         display: 'flex',
@@ -58,14 +59,23 @@ export const styles = makeStyles((theme) => ({
         },
       },
     },
+    '& .rightCard': {
+      display: 'flex',
+      flexDirection: 'column',
+      width: '50%',
+      padding: '10px',
+
+      [theme.breakpoints.down('md')]: {
+        width: '100%',
+      },
+    },
+
     '& .eventContainer': {
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
       width: '100%',
-      height: '100%',
-      margin: '30px 0',
 
       '& .events': {
         display: 'flex',
@@ -74,6 +84,9 @@ export const styles = makeStyles((theme) => ({
         width: '100%',
         height: '100%',
       },
+    },
+    [theme.breakpoints.down('md')]: {
+      flexDirection: 'column',
     },
   },
 }));

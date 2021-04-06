@@ -22,6 +22,7 @@ const Profile = () => {
   const [loading, setLoading] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [parsedAddressURL, setParsedAddressURL] = useState('');
+  const [formState, setFormState] = useState({ biography: '', charsLeft: 255 });
   const { userid } = useParams();
   const classes = styles();
   const loggedInUserId = useSelector((state) => state.user.id);
@@ -57,76 +58,92 @@ const Profile = () => {
   if (loading) {
     return <Spinner />;
   } else {
-    console.log(user);
     return (
-      <div className={classes.root}>
+      <>
         {user && (
-          <Card className="card">
-            <div className="header">
-              <Avatar
-                key={user.id}
-                title={`${user.firstName} ${user.lastName}`}
-                aria-label="avatar"
-                src={user.photo ? user.photo : curry}
-                className="avatar"
-              />
-              <Typography variant="h2" className={classes.title}>
-                {`${user.firstName} ${user.lastName}`}
-              </Typography>
-            </div>
-            {!user.biography && user.id === loggedInUserId && !showForm && (
-              <Typography variant="h6" className="addBio" onClick={() => setShowForm(true)}>
-                Add Bio
-              </Typography>
-            )}
-            {!user.biography && user.id === loggedInUserId && showForm && (
-              <UserBioForm
-                user={user}
-                setUser={setUser}
-                setShowForm={setShowForm}
-                userId={userid}
-                loggedInUserId={loggedInUserId}
-              />
-            )}
-            <div className="details">
-              {user.biography && <Typography>{user.biography}</Typography>}
-              <div className="textIconContainer" style={{ cursor: 'pointer' }}>
-                <span>
-                  <Icon height="20" icon={globeIcon} />
-                </span>
-                <a href={parsedAddressURL} target="_blank" rel="noopener noreferrer">
-                  {user.address}
-                </a>
+          <div className={classes.root}>
+            <Card className="leftCard">
+              <div className="header">
+                <Avatar
+                  key={user.id}
+                  title={`${user.firstName} ${user.lastName}`}
+                  aria-label="avatar"
+                  src={user.photo ? user.photo : curry}
+                  className="avatar"
+                />
+                <Typography variant="h2" className={classes.title}>
+                  {`${user.firstName} ${user.lastName}`}
+                </Typography>
               </div>
-              <div
-                className="textIconContainer"
-                style={{ cursor: 'pointer' }}
-                onClick={(e) => {
-                  e.preventDefault();
-                  window.open(`mailto:${user.email}`);
-                }}
-              >
-                <MailOutlineIcon style={{ fontSize: '2rem' }} />
-                <Typography>{user.email}</Typography>
-              </div>
-              <div className="textIconContainer">
-                <WcIcon style={{ fontSize: '2rem' }} />
-                <Typography>{user.gender.charAt(0).toUpperCase() + user.gender.slice(1)}</Typography>
-              </div>
-            </div>
-            {user.UserEvents.owned.length > 0 && (
-              <div className="eventContainer">
-                <p variant="h5">{`${user.firstName}'s Events:`}</p>
-                <div className="events">
-                  {user.UserEvents.owned.map((event) => (
-                    <AccountEventCard event={event} key={event.id} />
-                  ))}
+              {!user.biography && user.id === loggedInUserId && !showForm && (
+                <Typography variant="h6" className="addBio" onClick={() => setShowForm(true)}>
+                  Add Bio
+                </Typography>
+              )}
+              {!user.biography && user.id === loggedInUserId && showForm && (
+                <UserBioForm
+                  state={formState}
+                  setState={setFormState}
+                  user={user}
+                  setUser={setUser}
+                  setShowForm={setShowForm}
+                  userId={userid}
+                  loggedInUserId={loggedInUserId}
+                />
+              )}
+              <div className="details">
+                {user.biography && <Typography>{user.biography}</Typography>}
+                <div className="textIconContainer" style={{ cursor: 'pointer' }}>
+                  <span>
+                    <Icon height="20" icon={globeIcon} />
+                  </span>
+                  <a href={parsedAddressURL} target="_blank" rel="noopener noreferrer">
+                    {user.address}
+                  </a>
+                </div>
+                <div
+                  className="textIconContainer"
+                  style={{ cursor: 'pointer' }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.open(`mailto:${user.email}`);
+                  }}
+                >
+                  <MailOutlineIcon style={{ fontSize: '2rem' }} />
+                  <Typography>{user.email}</Typography>
+                </div>
+                <div className="textIconContainer">
+                  <WcIcon style={{ fontSize: '2rem' }} />
+                  <Typography>{user.gender.charAt(0).toUpperCase() + user.gender.slice(1)}</Typography>
                 </div>
               </div>
-            )}
-          </Card>
+              <div>
+                <button>Edit Personal Information</button>
+                <button
+                  onClick={() => {
+                    setShowForm(true);
+                    setFormState({ biography: user.biography, charsLeft: 255 - user.biography.length });
+                  }}
+                >
+                  Edit Bio
+                </button>
+              </div>
+            </Card>
+            <Card className="rightCard">
+              {user.UserEvents.owned.length > 0 && (
+                <div className="eventContainer">
+                  <p variant="h5">{`${user.firstName}'s Events:`}</p>
+                  <div className="events">
+                    {user.UserEvents.owned.map((event) => (
+                      <AccountEventCard event={event} key={event.id} />
+                    ))}
+                  </div>
+                </div>
+              )}
+            </Card>
+          </div>
         )}
-      </div>
+      </>
     );
   }
 };

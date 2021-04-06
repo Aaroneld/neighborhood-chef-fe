@@ -46,8 +46,7 @@ export const styles = makeStyles((theme) => ({
   },
 }));
 
-const UserBioForm = ({ user, setUser, setShowForm, loggedInUserId }) => {
-  const [state, setState] = useState({ biography: '', charsLeft: 255 });
+const UserBioForm = ({ user, setUser, setShowForm, loggedInUserId, state, setState }) => {
   const btnStyles = buttonStyles();
   const classes = styles();
 
