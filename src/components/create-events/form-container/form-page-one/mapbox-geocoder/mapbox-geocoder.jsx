@@ -63,7 +63,11 @@ function MapboxGeocoder({ errors, setValues, values, validate }) {
           name="address"
           errors={errors}
           message={errors.address[0]}
-          render={({ message }) => <p style={{ color: 'crimson' }}>{message}</p>}
+          render={({ message }) => (
+            <p className="error-message" style={{ color: 'crimson' }}>
+              {message}
+            </p>
+          )}
         />
       )}
     </>

@@ -9,6 +9,18 @@ export const formPageOneStyles = makeStyles((theme) => ({
       flexDirection: 'column',
       width: '95%',
     },
+
+    '& .error-message': {
+      position: 'absolute',
+      fontSize: '70%',
+      marginTop: '-1.5%',
+    },
+
+    '& .error-message-descriptions': {
+      position: 'absolute',
+      fontSize: '70%',
+      marginTop: '.5%',
+    },
   },
   leftContainer: {
     width: '40%',
@@ -66,10 +78,14 @@ export const formPageOneStyles = makeStyles((theme) => ({
     paddingRight: '10px',
     fontSize: '1.6rem',
     width: '100%',
-    whiteSpace: 'pre-wrap',
+    whiteSpace: 'wrap',
+    resize: 'none',
+    fontFamily: '"Arial", sans-serif',
 
     '&::placeholder': {
       color: '#b7b7b7',
+      textIndent: '.5%',
+      fontFamily: '"Arial", sans-serif',
     },
     [theme.breakpoints.down('800')]: {
       margin: '20px 0',

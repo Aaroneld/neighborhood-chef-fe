@@ -35,7 +35,7 @@ export default function DatePicker({ setDate }) {
 
   const [currentDaysInMonth, setCurrentDaysInMonth] = useState(null);
 
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedDate, setSelectedDate] = useState(1);
 
   const [open, setOpen] = useState(false);
 
@@ -44,7 +44,7 @@ export default function DatePicker({ setDate }) {
   };
 
   useEffect(() => {
-    setSelectedDate(null);
+    setSelectedDate(1);
     let date = new Date(currentSelectedYear, currentSelectedMonth, 1);
     const firstDay = date.getDay();
     let lastDay = '';
@@ -81,10 +81,13 @@ export default function DatePicker({ setDate }) {
 
   useEffect(() => {
     //prettier-ignore
-    console.log(`${currentSelectedYear}-${currentSelectedMonth + 1 < 10? '0' : ''}${currentSelectedMonth + 1}-${selectDate < 10 ? '0' : ''}${selectedDate}`)
-    //prettier-ignore
-    setDate(`${currentSelectedYear}-${currentSelectedMonth + 1 < 10? '0' : ''}${currentSelectedMonth + 1}-${selectDate < 10 ? '0' : ''}${selectedDate}`)
-  }, [selectedDate, currentSelectedYear, currentSelectedMonth, setDate]);
+    console.log('here', selectedDate)
+    setDate(
+      `${currentSelectedYear}-${currentSelectedMonth + 1 < 10 ? '0' : ''}${currentSelectedMonth + 1}-${
+        selectDate < 10 ? '0' : ''
+      }${selectedDate}`
+    );
+  }, [selectedDate]);
 
   return (
     <div
@@ -129,6 +132,7 @@ export default function DatePicker({ setDate }) {
                 index={index}
                 setSelectedDate={setSelectedDate}
                 selectedDate={selectedDate}
+                selectDate={selectDate}
               />
             ))}
         </div>

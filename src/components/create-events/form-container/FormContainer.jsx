@@ -113,7 +113,7 @@ const FormContainer = () => {
   useEffect(() => {
     setValues(initialValues);
     return () => dispatch(changePage(1));
-  }, [initialValues, dispatch, setValues]);
+  }, [initialValues]);
 
   useEffect(() => {
     if ((loadedFlag === 0 && values.title !== '') || !window.location.pathname.split('/')[2]) {

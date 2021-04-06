@@ -31,6 +31,10 @@ export const styles = makeStyles((theme) => ({
 
         fontSize: '130%',
 
+        [theme.breakpoints.down('lg')]: {
+          fontSize: '95%',
+        },
+
         '& .year-month-button': {},
 
         '& >*:first-child': {
@@ -84,6 +88,10 @@ export const styles = makeStyles((theme) => ({
           alignSelf: 'center',
           justifySelf: 'center',
           textAlign: 'center',
+
+          [theme.breakpoints.down('lg')]: {
+            fontSize: '60%',
+          },
         },
 
         '&  .day': {
@@ -94,7 +102,7 @@ export const styles = makeStyles((theme) => ({
           color: 'lightgrey',
         },
 
-        '& :not(.day):not(.selected)': {
+        '& :not(.day):not(.selected):not(.prevMonthDay)': {
           '&:hover': {
             color: 'white',
             '&::before': {
@@ -108,6 +116,13 @@ export const styles = makeStyles((theme) => ({
               width: '60%',
               paddingTop: '60%',
               borderRadius: '100%',
+
+              [theme.breakpoints.down('lg')]: {
+                top: '-42%',
+                left: '22%',
+                width: '57%',
+                paddingTop: '57%',
+              },
             },
           },
         },
@@ -125,6 +140,13 @@ export const styles = makeStyles((theme) => ({
             width: '60%',
             paddingTop: '60%',
             borderRadius: '100%',
+
+            [theme.breakpoints.down('lg')]: {
+              top: '-42%',
+              left: '22%',
+              width: '57%',
+              paddingTop: '57%',
+            },
           },
         },
       },
