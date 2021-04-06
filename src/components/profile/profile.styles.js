@@ -2,7 +2,6 @@ import makeStyles from '@material-ui/styles/makeStyles';
 
 export const styles = makeStyles((theme) => ({
   root: {
-    background: '#f2f2f2',
     borderRadius: '10px',
     height: '100%',
     width: '100%',
@@ -15,22 +14,24 @@ export const styles = makeStyles((theme) => ({
       marginBottom: '.5%',
       display: 'flex',
       alignItems: 'center',
-      justifyContent: 'center',
+      justifyContent: 'flexStart',
       flexDirection: 'column',
-      width: '100%',
+      width: '50%',
       padding: '5px',
+      [theme.breakpoints.down('md')]: {
+        width: '100%',
+      },
 
       '& .avatar': {
         width: '200px',
         height: '200px',
         fontSize: '5rem',
-        border: '5px solid rgba(33, 186, 66, 0.75)',
+        border: '6px solid rgba(33, 186, 66, 0.75)',
         padding: '5px',
         margin: '5px 0',
       },
 
       '& h2': {
-        fontWeight: 'bold',
         margin: '5px 0',
       },
 
@@ -55,12 +56,11 @@ export const styles = makeStyles((theme) => ({
         flexDirection: 'column',
         width: '50%',
         paddingRight: '5px',
-        maxHeight: '400px',
+        borderBottom: '1px solid black',
+
         [theme.breakpoints.down('md')]: {
           width: '100%',
-        },
-        [theme.breakpoints.down('sm')]: {
-          marginBottom: '2%',
+          marginBottom: '1%',
         },
 
         '& .details': {
@@ -71,7 +71,7 @@ export const styles = makeStyles((theme) => ({
           '& .textIconContainer': {
             display: 'flex',
             alignItems: 'center',
-            margin: '5px 0',
+            margin: '10px 0',
           },
         },
         '& .buttons': {
@@ -80,12 +80,13 @@ export const styles = makeStyles((theme) => ({
           alignItems: 'center',
 
           '& button': {
-            width: '50%',
+            width: '55%',
             margin: '5px 0',
             fontSize: '1.8rem',
             color: 'white',
             height: '45px',
             outline: 'none',
+            marginBottom: '30px',
             '&:hover': {
               filter: 'brightness(0.8)',
             },
@@ -96,15 +97,18 @@ export const styles = makeStyles((theme) => ({
         },
       },
       '& .rightCard': {
-        display: 'flex',
-        flexDirection: 'column',
         width: '50%',
-        marginLeft: '1%',
+        height: '500px',
+        maxHeight: '500',
+        overflowY: 'auto',
+        whiteSpace: 'no-wrap',
+        borderBottom: '1px solid black',
+        background: '#f2f2f2',
 
-        [theme.breakpoints.down('md')]: {
-          width: '100%',
-          marginLeft: '0',
-        },
+        // [theme.breakpoints.down('md')]: {
+        //   width: '100%',
+        //   marginLeft: '0',
+        // },
 
         '& .eventContainer': {
           display: 'flex',

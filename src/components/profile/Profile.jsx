@@ -63,8 +63,8 @@ const Profile = () => {
     return (
       <>
         {user && (
-          <div className={classes.root}>
-            <Card className="header">
+          <Card className={classes.root}>
+            <div className="header">
               <Avatar
                 key={user.id}
                 title={`${user.firstName} ${user.lastName}`}
@@ -91,9 +91,9 @@ const Profile = () => {
                   loggedInUserId={loggedInUserId}
                 />
               )}
-            </Card>
+            </div>
             <div className="bottomSection">
-              <Card className="leftCard">
+              <div className="leftCard">
                 <div className="details">
                   {user.biography && <Typography>{user.biography}</Typography>}
                   <div className="textIconContainer" style={{ cursor: 'pointer' }}>
@@ -104,6 +104,7 @@ const Profile = () => {
                       {user.address}
                     </a>
                   </div>
+
                   <div
                     className="textIconContainer"
                     style={{ cursor: 'pointer' }}
@@ -128,7 +129,7 @@ const Profile = () => {
                     <button className={`${btnStyles.root} ${btnStyles.single}`}>Edit Bio</button>
                   )}
                 </div>
-              </Card>
+              </div>
               <div className="rightCard">
                 {user.UserEvents.owned.length > 0 && (
                   <div className="eventContainer">
@@ -141,7 +142,7 @@ const Profile = () => {
                 )}
               </div>
             </div>
-          </div>
+          </Card>
         )}
       </>
     );
