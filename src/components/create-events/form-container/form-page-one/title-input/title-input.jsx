@@ -16,7 +16,7 @@ export default function TitleInput({ errors, setValues, values, validate }) {
   };
 
   return (
-    <>
+    <div className={styles.inputContainer}>
       <div className={styles.inputDiv}>
         <input
           type="text"
@@ -44,6 +44,6 @@ export default function TitleInput({ errors, setValues, values, validate }) {
           )}
         />
       )}
-    </>
+    </div>
   );
 }

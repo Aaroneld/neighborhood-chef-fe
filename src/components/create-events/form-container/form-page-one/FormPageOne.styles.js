@@ -12,8 +12,13 @@ export const formPageOneStyles = makeStyles((theme) => ({
 
     '& .error-message': {
       position: 'absolute',
+      top: '130%',
       fontSize: '70%',
       marginTop: '-1.5%',
+
+      [theme.breakpoints.down('md')]: {
+        top: '100%',
+      },
     },
 
     '& .error-message-descriptions': {
@@ -32,9 +37,13 @@ export const formPageOneStyles = makeStyles((theme) => ({
       width: '90%',
     },
   },
+  inputContainer: {
+    position: 'relative',
+  },
   inputDiv: {
     display: 'flex',
     alignItems: 'center',
+    position: 'relative',
     justifyContent: 'space-between',
     border: '2px solid #f0f0f0',
     borderRadius: '15px',
@@ -48,6 +57,7 @@ export const formPageOneStyles = makeStyles((theme) => ({
     fontSize: '2.6rem',
   },
   input: {
+    position: 'relative',
     height: '35px',
     border: 'none',
     borderRadius: '15px',

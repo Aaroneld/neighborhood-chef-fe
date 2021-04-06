@@ -47,7 +47,7 @@ function MapboxGeocoder({ errors, setValues, values, validate }) {
     setOpen(false);
   };
   return (
-    <>
+    <div className={styles.inputContainer}>
       <div className="createFormInputDiv">
         <MapboxAddressSearch
           setData={setData}
@@ -70,7 +70,7 @@ function MapboxGeocoder({ errors, setValues, values, validate }) {
           )}
         />
       )}
-    </>
+    </div>
   );
 }
 

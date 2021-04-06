@@ -13,7 +13,7 @@ export default function DescriptionInput({ errors, setValues, values, validate }
   };
 
   return (
-    <>
+    <div className={styles.inputContainer}>
       <textarea
         type="textarea"
         name="description"
@@ -37,6 +37,6 @@ export default function DescriptionInput({ errors, setValues, values, validate }
           )}
         />
       )}
-    </>
+    </div>
   );
 }

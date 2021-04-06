@@ -19,42 +19,44 @@ export default function TimeInputs({ errors, setValues, values, validate }) {
 
   return (
     <>
-      <div className={styles.timeDiv + ' ' + styles.times}>
-        <label htmlFor="greenSelect" className={styles.label}>
-          The event starts at:
-        </label>
+      <div className={styles.inputContainer}>
+        <div className={styles.timeDiv + ' ' + styles.times}>
+          <label htmlFor="greenSelect" className={styles.label}>
+            The event starts at:
+          </label>
 
-        <Select
-          className={styles.selectGreen}
-          disableUnderline={true}
-          name="startTime"
-          value={values.startTime}
-          onBlur={() => {
-            validate('startTime');
-          }}
-          onChange={handleChange}
-        >
-          <MenuItem value=""></MenuItem>
-          {time.militaryTimes &&
-            time.militaryTimes.map((mTime, index) => (
-              <MenuItem key={index} value={mTime}>
-                {time.normalTimes[index]}
-              </MenuItem>
-            ))}
-        </Select>
+          <Select
+            className={styles.selectGreen}
+            disableUnderline={true}
+            name="startTime"
+            value={values.startTime}
+            onBlur={() => {
+              validate('startTime');
+            }}
+            onChange={handleChange}
+          >
+            <MenuItem value=""></MenuItem>
+            {time.militaryTimes &&
+              time.militaryTimes.map((mTime, index) => (
+                <MenuItem key={index} value={mTime}>
+                  {time.normalTimes[index]}
+                </MenuItem>
+              ))}
+          </Select>
+        </div>
+        {errors.startTime && errors.startTime.length && (
+          <ErrorMessage
+            name="startTime"
+            errors={errors}
+            message={errors.startTime[0]}
+            render={({ message }) => (
+              <p className="error-message" style={{ color: 'crimson' }}>
+                {message}
+              </p>
+            )}
+          />
+        )}
       </div>
-      {errors.startTime && errors.startTime.length && (
-        <ErrorMessage
-          name="startTime"
-          errors={errors}
-          message={errors.startTime[0]}
-          render={({ message }) => (
-            <p className="error-message" style={{ color: 'crimson' }}>
-              {message}
-            </p>
-          )}
-        />
-      )}
 
       <div className={styles.timeDiv + ' ' + styles.times}>
         <label htmlFor="redSelect" className={styles.label}>
