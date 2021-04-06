@@ -13,6 +13,14 @@ export const styles = makeStyles((theme) => ({
 
     fontFamily: '"Poppins", san-serif',
 
+    [theme.breakpoints.down('lg')]: {
+      paddingTop: '65%',
+    },
+
+    [theme.breakpoints.down('sm')]: {
+      paddingTop: '75%',
+    },
+
     '& >div': {
       position: 'absolute',
       top: 0,
@@ -33,6 +41,10 @@ export const styles = makeStyles((theme) => ({
 
         [theme.breakpoints.down('lg')]: {
           fontSize: '95%',
+        },
+
+        [theme.breakpoints.down('md')]: {
+          fontSize: '115%',
         },
 
         '& .year-month-button': {},
@@ -56,6 +68,11 @@ export const styles = makeStyles((theme) => ({
             background: 'grey',
             opacity: 0,
             position: 'absolute',
+
+            [theme.breakpoints.down('md')]: {
+              width: '16%',
+              right: '10%',
+            },
           },
 
           '&:hover:before': {
@@ -92,6 +109,14 @@ export const styles = makeStyles((theme) => ({
           [theme.breakpoints.down('lg')]: {
             fontSize: '60%',
           },
+
+          [theme.breakpoints.down('md')]: {
+            fontSize: '85%',
+          },
+
+          [theme.breakpoints.down('sm')]: {
+            fontSize: '65%',
+          },
         },
 
         '&  .day': {
@@ -123,6 +148,13 @@ export const styles = makeStyles((theme) => ({
                 width: '57%',
                 paddingTop: '57%',
               },
+
+              [theme.breakpoints.down('md')]: {
+                top: '-45%',
+                left: '28%',
+                width: '45%',
+                paddingTop: '45%',
+              },
             },
           },
         },
@@ -146,6 +178,20 @@ export const styles = makeStyles((theme) => ({
               left: '22%',
               width: '57%',
               paddingTop: '57%',
+            },
+
+            [theme.breakpoints.down('md')]: {
+              top: '-45%',
+              left: '28%',
+              width: '45%',
+              paddingTop: '45%',
+            },
+
+            [theme.breakpoints.down('sm')]: {
+              top: '-30%',
+              left: '25%',
+              width: '52%',
+              paddingTop: '52%',
             },
           },
         },

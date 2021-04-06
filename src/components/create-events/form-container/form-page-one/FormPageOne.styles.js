@@ -5,7 +5,7 @@ export const formPageOneStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     width: '100%',
-    [theme.breakpoints.down('800')]: {
+    [theme.breakpoints.down('md')]: {
       flexDirection: 'column',
       width: '95%',
     },
@@ -24,10 +24,8 @@ export const formPageOneStyles = makeStyles((theme) => ({
   },
   leftContainer: {
     width: '40%',
-    [theme.breakpoints.down('1000')]: {
+    [theme.breakpoints.down('md')]: {
       marginLeft: '5%',
-    },
-    [theme.breakpoints.down('800')]: {
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
@@ -42,7 +40,7 @@ export const formPageOneStyles = makeStyles((theme) => ({
     borderRadius: '15px',
     margin: '40px 0',
     padding: '10px 15px',
-    [theme.breakpoints.down('800')]: {
+    [theme.breakpoints.down('md')]: {
       margin: '20px 0',
     },
   },
@@ -87,7 +85,7 @@ export const formPageOneStyles = makeStyles((theme) => ({
       textIndent: '.5%',
       fontFamily: '"Arial", sans-serif',
     },
-    [theme.breakpoints.down('800')]: {
+    [theme.breakpoints.down('md')]: {
       margin: '20px 0',
     },
   },
@@ -95,11 +93,12 @@ export const formPageOneStyles = makeStyles((theme) => ({
     width: '35%',
     marginLeft: '10%',
     paddingRight: '30px',
-    [theme.breakpoints.down('800')]: {
+    [theme.breakpoints.down('md')]: {
       display: 'flex',
       flexDirection: 'column',
       width: '90%',
       paddingRight: '0',
+      marginLeft: '5%',
     },
   },
   timeDiv: {
@@ -108,7 +107,7 @@ export const formPageOneStyles = makeStyles((theme) => ({
     justifyContent: 'space-around',
 
     margin: '40px 0',
-    [theme.breakpoints.down('800')]: {
+    [theme.breakpoints.down('md')]: {
       margin: '20px 0',
     },
   },
@@ -159,7 +158,7 @@ export const formPageOneStyles = makeStyles((theme) => ({
     color: '#b7b7b7',
     margin: '40px 0',
     padding: '7px',
-    [theme.breakpoints.down('800')]: {
+    [theme.breakpoints.down('md')]: {
       margin: '20px 0',
     },
   },

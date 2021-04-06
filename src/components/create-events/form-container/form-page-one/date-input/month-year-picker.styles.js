@@ -18,6 +18,16 @@ export const styles = makeStyles((theme) => ({
       fontSize: '90%',
     },
 
+    [theme.breakpoints.down('md')]: {
+      fontSize: '130%',
+      paddingTop: '58%',
+    },
+
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '97%',
+      paddingTop: '65%',
+    },
+
     '& >div': {
       position: 'absolute',
       top: 0,
@@ -36,6 +46,10 @@ export const styles = makeStyles((theme) => ({
 
         [theme.breakpoints.down('lg')]: {
           fontSize: '150%',
+        },
+
+        [theme.breakpoints.down('md')]: {
+          fontSize: '170%',
         },
 
         '& >*:nth-child(2)': {
@@ -67,6 +81,16 @@ export const styles = makeStyles((theme) => ({
               width: '75%',
               paddingTop: '50%',
               borderRadius: '10px',
+
+              [theme.breakpoints.down('md')]: {
+                width: '60%',
+                paddingTop: '40%',
+                left: '20%',
+              },
+
+              [theme.breakpoints.down('sm')]: {
+                top: '-22%',
+              },
             },
           },
         },
@@ -85,6 +109,16 @@ export const styles = makeStyles((theme) => ({
             width: '75%',
             paddingTop: '50%',
             borderRadius: '10px',
+
+            [theme.breakpoints.down('md')]: {
+              width: '60%',
+              paddingTop: '40%',
+              left: '20%',
+            },
+
+            [theme.breakpoints.down('sm')]: {
+              top: '-22%',
+            },
           },
         },
       },
