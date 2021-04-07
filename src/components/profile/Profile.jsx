@@ -30,32 +30,35 @@ const Profile = () => {
   const btnStyles = buttonStyles();
 
   useEffect(() => {
-    if (userid) setLoading(true);
-    axiosWithAuth()({
-      url: `${process.env.REACT_APP_BASE_URL}/graphql`,
-      method: 'post',
-      data: {
-        query: print(USER_BY_ID),
-        variables: {
-          queryParams: {
-            id: Number(userid),
+    if (userid) {
+      setLoading(true);
+
+      axiosWithAuth()({
+        url: `${process.env.REACT_APP_BASE_URL}/graphql`,
+        method: 'post',
+        data: {
+          query: print(USER_BY_ID),
+          variables: {
+            queryParams: {
+              id: Number(userid),
+            },
           },
         },
-      },
-    }).then(
-      (res) => {
-        setLoading(false);
-        setUser(res.data.data.Users[0]);
-        setParsedAddressURL(
-          `https://www.google.com/maps/search/${res.data.data.Users[0].address.replace(' ', '+')}`
-        );
-      },
-      (err) => {
-        console.dir(err);
-        setLoading(false);
-      }
-    );
-  }, []);
+      }).then(
+        (res) => {
+          setLoading(false);
+          setUser(res.data.data.Users[0]);
+          setParsedAddressURL(
+            `https://www.google.com/maps/search/${res.data.data.Users[0].address.replace(' ', '+')}`
+          );
+        },
+        (err) => {
+          console.dir(err);
+          setLoading(false);
+        }
+      );
+    }
+  }, [userid]);
 
   if (loading) {
     return <Spinner />;
