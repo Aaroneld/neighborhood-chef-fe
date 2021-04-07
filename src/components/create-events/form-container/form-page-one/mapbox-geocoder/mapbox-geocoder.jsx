@@ -56,7 +56,7 @@ function MapboxGeocoder({ errors, setValues, values, validate }) {
           setOpen={setOpen}
           mostRecentlyChosenAddress={mostRecentlyChosenAddress}
         />
-        <SearchIcon color="disabled" className={styles.icon} />
+        <SearchIcon color="disabled" className={styles.icon + ' ' + styles.searchIcon} />
       </div>
       {errors.address && errors.address.length > 0 && (
         <ErrorMessage

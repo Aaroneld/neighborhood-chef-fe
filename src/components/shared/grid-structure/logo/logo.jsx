@@ -9,11 +9,41 @@ export const logoStyles = makeStyles((theme) => ({
   leftSideHeader: {
     display: 'flex',
     alignItems: 'center',
-    fontSize: '1.7rem',
+    fontSize: '200%',
     fontWeight: '500',
-    marginLeft: '5px',
-    [theme.breakpoints.down('700')]: {
-      margintop: '10px',
+    marginLeft: '5%',
+
+    '& #logo-icon': {
+      color: '#58D473',
+      width: '10%',
+      marginRight: '1%',
+
+      [theme.breakpoints.down('lg')]: {
+        marginRight: '3%',
+      },
+
+      [theme.breakpoints.down('md')]: {
+        width: '5%',
+        marginRight: '0%',
+      },
+
+      [theme.breakpoints.down('sm')]: {
+        width: '10%',
+      },
+    },
+
+    [theme.breakpoints.down('lg')]: {
+      fontSize: '150%',
+    },
+
+    [theme.breakpoints.down('md')]: {
+      marginTop: '2%',
+      fontSize: '200%',
+      marginLeft: 0,
+    },
+
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '150%',
     },
   },
 }));
@@ -24,8 +54,8 @@ function Logo() {
   return (
     <Link to="/dashboard">
       <div className={styles.leftSideHeader}>
-        <span style={{ color: '#58D473', marginRight: '5px' }}>
-          <Icon width="1.1em" icon={chefIcon} />
+        <span id="logo-icon">
+          <Icon style={{ width: '80%' }} icon={chefIcon} />
         </span>
         <span>Neighborhood Chef</span>
       </div>

@@ -18,6 +18,7 @@ export const formPageOneStyles = makeStyles((theme) => ({
 
       [theme.breakpoints.down('md')]: {
         top: '100%',
+        fontSize: '65%',
       },
     },
 
@@ -25,6 +26,15 @@ export const formPageOneStyles = makeStyles((theme) => ({
       position: 'absolute',
       fontSize: '70%',
       marginTop: '.5%',
+      top: '100%',
+
+      [theme.breakpoints.down('lg')]: {
+        top: '96%',
+      },
+
+      [theme.breakpoints.down('md')]: {
+        fontSize: '65%',
+      },
     },
   },
   leftContainer: {
@@ -55,6 +65,11 @@ export const formPageOneStyles = makeStyles((theme) => ({
   },
   icon: {
     fontSize: '2.6rem',
+  },
+  searchIcon: {
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: '-15%',
+    },
   },
   input: {
     position: 'relative',

@@ -39,6 +39,15 @@ const styles = makeStyles((theme) => {
     Header: {
       gridArea: 'Header',
       height: '10vh',
+
+      [theme.breakpoints.down('md')]: {
+        marginLeft: '12%',
+      },
+
+      [theme.breakpoints.down('sm')]: {
+        display: 'none',
+        visibility: 'none',
+      },
     },
     Sidebar: {
       gridArea: 'Sidebar',
@@ -73,8 +82,25 @@ const styles = makeStyles((theme) => {
           marginLeft: '25%',
         },
       },
-      [theme.breakpoints.down('700')]: {
-        display: 'none',
+
+      [theme.breakpoints.down('md')]: {
+        '&  a > div:first-child': {
+          marginLeft: '29%',
+          paddingTop: '3%',
+        },
+      },
+
+      [theme.breakpoints.down('sm')]: {
+        '&  a > div:first-child': {
+          marginLeft: '18%',
+        },
+      },
+
+      [theme.breakpoints.down('sm')]: {
+        '&  a > div:first-child': {
+          marginLeft: '15%',
+          paddingTop: '3%',
+        },
       },
     },
     'Drawer-Container': {
