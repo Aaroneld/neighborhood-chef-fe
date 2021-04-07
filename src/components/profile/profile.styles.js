@@ -8,10 +8,8 @@ export const styles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     flexDirection: 'column',
-    padding: '10px',
 
     '& .header': {
-      marginBottom: '.5%',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'flexStart',
@@ -47,20 +45,21 @@ export const styles = makeStyles((theme) => ({
       display: 'flex',
       width: '100%',
       paddingTop: '5px',
+      background: 'transparent',
       [theme.breakpoints.down('md')]: {
         flexDirection: 'column',
       },
 
-      '& .leftCard': {
+      '& .leftSide': {
         display: 'flex',
         flexDirection: 'column',
         width: '50%',
-        paddingRight: '5px',
-        borderBottom: '1px solid black',
+        marginRight: '1%',
+        maxHeight: '500px',
+        background: 'transparent',
 
         [theme.breakpoints.down('md')]: {
           width: '100%',
-          marginBottom: '1%',
         },
 
         '& .details': {
@@ -72,6 +71,7 @@ export const styles = makeStyles((theme) => ({
             display: 'flex',
             alignItems: 'center',
             margin: '10px 0',
+            wordBreak: 'break-word',
           },
         },
         '& .buttons': {
@@ -96,37 +96,31 @@ export const styles = makeStyles((theme) => ({
           },
         },
       },
-      '& .rightCard': {
+      '& .rightSide': {
         width: '50%',
+        background: 'transparent',
+        display: 'flex',
+        justifyContent: 'center',
+        borderRadius: '5px',
         height: '500px',
-        maxHeight: '500',
-        overflowY: 'auto',
-        whiteSpace: 'no-wrap',
-        borderBottom: '1px solid black',
-        background: '#f2f2f2',
+        overflowY: 'scroll',
+        position: 'relative',
 
-        // [theme.breakpoints.down('md')]: {
-        //   width: '100%',
-        //   marginLeft: '0',
-        // },
+        [theme.breakpoints.down('md')]: {
+          width: '100%',
+          height: '100%',
+        },
 
         '& .eventContainer': {
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'center',
           alignItems: 'center',
           width: '100%',
-
-          '& h5': {
-            marginTop: '15px',
-          },
-
-          '& .events': {
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            width: '100%',
-          },
+          marginTop: '10px',
+          minsHeight: '100%',
+          height: '100%',
+          alignSelf: 'center',
+          zIndex: 3,
         },
       },
     },

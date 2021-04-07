@@ -407,7 +407,6 @@ export const cardStyles = makeStyles((theme) => ({
     },
   },
   accountEvent: {
-    maxHeight: 200,
     width: '96%',
     marginBottom: '2%',
     display: 'flex',
@@ -417,6 +416,8 @@ export const cardStyles = makeStyles((theme) => ({
     cursor: 'pointer',
     textAlign: 'center',
     height: 'calc(100% - 36px)',
+    minHeight: 200,
+    maxHeight: 200,
   },
   comments: {
     width: '97%',

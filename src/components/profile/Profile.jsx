@@ -5,18 +5,18 @@ import { useSelector } from 'react-redux';
 import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
-import curry from '../../assets/curry.jpg';
 import { axiosWithAuth } from '../../utilities/axiosWithAuth';
 import { USER_BY_ID } from '../../graphql/users/user-queries';
 import { styles } from './profile.styles.js';
 import UserBioForm from './user-bio-form/UserBioForm';
 import Spinner from '../shared/spinner/Spinner';
-import EventCard from './EventCard';
+import EventCard from './event-card/EventCard';
 import globeIcon from '@iconify/icons-flat-color-icons/globe';
 import { Icon } from '@iconify/react';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import WcIcon from '@material-ui/icons/Wc';
 import { buttonStyles } from '../../styles';
+import curry from '../../assets/curry.jpg';
 
 const Profile = () => {
   const [user, setUser] = useState(null);
@@ -93,7 +93,7 @@ const Profile = () => {
               )}
             </div>
             <div className="bottomSection">
-              <div className="leftCard">
+              <div className="leftSide">
                 <div className="details">
                   {user.biography && <Typography>{user.biography}</Typography>}
                   <div className="textIconContainer" style={{ cursor: 'pointer' }}>
@@ -121,23 +121,25 @@ const Profile = () => {
                     <Typography>{user.gender.charAt(0).toUpperCase() + user.gender.slice(1)}</Typography>
                   </div>
                 </div>
-                <div className="buttons">
-                  <button className={`${btnStyles.root} ${btnStyles.single}`}>
-                    Edit Personal Information
-                  </button>
-                  {user.biography && (
-                    <button className={`${btnStyles.root} ${btnStyles.single}`}>Edit Bio</button>
-                  )}
-                </div>
+                {loggedInUserId === userid && (
+                  <div className="buttons">
+                    <button className={`${btnStyles.root} ${btnStyles.single}`}>
+                      Edit Personal Information
+                    </button>
+                    {user.biography && (
+                      <button className={`${btnStyles.root} ${btnStyles.single}`}>Edit Bio</button>
+                    )}
+                  </div>
+                )}
               </div>
-              <div className="rightCard">
+              <div className="rightSide">
                 {user.UserEvents.owned.length > 0 && (
                   <div className="eventContainer">
-                    <div className="events">
-                      {user.UserEvents.owned.map((event) => (
-                        <EventCard event={event} key={event.id} />
+                    {user.UserEvents.owned
+                      .sort((a, b) => a.startTime - b.startTime)
+                      .map((event) => (
+                        <EventCard event={event} />
                       ))}
-                    </div>
                   </div>
                 )}
               </div>
