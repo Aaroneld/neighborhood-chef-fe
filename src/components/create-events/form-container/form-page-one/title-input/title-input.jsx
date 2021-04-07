@@ -8,8 +8,6 @@ export default function TitleInput({ errors, setValues, values, validate }) {
 
   const handleChange = (e) => {
     e.persist();
-    console.log(values);
-    console.log(e);
     setValues((values) => {
       return { ...values, [e.target.name]: e.target.value };
     });

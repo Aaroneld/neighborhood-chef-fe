@@ -5,9 +5,7 @@ import { eventCardStyles } from './EventCard.styles';
 import { chooseDefaultPicture } from '../../../../../utilities/functions';
 
 const EventCard = ({ values }) => {
-  console.log(values);
   const styles = eventCardStyles();
-
   const photo = values.photo ? values.photo : chooseDefaultPicture(values.title.charAt(0));
 
   return (

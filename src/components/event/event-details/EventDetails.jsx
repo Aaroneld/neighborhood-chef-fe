@@ -88,7 +88,6 @@ const EventDetails = ({ event, attending, setAttending }) => {
       },
     }).then(
       (res) => {
-        console.log(res);
         push('/dashboard');
         dispatch(deleteEvent(event.id));
       },

@@ -33,7 +33,7 @@ const EventSummary = ({ selectedEvent }) => {
   }
 
   return (
-    <div className={classes.eventDetailsContainer}>
+    <>
       {Object.keys(selectedEvent).length > 0 ? (
         <Card className={`${classes.root} ${classes.fullEvent}`}>
           <CardHeader
@@ -91,7 +91,7 @@ const EventSummary = ({ selectedEvent }) => {
       ) : (
         <Typography variant="h6">Please select an event to view its details</Typography>
       )}
-    </div>
+    </>
   );
 };
 

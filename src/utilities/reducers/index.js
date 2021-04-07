@@ -130,7 +130,6 @@ export const rootReducer = (state = initialState, { type, payload }) => {
         inviteList: payload,
       };
     case DELETE_EVENT:
-      console.log(state.eventList);
       return {
         ...state,
         eventList: state.eventList.filter((event) => event.id !== payload),

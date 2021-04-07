@@ -41,7 +41,10 @@ const ViewEvents = () => {
           setSelectedEvent={setSelectedEvent}
         />
       </div>
-      <div className={styles.rightSideCalendar}>
+      <div
+        className={styles.rightSideCalendar}
+        style={{ alignItems: Object.keys(selectedEvent).length > 0 ? 'center' : '' }}
+      >
         <EventSummary selectedEvent={selectedEvent} />
       </div>
     </div>

@@ -21,8 +21,6 @@ export default function MapboxAddressSearch({
           //prettier-ignore
           `https://api.mapbox.com/geocoding/v5/mapbox.places/${e.target.value.replace('', '%20')}.json?access_token=${process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}`
         );
-
-        console.log(response);
         setInnerData(
           response.data.features.map((feature) => {
             return {

@@ -300,6 +300,9 @@ export const cardStyles = makeStyles((theme) => ({
     maxWidth: '97%',
     width: '97%',
     height: 'calc(100% - 36px)',
+    [theme.breakpoints.down('md')]: {
+      height: 'calc(100% - 16px)',
+    },
   },
   cardContent: {
     display: 'flex',
@@ -404,17 +407,17 @@ export const cardStyles = makeStyles((theme) => ({
     },
   },
   accountEvent: {
-    maxHeight: 200,
-    maxWidth: 350,
-    minWidth: 200,
-    margin: 8,
+    width: '96%',
+    marginBottom: '2%',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    padding: '10px',
+    padding: '5px',
     cursor: 'pointer',
     textAlign: 'center',
     height: 'calc(100% - 36px)',
+    minHeight: 200,
+    maxHeight: 200,
   },
   comments: {
     width: '97%',

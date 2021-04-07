@@ -74,7 +74,9 @@ export const calendarStyles = makeStyles((theme) => ({
     borderRadius: '10px',
     padding: '10px',
     marginTop: '10px',
-    width: '45%',
+    width: '35%',
+    position: 'fixed',
+    left: '65%',
     [theme.breakpoints.down('md')]: {
       display: 'none',
     },
@@ -100,14 +102,14 @@ export const cardStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     justifyContent: 'space-between',
     padding: '10px',
-    overflowY: 'auto',
     wordWrap: 'break-word',
     //these next two lines hide scrollbars on cards
     '&::-webkit-scrollbar': { display: 'none' },
     '-ms-overflow-style': 'none',
   },
-  eventDetailsContainer: {
-    width: '100%',
+  fullEvent: {
+    maxWidth: '100%',
+    height: 'calc(100% - 24px)',
   },
   addressContainer: {
     display: 'flex',
@@ -157,10 +159,6 @@ export const cardStyles = makeStyles((theme) => ({
   title: {
     wordWrap: 'break-word',
     maxWidth: '440px',
-  },
-  fullEvent: {
-    maxWidth: '100%',
-    height: 'calc(100% - 36px)',
   },
   cardContent: {
     display: 'flex',
