@@ -56,7 +56,7 @@ export const styles = makeStyles((theme) => ({
         flexDirection: 'column',
         width: '50%',
         marginRight: '1%',
-        maxHeight: '85vh',
+        maxHeight: '80vh',
 
         [theme.breakpoints.down('md')]: {
           width: '100%',
@@ -128,7 +128,7 @@ export const styles = makeStyles((theme) => ({
         justifyContent: 'center',
         flexDirection: 'column',
         borderRadius: '5px',
-        height: '85vh',
+        height: '80vh',
         marginTop: '16px',
         [theme.breakpoints.down('md')]: {
           width: '100%',
