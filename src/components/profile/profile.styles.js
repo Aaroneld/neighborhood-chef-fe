@@ -43,7 +43,7 @@ export const styles = makeStyles((theme) => ({
       },
     },
 
-    '& .bottomSection': {
+    '& .mainContainer': {
       display: 'flex',
       width: '100%',
       paddingTop: '5px',

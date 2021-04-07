@@ -4,9 +4,9 @@ import Typography from '@material-ui/core/Typography';
 import CardMedia from '@material-ui/core/CardMedia';
 
 //style imports
-import { cardStyles } from '../../../styles';
+import { cardStyles } from '../../../../styles';
 import Card from '@material-ui/core/Card';
-import { parseTime, chooseDefaultPicture } from '../../../utilities/functions';
+import { parseTime, chooseDefaultPicture } from '../../../../utilities/functions';
 
 const AccountEVentCard = ({ event }) => {
   const history = useHistory();
