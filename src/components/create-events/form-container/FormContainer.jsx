@@ -73,7 +73,6 @@ const createOrUpdateEvent = (values, user, dispatch, setValues) => {
     },
   })
     .then((res) => {
-      console.log(res);
       dispatch(
         createEventSuccess({
           ...requestValues,

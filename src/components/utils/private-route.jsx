@@ -17,8 +17,6 @@ function PrivateRoute({ component: Component, path, ...props }) {
     // eslint-disable-next-line
   }, [path, Component]);
 
-  console.log(response);
-
   if (!response) {
     return <Spinner />;
   }

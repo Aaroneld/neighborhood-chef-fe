@@ -11,7 +11,6 @@ export default function TimeInputs({ errors, setValues, values, validate }) {
 
   const handleChange = (e) => {
     e.persist();
-    console.log(e.target.value, e.target.name);
     setValues((values) => {
       return { ...values, [e.target.name]: e.target.value };
     });

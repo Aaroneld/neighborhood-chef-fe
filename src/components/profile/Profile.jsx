@@ -32,7 +32,6 @@ const Profile = () => {
   useEffect(() => {
     if (userid) {
       setLoading(true);
-
       axiosWithAuth()({
         url: `${process.env.REACT_APP_BASE_URL}/graphql`,
         method: 'post',
