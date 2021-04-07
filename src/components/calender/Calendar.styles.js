@@ -74,7 +74,9 @@ export const calendarStyles = makeStyles((theme) => ({
     borderRadius: '10px',
     padding: '10px',
     marginTop: '10px',
-    width: '45%',
+    width: '35%',
+    position: 'fixed',
+    left: '65%',
     [theme.breakpoints.down('md')]: {
       display: 'none',
     },
