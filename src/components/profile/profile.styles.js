@@ -125,7 +125,6 @@ export const styles = makeStyles((theme) => ({
         width: '50%',
         background: 'transparent',
         display: 'flex',
-        justifyContent: 'center',
         flexDirection: 'column',
         borderRadius: '5px',
         height: '80vh',
