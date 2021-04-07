@@ -25,8 +25,8 @@ const Profile = () => {
   const [parsedAddressURL, setParsedAddressURL] = useState('');
   const [formState, setFormState] = useState({ biography: '', charsLeft: 255 });
   const { userid } = useParams();
-  const classes = styles();
   const loggedInUserId = useSelector((state) => state.user.id);
+  const classes = styles();
   const btnStyles = buttonStyles();
 
   useEffect(() => {
@@ -77,11 +77,13 @@ const Profile = () => {
               <Typography variant="h2" className={classes.title}>
                 {`${user.firstName} ${user.lastName}`}
               </Typography>
+
               {!user.biography && user.id === loggedInUserId && !showForm && (
-                <Typography variant="h6" className="addBio" onClick={() => setShowForm(true)}>
+                <Typography variant="h6" onClick={() => setShowForm(true)}>
                   Add Bio
                 </Typography>
               )}
+
               {!user.biography && user.id === loggedInUserId && showForm && (
                 <UserBioForm
                   state={formState}
@@ -97,14 +99,23 @@ const Profile = () => {
             <div className="bottomSection">
               <div className="leftSide">
                 <div className="details">
-                  {user.biography && <Typography>{user.biography}</Typography>}
+                  {user.biography && (
+                    <div className="bio">
+                      <Typography variant="h6">Description</Typography>
+                      <Typography>{user.biography}</Typography>
+                    </div>
+                  )}
+
                   <div className="textIconContainer" style={{ cursor: 'pointer' }}>
-                    <span>
-                      <Icon height="20" icon={globeIcon} />
-                    </span>
-                    <a href={parsedAddressURL} target="_blank" rel="noopener noreferrer">
-                      {user.address}
-                    </a>
+                    <Typography variant="h6">Address</Typography>
+                    <div>
+                      <span>
+                        <Icon height="20" icon={globeIcon} />
+                      </span>
+                      <a href={parsedAddressURL} target="_blank" rel="noopener noreferrer">
+                        {user.address}
+                      </a>
+                    </div>
                   </div>
 
                   <div
@@ -115,36 +126,40 @@ const Profile = () => {
                       window.open(`mailto:${user.email}`);
                     }}
                   >
-                    <MailOutlineIcon style={{ fontSize: '2rem' }} />
-                    <Typography>{user.email}</Typography>
+                    <Typography variant="h6">Contact</Typography>
+                    <div>
+                      <MailOutlineIcon style={{ fontSize: '2rem' }} />
+                      <Typography>{user.email}</Typography>
+                    </div>
                   </div>
                   <div className="textIconContainer">
-                    <WcIcon style={{ fontSize: '2rem' }} />
-                    <Typography>{user.gender.charAt(0).toUpperCase() + user.gender.slice(1)}</Typography>
+                    <Typography variant="h6">Gender</Typography>
+                    <div>
+                      <WcIcon style={{ fontSize: '2rem' }} />
+                      <Typography>{user.gender.charAt(0).toUpperCase() + user.gender.slice(1)}</Typography>
+                    </div>
                   </div>
                 </div>
                 {loggedInUserId === userid && (
                   <div className="buttons">
-                    <button className={`${btnStyles.root} ${btnStyles.single}`}>
-                      Edit Personal Information
-                    </button>
-                    {user.biography && (
-                      <button className={`${btnStyles.root} ${btnStyles.single}`}>Edit Bio</button>
-                    )}
+                    <button className={`${btnStyles.root} ${btnStyles.single}`}>Edit Profile</button>
                   </div>
                 )}
               </div>
               <div className="rightSide">
+                <Typography variant="h6">Events</Typography>
                 {user.UserEvents.owned.length > 0 ? (
-                  <div className="eventContainer">
-                    {user.UserEvents.owned
-                      .sort((a, b) => a.startTime - b.startTime)
-                      .map((event) => (
-                        <EventCard event={event} />
-                      ))}
+                  <div>
+                    <div className="eventContainer">
+                      {user.UserEvents.owned
+                        .sort((a, b) => a.startTime - b.startTime)
+                        .map((event) => (
+                          <EventCard event={event} />
+                        ))}
+                    </div>
                   </div>
                 ) : (
-                  <Typography>{`${user.firstName} has 0 events`}</Typography>
+                  <Typography variant="h6">{`${user.firstName} has 0 events`}</Typography>
                 )}
               </div>
             </div>

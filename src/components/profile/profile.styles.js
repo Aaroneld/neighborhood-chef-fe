@@ -15,8 +15,9 @@ export const styles = makeStyles((theme) => ({
       alignItems: 'center',
       justifyContent: 'flexStart',
       flexDirection: 'column',
-      width: '50%',
+      width: '100%',
       padding: '5px',
+      color: '#4E4E4E',
       [theme.breakpoints.down('md')]: {
         width: '100%',
       },
@@ -27,18 +28,18 @@ export const styles = makeStyles((theme) => ({
         fontSize: '5rem',
         border: '6px solid rgba(33, 186, 66, 0.75)',
         padding: '5px',
-        margin: '20px 0',
+        marginTop: '20px',
       },
 
       '& h2': {
         margin: '5px 0',
       },
 
-      '& .addBio': {
+      '& h6': {
+        color: '#4E4E4E',
+        fontWeight: '700',
+        marginBottom: '5px',
         cursor: 'pointer',
-        alignSelf: 'center',
-        fontWeight: 'bold',
-        color: 'rgba(33, 186, 66, 0.75)',
       },
     },
 
@@ -46,7 +47,6 @@ export const styles = makeStyles((theme) => ({
       display: 'flex',
       width: '100%',
       paddingTop: '5px',
-      background: 'transparent',
       [theme.breakpoints.down('md')]: {
         flexDirection: 'column',
       },
@@ -56,8 +56,7 @@ export const styles = makeStyles((theme) => ({
         flexDirection: 'column',
         width: '50%',
         marginRight: '1%',
-        maxHeight: '500px',
-        background: 'transparent',
+        maxHeight: '85vh',
 
         [theme.breakpoints.down('md')]: {
           width: '100%',
@@ -66,13 +65,38 @@ export const styles = makeStyles((theme) => ({
         '& .details': {
           display: 'flex',
           flexDirection: 'column',
+          justifyContent: 'flex-start',
           padding: '20px',
+          color: '#868686',
+
+          '& .bio': {
+            '& h6': {
+              color: '#4E4E4E',
+              fontWeight: '700',
+              marginBottom: '5px',
+            },
+          },
 
           '& .textIconContainer': {
             display: 'flex',
-            alignItems: 'center',
-            margin: '10px 0',
+            flexDirection: 'column',
+            margin: '20px 0',
             wordBreak: 'break-word',
+            width: '95%',
+
+            '& h6': {
+              color: '#4E4E4E',
+              fontWeight: '700',
+              marginBottom: '5px',
+            },
+
+            '& div': {
+              display: 'flex',
+              alignItems: 'center',
+              '& a': {
+                color: 'rgba(0, 0, 0, 0.54)',
+              },
+            },
           },
         },
         '& .buttons': {
@@ -81,18 +105,18 @@ export const styles = makeStyles((theme) => ({
           alignItems: 'center',
 
           '& button': {
-            width: '55%',
+            width: '80%',
             margin: '5px 0',
             fontSize: '1.8rem',
             color: 'white',
-            height: '45px',
+            height: '50px',
             outline: 'none',
             marginBottom: '30px',
             '&:hover': {
               filter: 'brightness(0.8)',
             },
             [theme.breakpoints.down('sm')]: {
-              width: '80%',
+              width: '70%',
             },
           },
         },
@@ -102,26 +126,39 @@ export const styles = makeStyles((theme) => ({
         background: 'transparent',
         display: 'flex',
         justifyContent: 'center',
+        flexDirection: 'column',
         borderRadius: '5px',
-        height: '500px',
-        overflowY: 'scroll',
-        position: 'relative',
-
+        height: '85vh',
+        marginTop: '16px',
         [theme.breakpoints.down('md')]: {
           width: '100%',
           height: '100%',
         },
 
-        '& .eventContainer': {
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          width: '100%',
-          marginTop: '10px',
-          minsHeight: '100%',
-          height: '100%',
-          alignSelf: 'center',
-          zIndex: 3,
+        '& h6': {
+          color: '#4E4E4E',
+          fontWeight: '700',
+          marginBottom: '5px',
+          paddingLeft: '10px',
+          [theme.breakpoints.down('md')]: {
+            paddingLeft: '20px',
+          },
+        },
+
+        '& div': {
+          overflowY: 'scroll',
+
+          '& .eventContainer': {
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            width: '100%',
+            margin: '10px 0',
+            minsHeight: '100%',
+            height: '100%',
+            alignSelf: 'center',
+            zIndex: 3,
+          },
         },
       },
     },
