@@ -43,7 +43,7 @@ function VariableHeader() {
     //   {matches ? <Logo /> : <Typography variant="h4">My Neighborhood</Typography>}
     // </section>;
     case 'create-event':
-      return <section className={classes['container']}>{matches ? <Logo /> : <CreateEventHeader />}</section>;
+      return <section className={classes['container']}>{matches ? null : <CreateEventHeader />}</section>;
     case 'view-events':
       return (
         <section className={classes['container']}>
