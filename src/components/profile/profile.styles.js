@@ -8,6 +8,7 @@ export const styles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     flexDirection: 'column',
+    boxShadow: '-2px 3px 31px -13px rgba(117,117,117,0.36)',
 
     '& .header': {
       display: 'flex',
@@ -21,12 +22,12 @@ export const styles = makeStyles((theme) => ({
       },
 
       '& .avatar': {
-        width: '200px',
-        height: '200px',
+        width: '180px',
+        height: '180px',
         fontSize: '5rem',
         border: '6px solid rgba(33, 186, 66, 0.75)',
         padding: '5px',
-        margin: '5px 0',
+        margin: '20px 0',
       },
 
       '& h2': {

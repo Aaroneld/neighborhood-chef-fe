@@ -135,7 +135,7 @@ const Profile = () => {
                 )}
               </div>
               <div className="rightSide">
-                {user.UserEvents.owned.length > 0 && (
+                {user.UserEvents.owned.length > 0 ? (
                   <div className="eventContainer">
                     {user.UserEvents.owned
                       .sort((a, b) => a.startTime - b.startTime)
@@ -143,6 +143,8 @@ const Profile = () => {
                         <EventCard event={event} />
                       ))}
                   </div>
+                ) : (
+                  <Typography>{`${user.firstName} has 0 events`}</Typography>
                 )}
               </div>
             </div>
