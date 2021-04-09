@@ -37,7 +37,7 @@ const LeftSide = ({ user, parsedAddressURL }) => {
           <Typography variant="h6">Contact</Typography>
           <div>
             <MailOutlineIcon style={{ fontSize: '2rem' }} />
-            <Typography style={{ cursor: 'pointer' }}>{user.email}</Typography>
+            <Typography style={{ cursor: 'pointer', maxWidth: '95%' }}>{user.email}</Typography>
           </div>
         </div>
         <div className="textIconContainer">

@@ -41,7 +41,6 @@ export const styles = makeStyles((theme) => ({
         justifyContent: 'center',
         '& :nth-child(2)': {
           margin: '0 2%',
-          color: 'rgba(33, 186, 66, 0.75)',
         },
         '& h6': {
           color: '#4E4E4E',
