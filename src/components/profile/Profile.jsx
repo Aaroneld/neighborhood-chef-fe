@@ -17,7 +17,7 @@ const Profile = () => {
   const [parsedAddressURL, setParsedAddressURL] = useState('');
   const { userid } = useParams();
   const loggedInUserId = useSelector((state) => state.user.id);
-  const classes = styles();
+  const classes = styles({ user });
 
   useEffect(() => {
     if (userid) {

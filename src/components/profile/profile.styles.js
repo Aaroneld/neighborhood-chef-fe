@@ -63,12 +63,12 @@ export const styles = makeStyles((theme) => ({
       '& .leftSide': {
         display: 'flex',
         flexDirection: 'column',
-        width: '50%',
+        width: (props) => (props.user && props.user.UserEvents.owned.length > 0 ? '50%' : '100%'),
         marginRight: '1%',
         maxHeight: '70vh',
 
         [theme.breakpoints.down('md')]: {
-          width: '100%',
+          width: () => '100%',
         },
 
         '& .details': {
