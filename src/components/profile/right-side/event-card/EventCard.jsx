@@ -19,8 +19,8 @@ const AccountEVentCard = ({ event }) => {
       }}
       className="eventCard"
       style={{
-        boxShadow: '-2px 3px 31px -13px rgba(117,117,117,0.36)',
-        position: 'relative',
+        boxShadow: '-2px 0px 32px -5px rgba(25,25,25,0.2)',
+        marginTop: '10px',
         zIndex: 20,
       }}
     >

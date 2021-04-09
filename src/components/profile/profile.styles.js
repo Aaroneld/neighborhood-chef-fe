@@ -140,14 +140,18 @@ export const styles = makeStyles((theme) => ({
             alignItems: 'center',
             width: '100%',
             margin: '10px 0',
-            minsHeight: '100%',
+            minHeight: '100%',
             height: '100%',
             alignSelf: 'center',
             zIndex: 3,
+            paddingTop: '20px',
+            paddingLeft: '20px',
             [theme.breakpoints.down('md')]: {
               flexWrap: 'wrap',
               flexDirection: 'row',
               justifyContent: 'center',
+              paddingTop: '20px',
+              paddingLeft: '0',
             },
 
             [theme.breakpoints.down('sm')]: {
@@ -156,6 +160,7 @@ export const styles = makeStyles((theme) => ({
             },
 
             '& .eventCard': {
+              borderRadius: '10px',
               width: '96%',
               marginBottom: '2%',
               display: 'flex',
@@ -169,6 +174,7 @@ export const styles = makeStyles((theme) => ({
               maxHeight: 200,
               [theme.breakpoints.down('md')]: {
                 width: '45%',
+                margin: '1%',
               },
               [theme.breakpoints.down('sm')]: {
                 width: '96%',
