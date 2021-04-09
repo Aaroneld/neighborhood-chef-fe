@@ -16,8 +16,8 @@ export const modifierStyles = makeStyles(() => ({
     justifyContent: 'center',
     background: '#82df96',
     width: '50%',
-    width: '90px',
-    height: '90px',
+    width: '80px',
+    height: '80px',
     borderRadius: '50%',
     opacity: '0.5',
   },
@@ -25,7 +25,7 @@ export const modifierStyles = makeStyles(() => ({
     opacity: '1',
   },
   icon: {
-    fontSize: '4.9rem',
+    fontSize: '3rem',
     color: 'white',
   },
   p: {

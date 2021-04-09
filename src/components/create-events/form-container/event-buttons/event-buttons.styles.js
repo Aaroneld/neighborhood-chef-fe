@@ -5,7 +5,6 @@ export const styles = makeStyles((theme) => ({
     display: 'flex',
     width: '100%',
     justifyContent: 'flex-end',
-    marginTop: '1%',
 
     '& button': {
       width: '12%',

@@ -6,6 +6,7 @@ export const formPageTwoStyles = makeStyles(() => ({
 
     '& #image-hashtag-container': {
       display: 'flex',
+      marginTop: '40px',
 
       '& >*:first-child': {
         flexBasis: '50%',
@@ -28,7 +29,7 @@ export const formPageTwoStyles = makeStyles(() => ({
       height: 0,
       width: '90%',
       paddingTop: '50.625%',
-      boxShadow: "5px 5px 16px 5px rgba(25,25,25,0.25)",
+      boxShadow: "5px 5px 12px 1px rgba(25,25,25,0.28)",
 
       '&:hover': {
         filter: "brightness(70%)"
