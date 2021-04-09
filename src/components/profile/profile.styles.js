@@ -8,7 +8,7 @@ export const styles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     flexDirection: 'column',
-    boxShadow: '-2px 3px 31px -13px rgba(117,117,117,0.36)',
+    boxShadow: '-2px 3px 31px -13px rgba(117,117,117,0.46)',
 
     '& .header': {
       display: 'flex',
