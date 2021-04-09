@@ -5,15 +5,21 @@ export const eventImageUploadStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+
+    '& #upload-image-div': {
+      backgroundImage: (props) => `url(${props.photo})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center'
+    },
   },
   p: {
-    marginTop: '10px',
-    marginBottom: '10px',
     textAlign: 'left',
+    fontStyle: 'italic'
   },
   imgBtn: {
+    width: '100%',
     display: 'flex',
-    justifyContent: 'space-around',
+    justifyContent: 'center',
   },
   button: {
     marginTop: '3%',

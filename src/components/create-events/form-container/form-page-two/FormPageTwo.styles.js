@@ -3,6 +3,47 @@ import { makeStyles } from '@material-ui/core/styles';
 export const formPageTwoStyles = makeStyles(() => ({
   container: {
     width: '90%',
+
+    '& #image-hashtag-container': {
+      display: 'flex',
+
+      '& >*:first-child': {
+        flexBasis: '50%',
+        
+        '& >div': {
+          justifyContent: 'flex-start'
+        }
+     },
+
+     '& >*:last-child': {
+       flexBasis: '50%'
+     },
+
+     '& p': {
+       fontFamily: '"Poppins", sans-serif'
+     }
+  },
+
+    '& .upload-image-div': {
+      height: 0,
+      width: '90%',
+      paddingTop: '50.625%',
+      boxShadow: "5px 5px 16px 5px rgba(25,25,25,0.25)",
+
+      '&:hover': {
+        filter: "brightness(70%)"
+      }
+    },
+
+    '& #upload-image-caption': {
+      marginLeft: '-10%',
+      marginTop: '2%',
+      fontSize: '90%'
+    },
+
+    "& #modifier-container-first": {
+      marginTop: '-1%'
+    }
   },
   modifierContainer: {
     display: 'flex',
@@ -10,7 +51,9 @@ export const formPageTwoStyles = makeStyles(() => ({
     flexFlow: 'row wrap',
   },
   modifierLabel: {
-    margin: '10px 0',
+    margin: '2% 0',
+    fontSize: '120%',
+    fontFamily: '"Poppins", sans-serif'
   },
   typography: {
     marginTop: '25px',
