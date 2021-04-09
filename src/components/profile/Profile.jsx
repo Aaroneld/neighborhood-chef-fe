@@ -64,7 +64,7 @@ const Profile = () => {
                 loggedInUserId={loggedInUserId}
                 parsedAddressURL={parsedAddressURL}
               />
-              <RightSide user={user} />
+              {user.UserEvents.owned.length > 0 && <RightSide user={user} />}
             </div>
           </Card>
         )}

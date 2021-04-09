@@ -35,11 +35,20 @@ export const styles = makeStyles((theme) => ({
         margin: '5px 0',
       },
 
-      '& h6': {
-        color: '#4E4E4E',
-        fontWeight: '700',
-        marginBottom: '5px',
-        cursor: 'pointer',
+      '& div': {
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        '& :nth-child(2)': {
+          margin: '0 2%',
+          color: 'rgba(33, 186, 66, 0.75)',
+        },
+        '& h6': {
+          color: '#4E4E4E',
+          fontWeight: '600',
+          marginBottom: '5px',
+          cursor: 'pointer',
+        },
       },
     },
 
@@ -56,7 +65,7 @@ export const styles = makeStyles((theme) => ({
         flexDirection: 'column',
         width: '50%',
         marginRight: '1%',
-        maxHeight: '80vh',
+        maxHeight: '70vh',
 
         [theme.breakpoints.down('md')]: {
           width: '100%',
@@ -99,27 +108,6 @@ export const styles = makeStyles((theme) => ({
             },
           },
         },
-        '& .buttons': {
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-
-          '& button': {
-            width: '80%',
-            margin: '5px 0',
-            fontSize: '1.8rem',
-            color: 'white',
-            height: '50px',
-            outline: 'none',
-            marginBottom: '30px',
-            '&:hover': {
-              filter: 'brightness(0.8)',
-            },
-            [theme.breakpoints.down('sm')]: {
-              width: '70%',
-            },
-          },
-        },
       },
       '& .rightSide': {
         width: '50%',
@@ -127,7 +115,7 @@ export const styles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         borderRadius: '5px',
-        height: '80vh',
+        height: '70vh',
         marginTop: '16px',
         [theme.breakpoints.down('md')]: {
           width: '100%',
@@ -157,6 +145,36 @@ export const styles = makeStyles((theme) => ({
             height: '100%',
             alignSelf: 'center',
             zIndex: 3,
+            [theme.breakpoints.down('md')]: {
+              flexWrap: 'wrap',
+              flexDirection: 'row',
+              justifyContent: 'center',
+            },
+
+            [theme.breakpoints.down('sm')]: {
+              flexWrap: 'noWrap',
+              flexDirection: 'column',
+            },
+
+            '& .eventCard': {
+              width: '96%',
+              marginBottom: '2%',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              padding: '5px',
+              cursor: 'pointer',
+              textAlign: 'center',
+              height: 'calc(100% - 36px)',
+              minHeight: 200,
+              maxHeight: 200,
+              [theme.breakpoints.down('md')]: {
+                width: '45%',
+              },
+              [theme.breakpoints.down('sm')]: {
+                width: '96%',
+              },
+            },
           },
         },
       },

@@ -18,7 +18,7 @@ const LeftSide = ({ user, loggedInUserId, userid, parsedAddressURL }) => {
             <Typography>{user.biography}</Typography>
           </div>
         )}
-        <div className="textIconContainer" style={{ cursor: 'pointer' }}>
+        <div className="textIconContainer">
           <Typography variant="h6">Address</Typography>
           <div>
             <span>
@@ -32,7 +32,6 @@ const LeftSide = ({ user, loggedInUserId, userid, parsedAddressURL }) => {
 
         <div
           className="textIconContainer"
-          style={{ cursor: 'pointer' }}
           onClick={(e) => {
             e.preventDefault();
             window.open(`mailto:${user.email}`);
@@ -41,7 +40,7 @@ const LeftSide = ({ user, loggedInUserId, userid, parsedAddressURL }) => {
           <Typography variant="h6">Contact</Typography>
           <div>
             <MailOutlineIcon style={{ fontSize: '2rem' }} />
-            <Typography>{user.email}</Typography>
+            <Typography style={{ cursor: 'pointer' }}>{user.email}</Typography>
           </div>
         </div>
         <div className="textIconContainer">
@@ -52,11 +51,11 @@ const LeftSide = ({ user, loggedInUserId, userid, parsedAddressURL }) => {
           </div>
         </div>
       </div>
-      {loggedInUserId === userid && (
+      {/* {loggedInUserId === userid && (
         <div className="buttons">
           <button className={`${btnStyles.root} ${btnStyles.single}`}>Edit Profile</button>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

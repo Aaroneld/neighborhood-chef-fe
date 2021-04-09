@@ -22,12 +22,15 @@ const Header = ({ user, setUser, userid, loggedInUserId }) => {
       <Typography variant="h2" className={classes.title}>
         {`${user.firstName} ${user.lastName}`}
       </Typography>
-
-      {!user.biography && user.id === loggedInUserId && !showForm && (
-        <Typography variant="h6" onClick={() => setShowForm(true)}>
-          Add Bio
-        </Typography>
-      )}
+      <div>
+        <Typography variant="h6">Edit Profile</Typography>
+        {!user.biography && !showForm && <Typography variant="h5">|</Typography>}
+        {!user.biography && user.id === loggedInUserId && !showForm && (
+          <Typography variant="h6" onClick={() => setShowForm(true)}>
+            Add Bio
+          </Typography>
+        )}
+      </div>
 
       {!user.biography && user.id === loggedInUserId && showForm && (
         <UserBioForm
