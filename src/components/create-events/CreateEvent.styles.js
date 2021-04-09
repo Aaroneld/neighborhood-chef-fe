@@ -78,7 +78,7 @@ export const buttonStyles = makeStyles((theme) => ({
 
 export const addModifierFormStyles = makeStyles(() => ({
   root: {
-    margin: '15px 0',
+    
   },
   container: {
     display: 'flex',
@@ -91,7 +91,7 @@ export const addModifierFormStyles = makeStyles(() => ({
     fontSize: '1.6rem',
     border: 'none',
     borderBottom: '2px solid #f0f0f0',
-    width: '40%',
+    width: '80%',
     outline: 'none',
     borderRadius: '10px',
     padding: '15px 15px',
@@ -114,7 +114,7 @@ export const addModifierFormStyles = makeStyles(() => ({
   modifierContainer: {
     display: 'flex',
     flexWrap: 'wrap',
-    width: '60%',
+    width: '100%',
   },
 }));
 

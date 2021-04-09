@@ -12,16 +12,30 @@ import Modifier from './modifier/Modifier.jsx';
 import AddHashtag from './add-hashtag/AddHashtag.jsx';
 import EventButtons from '../event-buttons/EventButtons';
 import { scrollToTop } from '../form-page-one/FormPageOne.jsx';
-import AdvancedOptions from './advanced-options/AdvancedOptions.jsx';
-import { showOptions } from '../../../../utilities/functions';
+
+import AllergyModifier from './allergies-modifiers.jsx/allergies-modifiers';
+
 import Typography from '@material-ui/core/Typography';
 
-import ArrowRightIcon from '@material-ui/icons/ArrowRight';
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import { formPageTwoStyles } from './FormPageTwo.styles';
 import { changePage } from '../../../../utilities/actions';
 import { useDispatch } from 'react-redux';
 
+import peanutIcon from '@iconify-icons/mdi/peanut';
+import crabIcon from '@iconify-icons/emojione-monotone/crab';
+import eggsIcon from '@iconify-icons/jam/eggs';
+import fishIcon from '@iconify-icons/ion/fish';
+import cowIcon from '@iconify-icons/whh/cow';
+import wheatIcon from '@iconify-icons/carbon/wheat';
+
+const allergenModifiers = [
+  { title: 'Peanuts', icon: peanutIcon },
+  { title: 'Shellfish', icon: crabIcon },
+  { title: 'Eggs', icon: eggsIcon },
+  { title: 'Fish', icon: fishIcon },
+  { title: 'Dairy', icon: cowIcon },
+  { title: 'Wheat', icon: wheatIcon },
+];
 export const modifierData = [
   { title: 'BBQ', icon: baselineOutdoorGrill },
   { title: 'Kid-Friendly', icon: strollerIcon },
@@ -32,18 +46,22 @@ export const modifierData = [
 ];
 
 const FormPageTwo = (props) => {
-  const [showAdvancedOptions, setShowAdvancedOptions] = useState(
-    showOptions(props.values.allergenWarnings, props.values.dietaryWarnings)
-  );
   const styles = formPageTwoStyles();
   const dispatch = useDispatch();
 
   return (
     <>
       <div className={styles.container}>
-        <EventImageUpload values={props.values} setValues={props.setValues} className="sadasdsa" />
-        <AddHashtag values={props.values} setValues={props.setValues} />
-        <div>
+        <div id="image-hashtag-container">
+          <EventImageUpload
+            values={props.values}
+            setValues={props.setValues}
+            className="sadasdsa"
+            caption={'Upload a main picture for your event page'}
+          />
+          <AddHashtag values={props.values} setValues={props.setValues} />
+        </div>
+        <div id="modifier-container-first">
           <Typography className={styles.modifierLabel}>Pick modifiers for your event.</Typography>
           <div className={styles.modifierContainer}>
             {modifierData
@@ -66,22 +84,29 @@ const FormPageTwo = (props) => {
               })}
           </div>
         </div>
-        <div className={styles.pointer} onClick={() => setShowAdvancedOptions(!showAdvancedOptions)}>
-          {showAdvancedOptions ? (
-            <Typography className={styles.typography}>
-              Click here to hide additional options <ArrowDropDownIcon />
-            </Typography>
-          ) : (
-            <Typography className={styles.typography}>
-              Click here to show additional options <ArrowRightIcon />
-            </Typography>
-          )}
+        <div>
+          <Typography className={styles.modifierLabel}>Add Allergy Warnings</Typography>
+          <div className={styles.modifierContainer}>
+            {allergenModifiers
+              .map((modifier) => {
+                if (props.values.allergenWarnings.includes(modifier.title)) {
+                  return { ...modifier, active: true };
+                } else {
+                  return { ...modifier, active: false };
+                }
+              })
+              .map((modifier) => {
+                return (
+                  <AllergyModifier
+                    key={modifier.title}
+                    modifier={modifier}
+                    values={props.values}
+                    setValues={props.setValues}
+                  />
+                );
+              })}
+          </div>
         </div>
-        {showAdvancedOptions && (
-          <>
-            <AdvancedOptions values={props.values} setValues={props.setValues} />
-          </>
-        )}
       </div>
       <EventButtons
         leftBtnText="Previous"

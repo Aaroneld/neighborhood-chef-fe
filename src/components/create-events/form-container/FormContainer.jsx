@@ -97,7 +97,7 @@ const FormContainer = () => {
   const [initialValues, setInitialValues] = useState(initValuesForNonEditMode);
   const [loadedFlag, flag] = useState(0);
   const [loaded, setLoaded] = useState(false);
-  const page = useSelector((state) => state.page);
+  const page = useSelector((state) => 2);
 
   const { values, setValues, validate, errors } = useForm(initialValues, validationSchema);
 

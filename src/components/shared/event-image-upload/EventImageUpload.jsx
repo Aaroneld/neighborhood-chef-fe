@@ -3,8 +3,8 @@ import Typography from '@material-ui/core/Typography';
 import { eventImageUploadStyles } from './EventImageUpload.styles';
 import sushi from '../../../assets/sushi.jpg';
 
-const EventImageUpload = ({ values, setValues }) => {
-  const styles = eventImageUploadStyles();
+const EventImageUpload = ({ values, setValues, caption }) => {
+  const styles = eventImageUploadStyles({ photo: values.photo ? values.photo : sushi });
   const fileRef = useRef();
   const imageSizeLimit = 1500000;
 
@@ -25,16 +25,9 @@ const EventImageUpload = ({ values, setValues }) => {
 
   return (
     <div className={styles.root}>
-      <Typography className={styles.p}>Upload a picture for your avatar (optional)</Typography>
       <div className={styles.imgBtn}>
         {sushi && (
-          <>
-            <img
-              onClick={() => fileRef.current.click()}
-              src={values.photo ? values.photo : sushi}
-              alt="Event Img Upload"
-              className={styles.img}
-            />
+          <div id="upload-image-div" className="upload-image-div" onClick={() => fileRef.current.click()}>
             <input
               type="file"
               name="file"
@@ -45,9 +38,10 @@ const EventImageUpload = ({ values, setValues }) => {
               style={{ display: 'none' }}
               ref={fileRef}
             />
-          </>
+          </div>
         )}
       </div>
+      <Typography id="upload-image-caption" className={styles.p}>{caption}</Typography>
     </div>
   );
 };

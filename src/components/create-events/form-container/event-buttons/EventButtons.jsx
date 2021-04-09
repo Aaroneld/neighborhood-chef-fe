@@ -7,10 +7,10 @@ const EventButtons = ({ leftBtnText, leftBtnClick, rightBtnText, rightBtnClick }
   const classnames = styles();
   return (
     <div className={btnStyles.buttonContainer + ' ' + classnames.container}>
-      <button className={btnStyles.leftBtn} onClick={leftBtnClick}>
+      <button id="first-form-button" className={btnStyles.leftBtn + ' form-button'} onClick={leftBtnClick}>
         {leftBtnText}
       </button>
-      <button type="button" className={btnStyles.rightBtn} onClick={rightBtnClick}>
+      <button type="button" className={btnStyles.rightBtn + ' form-button'} onClick={rightBtnClick}>
         {rightBtnText}
       </button>
     </div>

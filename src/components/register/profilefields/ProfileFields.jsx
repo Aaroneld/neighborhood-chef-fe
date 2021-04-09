@@ -91,7 +91,11 @@ const ProfileFields = (props) => {
           <MenuItem value={'other'}>Other</MenuItem>
         </Select>
       </FormControl>
-      <EventImageUpload values={props.values} setValues={props.setValues} />
+      <EventImageUpload
+        values={props.values}
+        setValues={props.setValues}
+        caption={'Upload a picture for your avatar (optional)'}
+      />
 
       <Divider />
 

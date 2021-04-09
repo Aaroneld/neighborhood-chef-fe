@@ -36,6 +36,16 @@ export const formPageOneStyles = makeStyles((theme) => ({
         fontSize: '65%',
       },
     },
+
+    '& #first-form-button': {
+      marginLeft: 0,
+      marginRight: '4%'
+    },
+
+    '& .form-button': {
+      width: '100%',
+    
+    }
   },
   leftContainer: {
     width: '40%',

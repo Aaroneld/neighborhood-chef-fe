@@ -29,7 +29,7 @@ const AddHashtag = ({ hashtags, values, setValues }) => {
 
   return (
     <div className={styles.root}>
-      <Typography>Add some hashtags for your event.</Typography>
+      <Typography style={{fontSize: '120%'}}>Add some hashtags for your event.</Typography>
       <div className={styles.container}>
         <input
           type="text"
@@ -41,7 +41,8 @@ const AddHashtag = ({ hashtags, values, setValues }) => {
         <button
           onClick={handleSubmit}
           disabled={!formInput}
-          className={`${styles.button} ${!formInput ? styles.inactive : ''}`}
+          style={{background: "#58d473" , whiteSpace: 'nowrap'}}
+          className={`${styles.button}`}
         >
           Add +
         </button>
