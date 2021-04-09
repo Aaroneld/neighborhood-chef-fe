@@ -17,7 +17,7 @@ const Profile = () => {
   const [parsedAddressURL, setParsedAddressURL] = useState('');
   const { userid } = useParams();
   const loggedInUserId = useSelector((state) => state.user.id);
-  const classes = styles();
+  const classes = styles({ user });
 
   useEffect(() => {
     if (userid) {
@@ -58,13 +58,8 @@ const Profile = () => {
           <Card className={classes.root}>
             <Header user={user} setUser={setUser} loggedInUserId={loggedInUserId} userid={userid} />
             <div className="mainContainer">
-              <LeftSide
-                user={user}
-                userid={userid}
-                loggedInUserId={loggedInUserId}
-                parsedAddressURL={parsedAddressURL}
-              />
-              <RightSide user={user} />
+              <LeftSide user={user} parsedAddressURL={parsedAddressURL} />
+              {user.UserEvents.owned.length > 0 && <RightSide user={user} />}
             </div>
           </Card>
         )}

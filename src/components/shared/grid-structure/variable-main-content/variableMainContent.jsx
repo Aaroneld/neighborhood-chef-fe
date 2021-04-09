@@ -5,6 +5,7 @@ import ViewEvents from '../../../calender/ViewEvents';
 import CreateEvent from '../../../create-events/CreateEvent';
 import FullEvent from '../../../event/FullEvent';
 import Profile from '../../../profile/Profile';
+import Settings from '../../../settings/Settings';
 
 function VariableMainContent(props) {
   const location = useLocation();
@@ -28,6 +29,8 @@ function VariableMainContent(props) {
       return <FullEvent {...props} />;
     case 'profile':
       return <Profile />;
+    case 'settings':
+      return <Settings />;
     default:
       return <p>you did a bad</p>;
   }

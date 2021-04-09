@@ -4,11 +4,8 @@ import globeIcon from '@iconify/icons-flat-color-icons/globe';
 import { Icon } from '@iconify/react';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import WcIcon from '@material-ui/icons/Wc';
-import { buttonStyles } from '../../../styles';
 
-const LeftSide = ({ user, loggedInUserId, userid, parsedAddressURL }) => {
-  const btnStyles = buttonStyles();
-
+const LeftSide = ({ user, parsedAddressURL }) => {
   return (
     <div className="leftSide">
       <div className="details">
@@ -18,7 +15,7 @@ const LeftSide = ({ user, loggedInUserId, userid, parsedAddressURL }) => {
             <Typography>{user.biography}</Typography>
           </div>
         )}
-        <div className="textIconContainer" style={{ cursor: 'pointer' }}>
+        <div className="textIconContainer">
           <Typography variant="h6">Address</Typography>
           <div>
             <span>
@@ -32,7 +29,6 @@ const LeftSide = ({ user, loggedInUserId, userid, parsedAddressURL }) => {
 
         <div
           className="textIconContainer"
-          style={{ cursor: 'pointer' }}
           onClick={(e) => {
             e.preventDefault();
             window.open(`mailto:${user.email}`);
@@ -41,7 +37,7 @@ const LeftSide = ({ user, loggedInUserId, userid, parsedAddressURL }) => {
           <Typography variant="h6">Contact</Typography>
           <div>
             <MailOutlineIcon style={{ fontSize: '2rem' }} />
-            <Typography>{user.email}</Typography>
+            <Typography style={{ cursor: 'pointer', maxWidth: '95%' }}>{user.email}</Typography>
           </div>
         </div>
         <div className="textIconContainer">
@@ -52,11 +48,6 @@ const LeftSide = ({ user, loggedInUserId, userid, parsedAddressURL }) => {
           </div>
         </div>
       </div>
-      {loggedInUserId === userid && (
-        <div className="buttons">
-          <button className={`${btnStyles.root} ${btnStyles.single}`}>Edit Profile</button>
-        </div>
-      )}
     </div>
   );
 };

@@ -18,7 +18,7 @@ export const styles = makeStyles((theme) => ({
       fontFamily: 'poppins, sans-serif',
       borderRadius: '6px',
       width: '80%',
-      height: '160px',
+      height: '130px',
       outline: 'none',
       border: '2px solid #f0f0f0',
       padding: '10px',
@@ -27,6 +27,7 @@ export const styles = makeStyles((theme) => ({
       width: '100%',
       display: 'flex',
       justifyContent: 'center',
+      alignItems: 'center',
 
       '& :first-child': {
         color: '#b3b3b3',
@@ -41,6 +42,8 @@ export const styles = makeStyles((theme) => ({
         width: '20%',
         marginTop: '10px',
         fontWeight: 'bold',
+        outline: 'none',
+        height: '40px',
       },
     },
   },
@@ -93,13 +96,14 @@ const UserBioForm = ({ user, setUser, setShowForm, loggedInUserId, state, setSta
         style={{ resize: 'none' }}
       />
       <div>
-        <button onClick={() => setShowForm(false)} className={`${btnStyles.root} ${classes.leftBtn}`}>
+        <button onClick={() => setShowForm(false)} className={btnStyles.root}>
           Cancel
         </button>
         <button
           style={{ opacity: !state.biography ? '.3' : '1' }}
           disabled={!state.biography}
-          className={`${btnStyles.root} ${btnStyles.active}`}
+          style={{ background: '#58D573', color: 'white', border: '#58D573' }}
+          className={`${btnStyles.root}`}
         >
           Submit
         </button>

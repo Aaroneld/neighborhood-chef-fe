@@ -41,6 +41,7 @@ const ResponsiveMenu = () => {
         <MenuItem onClick={() => handleClose('/view-events')}>Calendar</MenuItem>
         <MenuItem onClick={() => handleClose('/create-event')}>Create Event</MenuItem>
         <MenuItem onClick={() => handleClose(`/profile/${userId}`)}>Profile</MenuItem>
+        <MenuItem onClick={() => handleClose(`/settings`)}>Settings</MenuItem>
       </Menu>
     </div>
   );

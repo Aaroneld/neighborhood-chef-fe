@@ -2,15 +2,11 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import CardMedia from '@material-ui/core/CardMedia';
-
-//style imports
-import { cardStyles } from '../../../../styles';
 import Card from '@material-ui/core/Card';
 import { parseTime, chooseDefaultPicture } from '../../../../utilities/functions';
 
 const AccountEVentCard = ({ event }) => {
   const history = useHistory();
-  const classes = cardStyles();
   const timeObject = parseTime(event.startTime);
   const photo = event.photo ? event.photo : chooseDefaultPicture(event.title.charAt(0));
   const attending = event.EventUsers.attending;
@@ -21,10 +17,10 @@ const AccountEVentCard = ({ event }) => {
         history.push(`/events/${event.id}`);
         history.go();
       }}
-      className={classes.accountEvent}
+      className="eventCard"
       style={{
-        boxShadow: '-2px 3px 31px -13px rgba(117,117,117,0.36)',
-        position: 'relative',
+        boxShadow: '-2px 0px 32px -5px rgba(25,25,25,0.2)',
+        marginTop: '10px',
         zIndex: 20,
       }}
     >
