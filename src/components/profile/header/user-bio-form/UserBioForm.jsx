@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { print } from 'graphql';
-import { axiosWithAuth } from '../../../utilities/axiosWithAuth';
+import { axiosWithAuth } from '../../../../utilities/axiosWithAuth';
 import makeStyles from '@material-ui/styles/makeStyles';
-import { UPDATE_USER } from '../../../graphql/users/user-mutations';
-import { buttonStyles } from '../../../styles';
+import { UPDATE_USER } from '../../../../graphql/users/user-mutations';
+import { buttonStyles } from '../../../../styles';
 import Typography from '@material-ui/core/Typography';
 
 export const styles = makeStyles((theme) => ({
