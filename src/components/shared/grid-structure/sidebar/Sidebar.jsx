@@ -6,6 +6,7 @@ import houseDoor from '@iconify/icons-bi/house-door';
 import calendarOutlined from '@iconify/icons-ant-design/calendar-outlined';
 import calendarPlus from '@iconify/icons-mdi/calendar-plus';
 import userAvatar from '@iconify-icons/carbon/user-avatar';
+import settingsIcon from '@iconify-icons/bytesize/settings';
 
 //component import
 import SidebarButton from './sidebar-button/SidebarButton';
@@ -36,6 +37,12 @@ const buttonList = [
     link: null,
     text: 'Profile',
     icon: userAvatar,
+  },
+  {
+    active: false,
+    link: 'settings',
+    text: 'Settings',
+    icon: settingsIcon,
   },
 ];
 

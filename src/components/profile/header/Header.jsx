@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import UserBioForm from './user-bio-form/UserBioForm';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
@@ -9,6 +10,7 @@ const Header = ({ user, setUser, userid, loggedInUserId }) => {
   const [showForm, setShowForm] = useState(false);
   const [formState, setFormState] = useState({ biography: '', charsLeft: 255 });
   const classes = styles();
+  const { push } = useHistory();
 
   return (
     <div className="header">
@@ -23,8 +25,14 @@ const Header = ({ user, setUser, userid, loggedInUserId }) => {
         {`${user.firstName} ${user.lastName}`}
       </Typography>
       <div>
-        <Typography variant="h6">Edit Profile</Typography>
-        {!user.biography && !showForm && <Typography variant="h5">|</Typography>}
+        {loggedInUserId === user.id && (
+          <Typography variant="h6" onClick={() => push('/settings')}>
+            Edit Profile
+          </Typography>
+        )}
+        {!user.biography && !showForm && loggedInUserId === user.id && (
+          <Typography variant="h5">|</Typography>
+        )}
         {!user.biography && user.id === loggedInUserId && !showForm && (
           <Typography variant="h6" onClick={() => setShowForm(true)}>
             Add Bio

@@ -4,11 +4,8 @@ import globeIcon from '@iconify/icons-flat-color-icons/globe';
 import { Icon } from '@iconify/react';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import WcIcon from '@material-ui/icons/Wc';
-import { buttonStyles } from '../../../styles';
 
-const LeftSide = ({ user, loggedInUserId, userid, parsedAddressURL }) => {
-  const btnStyles = buttonStyles();
-
+const LeftSide = ({ user, parsedAddressURL }) => {
   return (
     <div className="leftSide">
       <div className="details">
@@ -51,11 +48,6 @@ const LeftSide = ({ user, loggedInUserId, userid, parsedAddressURL }) => {
           </div>
         </div>
       </div>
-      {/* {loggedInUserId === userid && (
-        <div className="buttons">
-          <button className={`${btnStyles.root} ${btnStyles.single}`}>Edit Profile</button>
-        </div>
-      )} */}
     </div>
   );
 };

@@ -58,12 +58,7 @@ const Profile = () => {
           <Card className={classes.root}>
             <Header user={user} setUser={setUser} loggedInUserId={loggedInUserId} userid={userid} />
             <div className="mainContainer">
-              <LeftSide
-                user={user}
-                userid={userid}
-                loggedInUserId={loggedInUserId}
-                parsedAddressURL={parsedAddressURL}
-              />
+              <LeftSide user={user} parsedAddressURL={parsedAddressURL} />
               {user.UserEvents.owned.length > 0 && <RightSide user={user} />}
             </div>
           </Card>

@@ -44,6 +44,7 @@ function App() {
         <Route path="/register" component={Register} />
         <PrivateRoute path="/events/:id" component={GridStructure} />
         <PrivateRoute path="/profile/:userid" component={GridStructure} />
+        <PrivateRoute path="/settings" component={GridStructure} />
         <Route path="/register-check-email" component={CheckEmail} />
         <Route path="/community" component={Community} />
         <Route path="/about" component={AboutUs} />

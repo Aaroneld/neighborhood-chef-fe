@@ -75,7 +75,7 @@ function VariableHeader() {
         </section>
       );
     default:
-      return <Typography>Oopsie daisy</Typography>;
+      return '';
   }
 }
 

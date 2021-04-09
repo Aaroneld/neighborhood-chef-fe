@@ -18,7 +18,7 @@ export const styles = makeStyles((theme) => ({
       fontFamily: 'poppins, sans-serif',
       borderRadius: '6px',
       width: '80%',
-      height: '140px',
+      height: '130px',
       outline: 'none',
       border: '2px solid #f0f0f0',
       padding: '10px',
