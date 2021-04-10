@@ -19,12 +19,15 @@ export const styles = makeStyles((theme) => ({
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'flex-start',
+      boxShadow: "5px 5px 21px 3px rgba(71,71,71,0.23)",
 
       '& >*': {
         padding: '0 2%',
       },
 
       '& .card-header': {
+        marginLeft: '1%',
+
         '& >:first-child': {
           fontFamily: "'Poppins', sans-serif",
           marginTop: '2%',
@@ -62,7 +65,9 @@ export const styles = makeStyles((theme) => ({
       },
       [theme.breakpoints.down('md')]: {
         width: '44%',
-        left: '3%',
+        height: '55vh',
+        left: '5%',
+        top: '58%'
       },
       [theme.breakpoints.down('sm')]: {
         width: '90%',
@@ -73,15 +78,30 @@ export const styles = makeStyles((theme) => ({
       overflow: 'hidden',
       position: 'relative',
       left: '50%',
-      transform: 'translate(-50%, -80%)',
-      zIndes: '0',
+      transform: 'translate(-50%, -79%)',
+      height: '92vh',
+      zIndex: '0',
       [theme.breakpoints.down('lg')]: {
         transform: 'translate(-50%, -83.5%)',
+      },
+
+      [theme.breakpoints.down('md')]: {
+        transform: 'translate(-50%, -57.3%)',
+      },
+      
+      [theme.breakpoints.down('sm')]: {
+        transform: 'translate(-50%, -200%)',
+      },
+
+      [theme.breakpoints.down('699px')]: {
+        display: 'block',
+        
       },
     },
     [theme.breakpoints.down('lg')]: {
       height: '90vh',
     },
+
   },
   overlay: {
     position: 'absolute',

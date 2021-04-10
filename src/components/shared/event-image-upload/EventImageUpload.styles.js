@@ -9,7 +9,26 @@ export const eventImageUploadStyles = makeStyles((theme) => ({
     '& #upload-image-div': {
       backgroundImage: (props) => `url(${props.photo})`,
       backgroundSize: 'cover',
-      backgroundPosition: 'center'
+      backgroundPosition: 'center',
+      width: '35%',
+      paddingTop: '35%',
+      borderRadius: '100%',
+      cursor: 'pointer',
+      border: '5px solid #58D573',
+      margin: '3% 0',
+      '&:hover': {
+        filter: 'brightness(70%)',
+      },
+
+      [theme.breakpoints.down('lg')] : {
+        width: '45%',
+        paddingTop: '45%',
+      },
+
+      [theme.breakpoints.down('md')] : {
+        width: '35%',
+        paddingTop: '35%',
+      }
     },
   },
   p: {
@@ -32,15 +51,6 @@ export const eventImageUploadStyles = makeStyles((theme) => ({
       width: '70%',
       display: 'flex',
       justifyContent: 'center',
-    },
-  },
-  img: {
-    width: '35%',
-    borderRadius: '100%',
-    cursor: 'pointer',
-    border: '5px solid #58D573',
-    '&:hover': {
-      filter: 'brightness(70%)',
     },
   },
 }));

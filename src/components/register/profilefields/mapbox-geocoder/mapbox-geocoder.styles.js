@@ -1,7 +1,10 @@
 import makeStyles from '@material-ui/styles/makeStyles';
 
-export const styles = makeStyles({
+export const styles = makeStyles((theme) => ({
   container: {
+
+    'marginBottom': '4%',
+
     '& .MuiTextField-root': {
       width: '98%',
     },
@@ -9,5 +12,9 @@ export const styles = makeStyles({
     '& label': {
       color: 'rgba(0,0,0,.6)',
     },
+
+    [theme.breakpoints.down('lg')]: {
+      'marginBottom': '2%',
+    }
   },
-});
+}));

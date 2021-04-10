@@ -28,6 +28,7 @@ const AuthFields = ({ setStepper, setValues, errors, validate }) => {
 
   return (
     <div className={classNames.container}>
+      <div className="input-with-error">
       <TextField
         onChange={handleChange}
         type="email"
@@ -47,6 +48,7 @@ const AuthFields = ({ setStepper, setValues, errors, validate }) => {
           render={({ message }) => <p style={{ color: 'crimson' }}>{message}</p>}
         />
       )}
+      </div>
       <label className="terms">
         <Checkbox
           type="checkbox"

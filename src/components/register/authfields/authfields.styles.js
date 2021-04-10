@@ -7,9 +7,26 @@ export const styles = makeStyles((theme) => ({
     flexDirection: 'column',
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    '& .email': {
-      margin: '7% 0',
-      width: '80%',
+
+    '& .input-with-error': {
+      width: '100%',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      position: 'relative',
+      
+      '& >p': {
+        position: 'absolute',
+        bottom: '1%',
+        fontSize: '80%',
+        left: '10%'
+      },
+
+      '& .email': {
+        margin: '7% 0',
+        width: '80%',
+      }
     },
 
     '& .terms': {

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from './header/header';
 import Sidebar from './sidebar/Sidebar';
 import Logo from './logo/logo';
+import Card from '@material-ui/core/Card'
 import ResponsiveMenu from './responsive-menu/ResponsiveMenu';
 import VariableMainContent from './variable-main-content/variableMainContent';
 import { makeStyles } from '@material-ui/core/styles';

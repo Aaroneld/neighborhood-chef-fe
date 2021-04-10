@@ -34,7 +34,7 @@ const ProfileFields = (props) => {
   return (
     <div className={classnames.container}>
       <div className="name-fields">
-        <div>
+        <div class="input-with-error-message">
           <TextField
             onChange={handleChange}
             type="name"
@@ -47,11 +47,11 @@ const ProfileFields = (props) => {
               name="firstName"
               errors={props.errors}
               message={props.errors.firstName[0]}
-              render={({ message }) => <p style={{ color: 'crimson' }}>{message}</p>}
+              render={({ message }) => <p className="error-message" style={{ color: 'crimson' }}>{message}</p>}
             />
           )}
         </div>
-        <div>
+        <div class="input-with-error-message">
           <TextField
             onChange={handleChange}
             type="name"
@@ -64,7 +64,7 @@ const ProfileFields = (props) => {
               name="lastName"
               errors={props.errors}
               message={props.errors.lastName[0]}
-              render={({ message }) => <p style={{ color: 'crimson' }}>{message}</p>}
+              render={({ message }) => <p  className="error-message" style={{ color: 'crimson' }}>{message}</p>}
             />
           )}
         </div>
@@ -106,6 +106,7 @@ const ProfileFields = (props) => {
         >
           <Typography variant="h5">Back</Typography>
         </Button>
+        <div class="input-with-error-message">
         <Button
           className={`${buttonClasses.root} ${buttonClasses.active}`}
           variant="contained"
@@ -121,9 +122,10 @@ const ProfileFields = (props) => {
             name="errorMessage"
             errors={{ errorMessage: props.errorMessage }}
             message={props.errorMessage}
-            render={({ message }) => <p style={{ color: 'crimson' }}>{message}</p>}
+            render={({ message }) => <p className="error-message" style={{ color: 'crimson' }}>{message}</p>}
           />
         )}
+        </div>
       </div>
     </div>
   );

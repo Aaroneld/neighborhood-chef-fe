@@ -12,6 +12,17 @@ export const styles = makeStyles((theme) => ({
     '& >*': {
       marginLeft: '2%',
     },
+
+    '& .input-with-error-message': {
+      position: 'relative'
+    },
+
+    '& .error-message': {
+      fontSize: '80%',
+      position: 'absolute',
+      bottom: '-45%'
+    }, 
+
     '& .name-fields': {
       display: 'flex',
       justifyContent: 'space-between',
@@ -21,20 +32,15 @@ export const styles = makeStyles((theme) => ({
         width: '98%',
       },
       [theme.breakpoints.down('lg')]: {
-        marginBottom: '0',
+        marginBottom: '2%',
       },
     },
 
     '& .gender-field': {
-      marginTop: '3%',
       marginBottom: '2%',
 
       '& .MuiInputBase-root': {
         width: '98%',
-      },
-      [theme.breakpoints.down('lg')]: {
-        marginTop: '0',
-        marginBottom: '0',
       },
     },
 
@@ -50,10 +56,18 @@ export const styles = makeStyles((theme) => ({
         fontSize: '115%',
       },
 
+      '& p': {
+        bottom: '-30%',
+        fontSize: '80%',
+        marginLeft: '3%'
+      },
+
       '& button': {
         fontWeight: 'lighter',
         fontFamily: '"Roboto", "Helvetica", "Poppins", sans-serif',
       },
+
+      
     },
   },
 }));
