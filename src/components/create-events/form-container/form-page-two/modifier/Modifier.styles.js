@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export const modifierStyles = makeStyles(() => ({
+export const modifierStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
@@ -8,7 +8,23 @@ export const modifierStyles = makeStyles(() => ({
     justifyContent: 'center',
     margin: '5px',
     cursor: 'pointer',
-    width: '135px',
+    width: '11%',
+
+    
+    [theme.breakpoints.down('lg')]: {
+      width: '13%',
+    },
+
+    [theme.breakpoints.down('md')]: {
+      width: '15%',
+      fontSize: '77%',
+      color: 'black'
+    },
+
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '60%'
+    }
+    
   },
   modifierNotActive: {
     display: 'flex',
@@ -20,6 +36,11 @@ export const modifierStyles = makeStyles(() => ({
     height: '80px',
     borderRadius: '50%',
     opacity: '0.5',
+
+    [theme.breakpoints.down('lg')]: {
+      width: '70px',
+      height: '70px',
+    }
   },
   modifierActive: {
     opacity: '1',
@@ -31,5 +52,9 @@ export const modifierStyles = makeStyles(() => ({
   p: {
     opacity: '0.3',
     paddingTop: '10px',
+
+    [theme.breakpoints.down('lg')]: {
+      fontSize: '80%'
+    }
   },
 }));

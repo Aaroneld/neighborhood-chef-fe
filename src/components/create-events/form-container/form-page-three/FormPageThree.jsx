@@ -12,7 +12,7 @@ import { changePage } from '../../../../utilities/actions';
 import { useDispatch } from 'react-redux';
 
 const FormPageThree = (props) => {
-  const styles = formPageThreeStyles();
+  const styles = formPageThreeStyles({image: props.values.photo || chooseDefaultPicture(props.values.title.charAt(0))});
   const dispatch = useDispatch();
 
   return (
@@ -22,11 +22,14 @@ const FormPageThree = (props) => {
       </h3>
       <div className={styles.cardContainer}>
         <div className={styles.card}>
-          <img
+          <div className={styles.img} id="form-confirm-image" alt="Event Page 3 Img"/>
+
+          
+          {/* <img
             className={styles.img}
             src={props.values.photo || chooseDefaultPicture(props.values.title.charAt(0))}
             alt="Event Page 3 Img"
-          />
+          /> */}
 
           <div className={styles.text}>
             <h4 className={styles.h4}>
@@ -49,7 +52,10 @@ const FormPageThree = (props) => {
             <p className={styles.grayText}>{props.values.address}</p>
           </div>
         </div>
-
+        <div>
+          <h4>Description</h4>
+          <p>{props.values.description}</p>
+        </div>
         <DisplayEventModifiers values={props.values} setValues={props.setValues} />
       </div>
       <EventButtons

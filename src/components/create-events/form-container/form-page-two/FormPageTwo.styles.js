@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export const formPageTwoStyles = makeStyles(() => ({
+export const formPageTwoStyles = makeStyles((theme) => ({
   container: {
     width: '90%',
 
@@ -8,27 +8,62 @@ export const formPageTwoStyles = makeStyles(() => ({
       display: 'flex',
       marginTop: '40px',
 
+      [theme.breakpoints.down('md')]: {
+        flexDirection: 'column',
+  
+      },
+
       '& >*:first-child': {
-        flexBasis: '50%',
+        flexBasis: '40%',
+
+        [theme.breakpoints.down('md')]: {
+          marginBottom : '4%',
+
+          '& p': {
+            marginLeft: '2%'
+          }
+        },
         
         '& >div': {
-          justifyContent: 'flex-start'
+          justifyContent: 'flex-start',
+
+          [theme.breakpoints.down('md')]: {
+            justifyContent: 'center', 
+          }
         }
      },
 
      '& >*:last-child': {
-       flexBasis: '50%'
+       flexBasis: '60%',
+       
+       '& >p': {
+        marginTop: '-.75%',
+
+        [theme.breakpoints.down('sm')]: {
+          textAlign: 'center', 
+        }
+      },
+
+      [theme.breakpoints.down('sm')]: {
+        marginBottom: '4%'
+      }
      },
 
      '& p': {
        fontFamily: '"Poppins", sans-serif'
-     }
+     },
+     
+    
+
   },
 
-    '& .upload-image-div': {
+    '& #upload-image-div': {
       height: 0,
       width: '90%',
       paddingTop: '50.625%',
+      borderRadius: 0,
+      border: 'none',
+      marginTop: 0,
       boxShadow: "5px 5px 12px 1px rgba(25,25,25,0.28)",
 
       '&:hover': {
@@ -44,12 +79,37 @@ export const formPageTwoStyles = makeStyles(() => ({
 
     "& #modifier-container-first": {
       marginTop: '-1%'
+    },
+
+    '& #modifier-container-second': {
+      marginBottom: '2%'
+    },
+
+    [theme.breakpoints.down('sm')]: {
+      "& #modifier-container-second, #modifier-container-first": {
+        textAlign: 'center',
+        marginBottom: '4%',
+
+        '& p': {
+          marginBottom: '8%',
+          fontSize: '135%'
+        }
+      }
     }
   },
   modifierContainer: {
     display: 'flex',
     width: '100%',
     flexFlow: 'row wrap',
+
+    [theme.breakpoints.down('sm')]: {
+      
+      justifyContent: 'center',
+
+      "& >*": {
+        flexBasis: '27%',
+      }
+    }
   },
   modifierLabel: {
     margin: '2% 0',

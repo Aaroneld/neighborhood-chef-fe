@@ -6,9 +6,22 @@ export const styles = makeStyles((theme) => ({
     width: '100%',
     justifyContent: 'flex-end',
 
+    [theme.breakpoints.down('md')]: {
+      justifyContent: 'center',
+      margin: '4% 0'
+    },
+
     '& button': {
       width: '12%',
       margin: '0 .5%',
+
+      [theme.breakpoints.down('md')]: {
+        width: '25%'
+      },
+
+      [theme.breakpoints.down('sm')]: {
+        width: '33.33%'
+      },
     },
 
     '& >*:last-child': {
@@ -18,7 +31,16 @@ export const styles = makeStyles((theme) => ({
 
       '&:hover': {
         filter: 'brightness(90%)'
-      }
+      },
+
+      [theme.breakpoints.down('lg')]: {
+        marginRight: '2.4%'
+      },
+
+      [theme.breakpoints.down('md')]: {
+        marginRight: 0,
+        marginLeft: '4%',
+      },
     },
   },
 }));

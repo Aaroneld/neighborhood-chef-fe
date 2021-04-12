@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core/styles';
+import { CenterFocusStrong } from '@material-ui/icons';
 
 export const formPageThreeStyles = makeStyles((theme) => ({
   root: {
@@ -43,10 +44,14 @@ export const formPageThreeStyles = makeStyles((theme) => ({
     },
   },
   img: {
-    maxWidth: '50%',
-    border: '8px solid #58d473',
-    borderRadius: '25px',
-    maxHeight: '300px',
+    height: 0,
+    width: '50%',
+    paddingTop: '28.125%',
+    boxShadow: "5px 5px 12px 1px rgba(25,25,25,0.28)",
+    backgroundImage: (props) => `url(${props.image})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+
     [theme.breakpoints.down('800')]: {
       maxWidth: '90%',
     },

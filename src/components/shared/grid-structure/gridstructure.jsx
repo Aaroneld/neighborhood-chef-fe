@@ -25,11 +25,11 @@ const styles = makeStyles((theme) => {
       'grid-template-rows': '1fr 9fr',
       gap: '1px 1px',
       'grid-template-areas': ' "Logo Header" "Sidebar Variable" ',
-      height: '100vh',
+      // height: '100vh',
 
-      [theme.breakpoints.down('960')]: {
-        height: '100%',
-        minHeight: '100vh',
+      [theme.breakpoints.down('md')]: {
+        // height: '100%',
+        // minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
       },

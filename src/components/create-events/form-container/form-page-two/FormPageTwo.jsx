@@ -28,7 +28,7 @@ import fishIcon from '@iconify-icons/ion/fish';
 import cowIcon from '@iconify-icons/whh/cow';
 import wheatIcon from '@iconify-icons/carbon/wheat';
 
-const allergenModifiers = [
+export const allergenModifiers = [
   { title: 'Peanuts', icon: peanutIcon },
   { title: 'Shellfish', icon: crabIcon },
   { title: 'Eggs', icon: eggsIcon },
@@ -84,7 +84,7 @@ const FormPageTwo = (props) => {
               })}
           </div>
         </div>
-        <div>
+        <div id="modifier-container-second">
           <Typography className={styles.modifierLabel}>Add Allergy Warnings</Typography>
           <div className={styles.modifierContainer}>
             {allergenModifiers
