@@ -5,7 +5,7 @@ const Settings = () => {
   const user = useSelector((state) => state.user);
   return (
     <div>
-      <pre>{JSON.stringify(user, null, 2)}</pre>
+      <p>user settings</p>
     </div>
   );
 };

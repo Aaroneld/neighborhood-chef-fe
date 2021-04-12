@@ -124,7 +124,6 @@ export const styles = makeStyles((theme) => ({
         '& h6': {
           color: '#4E4E4E',
           fontWeight: '700',
-          marginBottom: '5px',
           paddingLeft: '10px',
           [theme.breakpoints.down('md')]: {
             paddingLeft: '20px',
@@ -133,6 +132,11 @@ export const styles = makeStyles((theme) => ({
 
         '& div': {
           overflowY: 'scroll',
+          msOverflowStyle: 'none' /* Hide scrollbar for IE and Edge */,
+          scrollbarWidth: 'none' /* Hide scrollbar for Firefox */,
+          '&::-webkit-scrollbar': {
+            display: 'none' /* Hide scrollbar for Chrome, Safari and Opera */,
+          },
 
           '& .eventContainer': {
             display: 'flex',
@@ -172,6 +176,11 @@ export const styles = makeStyles((theme) => ({
               height: 'calc(100% - 36px)',
               minHeight: 200,
               maxHeight: 200,
+              msOverflowStyle: 'none' /* Hide scrollbar for IE and Edge */,
+              scrollbarWidth: 'none' /* Hide scrollbar for Firefox */,
+              '&::-webkit-scrollbar': {
+                display: 'none' /* Hide scrollbar for Chrome, Safari and Opera */,
+              },
               [theme.breakpoints.down('md')]: {
                 width: '45%',
                 margin: '1%',

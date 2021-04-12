@@ -40,13 +40,15 @@ const LeftSide = ({ user, parsedAddressURL }) => {
             <Typography style={{ cursor: 'pointer', maxWidth: '95%' }}>{user.email}</Typography>
           </div>
         </div>
-        <div className="textIconContainer">
-          <Typography variant="h6">Gender</Typography>
-          <div>
-            <WcIcon style={{ fontSize: '2rem' }} />
-            <Typography>{user.gender.charAt(0).toUpperCase() + user.gender.slice(1)}</Typography>
+
+        {user.UserEvents.owned.length === 0 && (
+          <div className="textIconContainer">
+            <Typography variant="h6">Events</Typography>
+            <div>
+              <Typography>{`${user.firstName} has not created any events`}</Typography>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
