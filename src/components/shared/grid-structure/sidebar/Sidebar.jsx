@@ -1,11 +1,9 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 
 //icons imports
 import houseDoor from '@iconify/icons-bi/house-door';
 import calendarOutlined from '@iconify/icons-ant-design/calendar-outlined';
 import calendarPlus from '@iconify/icons-mdi/calendar-plus';
-import userAvatar from '@iconify-icons/carbon/user-avatar';
 import settingsIcon from '@iconify-icons/bytesize/settings';
 
 //component import
@@ -34,12 +32,6 @@ const buttonList = [
   },
   {
     active: false,
-    link: null,
-    text: 'Profile',
-    icon: userAvatar,
-  },
-  {
-    active: false,
     link: 'settings',
     text: 'Settings',
     icon: settingsIcon,
@@ -47,7 +39,6 @@ const buttonList = [
 ];
 
 const Sidebar = ({ active }) => {
-  const profileLink = `profile/${useSelector((state) => state.user.id)}`;
   const classnames = styles();
   return (
     <div className={classnames.container}>
@@ -61,8 +52,7 @@ const Sidebar = ({ active }) => {
           }}
         >
           {buttonList.map((ele) => {
-            if (ele.text === 'Profile') ele.link = profileLink;
-            return <SidebarButton {...ele} active={active === ele.link.split('/')[0]} key={ele.text} />;
+            return <SidebarButton {...ele} active={active === ele.link} key={ele.text} />;
           })}
         </nav>
       </div>

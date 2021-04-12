@@ -38,10 +38,11 @@ function VariableHeader() {
 
   switch (urlLocation) {
     case 'dashboard':
-      return '';
-    // <section className={classes['container']}>
-    //   {matches ? <Logo /> : <Typography variant="h4">My Neighborhood</Typography>}
-    // </section>;
+      return (
+        <section className={classes['container']}>
+          {/* {matches ? <Logo /> : <Typography variant="h4">My Neighborhood</Typography>} */}
+        </section>
+      );
     case 'create-event':
       return <section className={classes['container']}>{matches ? null : <CreateEventHeader />}</section>;
     case 'view-events':
@@ -74,6 +75,8 @@ function VariableHeader() {
           {matches ? <Logo /> : <Typography variant="h4"></Typography>}
         </section>
       );
+    case 'settings':
+      return <section className={classes['container']}></section>;
     default:
       return '';
   }
