@@ -64,7 +64,7 @@ export const styles = makeStyles((theme) => ({
         flexDirection: 'column',
         width: (props) => (props.user && props.user.UserEvents.owned.length > 0 ? '50%' : '100%'),
         marginRight: '1%',
-        maxHeight: '70vh',
+        maxHeight: '73vh',
 
         [theme.breakpoints.down('md')]: {
           width: () => '100%',
@@ -114,11 +114,12 @@ export const styles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         borderRadius: '5px',
-        height: '70vh',
+        height: '73vh',
         marginTop: '16px',
         [theme.breakpoints.down('md')]: {
           width: '100%',
           height: '100%',
+          marginTop: '0',
         },
 
         '& h6': {
@@ -143,12 +144,11 @@ export const styles = makeStyles((theme) => ({
             flexDirection: 'column',
             alignItems: 'center',
             width: '100%',
-            margin: '10px 0',
             minHeight: '100%',
             height: '100%',
             alignSelf: 'center',
             zIndex: 3,
-            paddingTop: '20px',
+            paddingTop: '10px',
             paddingLeft: '20px',
             [theme.breakpoints.down('md')]: {
               flexWrap: 'wrap',

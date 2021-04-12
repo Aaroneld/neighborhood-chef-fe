@@ -41,6 +41,14 @@ const LeftSide = ({ user, parsedAddressURL }) => {
           </div>
         </div>
 
+        <div className="textIconContainer">
+          <Typography variant="h6">Gender</Typography>
+          <div>
+            <WcIcon style={{ fontSize: '2rem' }} />
+            <Typography>{user.gender.charAt(0).toUpperCase() + user.gender.slice(1)}</Typography>
+          </div>
+        </div>
+
         {user.UserEvents.owned.length === 0 && (
           <div className="textIconContainer">
             <Typography variant="h6">Events</Typography>
