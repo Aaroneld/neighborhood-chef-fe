@@ -5,7 +5,6 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { useHistory } from 'react-router-dom';
 import { print } from 'graphql';
-import AvatarGroup from '@material-ui/lab/AvatarGroup';
 
 //style imports
 import Typography from '@material-ui/core/Typography';
@@ -143,8 +142,19 @@ const EventDetails = ({ event, attending, setAttending }) => {
             )}
           </div>
           {/* <div className={classes.img} title="Event Details Photo" /> */}
-          <div style={{ margin: '5px 0' }}>
-            <Typography style={{ fontWeight: '700' }} variant="h6">
+          <div
+            style={{
+              margin: '5px 0',
+              fontWeight: '700',
+              wordBreak: 'break-word',
+            }}
+          >
+            <Typography
+              style={{
+                fontWeight: '700',
+              }}
+              variant="h6"
+            >
               Description
             </Typography>
             <p style={{ margin: '5px 0' }}> {event.description}</p>
@@ -157,7 +167,7 @@ const EventDetails = ({ event, attending, setAttending }) => {
 
             <div style={{ display: 'flex', margin: '5px 0' }}>
               <span className={classes.span} style={{ marginRight: '3%' }}>
-                <Icon height="50" icon={calendarIcon} />
+                <Icon height="45" icon={calendarIcon} />
               </span>
               <div>
                 {timeObject.formattedDate}
@@ -166,7 +176,7 @@ const EventDetails = ({ event, attending, setAttending }) => {
             </div>
             <div style={{ display: 'flex', margin: '5px 0' }}>
               <span className={classes.span} style={{ marginRight: '3%' }}>
-                <Icon height="50" icon={clockIcon} />
+                <Icon height="45" icon={clockIcon} />
               </span>
               <div>
                 {`${timeObject.startTime} ${
@@ -178,7 +188,7 @@ const EventDetails = ({ event, attending, setAttending }) => {
 
             <div className={classes.addressContainer} style={{ margin: '5px 0' }}>
               <span style={{ marginRight: '3%' }}>
-                <Icon height="50" icon={globeIcon} />
+                <Icon height="45" icon={globeIcon} />
               </span>
               <div>
                 <a href={parsedAddressURL} target="_blank" rel="noopener noreferrer">
@@ -189,7 +199,9 @@ const EventDetails = ({ event, attending, setAttending }) => {
             </div>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <div
+            style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '5px' }}
+          >
             <Typography variant="h6">Will you be attending this event?</Typography>
             <div className={classes.statusButtonContainer}>
               <StatusTabs

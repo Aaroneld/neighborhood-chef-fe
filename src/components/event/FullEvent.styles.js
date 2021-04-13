@@ -7,6 +7,8 @@ export const fullEventStyles = makeStyles((theme) => ({
     width: '100%',
     borderRadius: '20px',
     boxShadow: '-2px 3px 31px -13px rgba(117,117,117,0.46)',
+    borderTopRightRadius: '0',
+    height: '100%',
 
     [theme.breakpoints.down('md')]: {
       flexWrap: 'wrap',

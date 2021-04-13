@@ -292,9 +292,7 @@ export const cardStyles = makeStyles((theme) => ({
     verticalAlign: 'middle',
   },
   title: {
-    wordWrap: 'break-word',
-    maxWidth: '400px',
-    overflowWrap: 'break-word',
+    wordBreak: 'break-word',
     [theme.breakpoints.down('md')]: {
       maxWidth: '90%',
     },
@@ -304,7 +302,7 @@ export const cardStyles = makeStyles((theme) => ({
   },
   fullEvent: {
     width: '97%',
-    height: 'calc(100% - 36px)',
+    height: '100%',
     [theme.breakpoints.down('md')]: {
       height: 'calc(100% - 16px)',
     },
@@ -427,7 +425,7 @@ export const cardStyles = makeStyles((theme) => ({
   comments: {
     width: '97%',
     maxWidth: '100%',
-    height: 'calc(100% - 36px)',
+    height: '100%',
   },
   singleCommentParent: {
     marginBottom: '10px',

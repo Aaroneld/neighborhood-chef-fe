@@ -66,7 +66,7 @@ const RecentCard = (props) => {
   };
 
   return (
-    <Card className={`${classes.root} ${classes.dashboard}`}>
+    <Card className={`${classes.root} ${classes.dashboard}`} style={{ marginTop: '10px' }}>
       <CardHeader
         avatar={
           <Avatar
