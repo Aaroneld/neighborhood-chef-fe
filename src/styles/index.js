@@ -214,7 +214,6 @@ export const formStyles = makeStyles({
 
 export const cardStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: '350',
     minWidth: 200,
     margin: '8px',
     display: 'flex',
@@ -224,16 +223,18 @@ export const cardStyles = makeStyles((theme) => ({
     padding: '5px',
     overflowY: 'auto',
     wordWrap: 'break-word',
+    borderRadius: '20px',
     //these next two lines hide scrollbars on cards
     '&::-webkit-scrollbar': { display: 'none' },
     '-ms-overflow-style': 'none',
+    boxShadow: '-2px 3px 31px -13px rgba(117,117,117,0.46)',
   },
   dashboard: {
     maxHeight: '90%',
     maxWidth: '390px',
   },
   eventDetailsContainer: {
-    maxWidth: '500px',
+    width: '100%',
     [theme.breakpoints.down('md')]: {
       width: '100%',
       maxWidth: '100%',
@@ -276,7 +277,12 @@ export const cardStyles = makeStyles((theme) => ({
     opacity: '.5',
   },
   img: {
-    maxHeight: '40%',
+    width: '100%',
+    paddingTop: '56.25%',
+    backgroundImage: (props) => `url(${props.img})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    borderRadius: '20px',
   },
   dashboardImg: {
     maxHeight: '20%',
@@ -297,7 +303,6 @@ export const cardStyles = makeStyles((theme) => ({
     },
   },
   fullEvent: {
-    maxWidth: '97%',
     width: '97%',
     height: 'calc(100% - 36px)',
     [theme.breakpoints.down('md')]: {
