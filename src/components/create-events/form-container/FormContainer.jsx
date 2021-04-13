@@ -33,6 +33,8 @@ const initValuesForNonEditMode = {
   photo: null,
 };
 
+const testValues = {"title":"dsad","description":"dsadsa","address":"Dashiqiao Shi, Yingkou Shi, Liaoning, China","date":"2021-04-1","startTime":"04:00:00","endTime":"05:30:00","category":"","latitude":40.63275,"longitude":122.5021,"hashtags":["dsadsad","dasdsa","dasd","dsad","dasdas","dd"],"modifiers":["BBQ","Kid-Friendly","Alcohol Accepted","18+ Event","Pet-Friendly","Vegetarian"],"allergenWarnings":["Wheat","Fish","Dairy","Eggs","Shellfish","Peanuts"],"dietaryWarnings":[],"photo":null}
+
 const validationSchema = yup.object().shape({
   title: yup.string().required("'Title' is a required field"),
   description: yup.string().required("'Description' is a required field"),
@@ -94,7 +96,7 @@ const createOrUpdateEvent = (values, user, dispatch, setValues) => {
 const FormContainer = () => {
   const styles = formContainerStyles();
   const user = useSelector((state) => state.user);
-  const [initialValues, setInitialValues] = useState(initValuesForNonEditMode);
+  const [initialValues, setInitialValues] = useState(testValues);
   const [loadedFlag, flag] = useState(0);
   const [loaded, setLoaded] = useState(false);
   const page = useSelector((state) => state.page);

@@ -2,6 +2,7 @@ import React from 'react';
 import moment from 'moment';
 
 import DisplayEventModifiers from './display-event-modifiers/DisplayEventModifiers';
+import Hashtag from '../form-page-two/add-hashtag/hashtag/Hashtag';
 import EventButtons from '../event-buttons/EventButtons';
 import { scrollToTop } from '../form-page-one/FormPageOne.jsx';
 
@@ -23,16 +24,8 @@ const FormPageThree = (props) => {
       <div className={styles.cardContainer}>
         <div className={styles.card}>
           <div className={styles.img} id="form-confirm-image" alt="Event Page 3 Img"/>
-
-          
-          {/* <img
-            className={styles.img}
-            src={props.values.photo || chooseDefaultPicture(props.values.title.charAt(0))}
-            alt="Event Page 3 Img"
-          /> */}
-
           <div className={styles.text}>
-            <h4 className={styles.h4}>
+            <h4 className={styles.h4} id="title">
               {props.values.title.length < 22 ? props.values.title : `${props.values.title.slice(0, 22)}...`}
             </h4>
             <div className={styles.dateDiv}>
@@ -50,15 +43,27 @@ const FormPageThree = (props) => {
               )}
             </div>
             <p className={styles.grayText}>{props.values.address}</p>
+            {props.values.hashtags.length > 0 && (
+              <div className={styles.modifierContainer + ' ' + styles.hashtagContainer}>
+                <h4 className={styles.h4}>Hashtags</h4>
+                <div className={styles.modifier} id="hashtags">
+                  {props.values.hashtags.map((hashtag) => {
+                    return <Hashtag key={hashtag} hashtag={hashtag} values={props.values} setValues={props.setValues} />;
+                  })}
+                </div>
+              </div>
+        )}
           </div>
         </div>
+
         <div>
-          <h4>Description</h4>
-          <p>{props.values.description}</p>
+          <h4 id="description-header">Description</h4>
+          <p id="description">{props.values.description}</p>
         </div>
         <DisplayEventModifiers values={props.values} setValues={props.setValues} />
       </div>
       <EventButtons
+        
         leftBtnText="Previous"
         leftBtnClick={() => {
           dispatch(changePage(2));

@@ -1,6 +1,4 @@
 import React from 'react';
-
-import Hashtag from '../../form-page-two/add-hashtag/hashtag/Hashtag.jsx';
 import Modifier from '../../form-page-two/modifier/Modifier.jsx';
 import AllergyModifier from '../../form-page-two/allergies-modifiers.jsx/allergies-modifiers';
 import { displayEventModifiersStyles } from './DisplayModifiers.styles';
@@ -11,17 +9,6 @@ const DisplayEventModifiers = ({ values, setValues }) => {
 
   return (
     <div className={styles.root}>
-      {values.hashtags.length > 0 && (
-        <div className={styles.modifierContainer}>
-          <h4 className={styles.h4}>Hashtags</h4>
-          <div className={styles.modifier}>
-            {values.hashtags.map((hashtag) => {
-              return <Hashtag key={hashtag} hashtag={hashtag} values={values} setValues={setValues} />;
-            })}
-          </div>
-        </div>
-      )}
-
       {values.modifiers.length > 0 && (
         <div className={styles.modifierContainer}>
           <h4 className={styles.h4}>Modifications</h4>
@@ -54,17 +41,6 @@ const DisplayEventModifiers = ({ values, setValues }) => {
           </div>
         </div>
       )}
-      {/* 
-      {values.allergenWarnings.length > 0 && (
-        <div className={styles.modifierContainer}>
-          <h4 className={styles.h4}>Allergy Warnings</h4>
-          <div className={styles.modifier}>
-            {values.allergenWarnings.map((allergy) => {
-              return <AllergyWarning key={allergy} allergy={allergy} values={values} setValues={setValues} />;
-            })}
-          </div>
-        </div>
-      )} */}
     </div>
   );
 };

@@ -8,7 +8,7 @@ export const displayEventModifiersStyles = makeStyles((theme) => ({
   },
   h4: {
     fontWeight: '500',
-    fontSize: '2rem',
+    fontSize: '200%',
     marginBottom: '15px',
   },
   modifierContainer: {
@@ -17,7 +17,6 @@ export const displayEventModifiersStyles = makeStyles((theme) => ({
     justifyContent: 'flex-start',
     width: '45%',
     marginTop: '30px',
-    marginLeft: '3%',
     [theme.breakpoints.down('600')]: {
       marginTop: '25px',
       width: '100%',
