@@ -26,7 +26,11 @@ const ParticipantCard = ({ attending }) => {
                 return (
                   <Link
                     to={`/profile/${user.id}`}
-                    style={{ cursor: 'pointer', border: 'none', margin: '.5%' }}
+                    style={{
+                      cursor: 'pointer',
+                      border: 'none',
+                      margin: '.5%',
+                    }}
                   >
                     <Avatar
                       key={user.id}

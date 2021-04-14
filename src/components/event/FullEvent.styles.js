@@ -5,13 +5,18 @@ export const fullEventStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'space-between',
     width: '100%',
+    borderRadius: '20px',
+    boxShadow: '-2px 3px 31px -13px rgba(117,117,117,0.46)',
+    borderTopRightRadius: '0',
+    height: '100%',
 
     [theme.breakpoints.down('md')]: {
       flexWrap: 'wrap',
+      borderRadius: '20px',
+      justifyContent: 'center',
     },
   },
   singleEventBox: {
-    background: '#f2f2f2',
     padding: '10px',
     borderRadius: '10px',
     height: 'calc(90vh - 20px)',
@@ -22,6 +27,10 @@ export const fullEventStyles = makeStyles((theme) => ({
       flexWrap: 'wrap',
       maxHeight: '100%',
       height: '100%',
+      marginLeft: '1%',
+    },
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: 0,
     },
   },
   singleEventRightColumn: {

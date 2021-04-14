@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { axiosWithAuth } from '../../utilities/axiosWithAuth';
 import { print } from 'graphql';
 import { EVENT_BY_ID } from '../../graphql/events/event-queries';
+import Card from '@material-ui/core/Card';
 
 import EventDetails from './event-details/EventDetails';
 import ParticipantCard from './participant-card/ParticipantsCard';
@@ -49,7 +50,7 @@ const FullEvent = ({ match }) => {
     return <Spinner />;
   } else {
     return (
-      <div className={styles.singleEventContainer}>
+      <Card className={styles.singleEventContainer}>
         <div className={styles.singleEventBox}>
           {event && (
             <>
@@ -66,7 +67,7 @@ const FullEvent = ({ match }) => {
             </>
           )}
         </div>
-      </div>
+      </Card>
     );
   }
 };

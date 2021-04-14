@@ -10,9 +10,9 @@ import { print } from 'graphql';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
 import { cardStyles } from '../../../styles';
 import StatusTabs from '../../dashboard/event-view/recent-card/status-buttons/status-buttons';
+import Avatar from '@material-ui/core/Avatar';
 
 //icon imports
 import { Icon } from '@iconify/react';
@@ -33,9 +33,9 @@ import { DELETE_EVENT } from '../../../graphql/events/event-mutations';
 import { deleteEvent } from '../../../utilities/actions';
 
 const EventDetails = ({ event, attending, setAttending }) => {
-  const classes = cardStyles();
   const currentUserId = useSelector((state) => state.user.id);
   const photo = event.photo ? event.photo : chooseDefaultPicture(event.title.charAt(0));
+  const classes = cardStyles({ img: photo });
   const dispatch = useDispatch();
   const { push } = useHistory();
 
@@ -101,19 +101,37 @@ const EventDetails = ({ event, attending, setAttending }) => {
         <Card className={`${classes.root} ${classes.fullEvent}`}>
           <div className={classes.headerContainer}>
             <CardHeader
+              style={{ width: '100%' }}
               title={
-                <Typography variant="h3" className={classes.title}>
+                <Typography variant="h3" className={classes.title} style={{ marginBottom: '5px' }}>
                   {event.title}
                 </Typography>
               }
               subheader={
-                <Typography variant="caption">
-                  <span>created by </span>
-                  <Link
-                    to={`/profile/${event.User.id}`}
-                    style={{ cursor: 'pointer' }}
-                  >{`${event.User.firstName} ${event.User.lastName}`}</Link>
-                </Typography>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  <Link to={`/profile/${event.User.id}`} style={{ cursor: 'pointer', marginRight: '2%' }}>
+                    <Avatar
+                      key={event.User.id}
+                      title={`${event.User.firstName} ${event.User.lastName}`}
+                      aria-label="avatar"
+                      className={classes.avatar}
+                      src={event.User.photo ? null : event.User.photo}
+                    >
+                      {!event.User.photo && (
+                        <Typography>{`${event.User.firstName
+                          .split('')[0]
+                          .toUpperCase()}${event.User.lastName.split('')[0].toUpperCase()}`}</Typography>
+                      )}
+                    </Avatar>
+                  </Link>
+                  <Typography variant="caption" style={{ opacity: '.5', fontStyle: 'italic' }}>
+                    <span>Created by </span>
+                    <Link
+                      to={`/profile/${event.User.id}`}
+                      style={{ cursor: 'pointer', fontWeight: 'bold', textDecoration: 'underline' }}
+                    >{`${event.User.firstName} ${event.User.lastName}`}</Link>
+                  </Typography>
+                </div>
               }
             />
             {event.User.id === currentUserId && (
@@ -123,32 +141,67 @@ const EventDetails = ({ event, attending, setAttending }) => {
               </div>
             )}
           </div>
-          <CardMedia className={classes.img} component="img" src={photo} title="Event Details Photo" />
-          <p> {event.description}</p>
-          <div>Confirmed Attending: {attending.length}</div>
-          <div>
-            <span className={classes.span}>
-              <Icon height="20" icon={calendarIcon} />
-            </span>
-            {timeObject.formattedDate}
+          <div className={classes.img} title="Event Details Photo" />
+          <div
+            style={{
+              margin: '5px 0',
+              fontWeight: '700',
+              wordBreak: 'break-word',
+            }}
+          >
+            <Typography
+              style={{
+                fontWeight: '700',
+              }}
+              variant="h6"
+            >
+              Description
+            </Typography>
+            <p style={{ margin: '5px 0' }}> {event.description}</p>
           </div>
-          <div>
-            <span className={classes.span}>
-              <Icon height="20" icon={clockIcon} />
-            </span>
-            {`${timeObject.startTime} ${
-              timeObject.endTime !== 'Invalid date' ? '- ' + timeObject.endTime : ''
-            }`}
+
+          <div style={{ margin: '5px 0' }}>
+            <Typography style={{ fontWeight: '700' }} variant="h6">
+              Details
+            </Typography>
+
+            <div style={{ display: 'flex', margin: '5px 0' }}>
+              <span className={classes.span} style={{ marginRight: '3%' }}>
+                <Icon height="45" icon={calendarIcon} />
+              </span>
+              <div>
+                {timeObject.formattedDate}
+                <p style={{ color: '#909090' }}>Date</p>
+              </div>
+            </div>
+            <div style={{ display: 'flex', margin: '5px 0' }}>
+              <span className={classes.span} style={{ marginRight: '3%' }}>
+                <Icon height="45" icon={clockIcon} />
+              </span>
+              <div>
+                {`${timeObject.startTime} ${
+                  timeObject.endTime !== 'Invalid date' ? '- ' + timeObject.endTime : ''
+                }`}
+                <p style={{ color: '#909090' }}>Time</p>
+              </div>
+            </div>
+
+            <div className={classes.addressContainer} style={{ margin: '5px 0' }}>
+              <span style={{ marginRight: '3%' }}>
+                <Icon height="45" icon={globeIcon} />
+              </span>
+              <div>
+                <a href={parsedAddressURL} target="_blank" rel="noopener noreferrer">
+                  {event.address}
+                </a>
+                <p style={{ color: '#909090' }}>Address</p>
+              </div>
+            </div>
           </div>
-          <div className={classes.addressContainer}>
-            <span>
-              <Icon height="20" icon={globeIcon} />
-            </span>
-            <a href={parsedAddressURL} target="_blank" rel="noopener noreferrer">
-              {event.address}
-            </a>
-          </div>
-          <div>
+
+          <div
+            style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '5px' }}
+          >
             <Typography variant="h6">Will you be attending this event?</Typography>
             <div className={classes.statusButtonContainer}>
               <StatusTabs

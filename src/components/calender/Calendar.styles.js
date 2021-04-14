@@ -6,6 +6,9 @@ export const calendarStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     width: '100%',
     height: '100vh',
+    boxShadow: '-2px 3px 31px -13px rgba(117,117,117,0.46)',
+    borderRadius: '20px',
+    borderTopRightRadius: '0',
   },
   calendarViewMain: {
     display: 'flex',

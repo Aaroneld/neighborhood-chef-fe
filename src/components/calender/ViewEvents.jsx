@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 
 import CalendarView from './calender-view/CalendarView';
 import EventSummary from './calender-view/event-summary/EventSummary';
+import Card from '@material-ui/core/Card';
 
 import { calendarStyles } from './Calendar.styles';
 
@@ -33,7 +34,7 @@ const ViewEvents = () => {
   });
 
   return (
-    <div className={styles.componentMain}>
+    <Card className={styles.componentMain}>
       <div className={styles.middleCalendar}>
         <CalendarView
           eventList={eventList}
@@ -47,7 +48,7 @@ const ViewEvents = () => {
       >
         <EventSummary selectedEvent={selectedEvent} />
       </div>
-    </div>
+    </Card>
   );
 };
 
