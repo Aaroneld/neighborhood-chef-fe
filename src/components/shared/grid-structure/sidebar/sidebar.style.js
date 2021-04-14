@@ -1,5 +1,5 @@
 import makeStyles from '@material-ui/styles/makeStyles';
-//viewports fucked? 
+//viewports fucked?
 export const styles = makeStyles((theme) => ({
   container: {
     paddingRight: '20px',
@@ -13,11 +13,11 @@ export const styles = makeStyles((theme) => ({
         alignItems: 'flex-start',
         textAlign: 'left',
 
-        [theme.breakpoints.down('769')]: {
+        [theme.breakpoints.down('md')]: {
           marginTop: '2%',
           flexDirection: 'row',
           flexWrap: 'no-wrap',
-          justifyContent: 'center'
+          justifyContent: 'center',
         },
 
         '& a': {
@@ -25,7 +25,7 @@ export const styles = makeStyles((theme) => ({
 
           [theme.breakpoints.down('md')]: {
             width: '33%',
-            margin: "0 1%"
+            margin: '0 1%',
           },
 
           '& button': {
@@ -37,9 +37,8 @@ export const styles = makeStyles((theme) => ({
             [theme.breakpoints.down('md')]: {
               padding: '6% 5%',
               justifyContent: 'space-around',
-              
             },
-            
+
             '&  span': {
               fontSize: '150%',
               [theme.breakpoints.down('lg')]: {
@@ -57,15 +56,15 @@ export const styles = makeStyles((theme) => ({
                 whiteSpace: 'nowrap',
 
                 [theme.breakpoints.down('md')]: {
-                  marginLeft: 0
-                }
+                  marginLeft: 0,
+                },
               },
 
               '& >span:last-child': {
                 [theme.breakpoints.down('md')]: {
-                  marginBottom: "-3%",
-                  marginLeft: '4%'
-                }
+                  marginBottom: '-3%',
+                  marginLeft: '4%',
+                },
               },
 
               '& svg': {
@@ -75,7 +74,7 @@ export const styles = makeStyles((theme) => ({
                 [theme.breakpoints.down('md')]: {
                   marginTop: 0,
                   fontSize: '200%',
-                }
+                },
               },
             },
           },

@@ -11,6 +11,10 @@ export const styles = makeStyles((theme) => ({
     boxShadow: '-2px 3px 31px -13px rgba(117,117,117,0.46)',
     borderTopRightRadius: '0',
 
+    [theme.breakpoints.down('sm')]: {
+      marginTop: '-10%',
+    },
+
     '& .header': {
       display: 'flex',
       alignItems: 'center',
