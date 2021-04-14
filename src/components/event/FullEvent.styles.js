@@ -12,6 +12,8 @@ export const fullEventStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down('md')]: {
       flexWrap: 'wrap',
+      borderRadius: '20px',
+      justifyContent: 'center',
     },
   },
   singleEventBox: {
@@ -25,6 +27,10 @@ export const fullEventStyles = makeStyles((theme) => ({
       flexWrap: 'wrap',
       maxHeight: '100%',
       height: '100%',
+      marginLeft: '1%',
+    },
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: 0,
     },
   },
   singleEventRightColumn: {

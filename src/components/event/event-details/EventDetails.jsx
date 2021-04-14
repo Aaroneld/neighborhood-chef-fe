@@ -141,7 +141,7 @@ const EventDetails = ({ event, attending, setAttending }) => {
               </div>
             )}
           </div>
-          {/* <div className={classes.img} title="Event Details Photo" /> */}
+          <div className={classes.img} title="Event Details Photo" />
           <div
             style={{
               margin: '5px 0',
