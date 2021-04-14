@@ -61,7 +61,11 @@ const UserCard = ({ user, setAlreadyInvited, event_id, invited }) => {
           className={cardClasses.avatarNoHover}
           src={!user.photo ? null : user.photo}
         >
-          {!user.photo && <Typography>{`${user.firstName.charAt(0)}${user.lastName.charAt(0)}`}</Typography>}
+          {!user.photo && (
+            <Typography>{`${user.firstName.split('')[0].toUpperCase()}${user.lastName
+              .split('')[0]
+              .toUpperCase()}`}</Typography>
+          )}
         </Avatar>
 
         <div className={classes.textContainer}>
