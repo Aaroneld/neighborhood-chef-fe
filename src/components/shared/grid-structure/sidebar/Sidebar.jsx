@@ -43,14 +43,7 @@ const Sidebar = ({ active }) => {
   return (
     <div className={classnames.container}>
       <div>
-        <nav
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'flex-start',
-            textAlign: 'left',
-          }}
-        >
+      <nav>
           {buttonList.map((ele) => {
             return <SidebarButton {...ele} active={active === ele.link} key={ele.text} />;
           })}

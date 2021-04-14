@@ -1,6 +1,6 @@
 import { makeStyles, createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 
-export const buttonStyles = makeStyles({
+export const buttonStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
     alignItems: 'center',
@@ -19,6 +19,10 @@ export const buttonStyles = makeStyles({
     '&:hover': {
       background: 'rgba(88, 212, 115, 0.3)',
     },
+
+    [theme.breakpoints.down('md')]: {
+      border: '2px solid grey'
+    }
   },
   warn: {
     background: 'white',
@@ -37,6 +41,11 @@ export const buttonStyles = makeStyles({
     '&:hover': {
       background: '#58D573',
     },
+
+    
+    [theme.breakpoints.down('md')]: {
+      border: '2px solid #58D573'
+    }
   },
   single: {
     justifyContent: 'center',
@@ -74,7 +83,7 @@ export const buttonStyles = makeStyles({
       background: '#58D573',
     },
   },
-});
+}));
 
 export const formStyles = makeStyles({
   registerComponent: {

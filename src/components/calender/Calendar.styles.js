@@ -59,6 +59,17 @@ export const calendarStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('md')]: {
       marginLeft: '25%',
     },
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+      marginLeft: '0',
+      padding: '10px 10px 7px 10px'
+    },
+
+    "& h6": {
+      [theme.breakpoints.down('sm')]: {
+        marginTop: "1%",
+      },
+    }
   },
   middleCalendar: {
     width: '55%',

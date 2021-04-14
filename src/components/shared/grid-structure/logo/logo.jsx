@@ -29,6 +29,8 @@ export const logoStyles = makeStyles((theme) => ({
 
       [theme.breakpoints.down('sm')]: {
         width: '10%',
+        marginTop: "3%",
+        marginBottom: "3%"
       },
     },
 
@@ -40,6 +42,7 @@ export const logoStyles = makeStyles((theme) => ({
       marginTop: '2%',
       fontSize: '200%',
       marginLeft: 0,
+      marginBottom: '2%'
     },
 
     [theme.breakpoints.down('sm')]: {
