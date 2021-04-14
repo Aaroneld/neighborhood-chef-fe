@@ -1,5 +1,5 @@
 import makeStyles from '@material-ui/styles/makeStyles';
-
+//viewports fucked? 
 export const styles = makeStyles((theme) => ({
   container: {
     paddingRight: '20px',
@@ -13,7 +13,7 @@ export const styles = makeStyles((theme) => ({
         alignItems: 'flex-start',
         textAlign: 'left',
 
-        [theme.breakpoints.down('md')]: {
+        [theme.breakpoints.down('769')]: {
           marginTop: '2%',
           flexDirection: 'row',
           flexWrap: 'no-wrap',
