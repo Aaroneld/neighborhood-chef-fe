@@ -37,12 +37,12 @@ export const allergenModifiers = [
   { title: 'Wheat', icon: wheatIcon },
 ];
 export const modifierData = [
-  { title: 'BBQ', icon: baselineOutdoorGrill },
+  { title: 'Vegetarian', icon: foodApple },
   { title: 'Kid-Friendly', icon: strollerIcon },
-  { title: 'Alcohol Accepted', icon: bottleWine },
   { title: '18+ Event', icon: icon18Plus },
   { title: 'Pet-Friendly', icon: dogIcon },
-  { title: 'Vegetarian', icon: foodApple },
+  { title: 'BBQ', icon: baselineOutdoorGrill },
+  { title: 'Alcohol Accepted', icon: bottleWine },
 ];
 
 const FormPageTwo = (props) => {

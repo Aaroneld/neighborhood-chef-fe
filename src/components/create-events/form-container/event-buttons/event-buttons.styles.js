@@ -12,8 +12,8 @@ export const styles = makeStyles((theme) => ({
     },
 
     '& button': {
-      width: '12%',
-      margin: '0 .5%',
+      width: '15.75%',
+      margin: '0 .8%',
 
       [theme.breakpoints.down('md')]: {
         width: '25%'
@@ -27,7 +27,7 @@ export const styles = makeStyles((theme) => ({
     '& >*:last-child': {
       border: 'none',
       outline: 'none',
-      marginRight: '4%',
+      marginRight: '6.8%',
 
       '&:hover': {
         filter: 'brightness(90%)'

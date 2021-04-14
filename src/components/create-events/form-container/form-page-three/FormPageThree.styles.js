@@ -1,5 +1,4 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { CenterFocusStrong } from '@material-ui/icons';
 
 export const formPageThreeStyles = makeStyles((theme) => ({
   root: {
@@ -42,46 +41,7 @@ export const formPageThreeStyles = makeStyles((theme) => ({
       },
     },
 
-    '& .makeStyles-modifier-51': {
-
-      justifyContent: 'flex-start',
-
-      '& .makeStyles-root-52': {
-        width: '16%',
-        marginLeft: '-.5%',
-
-        '& svg': {
-          fontSize: '5.5rem'
-        },
-
-        '& p': {
-          fontSize: '80%',
-          whiteSpace: 'nowrap',
-          color: 'black',
-          opacity: 1
-        },
-
-        [theme.breakpoints.down('lg')]: {
-          width: '15%',
-
-
-          '& .makeStyles-modifierNotActive-53': {
-            width: '55px',
-            height: '55px'
-          },
-
-          '& svg': {
-            fontSize: '3.5rem'
-          },
-
-          "& p": {
-            fontSize: '50%'
-          }
-        }
-      }
-    },
-
-    '& .makeStyles-container-60': {
+    '& #form-buttons': {
       marginTop: '4%',
       marginLeft: '6%',
 
@@ -121,25 +81,26 @@ export const formPageThreeStyles = makeStyles((theme) => ({
     boxShadow: '0px 4px 15px rgba(179, 179, 179, 0.1)',
     borderRadius: '25px',
     marginTop: '10px',
-    padding: '30px',
+    padding: '4%',
     width: '90%',
 
     [theme.breakpoints.down('lg')] : {
       width: '100%',
-      padding: "30px 3%",
+      padding: "4% 3%",
     },
   },
   hashtagContainer: {
+
     '& #hashtags': {
       display: 'flex',
       flexDirection: 'row',
-      marginBottom: "2%",
-
+      flexWrap: 'wrap',
+      marginBottom: "1.5%",
       '& *': {
-        fontSize: '90%'
+        fontSize: '80%'
       }, 
       
-      '& .makeStyles-root-45': {
+      '& .hashtags': {
         marginRight: '1%',
         padding: '.5% 1%'
       },
@@ -151,7 +112,7 @@ export const formPageThreeStyles = makeStyles((theme) => ({
     display: 'flex',
     width: '100%',
     minHeight: '200px',
-    marginBottom: '2%',
+    marginBottom: '.5%',
 
     [theme.breakpoints.down('lg')]: {
       marginBottom: '0'
@@ -211,10 +172,10 @@ export const formPageThreeStyles = makeStyles((theme) => ({
     justifyContent: 'flex-start',
     marginLeft: '30px',
     textAlign: 'left',
-    width: '50%',
+    width: '70%',
 
     '& >*' : {
-      marginBottom: '2%'
+      marginBottom: '1%'
     },
 
     [theme.breakpoints.down('800')]: {

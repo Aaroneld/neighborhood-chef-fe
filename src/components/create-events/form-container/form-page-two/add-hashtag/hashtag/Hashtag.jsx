@@ -9,7 +9,7 @@ const Hashtag = ({ hashtag, values, setValues }) => {
   };
 
   return (
-    <div className={styles.root} style={{ background: '#58D473' }}>
+    <div className={styles.root + ' hashtags'} style={{ background: '#58D473' }}>
       <p className={styles.p}>#{hashtag}</p>
       <span className={styles.span} onClick={() => removeHashtag()}>
         x

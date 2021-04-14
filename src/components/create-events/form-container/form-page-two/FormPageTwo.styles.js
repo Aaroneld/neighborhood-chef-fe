@@ -65,6 +65,7 @@ export const formPageTwoStyles = makeStyles((theme) => ({
       border: 'none',
       marginTop: 0,
       boxShadow: "5px 5px 12px 1px rgba(25,25,25,0.28)",
+      borderRadius: '25px',
 
       '&:hover': {
         filter: "brightness(70%)"
@@ -73,7 +74,7 @@ export const formPageTwoStyles = makeStyles((theme) => ({
 
     '& #upload-image-caption': {
       marginLeft: '-10%',
-      marginTop: '2%',
+      marginTop: '-.5%',
       fontSize: '90%'
     },
 
@@ -82,7 +83,7 @@ export const formPageTwoStyles = makeStyles((theme) => ({
     },
 
     '& #modifier-container-second': {
-      marginBottom: '2%'
+      marginBottom: '1.5%'
     },
 
     [theme.breakpoints.down('sm')]: {

@@ -19,11 +19,11 @@ const AllergyModifier = ({ modifier, values, setValues }) => {
   };
 
   return (
-    <div className={styles.root}>
+    <div className={styles.root + " modifier"}>
       <div
         onClick={() => updateModifier()}
-        style={{ background: '#EA6565' }}
-        className={`${styles.modifierNotActive} ${modifier.active ? styles.modifierActive : ''}`}
+        className={`${styles.modifierNotActive} ${modifier.active ? styles.modifierActive : ''} modifier-icon`}
+        style={{background: "#EA6565"}}
       >
         <Icon icon={modifier.icon} className={styles.icon} />
       </div>

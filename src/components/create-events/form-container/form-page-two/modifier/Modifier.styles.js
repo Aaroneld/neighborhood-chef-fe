@@ -8,7 +8,8 @@ export const modifierStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     margin: '5px',
     cursor: 'pointer',
-    width: '11%',
+    width: '10%',
+    marginLeft: '-2%',
 
     
     [theme.breakpoints.down('lg')]: {

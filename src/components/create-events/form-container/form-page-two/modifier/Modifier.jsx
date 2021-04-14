@@ -16,10 +16,10 @@ const Modifier = ({ modifier, values, setValues }) => {
   };
 
   return (
-    <div className={styles.root}>
+    <div className={styles.root + " modifier"}>
       <div
         onClick={() => updateModifier()}
-        className={`${styles.modifierNotActive} ${modifier.active ? styles.modifierActive : ''}`}
+        className={`${styles.modifierNotActive} ${modifier.active ? styles.modifierActive : ''} modifier-icon`}
       >
         <Icon icon={modifier.icon} className={styles.icon} />
       </div>

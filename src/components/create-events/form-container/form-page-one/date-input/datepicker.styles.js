@@ -60,8 +60,8 @@ export const styles = makeStyles((theme) => ({
 
           '&::before': {
             content: '""',
-            width: '25%',
-            right: '9%',
+            width: '19%',
+            right: '11%',
             top: '5.5%',
             borderRadius: '10px',
             paddingTop: '7%',

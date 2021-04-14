@@ -42,6 +42,10 @@ export const formPageOneStyles = makeStyles((theme) => ({
       marginRight: '4%'
     },
 
+    '& #second-form-button': {
+      marginRight: 0
+    },
+
     '& .form-button': {
       width: '100%',
     
@@ -114,6 +118,7 @@ export const formPageOneStyles = makeStyles((theme) => ({
     whiteSpace: 'wrap',
     resize: 'none',
     fontFamily: '"Arial", sans-serif',
+    overflow: 'hidden',
 
     '&::placeholder': {
       color: '#b7b7b7',
