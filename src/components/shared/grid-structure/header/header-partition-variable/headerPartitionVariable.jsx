@@ -33,9 +33,11 @@ function VariableHeader() {
 
   switch (urlLocation) {
     case 'create-event':
-      return <section className={classes['container']}>
-                <CreateEventHeader />
-             </section>;
+      return (
+        <section className={classes['container']}>
+          <CreateEventHeader />
+        </section>
+      );
     case 'view-events':
       return (
         <section className={classes['container']}>

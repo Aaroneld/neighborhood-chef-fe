@@ -1,27 +1,36 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export const headerStyles = makeStyles(() => ({
+export const headerStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     justifyContent: 'space-around',
     alignItems: 'center',
     width: '100%',
-    marginTop: '20px',
-    marginBottom: '20px',
+    marginTop: '10px',
+    marginBottom: '10px',
   },
   notActive: {
     display: 'flex',
     alignItems: 'center',
     color: '#d9d9d9',
+    [theme.breakpoints.down('sm')]: {
+      margin: '0 8%',
+    },
   },
   active: {
     display: 'flex',
     alignItems: 'center',
     color: '#0c0c41',
+    [theme.breakpoints.down('sm')]: {
+      margin: '0 8%',
+    },
   },
   icon: {
     fontSize: '2.5rem',
     marginRight: '5px',
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    },
   },
 }));
 
@@ -77,14 +86,12 @@ export const buttonStyles = makeStyles((theme) => ({
 }));
 
 export const addModifierFormStyles = makeStyles(() => ({
-  root: {
-    
-  },
+  root: {},
   container: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flexStart',
-    margin: '2% 0 .5% 0'
+    margin: '2% 0 .5% 0',
   },
   input: {
     fontSize: '1.6rem',

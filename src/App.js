@@ -24,7 +24,7 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <div style={{ overflowX: 'hidden' }}>
       <Switch>
         <Route path="/date">
           <DatePicker

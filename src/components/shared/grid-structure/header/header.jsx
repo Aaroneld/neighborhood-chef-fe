@@ -7,7 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 
-const styles = makeStyles(theme => ({
+const styles = makeStyles((theme) => ({
   container: {
     display: 'flex',
   },
@@ -21,29 +21,31 @@ const styles = makeStyles(theme => ({
     cursor: 'pointer',
     display: 'flex',
     alignItems: 'center',
+    position: 'absolute',
+    right: 0,
+    top: '2%',
 
     [theme.breakpoints.down('md')]: {
-      position: 'absolute',
       right: '3.4%',
-      top: '3.4%'
+      top: '3.4%',
     },
 
     [theme.breakpoints.down('sm')]: {
       right: '3.8%',
-      top: '3.2%'
+      top: '3.2%',
     },
 
     '& >div': {
-      border: '2px solid rgba(88, 212, 115, 0.3)', 
-      height: '60px', 
+      border: '2px solid rgba(88, 212, 115, 0.3)',
+      height: '60px',
       width: '60px',
 
       [theme.breakpoints.down('lg')]: {
-        height: '50px', 
+        height: '50px',
         width: '50px',
-      }
+      },
     },
-  }
+  },
 }));
 
 function Header(props) {
@@ -61,10 +63,7 @@ function Header(props) {
       />
       {Object.keys(user).length > 0 && (
         <div className={classes['avatar']} onClick={() => push(`/profile/${user.id}`)}>
-          <Avatar
-            aria-label="avatar"
-            src={!user.photo ? null : user.photo}
-          >
+          <Avatar aria-label="avatar" src={!user.photo ? null : user.photo}>
             {!user.photo && (
               <Typography>{`${user.firstName.charAt(0)}${user.lastName.charAt(0)}`}</Typography>
             )}

@@ -15,6 +15,9 @@ export const fullEventStyles = makeStyles((theme) => ({
       borderRadius: '20px',
       justifyContent: 'center',
     },
+    [theme.breakpoints.down('sm')]: {
+      marginTop: '-10%',
+    },
   },
   singleEventBox: {
     padding: '10px',

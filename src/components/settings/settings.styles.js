@@ -6,6 +6,9 @@ export const styles = makeStyles((theme) => ({
     height: '100%',
     width: '100%',
     boxShadow: '-2px 3px 31px -13px rgba(117,117,117,0.46)',
+    [theme.breakpoints.down('sm')]: {
+      marginTop: '-10%',
+    },
 
     '& .main': {
       padding: '20px',
