@@ -28,6 +28,7 @@ const styles = makeStyles((theme) => ({
     [theme.breakpoints.down('md')]: {
       right: '3.4%',
       top: '3.4%',
+      display: 'none',
     },
 
     [theme.breakpoints.down('sm')]: {

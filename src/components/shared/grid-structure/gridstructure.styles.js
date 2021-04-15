@@ -1,12 +1,11 @@
 import makeStyles from '@material-ui/styles/makeStyles';
 
 export const styles = makeStyles((theme) => {
-  console.log(theme);
   return {
     'grid-container': {
       display: 'grid',
       'grid-template-columns': '2fr 8fr',
-      'grid-template-rows': '1fr 9fr',
+      'grid-template-rows': '.5fr 9fr',
       gap: '1px 1px',
       'grid-template-areas': ' "Logo Header" "Sidebar Variable" ',
       // height: '100vh',

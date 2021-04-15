@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 export const headerStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'center',
     width: '100%',
     marginTop: '10px',
@@ -13,17 +13,11 @@ export const headerStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     color: '#d9d9d9',
-    [theme.breakpoints.down('sm')]: {
-      margin: '0 8%',
-    },
   },
   active: {
     display: 'flex',
     alignItems: 'center',
     color: '#0c0c41',
-    [theme.breakpoints.down('sm')]: {
-      margin: '0 8%',
-    },
   },
   icon: {
     fontSize: '2.5rem',
