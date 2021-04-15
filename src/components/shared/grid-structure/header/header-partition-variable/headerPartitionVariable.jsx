@@ -1,17 +1,10 @@
 import React, { useState, useEffect } from 'react';
-
 import { makeStyles } from '@material-ui/core/styles';
 import { useLocation } from 'react-router-dom';
-import Typography from '@material-ui/core/Typography';
-
 import MonthPicker from '../../../../calender/MonthPicker';
 import CreateEventHeader from '../../../../create-events/CreateEventHeader';
 
-import Logo from '../../logo/logo';
-import { Icon } from '@iconify/react';
-import chefIcon from '@iconify/icons-whh/chef';
-
-const styles = makeStyles({
+const styles = makeStyles((theme) => ({
   container: {
     width: '100%',
     height: '10vh',
@@ -20,8 +13,12 @@ const styles = makeStyles({
     justifyContent: 'flex-start',
     paddingLeft: '20px',
     alignItems: 'center',
+
+    [theme.breakpoints.down('md')]: {
+      paddingLeft: 0,
+    },
   },
-});
+}));
 
 function VariableHeader() {
   const classes = styles();

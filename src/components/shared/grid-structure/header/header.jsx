@@ -6,44 +6,51 @@ import VariableHeader from './header-partition-variable/headerPartitionVariable'
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
+import logoutVariant from '@iconify-icons/mdi/logout-variant';
+import { Icon } from '@iconify/react';
 
 const styles = makeStyles((theme) => ({
   container: {
     display: 'flex',
-  },
-  'header-persistent': {
-    minWidth: '100vw',
-  },
-  'header-variable': {},
-  avatar: {
-    alignSelf: 'center',
-    marginRight: '1%',
-    cursor: 'pointer',
-    display: 'flex',
-    alignItems: 'center',
-    position: 'absolute',
-    right: 0,
-    top: '2%',
+    justifyContent: 'space-around',
 
-    [theme.breakpoints.down('md')]: {
-      right: '3.4%',
-      top: '3.4%',
-      display: 'none',
+    'header-persistent': {
+      minWidth: '100vw',
     },
+    'header-variable': {},
 
-    [theme.breakpoints.down('sm')]: {
-      right: '3.8%',
-      top: '3.2%',
-    },
+    '& .rightSide': {
+      width: '15%',
+      display: 'flex',
+      alignItems: 'center',
+      [theme.breakpoints.down('md')]: {
+        display: 'none',
+      },
+      '& svg': {
+        marginRight: '5%',
+        fontSize: '4.5rem',
+        color: 'black',
+        opacity: 0.5,
+      },
 
-    '& >div': {
-      border: '2px solid rgba(88, 212, 115, 0.3)',
-      height: '60px',
-      width: '60px',
+      '& .avatar': {
+        alignSelf: 'center',
+        marginRight: '1%',
+        cursor: 'pointer',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
 
-      [theme.breakpoints.down('lg')]: {
-        height: '50px',
-        width: '50px',
+        '& >div': {
+          border: '2px solid rgba(88, 212, 115, 0.3)',
+          height: '60px',
+          width: '60px',
+
+          [theme.breakpoints.down('lg')]: {
+            height: '50px',
+            width: '50px',
+          },
+        },
       },
     },
   },
@@ -62,15 +69,22 @@ function Header(props) {
         open={props.open}
         className={classes['header-persistent']}
       />
-      {Object.keys(user).length > 0 && (
-        <div className={classes['avatar']} onClick={() => push(`/profile/${user.id}`)}>
-          <Avatar aria-label="avatar" src={!user.photo ? null : user.photo}>
-            {!user.photo && (
-              <Typography>{`${user.firstName.charAt(0)}${user.lastName.charAt(0)}`}</Typography>
-            )}
-          </Avatar>
-        </div>
-      )}
+      <div className="rightSide">
+        <Icon icon={logoutVariant} />
+        {Object.keys(user).length > 0 && (
+          <div className="avatar">
+            <Avatar
+              aria-label="avatar"
+              src={!user.photo ? null : user.photo}
+              onClick={() => push(`/profile/${user.id}`)}
+            >
+              {!user.photo && (
+                <Typography>{`${user.firstName.charAt(0)}${user.lastName.charAt(0)}`}</Typography>
+              )}
+            </Avatar>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
