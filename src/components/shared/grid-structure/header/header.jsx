@@ -12,7 +12,7 @@ import { Icon } from '@iconify/react';
 const styles = makeStyles((theme) => ({
   container: {
     display: 'flex',
-    justifyContent: 'space-around',
+    justifyContent: 'flex-end',
 
     'header-persistent': {
       minWidth: '100vw',
@@ -23,6 +23,8 @@ const styles = makeStyles((theme) => ({
       width: '15%',
       display: 'flex',
       alignItems: 'center',
+      justifyContent: 'flex-end',
+      marginRight: '1%',
       [theme.breakpoints.down('md')]: {
         display: 'none',
       },
