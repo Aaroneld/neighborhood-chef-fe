@@ -9,11 +9,19 @@ export const displayEventModifiersStyles = makeStyles((theme) => ({
     "& >*": {
       flexBasis: "50%"
     },
+
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: "column"
+    }
   },
   h4: {
     fontWeight: '500',
     fontSize: '200%',
     marginBottom: '15px',
+
+    [theme.breakpoints.down('sm')]: {
+      textAlign: "center"
+    }
   },
   modifierContainer: {
     display: 'flex',
@@ -34,6 +42,16 @@ export const displayEventModifiersStyles = makeStyles((theme) => ({
     width: '100%',
     flexFlow: 'row wrap',
     justifyContent: 'flex-start',
+
+    "& >*": {
+      [theme.breakpoints.down("sm")]: {
+        flexBasis: "40%"
+      }
+    },
+
+    [theme.breakpoints.down('sm')]: {
+      justifyContent: "center"
+    },
 
     '& .modifier': {
       width: '16%',
@@ -71,6 +89,37 @@ export const displayEventModifiersStyles = makeStyles((theme) => ({
 
         "& p": {
           fontSize: '50%'
+        }
+      },
+
+      
+      [theme.breakpoints.down('md')]: {
+
+        '& .modifier-icon': {
+          width: '45px',
+          height: '45px'
+        },
+
+        '& svg': {
+          fontSize: '2.5rem'
+        },
+
+      },
+
+      [theme.breakpoints.down('sm')]: {
+        width: '15%',
+
+        '& .modifier-icon': {
+          width: '80px',
+          height: '80px'
+        },
+
+        '& svg': {
+          fontSize: '5rem'
+        },
+
+        "& p": {
+          fontSize: '125%'
         }
       }
     }

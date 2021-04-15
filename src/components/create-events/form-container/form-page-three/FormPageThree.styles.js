@@ -6,6 +6,7 @@ export const formPageThreeStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
+   
 
     '& h4': {
       fontSize: '140%',
@@ -21,12 +22,15 @@ export const formPageThreeStyles = makeStyles((theme) => ({
 
       [theme.breakpoints.down('lg')]: {
         marginTop: '0'
-      }
-    },
+      },
 
-    [theme.breakpoints.down('lg')]: {
-      '& #description-header': {
-        marginTop: '-3.5%'
+      [theme.breakpoints.down('md')] : {
+        marginTop: "-4.5%" 
+      },
+
+      [theme.breakpoints.down("sm")]: {
+        fontSize: "180%",
+        marginLeft: '5%'
       }
     },
 
@@ -39,17 +43,26 @@ export const formPageThreeStyles = makeStyles((theme) => ({
         fontSize: '90%',
         
       },
+
+      [theme.breakpoints.down('sm')] : {
+        display: "block"
+        
+      },
     },
 
     '& #form-buttons': {
-      marginTop: '4%',
-      marginLeft: '6%',
+      marginTop: '6.5%',
+      marginLeft: "1.5%",
 
       "& button": {
-        width: '12%',
+        width: '17%',
 
-        [theme.breakpoints.down('lg')]: {
-          width: '17%'
+        [theme.breakpoints.down('md')]: {
+          width: '25%'
+        },
+
+        [theme.breakpoints.down('sm')]: {
+          width: '35%'
         }
       }
     },
@@ -76,14 +89,15 @@ export const formPageThreeStyles = makeStyles((theme) => ({
   cardContainer: {
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
+    alignItems: "center",
     border: '2px solid #f3f3f3',
     boxShadow: '0px 4px 15px rgba(179, 179, 179, 0.1)',
     borderRadius: '25px',
     marginTop: '10px',
     padding: '4%',
     width: '90%',
-
+   
     [theme.breakpoints.down('lg')] : {
       width: '100%',
       padding: "4% 3%",
@@ -102,25 +116,26 @@ export const formPageThreeStyles = makeStyles((theme) => ({
       
       '& .hashtags': {
         marginRight: '1%',
-        padding: '.5% 1%'
+        padding: '.5% 1%',
       },
 
-   
+      
     }
   },
   card: {
     display: 'flex',
     width: '100%',
-    minHeight: '200px',
     marginBottom: '.5%',
 
     [theme.breakpoints.down('lg')]: {
       marginBottom: '0'
     },
 
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
-      alignItems: 'center',
+      alignItems: "center",
+      justifyContent: 'center',
+      marginBottom: "20%"
     },
   },
   img: {
@@ -132,13 +147,25 @@ export const formPageThreeStyles = makeStyles((theme) => ({
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     borderRadius: '25px',
-
-    [theme.breakpoints.down('800')]: {
-      maxWidth: '90%',
+    
+    [theme.breakpoints.down('md')]: {
+      width: "100%",
+      paddingTop: '36%',
+      marginBottom: '4%'
     },
+
+    [theme.breakpoints.down('sm')]: {
+      width: "90%",
+      marginTop: "4%",
+      paddingTop: '50.625%',
+    }
   },
   dateDiv: {
     display: 'flex',
+
+    [theme.breakpoints.down("sm")]: {
+      alignSelf: "center"
+    }
   },
   grayText: {
     fontSize: '1.6rem',
@@ -178,6 +205,12 @@ export const formPageThreeStyles = makeStyles((theme) => ({
       marginBottom: '1%'
     },
 
+    '& >*:nth-child(-n+3)': {
+      [theme.breakpoints.down('sm')]: {
+        textAlign: 'center'
+      }
+    },
+
     [theme.breakpoints.down('800')]: {
       width: '82%',
       marginTop: '10px',
@@ -186,5 +219,9 @@ export const formPageThreeStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('695')]: {
       width: '96%',
     },
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: '-5%',
+      alignSelf: "center"
+    }
   },
 }));

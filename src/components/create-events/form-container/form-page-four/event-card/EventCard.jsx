@@ -5,13 +5,14 @@ import { eventCardStyles } from './EventCard.styles';
 import { chooseDefaultPicture } from '../../../../../utilities/functions';
 
 const EventCard = ({ values }) => {
-  const styles = eventCardStyles();
   const photo = values.photo ? values.photo : chooseDefaultPicture(values.title.charAt(0));
 
+  const styles = eventCardStyles({photo});
+  
   return (
     <div className={styles.root}>
       <div className={styles.card}>
-        <img className={styles.img} src={photo} alt="Event Card Img" />
+        <div className={styles.img} alt="Event Card Img" />
         <div className={styles.textContainer}>
           <h3 className={styles.h3}>
             {values.title.length < 22 ? values.title : `${values.title.slice(0, 22)}...`}
