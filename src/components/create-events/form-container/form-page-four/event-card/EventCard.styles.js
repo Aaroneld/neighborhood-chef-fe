@@ -23,13 +23,15 @@ export const eventCardStyles = makeStyles((theme) => ({
     },
   },
   img: {
-    maxWidth: '50%',
-    border: '8px solid #58d473',
+    width: '100%',
+    boxShadow: "5px 5px 12px 1px rgba(25,25,25,0.28)",
+    paddingTop: "56.25%",
     borderRadius: '25px',
-    maxHeight: '300px',
-    [theme.breakpoints.down('800')]: {
-      maxWidth: '90%',
-    },
+    background: 'black',
+    backgroundImage: props => `url(${props.photo})`,
+    backgroundPosition: "center",
+    backgroundSize: "cover"
+    
   },
   grayText: {
     color: 'rgba(0, 0, 0, 0.35)',
@@ -47,6 +49,10 @@ export const eventCardStyles = makeStyles((theme) => ({
     fontWeight: '500',
     color: '#1A0F2C',
     marginBottom: '5px',
+
+    [theme.breakpoints.down('md')]: {
+      fontSize: "180%"
+    }
   },
   textContainer: {
     display: 'flex',
@@ -57,9 +63,13 @@ export const eventCardStyles = makeStyles((theme) => ({
     width: '50%',
     [theme.breakpoints.down('800')]: {
       width: '96%',
-      marginTop: '10px',
-      height: '100px',
+      marginTop: '3%',
+      marginLeft: "-2%"
     },
+
+    [theme.breakpoints.down("sm")]: {
+     
+    }
   },
   button: {
     background: '#82df96',

@@ -48,7 +48,14 @@ export const formPageOneStyles = makeStyles((theme) => ({
 
     '& .form-button': {
       width: '100%',
-    
+      
+      [theme.breakpoints.down('md')]: {
+        width: "27%"
+      },
+
+      [theme.breakpoints.down('sm')]: {
+        width: "35%"
+      }
     }
   },
   leftContainer: {
