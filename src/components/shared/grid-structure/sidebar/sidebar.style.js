@@ -29,6 +29,7 @@ export const styles = makeStyles((theme) => ({
           },
 
           '& button': {
+            margin: 0,
             paddingRight: '20%',
             width: '100%',
             display: 'flex',

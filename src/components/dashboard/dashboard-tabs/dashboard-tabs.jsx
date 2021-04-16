@@ -12,7 +12,7 @@ export default function DashboardTabs({ currentTab, selectCurrentTab }) {
     <div className={classes.container}>
       <div className={classes.tabs}>
         <p
-          className={classes.tab}
+          className={`${classes.tab} ${currentTab === 1 ? classes.currentTab : ''}`}
           onClick={() => {
             handleTabClick(1);
           }}
@@ -20,7 +20,7 @@ export default function DashboardTabs({ currentTab, selectCurrentTab }) {
           Recent Events
         </p>
         <p
-          className={classes.tab}
+          className={`${classes.tab} ${currentTab === 2 ? classes.currentTab : ''}`}
           onClick={() => {
             handleTabClick(2);
           }}
@@ -28,7 +28,7 @@ export default function DashboardTabs({ currentTab, selectCurrentTab }) {
           Invited Events
         </p>
         <p
-          className={classes.tab}
+          className={`${classes.tab} ${currentTab === 3 ? classes.currentTab : ''}`}
           onClick={() => {
             handleTabClick(3);
           }}
