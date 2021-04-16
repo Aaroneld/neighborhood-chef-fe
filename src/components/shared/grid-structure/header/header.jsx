@@ -12,6 +12,7 @@ const styles = makeStyles((theme) => ({
   container: {
     display: 'flex',
     justifyContent: 'flex-end',
+    alignItems: 'center',
     width: '100%',
 
     'header-persistent': {
@@ -24,20 +25,19 @@ const styles = makeStyles((theme) => ({
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'flex-end',
+      marginTop: '1%',
       marginRight: '1%',
       [theme.breakpoints.down('md')]: {
         display: 'none',
       },
       '& svg': {
-        marginRight: '5%',
+        paddingRight: '3%',
         fontSize: '4.5rem',
         color: 'black',
         opacity: 0.5,
       },
 
       '& .avatar': {
-        alignSelf: 'center',
-        marginRight: '1%',
         cursor: 'pointer',
         display: 'flex',
         alignItems: 'center',

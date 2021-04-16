@@ -7,7 +7,6 @@ import CreateEventHeader from '../../../../create-events/CreateEventHeader';
 const styles = makeStyles((theme) => ({
   container: {
     width: '100%',
-    height: '10vh',
     textAlign: 'center',
     display: 'flex',
     justifyContent: 'flex-start',
