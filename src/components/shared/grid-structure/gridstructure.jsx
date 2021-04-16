@@ -53,7 +53,7 @@ function GridStructure(props) {
 
   return (
     <div className={classes['grid-container']}>
-      <div className={classes['Logo']}>
+      <div>
         <Logo />
       </div>
       <div className={classes['Sidebar']}>

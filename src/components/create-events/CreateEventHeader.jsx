@@ -12,21 +12,21 @@ const CreateEventHeader = () => {
   const styles = headerStyles();
   return (
     <div className={`${styles.root}`}>
-      <div className={page === 1 ? styles.active : styles.notActive}>
+      <div className={`${styles.notActive} ${page === 1 ? styles.active : ''}`}>
         <Icon icon={pencilIcon} className={`${styles.icon}`} />
-        <h3>Details</h3>
+        <h3 className={styles.h3}>Details</h3>
       </div>
-      <div className={page === 2 ? styles.active : styles.notActive}>
+      <div className={`${styles.notActive} ${page === 2 ? styles.active : ''}`}>
         <Icon icon={shapeOutline} className={`${styles.icon}`} />
-        <h3>Preferences</h3>
+        <h3 className={styles.h3}>Preferences</h3>
       </div>
-      <div className={page === 3 ? styles.active : styles.notActive}>
+      <div className={`${styles.notActive} ${page === 3 ? styles.active : ''}`}>
         <Icon icon={createIcon} className={`${styles.icon}`} />
-        <h3>Create</h3>
+        <h3 className={styles.h3}>Create</h3>
       </div>
-      <div className={page === 4 ? styles.active : styles.notActive}>
+      <div className={`${styles.notActive} ${page === 4 ? styles.active : ''}`}>
         <Icon icon={shareIcon} className={`${styles.icon}`} />
-        <h3>Share</h3>
+        <h3 className={styles.h3}>Share</h3>
       </div>
     </div>
   );

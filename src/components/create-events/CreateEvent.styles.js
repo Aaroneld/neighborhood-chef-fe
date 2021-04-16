@@ -3,33 +3,41 @@ import { makeStyles } from '@material-ui/core/styles';
 export const headerStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    width: '100%',
+    width: '85%',
     marginTop: '10px',
     marginBottom: '10px',
+
+    [theme.breakpoints.down('md')]: {
+      justifyContent: 'space-around',
+      width: '100%',
+    },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '1.6rem',
+    },
   },
   notActive: {
     display: 'flex',
     alignItems: 'center',
     color: '#d9d9d9',
-    [theme.breakpoints.down('sm')]: {
-      margin: '0 8%',
-    },
   },
   active: {
     display: 'flex',
     alignItems: 'center',
     color: '#0c0c41',
-    [theme.breakpoints.down('sm')]: {
-      margin: '0 8%',
-    },
   },
   icon: {
     fontSize: '2.5rem',
     marginRight: '5px',
     [theme.breakpoints.down('sm')]: {
       display: 'none',
+    },
+  },
+  h3: {
+    fontSize: '1.9rem',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '1.4rem',
     },
   },
 }));

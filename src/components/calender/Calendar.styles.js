@@ -52,24 +52,25 @@ export const calendarStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     color: 'rgba(0, 0, 0, 0.5)',
     alignSelf: 'center',
-    marginLeft: '30%',
+    marginTop: '1%',
     [theme.breakpoints.down('lg')]: {
       marginLeft: '30%',
     },
     [theme.breakpoints.down('md')]: {
       marginLeft: '25%',
+      width: '50%',
     },
     [theme.breakpoints.down('sm')]: {
-      width: '100%',
-      marginLeft: '0',
-      padding: '10px 10px 7px 10px'
+      width: '70%',
+      marginLeft: '15%',
+      padding: '10px 10px 7px 10px',
     },
 
-    "& h6": {
+    '& h6': {
       [theme.breakpoints.down('sm')]: {
-        marginTop: "1%",
+        marginTop: '1%',
       },
-    }
+    },
   },
   middleCalendar: {
     width: '55%',
