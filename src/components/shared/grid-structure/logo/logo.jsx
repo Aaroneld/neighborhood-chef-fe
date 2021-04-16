@@ -13,6 +13,7 @@ export const logoStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'space-between',
     width: '100%',
+    marginLeft: "2%",
 
     '& .leftSideHeader': {
       display: 'flex',
@@ -20,15 +21,16 @@ export const logoStyles = makeStyles((theme) => ({
       justifyContent: 'flex-start',
       fontSize: '200%',
       fontWeight: '500',
-      marginTop: '5%',
+      marginTop: '13.5%',
       width: '100%',
       cursor: 'pointer',
-      marginLeft: '3%',
+      marginLeft: '8%',
+      whiteSpace: 'nowrap',
 
       '& #logo-icon': {
         color: '#58D473',
         marginTop: '2%',
-        fontSize: '2.6rem',
+        fontSize: '3.1rem',
 
         [theme.breakpoints.down('md')]: {
           fontSize: '3.6rem',

@@ -7,11 +7,15 @@ import CreateEventHeader from '../../../../create-events/CreateEventHeader';
 const styles = makeStyles((theme) => ({
   container: {
     width: '100%',
+    flexBasis: "85%",
+    height: 'inherit',
     textAlign: 'center',
     display: 'flex',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     paddingLeft: '20px',
     alignItems: 'center',
+    paddingBottom: '1%',
+    marginTop: "0%",
 
     [theme.breakpoints.down('md')]: {
       paddingLeft: 0,

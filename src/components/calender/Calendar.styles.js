@@ -52,7 +52,7 @@ export const calendarStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     color: 'rgba(0, 0, 0, 0.5)',
     alignSelf: 'center',
-    marginTop: '1%',
+    marginTop: '-.5%',
     [theme.breakpoints.down('lg')]: {
       marginLeft: '30%',
     },

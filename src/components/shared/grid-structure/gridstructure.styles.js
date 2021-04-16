@@ -5,7 +5,7 @@ export const styles = makeStyles((theme) => {
     'grid-container': {
       display: 'grid',
       'grid-template-columns': '2fr 8fr',
-      'grid-template-rows': '.5fr 9fr',
+      'grid-template-rows': '.5fr 100fr',
       gap: '1px 1px',
       'grid-template-areas': ' "Logo Header" "Sidebar Variable" ',
 
@@ -19,7 +19,7 @@ export const styles = makeStyles((theme) => {
     },
     Header: {
       gridArea: 'Header',
-      height: '10vh',
+      height: "16.66vh"
     },
     Sidebar: {
       gridArea: 'Sidebar',

@@ -28,14 +28,17 @@ export const headerStyles = makeStyles((theme) => ({
     color: '#0c0c41',
   },
   icon: {
-    fontSize: '2.5rem',
+    fontSize: '5rem',
     marginRight: '5px',
+    
     [theme.breakpoints.down('sm')]: {
       display: 'none',
     },
   },
   h3: {
-    fontSize: '1.9rem',
+    fontSize: '140%',
+    fontWeight: '200',
+    paddingLeft: "8%",
     [theme.breakpoints.down('sm')]: {
       fontSize: '1.4rem',
     },

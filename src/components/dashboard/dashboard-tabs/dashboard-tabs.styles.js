@@ -3,12 +3,13 @@ import tabImage from '../../../assets/tab.svg';
 
 export const DashboardTabStyles = makeStyles((theme) => ({
   container: {
-    margin: '-6.5%',
+    margin: '-9%',
+    marginLeft: "-15%",
     //margin: '-6% 0 0 5%',
     maxWidth: '79vw',
-    width: '100%',
+    width: '55%',
     height: '5vw',
-    borderBottom: '1px solid #43ff6b',
+    borderBottom: '1px solid #58D573',
     position: 'absolute',
     [theme.breakpoints.down('sm')]: {
       maxWidth: '100vw',
@@ -16,11 +17,11 @@ export const DashboardTabStyles = makeStyles((theme) => ({
   },
   tabs: {
     margin: 0,
-    marginTop: '.75%',
+    marginTop: '.9%',
     display: 'flex',
     justifyContent: 'space-around',
     position: 'relative',
-    width: '50%',
+    width: '100%',
     left: '50%',
     top: '50%',
     transform: 'translateX(-50%)',
@@ -31,13 +32,13 @@ export const DashboardTabStyles = makeStyles((theme) => ({
       backgroundImage: `url(${tabImage})`,
       backgroundRepeat: 'no-repeat',
       height: '3vw',
-      width: '43%',
+      width: '32%',
       position: 'absolute',
       top: '-.4vw',
       left: (props) => {
-        if (props.currentTab === 1) return '-4%';
-        else if (props.currentTab === 2) return '30%';
-        else return '63%';
+        if (props.currentTab === 1) return '1.5%';
+        else if (props.currentTab === 2) return '35.3%';
+        else return '68%';
       },
       zIndex: -1,
       [theme.breakpoints.down('lg')]: {
@@ -61,10 +62,14 @@ export const DashboardTabStyles = makeStyles((theme) => ({
     },
   },
   tab: {
+    fontSize: "140%",
     color: 'black',
-    padding: '1% 7% 2% 7%',
+    opacity: .5,
+    padding: '.25% 7% 4% 7%',
+    fontWeight: "200"
   },
   currentTab: {
     color: 'white',
+    opacity: 1
   },
 }));

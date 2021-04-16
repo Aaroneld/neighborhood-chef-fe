@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import logoutVariant from '@iconify-icons/mdi/logout-variant';
+import logoutIcon from '@iconify-icons/mdi/logout';
 import { Icon } from '@iconify/react';
 
 const styles = makeStyles((theme) => ({
@@ -14,39 +15,42 @@ const styles = makeStyles((theme) => ({
     justifyContent: 'flex-end',
     alignItems: 'center',
     width: '100%',
-
+    height: 'inherit',
     'header-persistent': {
-      minWidth: '100vw',
+     
     },
     'header-variable': {},
 
     '& .rightSide': {
-      width: '15%',
+      width: "100%",
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'flex-end',
-      marginTop: '1%',
-      marginRight: '1%',
+      marginTop: '-1.2%',
+      marginRight: '3.5%',
+      flexBasis: "15%",
       [theme.breakpoints.down('md')]: {
         display: 'none',
       },
       '& svg': {
-        paddingRight: '3%',
         fontSize: '4.5rem',
         color: 'black',
-        opacity: 0.5,
+        opacity: .2,
       },
 
       '& .avatar': {
         cursor: 'pointer',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between',
+        justifyContent: 'flex-end',
+        width: "100%",
+       
 
         '& >div': {
           border: '2px solid rgba(88, 212, 115, 0.3)',
-          height: '60px',
-          width: '60px',
+          height: '45px',
+          width: '45px',
+          marginLeft: "10%",
 
           [theme.breakpoints.down('lg')]: {
             height: '50px',
@@ -67,9 +71,10 @@ function Header(props) {
     <div className={classes['container']}>
       <VariableHeader className={classes['header-variable']} />
       <div className="rightSide">
-        <Icon icon={logoutVariant} />
+      
         {Object.keys(user).length > 0 && (
           <div className="avatar">
+            <Icon icon={logoutIcon} />
             <Avatar
               aria-label="avatar"
               src={!user.photo ? null : user.photo}
