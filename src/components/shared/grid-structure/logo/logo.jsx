@@ -11,7 +11,8 @@ import logoutVariant from '@iconify-icons/mdi/logout-variant';
 export const logoStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
-    alignItems: 'center',
+    alignItems: 'space-between',
+    width: '100%',
 
     '& .leftSideHeader': {
       display: 'flex',
@@ -19,24 +20,29 @@ export const logoStyles = makeStyles((theme) => ({
       justifyContent: 'flex-start',
       fontSize: '200%',
       fontWeight: '500',
-      marginLeft: '2%',
-      marginTop: '6%',
+      marginTop: '5%',
       width: '100%',
       cursor: 'pointer',
+      marginLeft: '3%',
 
       '& #logo-icon': {
         color: '#58D473',
         marginTop: '2%',
+        fontSize: '2.6rem',
 
         [theme.breakpoints.down('md')]: {
+          fontSize: '3.6rem',
           marginRight: '0%',
           marginTop: '1%',
+        },
+        [theme.breakpoints.down('sm')]: {
+          fontSize: '2.5rem',
         },
       },
 
       '& #text': {
         [theme.breakpoints.down('sm')]: {
-          // display: 'none',
+          fontSize: '1.6rem',
         },
       },
 
@@ -48,6 +54,7 @@ export const logoStyles = makeStyles((theme) => ({
         width: '50%',
         fontSize: '200%',
         marginLeft: 0,
+        marginRight: '3%',
         marginTop: '1%',
         justifyContent: 'center',
       },
@@ -57,6 +64,7 @@ export const logoStyles = makeStyles((theme) => ({
         width: '70%',
         justifyContent: 'flex-start',
         marginLeft: '2%',
+        marginRight: 0,
       },
     },
 
@@ -92,18 +100,20 @@ export const logoStyles = makeStyles((theme) => ({
             width: '50px',
           },
           [theme.breakpoints.down('sm')]: {
-            height: '45px',
-            width: '45px',
+            height: '40px',
+            width: '40px',
           },
         },
       },
       [theme.breakpoints.down('md')]: {
         display: 'flex',
       },
+      [theme.breakpoints.down('sm')]: {
+        width: '25%',
+      },
     },
 
     [theme.breakpoints.down('md')]: {
-      width: '100%',
       justifyContent: 'flex-end',
     },
     [theme.breakpoints.down('sm')]: {

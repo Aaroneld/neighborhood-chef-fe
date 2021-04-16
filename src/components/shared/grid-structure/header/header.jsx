@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import PersistentHeader from './header-partition-persistent/headerPartitionPersistent';
 import VariableHeader from './header-partition-variable/headerPartitionVariable';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -13,6 +12,7 @@ const styles = makeStyles((theme) => ({
   container: {
     display: 'flex',
     justifyContent: 'flex-end',
+    width: '100%',
 
     'header-persistent': {
       minWidth: '100vw',
@@ -66,11 +66,6 @@ function Header(props) {
   return (
     <div className={classes['container']}>
       <VariableHeader className={classes['header-variable']} />
-      <PersistentHeader
-        openDrawer={props.openDrawer}
-        open={props.open}
-        className={classes['header-persistent']}
-      />
       <div className="rightSide">
         <Icon icon={logoutVariant} />
         {Object.keys(user).length > 0 && (

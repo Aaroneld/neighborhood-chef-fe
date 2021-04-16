@@ -5,9 +5,17 @@ export const headerStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    width: '100%',
+    width: '95%',
     marginTop: '10px',
     marginBottom: '10px',
+
+    [theme.breakpoints.down('md')]: {
+      justifyContent: 'space-around',
+      width: '100%',
+    },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '1.6rem',
+    },
   },
   notActive: {
     display: 'flex',
@@ -24,6 +32,12 @@ export const headerStyles = makeStyles((theme) => ({
     marginRight: '5px',
     [theme.breakpoints.down('sm')]: {
       display: 'none',
+    },
+  },
+  h3: {
+    fontSize: '1.9rem',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '1.4rem',
     },
   },
 }));

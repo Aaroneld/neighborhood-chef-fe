@@ -8,11 +8,8 @@ export const styles = makeStyles((theme) => {
       'grid-template-rows': '.5fr 9fr',
       gap: '1px 1px',
       'grid-template-areas': ' "Logo Header" "Sidebar Variable" ',
-      // height: '100vh',
 
       [theme.breakpoints.down('md')]: {
-        // height: '100%',
-        // minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
       },
@@ -23,10 +20,6 @@ export const styles = makeStyles((theme) => {
     Header: {
       gridArea: 'Header',
       height: '10vh',
-
-      [theme.breakpoints.down('md')]: {
-        marginLeft: '12%',
-      },
     },
     Sidebar: {
       gridArea: 'Sidebar',
