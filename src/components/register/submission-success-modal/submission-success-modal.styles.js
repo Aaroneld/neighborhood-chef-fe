@@ -1,6 +1,6 @@
 import makeStyles from '@material-ui/styles/makeStyles';
 
-export const styles = makeStyles({
+export const styles = makeStyles((theme) => ({
   container: {
     position: 'absolute',
     top: '50%',
@@ -19,9 +19,27 @@ export const styles = makeStyles({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
+    textAlign: 'center',
+
+    [theme.breakpoints.down('lg')]: {
+      width: '50vw',
+    },
+
+    [theme.breakpoints.down('md')]: {
+      width: '60vw',
+    },
+    [theme.breakpoints.down('sm')]: {
+      width: '90vw',
+    },
 
     '& h3': {
       marginTop: '5%',
+      [theme.breakpoints.down('lg')]: {
+        fontSize: '2.8rem',
+      },
+      [theme.breakpoints.down('sm')]: {
+        fontSize: '2rem',
+      },
     },
 
     '& h6': {
@@ -41,6 +59,13 @@ export const styles = makeStyles({
 
     '& #redirect-time': {
       fontSize: '1000%',
+
+      [theme.breakpoints.down('lg')]: {
+        fontSize: '800%',
+      },
+      [theme.breakpoints.down('md')]: {
+        fontSize: '600%',
+      },
     },
 
     '& button': {
@@ -55,6 +80,16 @@ export const styles = makeStyles({
         background: 'white',
         color: '#58D573',
       },
+      [theme.breakpoints.down('lg')]: {
+        width: '40%',
+        marginTop: '0',
+      },
+      [theme.breakpoints.down('sm')]: {
+        width: '60%',
+      },
+      [theme.breakpoints.down('xs')]: {
+        width: '80%',
+      },
     },
   },
-});
+}));

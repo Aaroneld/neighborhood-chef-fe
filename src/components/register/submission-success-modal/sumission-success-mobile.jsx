@@ -31,7 +31,7 @@ export default function SubmissionSuccessModal() {
     <div className={classes.container}>
       <Typography variant="h1">Congratulations!</Typography>
       <Typography variant="h4"> Your account has been created</Typography>
-      <Typography variant="h6"> An activation letter has been sent your email</Typography>
+      <Typography variant="h6"> An activation letter has been sent to your email</Typography>
       <Typography variant="h3">You will be redirected to the home page in...</Typography>
       <Typography variant="h1" id="redirect-time">
         {countDown}
