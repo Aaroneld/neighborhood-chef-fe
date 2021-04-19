@@ -5,7 +5,7 @@ import { Checkbox, Button } from '@material-ui/core';
 import { buttonStyles } from '../../../styles';
 import { ErrorMessage } from '@hookform/error-message';
 
-const AuthFields = ({ setStepper, setValues, errors, validate }) => {
+const AuthFields = ({ setStepper, setValues, errors, validate, values }) => {
   const buttonClass = buttonStyles();
   const classNames = styles();
 
@@ -29,25 +29,26 @@ const AuthFields = ({ setStepper, setValues, errors, validate }) => {
   return (
     <div className={classNames.container}>
       <div className="input-with-error">
-      <TextField
-        onChange={handleChange}
-        type="email"
-        id="email"
-        className="email"
-        label="Email"
-        onBlur={() => {
-          validate('email');
-        }}
-        required
-      />
-      {errors.email && errors.email.length > 0 && (
-        <ErrorMessage
-          name="email"
-          errors={errors}
-          message={errors.email[0]}
-          render={({ message }) => <p style={{ color: 'crimson' }}>{message}</p>}
+        <TextField
+          onChange={handleChange}
+          type="email"
+          id="email"
+          className="email"
+          label="Email"
+          value={values.email}
+          onBlur={() => {
+            validate('email');
+          }}
+          required
         />
-      )}
+        {errors.email && errors.email.length > 0 && (
+          <ErrorMessage
+            name="email"
+            errors={errors}
+            message={errors.email[0]}
+            render={({ message }) => <p style={{ color: 'crimson' }}>{message}</p>}
+          />
+        )}
       </div>
       <label className="terms">
         <Checkbox

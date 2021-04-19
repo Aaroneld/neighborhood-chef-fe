@@ -41,13 +41,18 @@ const ProfileFields = (props) => {
             name="firstName"
             label="First Name"
             onBlur={handleBlur}
+            value={props.values.firstName}
           />
           {props.errors.firstName && props.errors.firstName.length > 0 && (
             <ErrorMessage
               name="firstName"
               errors={props.errors}
               message={props.errors.firstName[0]}
-              render={({ message }) => <p className="error-message" style={{ color: 'crimson' }}>{message}</p>}
+              render={({ message }) => (
+                <p className="error-message" style={{ color: 'crimson' }}>
+                  {message}
+                </p>
+              )}
             />
           )}
         </div>
@@ -58,13 +63,18 @@ const ProfileFields = (props) => {
             name="lastName"
             label="Last Name"
             onBlur={handleBlur}
+            value={props.values.lastName}
           />
           {props.errors.lastName && props.errors.lastName.length > 0 && (
             <ErrorMessage
               name="lastName"
               errors={props.errors}
               message={props.errors.lastName[0]}
-              render={({ message }) => <p  className="error-message" style={{ color: 'crimson' }}>{message}</p>}
+              render={({ message }) => (
+                <p className="error-message" style={{ color: 'crimson' }}>
+                  {message}
+                </p>
+              )}
             />
           )}
         </div>
@@ -107,26 +117,29 @@ const ProfileFields = (props) => {
           <Typography variant="h5">Back</Typography>
         </Button>
         <div class="input-with-error-message">
-        <Button
-          className={`${buttonClasses.root} ${buttonClasses.active}`}
-          variant="contained"
-          color="primary"
-          onClick={props.handleSubmit}
-          disabled={Object.keys(props.errors) > 0}
-        >
-          Create Account
-        </Button>
-
-        {props.errorMessage && (
-          <ErrorMessage
-            name="errorMessage"
-            errors={{ errorMessage: props.errorMessage }}
-            message={props.errorMessage}
-            render={({ message }) => <p className="error-message" style={{ color: 'crimson' }}>{message}</p>}
-          />
-        )}
+          <Button
+            className={`${buttonClasses.root} ${buttonClasses.active}`}
+            variant="contained"
+            color="primary"
+            onClick={props.handleSubmit}
+            disabled={Object.keys(props.errors) > 0}
+          >
+            Create Account
+          </Button>
         </div>
       </div>
+      {props.errorMessage && (
+        <ErrorMessage
+          name="errorMessage"
+          errors={{ errorMessage: props.errorMessage }}
+          message={props.errorMessage}
+          render={({ message }) => (
+            <p className="error-message" style={{ color: 'crimson' }}>
+              {message}
+            </p>
+          )}
+        />
+      )}
     </div>
   );
 };

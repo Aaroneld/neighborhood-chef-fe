@@ -14,14 +14,8 @@ export const styles = makeStyles((theme) => ({
     },
 
     '& .input-with-error-message': {
-      position: 'relative'
+      position: 'relative',
     },
-
-    '& .error-message': {
-      fontSize: '80%',
-      position: 'absolute',
-      bottom: '-45%'
-    }, 
 
     '& .name-fields': {
       display: 'flex',
@@ -59,15 +53,18 @@ export const styles = makeStyles((theme) => ({
       '& p': {
         bottom: '-30%',
         fontSize: '80%',
-        marginLeft: '3%'
+        marginLeft: '3%',
       },
 
       '& button': {
         fontWeight: 'lighter',
         fontFamily: '"Roboto", "Helvetica", "Poppins", sans-serif',
       },
-
-      
+    },
+    '& .error-message': {
+      fontSize: '90%',
+      textAlign: 'center',
+      margin: '2% 0',
     },
   },
 }));

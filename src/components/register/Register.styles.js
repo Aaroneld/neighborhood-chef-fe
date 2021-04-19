@@ -12,14 +12,15 @@ export const styles = makeStyles((theme) => ({
       position: 'relative',
       zIndex: '1',
       width: '25%',
-      height: '72vh',
+      height: '86vh',
       top: '46vh',
       transform: 'translateY(-51%)',
       left: '10%',
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'flex-start',
-      boxShadow: "5px 5px 21px 3px rgba(71,71,71,0.23)",
+      boxShadow: '5px 5px 21px 3px rgba(71,71,71,0.23)',
+      overflowY: 'scroll',
 
       '& >*': {
         padding: '0 2%',
@@ -52,26 +53,22 @@ export const styles = makeStyles((theme) => ({
 
       '& .MuiCardActions-root': {
         alignSelf: 'center',
-        position: 'absolute',
-        bottom: '2%',
+        margin: '3% 0',
 
         '& .MuiMobileStepper-dotActive': {
           background: '#58D573',
         },
       },
+
       [theme.breakpoints.down('lg')]: {
         width: '30%',
-        height: '78vh',
       },
       [theme.breakpoints.down('md')]: {
-        width: '44%',
-        height: '55vh',
+        width: '45%',
         left: '5%',
-        top: '58%'
       },
       [theme.breakpoints.down('sm')]: {
         width: '90%',
-        left: '5%',
       },
     },
     '& .register-map, .overlays': {
@@ -82,26 +79,21 @@ export const styles = makeStyles((theme) => ({
       height: '92vh',
       zIndex: '0',
       [theme.breakpoints.down('lg')]: {
-        transform: 'translate(-50%, -83.5%)',
+        transform: 'translate(-50%, -90%)',
       },
 
-      [theme.breakpoints.down('md')]: {
-        transform: 'translate(-50%, -57.3%)',
-      },
-      
-      [theme.breakpoints.down('sm')]: {
-        transform: 'translate(-50%, -200%)',
-      },
+      // [theme.breakpoints.down('md')]: {
+      //   transform: 'translate(-50%, -57.3%)',
+      // },
+
+      // [theme.breakpoints.down('sm')]: {
+      //   transform: 'translate(-50%, -200%)',
+      // },
 
       [theme.breakpoints.down('699px')]: {
         display: 'block',
-        
       },
     },
-    [theme.breakpoints.down('lg')]: {
-      height: '90vh',
-    },
-
   },
   overlay: {
     position: 'absolute',
