@@ -11,12 +11,7 @@ const Login = () => {
     <div className={styles.container}>
       <AuthHeader />
       <div className={styles.landingPageContainer}>
-        {/* <div className={styles.landingPageLeft} id="login-card">
-          <div></div>
-        </div>
-        <div className={styles.landingPageRight}>
-          <img src={food} alt="food community" height="100%" />
-        </div> */}
+  
       </div>
     </div>
   );

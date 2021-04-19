@@ -556,6 +556,7 @@ export const theme = responsiveFontSizes(
         xs: 375,
         sm: 414,
         md: 768,
+        lgmd: 962,
         lg: 1280,
         xl: 1920,
       },

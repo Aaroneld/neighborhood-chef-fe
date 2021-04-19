@@ -5,9 +5,6 @@ export const styles = makeStyles((theme) => ({
     paddingRight: '20px',
     width: '100%',
 
-    [theme.breakpoints.down("md")]: {
-      paddingRight: 0
-    },
 
     '& div': {
       width: '100%',
@@ -52,7 +49,8 @@ export const styles = makeStyles((theme) => ({
               },
 
               [theme.breakpoints.down('md')]: {
-                fontSize: '120%',
+                fontSize: '135%',
+                fontWeight: 700,
                 display: 'flex',
                 justifyContent: 'center',
               },

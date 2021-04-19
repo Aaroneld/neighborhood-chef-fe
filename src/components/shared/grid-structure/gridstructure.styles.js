@@ -14,7 +14,8 @@ export const styles = makeStyles((theme) => {
       [theme.breakpoints.down('md')]: {
         display: 'flex',
         flexDirection: 'column',
-        minHeight: "100vh"
+        minHeight: "100vh",
+        overflowY: "hidden"
       },
     },
     Variable: {

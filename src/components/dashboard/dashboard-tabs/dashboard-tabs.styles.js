@@ -16,10 +16,15 @@ export const DashboardTabStyles = makeStyles((theme) => ({
       marginTop: "-9.4%"
     },
 
+    [theme.breakpoints.down('lgmd')]: {
+      marginTop: "-8.4%"
+    },
+
     [theme.breakpoints.down('md')] : {
       width: "90%",
       maxWidth: "100%",
-      marginLeft: "-10%"
+      marginLeft: "-10%",
+      marginTop: "-6.8%"
     },
 
     [theme.breakpoints.down('sm')]: {
@@ -100,10 +105,15 @@ export const DashboardTabStyles = makeStyles((theme) => ({
       padding: "0% 7% 4% 7%"
     },
 
-    
     [theme.breakpoints.down('md')]: {
-     marginTop: "-.25%"
-    }
+     marginTop: "-.25%",
+     fontSize: "130%",
+     padding: ".5% 7% 4% 7%"
+    },
+
+    [theme.breakpoints.down('sm')]: {
+      fontSize: "120%" 
+     }
   },
   currentTab: {
     color: 'white',
