@@ -15,18 +15,18 @@ export const styles = makeStyles((theme) => ({
       alignItems: 'center',
       justifyContent: 'center',
       position: 'relative',
-      
+
       '& >p': {
         position: 'absolute',
         bottom: '1%',
         fontSize: '80%',
-        left: '10%'
+        left: '10%',
       },
 
       '& .email': {
         margin: '7% 0',
         width: '80%',
-      }
+      },
     },
 
     '& .terms': {
@@ -48,7 +48,7 @@ export const styles = makeStyles((theme) => ({
 
     '& button': {
       fontSize: '130%',
-      marginTop: '15%',
+      marginTop: '10%',
       width: '50%',
       padding: '4% 2%',
       alignSelf: 'center',
@@ -56,6 +56,10 @@ export const styles = makeStyles((theme) => ({
       fontFamily: '"Roboto", "Helvetica", "Poppins", sans-serif',
       [theme.breakpoints.down('lg')]: {
         width: '70%',
+      },
+      [theme.breakpoints.down('sm')]: {
+        width: '80%',
+        fontSize: '120%',
       },
     },
   },

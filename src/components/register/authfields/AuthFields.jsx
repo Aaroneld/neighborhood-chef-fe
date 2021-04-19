@@ -5,11 +5,9 @@ import { Checkbox, Button } from '@material-ui/core';
 import { buttonStyles } from '../../../styles';
 import { ErrorMessage } from '@hookform/error-message';
 
-const AuthFields = ({ setStepper, setValues, errors, validate, values }) => {
+const AuthFields = ({ setStepper, setValues, errors, validate, values, checked, setChecked }) => {
   const buttonClass = buttonStyles();
   const classNames = styles();
-
-  const [checked, setChecked] = useState(false);
 
   const handleChange = (e) => {
     e.persist();
@@ -54,6 +52,7 @@ const AuthFields = ({ setStepper, setValues, errors, validate, values }) => {
         <Checkbox
           type="checkbox"
           name="terms"
+          checked={checked}
           onChange={() => {
             setChecked(!checked);
           }}
@@ -62,7 +61,7 @@ const AuthFields = ({ setStepper, setValues, errors, validate, values }) => {
       </label>
       <Button
         className={`${buttonClass.root} ${buttonClass.active}`}
-        disabled={Object.keys(errors).length > 0 || !checked}
+        disabled={Object.keys(errors).length > 0 || !checked || !values.email}
         onClick={handleClick}
       >
         Continue registering
