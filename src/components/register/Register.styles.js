@@ -12,7 +12,7 @@ export const styles = makeStyles((theme) => ({
       position: 'relative',
       zIndex: '1',
       width: '25%',
-      height: '72vh',
+      height: '75vh',
       top: '46vh',
       transform: 'translateY(-51%)',
       left: '10%',
@@ -62,6 +62,7 @@ export const styles = makeStyles((theme) => ({
 
       [theme.breakpoints.down('lg')]: {
         width: '30%',
+        height: '72vh',
       },
       [theme.breakpoints.down('md')]: {
         width: '45%',
@@ -69,6 +70,7 @@ export const styles = makeStyles((theme) => ({
       },
       [theme.breakpoints.down('sm')]: {
         width: '90%',
+        height: '80vh',
       },
     },
     '& .register-map, .overlays': {

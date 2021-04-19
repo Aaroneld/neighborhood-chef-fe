@@ -59,6 +59,9 @@ export const styles = makeStyles((theme) => ({
       '& button': {
         fontWeight: 'lighter',
         fontFamily: '"Roboto", "Helvetica", "Poppins", sans-serif',
+        [theme.breakpoints.down('sm')]: {
+          fontSize: '90%',
+        },
       },
     },
     '& .error-message': {
