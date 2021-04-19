@@ -6,7 +6,7 @@ import chefIcon from '@iconify/icons-whh/chef';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
-import logoutVariant from '@iconify-icons/mdi/logout-variant';
+import logoutIcon from '@iconify-icons/mdi/logout';
 
 export const logoStyles = makeStyles((theme) => ({
   root: {
@@ -21,16 +21,20 @@ export const logoStyles = makeStyles((theme) => ({
       justifyContent: 'flex-start',
       fontSize: '200%',
       fontWeight: '500',
-      marginTop: '13.5%',
+      marginTop: '-5%',
+      marginLeft: "6%",
       width: '100%',
       cursor: 'pointer',
-      marginLeft: '8%',
       whiteSpace: 'nowrap',
 
       '& #logo-icon': {
         color: '#58D473',
-        marginTop: '2%',
-        fontSize: '3.1rem',
+        fontSize: '3rem',
+        marginTop: "2%",
+
+        [theme.breakpoints.down('lg')]: {
+          fontSize: "2.6rem"
+        },
 
         [theme.breakpoints.down('md')]: {
           fontSize: '3.6rem',
@@ -43,6 +47,17 @@ export const logoStyles = makeStyles((theme) => ({
       },
 
       '& #text': {
+        
+        paddingLeft: "3%",
+
+        [theme.breakpoints.down('lg')]: {
+          fontSize: '2.5rem',
+        },
+
+        [theme.breakpoints.down('md')]: {
+          fontSize: '3.6rem',
+        },
+
         [theme.breakpoints.down('sm')]: {
           fontSize: '1.6rem',
         },
@@ -50,13 +65,14 @@ export const logoStyles = makeStyles((theme) => ({
 
       [theme.breakpoints.down('lg')]: {
         fontSize: '150%',
+        marginLeft: "4%"
       },
 
       [theme.breakpoints.down('md')]: {
         width: '50%',
         fontSize: '200%',
         marginLeft: 0,
-        marginRight: '3%',
+        marginRight: '5.5%',
         marginTop: '1%',
         justifyContent: 'center',
       },
@@ -77,20 +93,22 @@ export const logoStyles = makeStyles((theme) => ({
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'flex-end',
-      width: '20%',
+      flexBasis: "20%",
       display: 'none',
 
       '& svg': {
-        marginRight: '5%',
-        fontSize: '4rem',
+        marginRight: '10%',
+        height: "50px",
+        width: "40px",
         color: 'black',
-        opacity: 0.5,
+        opacity: 0.15,
       },
 
       '& .avatar': {
         cursor: 'pointer',
         display: 'flex',
         alignItems: 'center',
+        marginRight: '10%',
 
         '& >div': {
           border: '2px solid rgba(88, 212, 115, 0.3)',
@@ -117,6 +135,7 @@ export const logoStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down('md')]: {
       justifyContent: 'flex-end',
+      marginTop: "1%"
     },
     [theme.breakpoints.down('sm')]: {
       justifyContent: 'space-between',
@@ -133,12 +152,12 @@ function Logo() {
     <div className={styles.root}>
       <div className="leftSideHeader" onClick={() => push('/dashboard')}>
         <span id="logo-icon">
-          <Icon style={{ width: '80%' }} icon={chefIcon} />
+          <Icon icon={chefIcon} />
         </span>
         <span id="text">Neighborhood Chef</span>
       </div>
       <div className="iconsRight">
-        <Icon icon={logoutVariant} />
+        <Icon icon={logoutIcon} />
         {Object.keys(user).length > 0 && (
           <div className="avatar">
             <Avatar

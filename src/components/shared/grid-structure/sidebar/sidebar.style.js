@@ -5,6 +5,10 @@ export const styles = makeStyles((theme) => ({
     paddingRight: '20px',
     width: '100%',
 
+    [theme.breakpoints.down("md")]: {
+      paddingRight: 0
+    },
+
     '& div': {
       width: '100%',
       '& nav': {
@@ -18,6 +22,7 @@ export const styles = makeStyles((theme) => ({
           flexDirection: 'row',
           flexWrap: 'no-wrap',
           justifyContent: 'center',
+          alignItems: "center"
         },
 
         '& a': {

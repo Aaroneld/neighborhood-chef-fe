@@ -1,6 +1,20 @@
 import { makeStyles } from '@material-ui/core/styles';
 
+export const cardStyles = makeStyles(theme => ({
+  root: {
+    boxShadow: '-2px 3px 31px -13px rgba(117,117,117,0.46)', 
+    height: '82vh', 
+    width: "80vw", 
+    overflowY: "scroll",
+
+    [theme.breakpoints.down('md')]: {
+      width: "100vw"
+    }
+  }
+}))
+
 export const headerStyles = makeStyles((theme) => ({
+
   root: {
     display: 'flex',
     justifyContent: 'space-between',
@@ -11,7 +25,7 @@ export const headerStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down('md')]: {
       justifyContent: 'space-around',
-      width: '100%',
+      width: '100vw',
     },
     [theme.breakpoints.down('sm')]: {
       fontSize: '1.6rem',
@@ -39,6 +53,11 @@ export const headerStyles = makeStyles((theme) => ({
     fontSize: '140%',
     fontWeight: '200',
     paddingLeft: "8%",
+
+    [theme.breakpoints.down("lg")]: {
+      fontSize: "120%"
+    },
+
     [theme.breakpoints.down('sm')]: {
       fontSize: '1.4rem',
     },
