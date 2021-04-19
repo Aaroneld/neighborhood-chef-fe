@@ -21,6 +21,9 @@ function GridStructure(props) {
   const dispatch = useDispatch();
   const classes = styles();
   const location = useLocation();
+
+  const [isEmpty, setEmpty] = useState(false);
+
   const [urlLocation, setUrlLocation] = useState(location.pathname.split('/')[1]);
   useEffect(() => {
     setUrlLocation(location.pathname.split('/')[1]);
@@ -53,14 +56,16 @@ function GridStructure(props) {
 
   return (
     <div className={classes['grid-container']}>
-      <div>
+      <div className={classes['Logo']}>
         <Logo />
       </div>
       <div className={classes['Sidebar']}>
         <Sidebar active={urlLocation} />
       </div>
-      <div className={classes['Header']}>
-        <Header />
+      <div className={classes['Header']} 
+           style={{display: `${isEmpty ? "none" : "block"}`}}
+      >
+        <Header setEmpty={setEmpty}/>
       </div>
       <div className={classes['Variable']}>
         <VariableMainContent {...props} />

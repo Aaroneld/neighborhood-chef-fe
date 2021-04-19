@@ -1,11 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import VariableHeader from './header-partition-variable/headerPartitionVariable';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
-import logoutVariant from '@iconify-icons/mdi/logout-variant';
 import logoutIcon from '@iconify-icons/mdi/logout';
 import { Icon } from '@iconify/react';
 
@@ -62,14 +61,18 @@ const styles = makeStyles((theme) => ({
   },
 }));
 
-function Header(props) {
+function Header({setEmpty}) {
   const classes = styles();
   const user = useSelector((state) => state.user);
   const { push } = useHistory();
+  
 
   return (
     <div className={classes['container']}>
-      <VariableHeader className={classes['header-variable']} />
+      <VariableHeader 
+      className={classes['header-variable']} 
+      setEmpty={setEmpty}
+     />
       <div className="rightSide">
       
         {Object.keys(user).length > 0 && (

@@ -11,9 +11,22 @@ export const DashboardTabStyles = makeStyles((theme) => ({
     height: '5vw',
     borderBottom: '1px solid #58D573',
     position: 'absolute',
+
+    [theme.breakpoints.down('lg')]: {
+      marginTop: "-9.4%"
+    },
+
+    [theme.breakpoints.down('md')] : {
+      width: "90%",
+      maxWidth: "100%",
+      marginLeft: "-10%"
+    },
+
     [theme.breakpoints.down('sm')]: {
       maxWidth: '100vw',
     },
+
+ 
   },
   tabs: {
     margin: 0,
@@ -50,10 +63,24 @@ export const DashboardTabStyles = makeStyles((theme) => ({
           else return '65%';
         },
       },
+
+      [theme.breakpoints.down("md")]: {
+        width: "100%",
+        height: "4.5vw",
+        left: (props) => {
+          if (props.currentTab === 1) return '-.5%';
+          else if (props.currentTab === 2) return '34%';
+          else return '66%';
+        },
+      }
     },
     [theme.breakpoints.down('lg')]: {
-      width: '70%',
-      marginTop: '.1%',
+      width: '100%',
+      marginTop: '.3%',
+    },
+
+    [theme.breakpoints.down("md")]: {
+      marginTop: '-1.7%',
     },
 
     [theme.breakpoints.down('sm')]: {
@@ -66,7 +93,17 @@ export const DashboardTabStyles = makeStyles((theme) => ({
     color: 'black',
     opacity: .5,
     padding: '.25% 7% 4% 7%',
-    fontWeight: "200"
+    fontWeight: "200",
+
+    [theme.breakpoints.down('lg')]: {
+      fontSize: "120%",
+      padding: "0% 7% 4% 7%"
+    },
+
+    
+    [theme.breakpoints.down('md')]: {
+     marginTop: "-.25%"
+    }
   },
   currentTab: {
     color: 'white',

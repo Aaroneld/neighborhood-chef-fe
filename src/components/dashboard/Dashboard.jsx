@@ -8,7 +8,7 @@ import makeStyles from '@material-ui/styles/makeStyles';
 export const styles = makeStyles((theme) => ({
   root: {
     display: 'flex',
-    width: '100%',
+    width: '80vw',
     boxShadow: '-2px 3px 31px -13px rgba(117,117,117,0.46)',
     height: '100%',
     borderRadius: '20px',
@@ -20,6 +20,10 @@ export const styles = makeStyles((theme) => ({
       width: '100%',
       alignItems: 'center',
     },
+
+    [theme.breakpoints.down("md")]: {
+      width: "100vw"
+    }
   },
 }));
 

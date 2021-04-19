@@ -4,26 +4,42 @@ export const styles = makeStyles((theme) => {
   return {
     'grid-container': {
       display: 'grid',
+      maxHeight: "100vh",
+      width: "100vw",
       'grid-template-columns': '2fr 8fr',
-      'grid-template-rows': '.5fr 100fr',
+      'grid-template-rows': '1fr 5fr',
       gap: '1px 1px',
       'grid-template-areas': ' "Logo Header" "Sidebar Variable" ',
 
       [theme.breakpoints.down('md')]: {
         display: 'flex',
         flexDirection: 'column',
+        minHeight: "100vh"
       },
     },
     Variable: {
+      width: "80vw",
       gridArea: 'Variable',
+
+      [theme.breakpoints.down("md")]: {
+        width: "100vw"
+      }
     },
     Header: {
       gridArea: 'Header',
-      height: "16.66vh"
+      height: "16.66vh",
+
+      [theme.breakpoints.down("md")]: {
+        height: "10vh"
+      }
     },
     Sidebar: {
       gridArea: 'Sidebar',
       paddingLeft: '5%',
+
+      [theme.breakpoints.down('md')]: {
+        paddingLeft: 0
+      },
 
       [theme.breakpoints.down('sm')]: {
         display: 'none',
@@ -35,38 +51,15 @@ export const styles = makeStyles((theme) => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'flex-start',
-
-      '& *': {
-        width: '100%',
-
-        '&:first-child': {
-          width: '20%',
-        },
-
-        '&:last-child': {
-          width: '115%',
-        },
-      },
+      flexWrap: "nowrap",
+      height: "16.66vh",
+      maxWidth: "20vw",
 
       [theme.breakpoints.down('md')]: {
-        '&  a > div:first-child': {
-          marginLeft: '29%',
-          paddingTop: '3%',
-        },
-      },
-
-      [theme.breakpoints.down('sm')]: {
-        '&  a > div:first-child': {
-          marginLeft: '18%',
-        },
-      },
-
-      [theme.breakpoints.down('sm')]: {
-        '&  a > div:first-child': {
-          margin: '2% 5%',
-          paddingTop: '3%',
-        },
-      },
+        width: "100vw",
+        maxWidth: "100vw",
+        height: "7vh",
+      }
     },
     'Drawer-Container': {
       'grid-area': '1 / 4 / 3 / 5',

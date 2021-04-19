@@ -4,17 +4,23 @@ export const calendarStyles = makeStyles((theme) => ({
   componentMain: {
     display: 'flex',
     justifyContent: 'space-between',
-    width: '100%',
-    height: '100vh',
+    maxWidth: '80vw',
+    height: '82vh',
     boxShadow: '-2px 3px 31px -13px rgba(117,117,117,0.46)',
     borderRadius: '20px',
     borderTopRightRadius: '0',
+
+    [theme.breakpoints.down("md")] : {
+      maxWidth: "100vw",
+      width: "100vw"
+    }
   },
   calendarViewMain: {
     display: 'flex',
     flexDirection: 'column',
     paddingTop: '10px',
-    justifyContent: 'center',
+    overflowY: "scroll",
+    height: "80vh"
   },
   calendarRow: {
     background: 'white',
@@ -54,11 +60,11 @@ export const calendarStyles = makeStyles((theme) => ({
     alignSelf: 'center',
     marginTop: '-.5%',
     [theme.breakpoints.down('lg')]: {
-      marginLeft: '30%',
+      marginLeft: '10%',
     },
     [theme.breakpoints.down('md')]: {
-      marginLeft: '25%',
-      width: '50%',
+      marginLeft: '-18%',
+      width: '70%',
     },
     [theme.breakpoints.down('sm')]: {
       width: '70%',
@@ -76,6 +82,7 @@ export const calendarStyles = makeStyles((theme) => ({
     width: '55%',
     display: 'flex',
     flexDirection: 'column',
+    height: "80vh",
     [theme.breakpoints.down('md')]: {
       width: '100%',
       textAlign: 'center',
@@ -85,11 +92,11 @@ export const calendarStyles = makeStyles((theme) => ({
   rightSideCalendar: {
     display: 'flex',
     background: '#f2f2f2',
-    height: '85vh',
+    height: '80vh',
     borderRadius: '10px',
     padding: '10px',
     marginTop: '10px',
-    width: '35%',
+    width: '33%',
     position: 'fixed',
     left: '65%',
     [theme.breakpoints.down('md')]: {
