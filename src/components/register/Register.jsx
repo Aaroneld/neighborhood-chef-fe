@@ -32,6 +32,7 @@ const Register = () => {
   const [stepper, setStepper] = useState(1);
   const [submitted, setSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
+  const [checked, setChecked] = useState(false);
 
   const { values, setValues, validate, errors } = useForm(
     { email: '', address: '', longitude: null, latitude: null, gender: '', firstName: '', lastName: '' },
@@ -103,6 +104,8 @@ const Register = () => {
                   setValues={setValues}
                   validate={validate}
                   errors={errors}
+                  checked={checked}
+                  setChecked={setChecked}
                 />
               )}
               {stepper === 2 && (
