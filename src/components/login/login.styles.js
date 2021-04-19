@@ -30,6 +30,10 @@ export const landingPageStyles = makeStyles((theme) => ({
       height: '80%',
       background: 'rgba(255,255,255,.5)',
 
+      [theme.breakpoints.down('700')]: {
+        width: '80%',
+      },
+
       '& > div': {
         height: '90%',
         display: 'flex',

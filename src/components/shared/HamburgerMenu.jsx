@@ -52,13 +52,11 @@ const HamburgerMenu = () => {
   return (
     <div className={styles.hamburgerMenu}>
       <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-        <MenuIcon style={{ fontSize: '4.8rem' }} />
+        <MenuIcon style={{ fontSize: '3.5rem' }} />
       </Button>
       <Menu id="simple-menu" anchorEl={anchorEl} keepMounted open={Boolean(anchorEl)} onClose={handleClose}>
         <MenuItem onClick={handleLogin}>Login</MenuItem>
         <MenuItem onClick={() => handleClose('/register')}>Register</MenuItem>
-        <MenuItem onClick={() => handleClose('/about')}>About</MenuItem>
-        <MenuItem onClick={() => handleClose('/community')}>Community</MenuItem>
       </Menu>
     </div>
   );
