@@ -98,6 +98,7 @@ const Register = () => {
             <form>
               {stepper === 1 && (
                 <AuthFields
+                  values={values}
                   setStepper={setStepper}
                   setValues={setValues}
                   validate={validate}

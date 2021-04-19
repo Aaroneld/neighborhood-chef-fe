@@ -54,21 +54,6 @@ const AuthHeader = () => {
           <p>Neighborhood Chef</p>
         </div>
       </div>
-      <div className="authheader-links">
-        <button
-          className={`${buttonClass.root} ${url !== 'community' && buttonClass.notActive}`}
-          onClick={() => push('/community')}
-        >
-          <Typography>Community</Typography>
-        </button>
-
-        <button
-          className={`${buttonClass.root} ${url !== 'about' && buttonClass.notActive}`}
-          onClick={() => push('/about')}
-        >
-          <Typography>About&nbsp;Us</Typography>
-        </button>
-      </div>
       <div className="login-register">
         <button className={`${buttonClass.root} ${buttonClass.single}`} onClick={handleClick}>
           <Typography>Login</Typography>

@@ -6,6 +6,7 @@ export const authHeaderStyles = makeStyles((theme) => ({
     zIndex: '3',
     display: 'flex',
     alignItems: 'center',
+    justifyContent: 'space-between',
     height: '8vh',
     'box-shadow': '0px 13px 39px -1px rgba(201,201,201,.5)',
 
@@ -24,6 +25,12 @@ export const authHeaderStyles = makeStyles((theme) => ({
           fontSize: '200%',
           fontFamily: "'Poppins', sans-serif",
           whiteSpace: 'nowrap',
+          [theme.breakpoints.down('sm')]: {
+            fontSize: '160%',
+          },
+          [theme.breakpoints.down('xs')]: {
+            fontSize: '120%',
+          },
         },
       },
 
@@ -34,27 +41,15 @@ export const authHeaderStyles = makeStyles((theme) => ({
         marginRight: '3%',
         width: '47px',
         height: '47px',
-      },
-    },
-
-    '& .authheader-links': {
-      flexBasis: '60%',
-      display: 'flex',
-      marginTop: '.09%',
-
-      '& *': {
-        marginTop: '.5%',
-        fontSize: '120%',
-      },
-
-      '& >:first-child': {
-        marginRight: '15%',
-      },
-      [theme.breakpoints.down('lg')]: {
-        marginLeft: '3%',
-      },
-      [theme.breakpoints.down('md')]: {
-        display: 'none',
+        [theme.breakpoints.down('sm')]: {
+          width: '40px',
+          height: '40px',
+          marginTop: '-1%',
+        },
+        [theme.breakpoints.down('xs')]: {
+          width: '30px',
+          height: '30px',
+        },
       },
     },
 
@@ -88,7 +83,7 @@ export const authHeaderStyles = makeStyles((theme) => ({
         background: 'white',
         border: '2px solid #58D573',
       },
-      [theme.breakpoints.down('md')]: {
+      [theme.breakpoints.down('sm')]: {
         display: 'none',
       },
     },
@@ -103,7 +98,7 @@ export const authHeaderStyles = makeStyles((theme) => ({
   hamburgerMenu: {
     display: 'none',
     marginRight: '3%',
-    [theme.breakpoints.down('md')]: {
+    [theme.breakpoints.down('sm')]: {
       display: 'block',
     },
   },
