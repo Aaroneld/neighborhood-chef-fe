@@ -15,7 +15,7 @@ export const eventCardStyles = makeStyles((theme) => ({
     display: 'flex',
     width: '100%',
     minHeight: '200px',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     [theme.breakpoints.down('800')]: {
       flexDirection: 'column',
       alignItems: 'center',
@@ -23,9 +23,9 @@ export const eventCardStyles = makeStyles((theme) => ({
     },
   },
   img: {
-    width: '100%',
+    width: '30%',
     boxShadow: "5px 5px 12px 1px rgba(25,25,25,0.28)",
-    paddingTop: "56.25%",
+    paddingTop: "16.875%",
     borderRadius: '25px',
     background: 'black',
     backgroundImage: props => `url(${props.photo})`,

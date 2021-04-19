@@ -4,6 +4,10 @@ import { useLocation } from 'react-router-dom';
 import MonthPicker from '../../../../calender/MonthPicker';
 import CreateEventHeader from '../../../../create-events/CreateEventHeader';
 
+import { useTheme } from '@material-ui/core/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { CompassCalibrationOutlined } from '@material-ui/icons';
+ 
 const styles = makeStyles((theme) => ({
   container: {
     width: '100%',
@@ -23,13 +27,31 @@ const styles = makeStyles((theme) => ({
   },
 }));
 
-function VariableHeader() {
+function VariableHeader({setEmpty}) {
   const classes = styles();
   const location = useLocation();
   const [urlLocation, setUrlLocation] = useState(location.pathname.split('/')[1]);
+
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down('md'));
+
   useEffect(() => {
     setUrlLocation(location.pathname.split('/')[1]);
   }, [location]);
+
+  useEffect(() => {
+    console.log(urlLocation)
+    if(matches){
+      if(!['create-event', 'view-events', 'dashboard'].includes(urlLocation)) {
+        console.log(urlLocation)
+        setEmpty(true)
+      } else {
+        setEmpty(false)
+      }
+    } else {
+      setEmpty(false)
+    }
+  }, [location, urlLocation, matches])
 
   switch (urlLocation) {
     case 'create-event':
@@ -44,8 +66,8 @@ function VariableHeader() {
           <MonthPicker />
         </section>
       );
-    default:
-      return '';
+    default: 
+      return ""
   }
 }
 
