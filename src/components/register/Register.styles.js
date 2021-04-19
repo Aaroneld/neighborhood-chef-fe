@@ -12,7 +12,7 @@ export const styles = makeStyles((theme) => ({
       position: 'relative',
       zIndex: '1',
       width: '25%',
-      height: '86vh',
+      height: '72vh',
       top: '46vh',
       transform: 'translateY(-51%)',
       left: '10%',
@@ -79,7 +79,7 @@ export const styles = makeStyles((theme) => ({
       height: '92vh',
       zIndex: '0',
       [theme.breakpoints.down('lg')]: {
-        transform: 'translate(-50%, -90%)',
+        transform: 'translate(-50%, -75%)',
       },
 
       // [theme.breakpoints.down('md')]: {
