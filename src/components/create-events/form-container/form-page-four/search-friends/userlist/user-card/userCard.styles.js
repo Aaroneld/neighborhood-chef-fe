@@ -6,7 +6,7 @@ export const styles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'space-between',
     width: '100%',
-    margin: '10px',
+    margin: '5px',
   },
 
   iconContainer: {
@@ -28,6 +28,20 @@ export const styles = makeStyles((theme) => ({
       color: '#1A0F2C',
       fontWeight: '500',
       lineStyle: 'normal',
+
+      '& #name': {
+        [theme.breakpoints.down('sm')]: {
+          fontSize: '1.3rem',
+        },
+      },
+    },
+
+    '& #email': {
+      color: '#000000',
+      opacity: '0.3',
+      [theme.breakpoints.down('sm')]: {
+        display: 'none',
+      },
     },
   },
 }));
