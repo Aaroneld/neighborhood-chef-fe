@@ -67,8 +67,8 @@ export const calendarStyles = makeStyles((theme) => ({
       width: '70%',
     },
     [theme.breakpoints.down('sm')]: {
-      width: '70%',
-      marginLeft: '15%',
+      width: '80%',
+      marginLeft: '-18%',
       padding: '10px 10px 7px 10px',
     },
 

@@ -23,7 +23,8 @@ export const styles = makeStyles((theme) => {
       gridArea: 'Variable',
 
       [theme.breakpoints.down("md")]: {
-        width: "100vw"
+        width: "100vw",
+        overflowY: "scroll"
       }
     },
     Header: {

@@ -7,6 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import logoutIcon from '@iconify-icons/mdi/logout';
+import arrowLeftSquare from '@iconify-icons/bi/arrow-left-square';
 
 export const logoStyles = makeStyles((theme) => ({
   root: {
@@ -27,6 +28,22 @@ export const logoStyles = makeStyles((theme) => ({
       cursor: 'pointer',
       whiteSpace: 'nowrap',
 
+      '& #navigation-arrow': {
+        display: "none",
+
+        [theme.breakpoints.down("sm")] : {
+          display: "inherit",
+          flexBasis: "90%",
+          opacity: .5,
+          
+         "& >svg": {
+           width: "37px",
+           height: "37px"
+         }
+
+        }
+      },
+
       '& #logo-icon': {
         color: '#58D473',
         fontSize: '3rem',
@@ -42,7 +59,9 @@ export const logoStyles = makeStyles((theme) => ({
           marginTop: '1%',
         },
         [theme.breakpoints.down('sm')]: {
-          fontSize: '2.5rem',
+          fontSize: '4.5rem',
+          transform: "translateX(50%)",
+          marginTop: "4%"
         },
       },
 
@@ -59,7 +78,7 @@ export const logoStyles = makeStyles((theme) => ({
         },
 
         [theme.breakpoints.down('sm')]: {
-          fontSize: '1.6rem',
+          display: "none"
         },
       },
 
@@ -79,8 +98,8 @@ export const logoStyles = makeStyles((theme) => ({
 
       [theme.breakpoints.down('sm')]: {
         fontSize: '150%',
-        width: '70%',
-        justifyContent: 'flex-start',
+        flexBasis: "50%",
+        justifyContent: 'flex-end',
         marginLeft: '2%',
         marginRight: 0,
       },
@@ -98,10 +117,14 @@ export const logoStyles = makeStyles((theme) => ({
 
       '& svg': {
         marginRight: '10%',
-        height: "50px",
-        width: "40px",
+        height: "43px",
+        width: "43px",
         color: 'black',
         opacity: 0.15,
+
+        [theme.breakpoints.down("sm")] : {
+          marginRight: '4%',
+        }
       },
 
       '& .avatar': {
@@ -130,6 +153,7 @@ export const logoStyles = makeStyles((theme) => ({
       },
       [theme.breakpoints.down('sm')]: {
         width: '25%',
+        flexBasis: "50%"
       },
     },
 
@@ -139,6 +163,7 @@ export const logoStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down('sm')]: {
       justifyContent: 'space-between',
+      marginTop: "3%"
     },
   },
 }));
@@ -150,11 +175,14 @@ function Logo() {
 
   return (
     <div className={styles.root}>
-      <div className="leftSideHeader" onClick={() => push('/dashboard')}>
-        <span id="logo-icon">
+      <div className="leftSideHeader" >
+        <span id="navigation-arrow" onClick={() => push("/navigation")}>
+          <Icon icon={arrowLeftSquare} />
+        </span>
+        <span id="logo-icon" onClick={() => push('/dashboard')}>
           <Icon icon={chefIcon} />
         </span>
-        <span id="text">Neighborhood Chef</span>
+        <span id="text" onClick={() => push('/dashboard')}>Neighborhood Chef</span>
       </div>
       <div className="iconsRight">
         <Icon icon={logoutIcon} />
