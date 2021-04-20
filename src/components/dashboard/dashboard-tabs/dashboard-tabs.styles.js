@@ -29,9 +29,13 @@ export const DashboardTabStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down('sm')]: {
       maxWidth: '100vw',
+      marginTop: "-10%"
     },
 
- 
+    
+    [theme.breakpoints.down('xs')]: {
+      marginTop: "-1%"
+    },
   },
   tabs: {
     margin: 0,
@@ -90,7 +94,7 @@ export const DashboardTabStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down('sm')]: {
       width: '100%',
-      marginTop: '.1%',
+      marginTop: '-1.65%',
     },
   },
   tab: {
@@ -112,7 +116,11 @@ export const DashboardTabStyles = makeStyles((theme) => ({
     },
 
     [theme.breakpoints.down('sm')]: {
-      fontSize: "120%" 
+      fontSize: "95%" 
+     },
+
+     [theme.breakpoints.down('xs')]: {
+      fontSize: "50%" 
      }
   },
   currentTab: {

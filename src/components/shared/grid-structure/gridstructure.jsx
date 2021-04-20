@@ -68,7 +68,7 @@ function GridStructure(props) {
         <Header setEmpty={setEmpty}/>
       </div>
       <div className={classes['Variable']}>
-        <VariableMainContent {...props} />
+        <VariableMainContent {...props} active={urlLocation}/>
       </div>
       <div className={classes['hamburgerMenu']}>
         <ResponsiveMenu />

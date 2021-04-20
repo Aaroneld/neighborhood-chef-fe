@@ -571,10 +571,10 @@ export const theme = responsiveFontSizes(
     },
     breakpoints: {
       values: {
-        xs: 375,
-        sm: 414,
+        xs: 376,
+        sm: 415,
         md: 768,
-        lgmd: 962,
+        lgmd: 963,
         lg: 1280,
         xl: 1920,
       },
