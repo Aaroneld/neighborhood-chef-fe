@@ -115,7 +115,7 @@ const FormContainer = () => {
   const [initialValues, setInitialValues] = useState(testValues);
   const [loadedFlag, flag] = useState(0);
   const [loaded, setLoaded] = useState(false);
-  const page = useSelector((state) => state.page);
+  const page = useSelector((state) => 4);
 
   const { values, setValues, validate, errors } = useForm(initialValues, validationSchema);
 
