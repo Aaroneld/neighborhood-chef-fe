@@ -7,57 +7,83 @@ export const landingPageStyles = makeStyles((theme) => ({
   },
   landingPageContainer: {
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
+    alignItems: 'center',
     height: '92vh',
+    width: '100%',
     backgroundImage: (props) => `url(${props.bgImage})`,
-
     backgroundPosition: '-20% 50%',
     backgroundSize: '70%',
     backgroundRepeat: 'repeat',
-  },
-  landingPageLeft: {
-    width: '55vw',
-    height: '92vh',
-    textAlign: 'center',
-    alignSelf: 'center',
 
-    '& > div': {
-      position: 'relative',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
+    '& .card': {
       width: '50%',
-      height: '80%',
-      background: 'rgba(255,255,255,.5)',
-
-      [theme.breakpoints.down('700')]: {
-        width: '80%',
+      height: '50vh',
+      boxShadow: '-2px 3px 31px -13px rgba(117,117,117,0.46)',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-evenly',
+      transform: 'translateY(-5%)',
+      borderRadius: '10px',
+      padding: '5%',
+      transform: 'translateX(-30%)',
+      [theme.breakpoints.down('sm')]: {
+        width: '90%',
+        height: '60vh',
+        transform: 'translateX(0%)',
       },
 
-      '& > div': {
-        height: '90%',
-        display: 'flex',
-        flexDirection: 'column ',
-        justifyContent: 'space-around',
+      '& h4': {
+        fontWeight: 'bold',
       },
-    },
 
-    [theme.breakpoints.down('700')]: {
-      width: '100vw',
-      paddingTop: '35px',
-    },
-  },
-  landingPageRight: {
-    height: '92vh',
-    width: '45vw',
-    '& img': {
-      borderRadius: '0 0 0 30%',
-      borderLeft: '6px solid rgba(88,213,115,.7)',
-      borderBottom: '6px solid rgba(88,213,115,.95)',
-      filter: 'brightness(87%)',
-    },
-    [theme.breakpoints.down('700')]: {
-      display: 'none',
+      '& #bonAppetit': {
+        [theme.breakpoints.down('sm')]: {
+          display: 'none',
+        },
+      },
+
+      '& .buttons': {
+        display: 'none',
+        [theme.breakpoints.down('sm')]: {
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginTop: '2%',
+        },
+
+        '& h6': {
+          marginBottom: '1%',
+        },
+
+        '& button': {
+          fontSize: '1.6rem',
+          marginBottom: '5%',
+          width: '85%',
+        },
+
+        '& #register': {
+          border: '2px solid #58D573',
+          color: 'white',
+          background: '#58D573',
+          '&:hover': {
+            background: 'white',
+            color: '#58D573',
+          },
+        },
+
+        '& #login': {
+          border: '2px solid #58D573',
+          color: '#58D573',
+          background: 'white',
+
+          '&:hover': {
+            background: '#58D573',
+            color: 'white',
+          },
+        },
+      },
     },
   },
 }));

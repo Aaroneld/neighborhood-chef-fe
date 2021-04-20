@@ -83,6 +83,9 @@ export const authHeaderStyles = makeStyles((theme) => ({
         background: 'white',
         border: '2px solid #58D573',
       },
+      [theme.breakpoints.down('md')]: {
+        marginTop: '.3%',
+      },
       [theme.breakpoints.down('sm')]: {
         display: 'none',
       },

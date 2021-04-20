@@ -35,7 +35,8 @@ export const searchFriendsStyles = makeStyles((theme) => ({
     borderRadius: '15px',
     margin: '40px 0',
     padding: '10px 15px',
-    [theme.breakpoints.down('800')]: {
+    width: '100%',
+    [theme.breakpoints.down('md')]: {
       margin: '20px 0',
     },
   },
@@ -46,6 +47,10 @@ export const searchFriendsStyles = makeStyles((theme) => ({
     outline: 'none',
     fontSize: '1.6rem',
     width: '90%',
+    [theme.breakpoints.down('sm')]: {
+      width: '50%',
+      height: '18px',
+    },
   },
   button: {
     background: '#82df96',
@@ -57,8 +62,16 @@ export const searchFriendsStyles = makeStyles((theme) => ({
     fontSize: '2rem',
     fontWeight: 'bold',
     width: '15%',
-    [theme.breakpoints.down('800')]: {
+    border: '2px solid #82df96',
+    [theme.breakpoints.down('sm')]: {
       width: '25%',
+      fontSize: '1.4rem',
+      padding: '12px 8px',
+    },
+    '&:hover': {
+      background: 'white',
+      color: '#82df96',
+      border: '2px solid #82df96',
     },
   },
 }));

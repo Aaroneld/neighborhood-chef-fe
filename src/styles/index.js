@@ -1,6 +1,6 @@
 import { makeStyles, createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 
-export const buttonStyles = makeStyles(theme => ({
+export const buttonStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     alignItems: 'center',
@@ -21,8 +21,8 @@ export const buttonStyles = makeStyles(theme => ({
     },
 
     [theme.breakpoints.down('md')]: {
-      border: '2px solid grey'
-    }
+      border: '2px solid grey',
+    },
   },
   warn: {
     background: 'white',
@@ -42,10 +42,9 @@ export const buttonStyles = makeStyles(theme => ({
       background: '#58D573',
     },
 
-    
     [theme.breakpoints.down('md')]: {
-      border: '2px solid #58D573'
-    }
+      border: '2px solid #58D573',
+    },
   },
   single: {
     justifyContent: 'center',
@@ -265,6 +264,10 @@ export const cardStyles = makeStyles((theme) => ({
     width: '100%',
     marginLeft: '-15px',
   },
+  subHeader: {
+    display: 'flex',
+    alignItems: 'center',
+  },
   dateOverlay: {
     display: 'flex',
     flexDirection: 'column',
@@ -296,6 +299,15 @@ export const cardStyles = makeStyles((theme) => ({
   dashboardImg: {
     maxHeight: '20%',
   },
+  description: {
+    margin: '5px 0',
+    fontWeight: '700',
+    wordBreak: 'break-word',
+  },
+  iconTextContainer: {
+    display: 'flex',
+    margin: '5px 0',
+  },
   span: {
     marginRight: '5px',
     verticalAlign: 'middle',
@@ -324,6 +336,12 @@ export const cardStyles = makeStyles((theme) => ({
   iconContainer: {
     display: 'flex',
     alignItems: 'center',
+  },
+  textAndBtns: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    marginBottom: '5px',
   },
   buttonContainer: {
     display: 'flex',

@@ -108,7 +108,7 @@ const EventDetails = ({ event, attending, setAttending }) => {
                 </Typography>
               }
               subheader={
-                <div style={{ display: 'flex', alignItems: 'center' }}>
+                <div className={classes.subHeader}>
                   <Link to={`/profile/${event.User.id}`} style={{ cursor: 'pointer', marginRight: '2%' }}>
                     <Avatar
                       key={event.User.id}
@@ -142,13 +142,7 @@ const EventDetails = ({ event, attending, setAttending }) => {
             )}
           </div>
           <div className={classes.img} title="Event Details Photo" />
-          <div
-            style={{
-              margin: '5px 0',
-              fontWeight: '700',
-              wordBreak: 'break-word',
-            }}
-          >
+          <div className={classes.description}>
             <Typography
               style={{
                 fontWeight: '700',
@@ -165,7 +159,7 @@ const EventDetails = ({ event, attending, setAttending }) => {
               Details
             </Typography>
 
-            <div style={{ display: 'flex', margin: '5px 0' }}>
+            <div className={classes.iconTextContainer}>
               <span className={classes.span} style={{ marginRight: '3%' }}>
                 <Icon height="45" icon={calendarIcon} />
               </span>
@@ -174,7 +168,7 @@ const EventDetails = ({ event, attending, setAttending }) => {
                 <p style={{ color: '#909090' }}>Date</p>
               </div>
             </div>
-            <div style={{ display: 'flex', margin: '5px 0' }}>
+            <div className={classes.iconTextContainer}>
               <span className={classes.span} style={{ marginRight: '3%' }}>
                 <Icon height="45" icon={clockIcon} />
               </span>
@@ -199,9 +193,7 @@ const EventDetails = ({ event, attending, setAttending }) => {
             </div>
           </div>
 
-          <div
-            style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: '5px' }}
-          >
+          <div className={classes.textAndBtns}>
             <Typography variant="h6">Will you be attending this event?</Typography>
             <div className={classes.statusButtonContainer}>
               <StatusTabs

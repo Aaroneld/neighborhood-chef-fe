@@ -70,18 +70,11 @@ const UserCard = ({ user, setAlreadyInvited, event_id, invited }) => {
 
         <div className={classes.textContainer}>
           <div>
-            <p>
+            <p id="name">
               {user.firstName}&nbsp;{user.lastName}
             </p>
           </div>
-          <p
-            style={{
-              color: '#000000',
-              opacity: '0.3',
-            }}
-          >
-            {user.email.length > 27 ? user.email.slice(0, 27) + '...' : user.email}
-          </p>
+          <p id="email">{user.email.length > 50 ? user.email.slice(0, 50) + '...' : user.email}</p>
         </div>
       </div>
       <div style={{ width: '50px' }}>{/* Not Invited */}</div>
