@@ -78,31 +78,22 @@ const CommentsCard = ({ initialComments, eventId }) => {
           </div>
         </CardContent>
         <CardContent>
-          <form
-            noValidate
-            autoComplete="off"
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-            }}
-            onSubmit={handleSubmit}
-          >
+          <form noValidate autoComplete="off" className={classes.commentForm} onSubmit={handleSubmit}>
             <TextField
               name="comment"
               required
-              variant="outlined"
               placeholder="Write a comment..."
               style={{ width: '60%' }}
               onChange={handleChange}
               value={commentFormInput}
+              InputProps={{ disableUnderline: true }}
             />
             <Button
               type="submit"
               disabled={!commentFormInput}
               className={`${buttonClass.root} ${buttonClass.single}`}
             >
-              <Typography>Add Comment</Typography>
+              <Typography>Comment</Typography>
             </Button>
           </form>
         </CardContent>
