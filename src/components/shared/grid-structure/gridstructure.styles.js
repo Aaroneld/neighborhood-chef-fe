@@ -23,6 +23,7 @@ export const styles = makeStyles((theme) => {
     Variable: {
       width: '80vw',
       gridArea: 'Variable',
+      overflowX: 'hidden',
 
       [theme.breakpoints.down('md')]: {
         width: '100vw',
