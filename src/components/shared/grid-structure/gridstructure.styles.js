@@ -10,6 +10,7 @@ export const styles = makeStyles((theme) => {
       'grid-template-rows': '1fr 5fr',
       gap: '1px 1px',
       'grid-template-areas': ' "Logo Header" "Sidebar Variable" ',
+      overflowY: "hidden",
 
       [theme.breakpoints.down('md')]: {
         display: 'flex',
@@ -33,7 +34,8 @@ export const styles = makeStyles((theme) => {
 
       [theme.breakpoints.down("md")]: {
         height: "10vh"
-      }
+      },
+
     },
     Sidebar: {
       gridArea: 'Sidebar',
@@ -61,31 +63,11 @@ export const styles = makeStyles((theme) => {
         width: "100vw",
         maxWidth: "100vw",
         height: "7vh",
-      }
-    },
-    'Drawer-Container': {
-      'grid-area': '1 / 4 / 3 / 5',
-      width: '25vw',
-    },
-    Drawer: {
-      width: '25vw',
-    },
-    hamburgerMenu: {
-      display: 'none',
-      visibility: 'none',
-
-      [theme.breakpoints.down('sm')]: {
-        marginTop: '80px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: '100vw',
-        position: 'sticky',
-        bottom: '0',
-        height: '10vh',
-        'z-index': 2,
-        background: 'white',
       },
+
+      [theme.breakpoints.down("xs")] : {
+        height: "10vh"
+      }
     },
   };
 });

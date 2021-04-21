@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Header from './header/header';
 import Sidebar from './sidebar/Sidebar';
 import Logo from './logo/logo';
-import ResponsiveMenu from './responsive-menu/ResponsiveMenu';
 import VariableMainContent from './variable-main-content/variableMainContent';
 import { useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -69,9 +68,6 @@ function GridStructure(props) {
       </div>
       <div className={classes['Variable']}>
         <VariableMainContent {...props} active={urlLocation}/>
-      </div>
-      <div className={classes['hamburgerMenu']}>
-        <ResponsiveMenu />
       </div>
     </div>
   );

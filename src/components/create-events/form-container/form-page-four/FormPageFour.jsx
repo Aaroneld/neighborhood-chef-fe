@@ -13,7 +13,6 @@ const FormPageFour = ({ values }) => {
         width: '100%',
       }}
     >
-      <EventCard values={values} />
       <SearchFriends event_id={values.id} />
     </div>
   );

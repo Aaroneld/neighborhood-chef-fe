@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import SidebarButton from '../shared/grid-structure/sidebar/sidebar-button/SidebarButton';
 
 import houseDoor from '@iconify/icons-bi/house-door';
@@ -6,13 +6,22 @@ import calendarOutlined from '@iconify/icons-ant-design/calendar-outlined';
 import calendarPlus from '@iconify/icons-mdi/calendar-plus';
 import settingsIcon from '@iconify-icons/bytesize/settings';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 
 import { styles } from "./mobile-navigation.styles.js";
+
+import ls from 'local-storage';
+import jwt from 'jwt-decode';
+import { USER_BY_EMAIL } from '../../graphql/users/user-queries';
+import { axiosWithAuth } from '../../utilities/axiosWithAuth';
+import { print } from 'graphql';
+import { saveUser } from '../../utilities/actions';
+
+import Button from "@material-ui/core/Button";
  
 const buttonList = [
     {
@@ -45,11 +54,39 @@ export default function MobileNavigation(props) {
 
     const user = useSelector(state => state.user); 
     const { push } = useHistory();
-
+    const dispatch = useDispatch();
     const classes = styles();
+
+    useEffect(() => {
+      if (ls.get('access_token')) {
+        const token = ls.get('access_token');
+        const decodedToken = jwt(token).sub;
+        axiosWithAuth()({
+          url: `${process.env.REACT_APP_BASE_URL}/graphql`,
+          method: 'post',
+          data: {
+            query: print(USER_BY_EMAIL),
+            variables: {
+              queryParams: { email: decodedToken },
+              mileRadius: 10,
+            },
+          },
+        })
+          .then((res) => {
+            dispatch(saveUser(res.data.data.Users[0]));
+          })
+          .catch((err) => {
+            console.log(err);
+            console.dir(err);
+          });
+      }
+    }, [dispatch]);
+
+
 
     return (
         <div className={classes.container}>
+          <h1>Navigation</h1> 
          {Object.keys(user).length > 0 && (
             <div className="avatar">
                 <Avatar
@@ -70,6 +107,7 @@ export default function MobileNavigation(props) {
                     })}
                 </nav>
              </div>
+             <Button id="nav-logout">Logout</Button>
         </div>
     )
 }
