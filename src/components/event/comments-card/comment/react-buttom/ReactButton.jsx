@@ -34,7 +34,18 @@ const ReactButton = ({ name, toggleEmoji }) => {
 
   return (
     <div>
-      <Button onClick={handleClickOpen}>React</Button>
+      <Button
+        style={{
+          display: 'flex',
+          justifyContent: 'flex-start',
+          border: 'none',
+          background: 'none',
+          padding: 0,
+        }}
+        onClick={handleClickOpen}
+      >
+        React
+      </Button>
       <Dialog
         open={open}
         onClose={handleClose}

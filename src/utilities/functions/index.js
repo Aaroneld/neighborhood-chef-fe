@@ -114,3 +114,21 @@ export const chooseDefaultPicture = (char) => {
 export const makeInitials = (user) => {
   return `${user.firstName.slice(0, 1).toUpperCase()}${user.lastName.slice(0, 1).toUpperCase()}`;
 };
+
+const colors = [
+  '#00CC99',
+  '#55ACEE',
+  '#3965FF',
+  '#7289DA',
+  '#40B3E0',
+  '#3965FF',
+  '#F5B800',
+  '#03DAC6',
+  '#FF8C00',
+  '#B00020',
+  '#2069E0',
+  '#BB86FC',
+];
+export const pickRandomColor = () => {
+  return colors[Math.floor(Math.random() * colors.length)];
+};

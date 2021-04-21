@@ -10,17 +10,17 @@ export const calendarStyles = makeStyles((theme) => ({
     borderRadius: '20px',
     borderTopRightRadius: '0',
 
-    [theme.breakpoints.down("md")] : {
-      maxWidth: "100vw",
-      width: "100vw"
-    }
+    [theme.breakpoints.down('md')]: {
+      maxWidth: '100vw',
+      width: '100vw',
+    },
   },
   calendarViewMain: {
     display: 'flex',
     flexDirection: 'column',
     paddingTop: '10px',
-    overflowY: "scroll",
-    height: "80vh"
+    overflowY: 'scroll',
+    height: '80vh',
   },
   calendarRow: {
     background: 'white',
@@ -37,6 +37,9 @@ export const calendarStyles = makeStyles((theme) => ({
       padding: '10px 100px',
       margin: '10px auto',
       width: '96%',
+    },
+    [theme.breakpoints.down('sm')]: {
+      padding: '10px 20px',
     },
   },
   calendarRowEven: {
@@ -82,7 +85,7 @@ export const calendarStyles = makeStyles((theme) => ({
     width: '55%',
     display: 'flex',
     flexDirection: 'column',
-    height: "80vh",
+    height: '80vh',
     [theme.breakpoints.down('md')]: {
       width: '100%',
       textAlign: 'center',

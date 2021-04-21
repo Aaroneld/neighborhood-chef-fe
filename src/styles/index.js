@@ -254,8 +254,21 @@ export const cardStyles = makeStyles((theme) => ({
   },
   statusButtonContainer: {
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
+    alignItems: 'center',
     paddingTop: '10px',
+    width: '100%',
+    '& div': {
+      width: '100%',
+      display: 'flex',
+      justifyContent: 'center',
+      '& button': {
+        [theme.breakpoints.down('sm')]: {
+          width: '30%',
+          fontSize: '1.4rem',
+        },
+      },
+    },
   },
   headerContainer: {
     display: 'flex',
@@ -341,6 +354,7 @@ export const cardStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    justifyContent: 'center',
     marginBottom: '5px',
   },
   buttonContainer: {
@@ -454,18 +468,43 @@ export const cardStyles = makeStyles((theme) => ({
     maxWidth: '100%',
     height: '100%',
   },
+  commentForm: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '100%',
+
+    '& input': {
+      borderRadius: '20px',
+      border: '2px solid rgba(0,0,0,.2)',
+      padding: '15px 20px',
+    },
+    '& button': {
+      borderRadius: '20px',
+      padding: '15px 50px',
+      width: '20%',
+      [theme.breakpoints.down('sm')]: {
+        width: '30%',
+        fontSize: '1rem',
+        padding: '15px 20px',
+      },
+    },
+  },
   singleCommentParent: {
     marginBottom: '10px',
-    border: '1px solid rgba(0,0,0,.2)',
     borderRadius: '10px',
     padding: '5px',
+    display: 'flex',
+    alignItems: 'flex-start',
   },
   singleCommentChild: {
     marginBottom: '10px',
-    border: '1px solid rgba(0,0,0,.1)',
     borderRadius: '10px',
     padding: '5px',
-    marginLeft: '35px',
+    marginLeft: '10%',
+    display: 'flex',
+    alignItems: 'flex-start',
   },
   avatarContainer: {
     display: 'flex',
@@ -481,6 +520,14 @@ export const cardStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
+    width: '100%',
+    marginTop: '2px',
+    '& .buttons': {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      width: '100%',
+    },
   },
 }));
 

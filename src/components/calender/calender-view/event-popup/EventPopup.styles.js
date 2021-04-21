@@ -33,6 +33,14 @@ export const cardStyles = makeStyles((theme) => ({
         [theme.breakpoints.down('sm')]: {
           textAlign: 'center',
         },
+        '& div': {
+          '& button': {
+            [theme.breakpoints.down('sm')]: {
+              width: '30%',
+              fontSize: '1.2rem',
+            },
+          },
+        },
       },
       [theme.breakpoints.down('sm')]: {
         width: '80%',

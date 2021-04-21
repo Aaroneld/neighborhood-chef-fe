@@ -5,21 +5,22 @@ import { print } from 'graphql';
 import { axiosWithAuth } from '../../../../utilities/axiosWithAuth';
 import { cardStyles } from '../../../../styles';
 import Avatar from '@material-ui/core/Avatar';
-import { parseTime } from '../../../../utilities/functions';
 import SubComments from './subcomments/subcomments';
 
 import ReplyButton from './reply-button/ReplyButton';
 import ReactButton from './react-buttom/ReactButton';
 import ShowEmoji from './show-emoji/ShowEmoji';
+import moment from 'moment';
+import { pickRandomColor } from '../../../../utilities/functions';
 
 import { ADD_COMMENT, HANDLE_REACTION } from '../../../../graphql/events/event-mutations';
 
 const Comment = (props) => {
   const user = useSelector((state) => state.user);
-  const timeObject = parseTime(props.dateCreated);
   const classes = cardStyles();
   const [reactions, setReactions] = useState(props.Reactions);
   const [subComments, setSubComments] = useState(props.Subcomments ? props.Subcomments : []);
+  const [randomColor] = useState(pickRandomColor());
 
   const toggleEmoji = (emoji) => {
     axiosWithAuth()({
@@ -92,36 +93,51 @@ const Comment = (props) => {
             aria-label="avatar"
             src={!props.User.photo ? null : props.User.photo}
             className={classes.photoContainer}
+            style={{ background: randomColor, color: 'white' }}
           >
             {!props.User.photo && (
               <Typography variant="body2">
-                {`${props.User.firstName.split('')[0]}${props.User.lastName.split('')[0]}`}
+                {`${props.User.firstName.split('')[0].toUpperCase()}${props.User.lastName
+                  .split('')[0]
+                  .toUpperCase()}`}
               </Typography>
             )}
           </Avatar>
-          {user && (
-            <Typography variant="body1">{`${props.User.firstName} ${props.User.lastName}`}</Typography>
-          )}
         </div>
-        <Typography variant="caption" style={{ marginLeft: '17px' }}>
-          {props.comment}
-        </Typography>
-        <div className={classes.replyBtnContainer}>
-          <div style={{ display: 'flex' }}>
-            <ReplyButton
-              name={`${props.User.firstName} ${props.User.lastName}`}
-              description={props.comment}
-              addReply={addReply}
-            />
-            <ReactButton name={`${props.User.firstName} ${props.User.lastName}`} toggleEmoji={toggleEmoji} />
+        <div
+          style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', width: '100%' }}
+        >
+          {user && (
+            <Typography
+              style={{ fontWeight: 'bold' }}
+              variant="body1"
+            >{`${props.User.firstName} ${props.User.lastName}`}</Typography>
+          )}
+          <Typography variant="caption" style={{ fontSize: '1.4rem' }}>
+            {props.comment}
+          </Typography>
+          <div className={classes.replyBtnContainer}>
+            <div className="buttons">
+              <ReplyButton
+                name={`${props.User.firstName} ${props.User.lastName}`}
+                description={props.comment}
+                addReply={addReply}
+              />
+              <ReactButton
+                name={`${props.User.firstName} ${props.User.lastName}`}
+                toggleEmoji={toggleEmoji}
+              />
+              <Typography variant="body2" color="textSecondary">
+                {moment(Number(props.dateCreated)).fromNow()}
+              </Typography>
+            </div>
+          </div>
+          <div style={{ display: 'flex', marginTop: '2px' }}>
             {reactions &&
               reactions.map((item, index) => {
                 return <ShowEmoji key={index} item={item} />;
               })}
           </div>
-          <Typography variant="body2" color="textSecondary">
-            {timeObject.commentTime}
-          </Typography>
         </div>
       </div>
       <SubComments setSubComments={setSubComments} subcomments={subComments} eventId={props.eventId} />
