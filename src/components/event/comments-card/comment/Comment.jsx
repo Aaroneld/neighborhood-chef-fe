@@ -94,7 +94,9 @@ const Comment = (props) => {
           >
             {!props.User.photo && (
               <Typography variant="body2">
-                {`${props.User.firstName.split('')[0]}${props.User.lastName.split('')[0]}`}
+                {`${props.User.firstName.split('')[0].toUpperCase()}${props.User.lastName
+                  .split('')[0]
+                  .toUpperCase()}`}
               </Typography>
             )}
           </Avatar>

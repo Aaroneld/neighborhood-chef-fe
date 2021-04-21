@@ -103,7 +103,9 @@ export default function SubComment({
             >
               {!commentOwner.photo && (
                 <Typography variant="body2">
-                  {`${commentOwner.firstName.split('')[0]}${commentOwner.lastName.split('')[0]}`}
+                  {`${commentOwner.firstName.split('')[0].toUpperCase()}${commentOwner.lastName
+                    .split('')[0]
+                    .toUpperCase()}`}
                 </Typography>
               )}
             </Avatar>
