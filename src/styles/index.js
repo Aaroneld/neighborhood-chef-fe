@@ -492,12 +492,16 @@ export const cardStyles = makeStyles((theme) => ({
     marginBottom: '10px',
     borderRadius: '10px',
     padding: '5px',
+    display: 'flex',
+    alignItems: 'flex-start',
   },
   singleCommentChild: {
     marginBottom: '10px',
     borderRadius: '10px',
     padding: '5px',
-    marginLeft: '35px',
+    marginLeft: '10%',
+    display: 'flex',
+    alignItems: 'flex-start',
   },
   avatarContainer: {
     display: 'flex',
@@ -513,6 +517,14 @@ export const cardStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
+    width: '100%',
+    marginTop: '2px',
+    '& .buttons': {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      width: '100%',
+    },
   },
 }));
 

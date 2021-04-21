@@ -107,36 +107,43 @@ export default function SubComment({
                 </Typography>
               )}
             </Avatar>
-
-            <Typography variant="body1">{`${commentOwner.firstName} ${commentOwner.lastName}`}</Typography>
           </>
         )}
       </div>
-      <div>
-        <Typography variant="caption" style={{ color: 'blue' }}>
-          {parent ? `@${parent.firstName} ${parent.lastName} ` : ``}
-        </Typography>
-        <Typography variant="caption">{subcomment}</Typography>
-      </div>
-      <div className={classes.replyBtnContainer}>
-        <div style={{ display: 'flex' }}>
-          <ReplyButton
-            name={`${commentOwner.firstName} ${commentOwner.lastName}`}
-            description={subcomment}
-            addReply={addReply}
-          />
-          <ReactButton
-            name={`${commentOwner.firstName} ${commentOwner.lastName}`}
-            toggleEmoji={toggleEmoji}
-          />
+      <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', width: '100%' }}>
+        <Typography
+          style={{ fontWeight: 'bold' }}
+          variant="body1"
+        >{`${commentOwner.firstName} ${commentOwner.lastName}`}</Typography>
+        <div>
+          <Typography variant="caption" style={{ color: 'blue' }}>
+            {parent ? `@${parent.firstName} ${parent.lastName} ` : ``}
+          </Typography>
+          <Typography variant="caption">{subcomment}</Typography>
+        </div>
+
+        <div className={classes.replyBtnContainer}>
+          <div className="buttons">
+            <ReplyButton
+              name={`${commentOwner.firstName} ${commentOwner.lastName}`}
+              description={subcomment}
+              addReply={addReply}
+            />
+            <ReactButton
+              name={`${commentOwner.firstName} ${commentOwner.lastName}`}
+              toggleEmoji={toggleEmoji}
+            />
+            <Typography variant="body2" color="textSecondary">
+              {moment(Number(dateCreated)).fromNow()}
+            </Typography>
+          </div>
+        </div>
+        <div style={{ display: 'flex', marginTop: '2px' }}>
           {reactions &&
             reactions.map((item, index) => {
               return <ShowEmoji key={index} item={item} />;
             })}
         </div>
-        <Typography variant="body2" color="textSecondary">
-          {moment(Number(dateCreated)).fromNow()}
-        </Typography>
       </div>
     </div>
   );

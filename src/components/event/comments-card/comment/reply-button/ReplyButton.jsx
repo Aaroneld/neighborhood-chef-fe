@@ -31,7 +31,18 @@ const ReplyButton = ({ name, description, addReply }) => {
 
   return (
     <div>
-      <Button onClick={handleClickOpen}>Reply</Button>
+      <Button
+        style={{
+          display: 'flex',
+          justifyContent: 'flex-start',
+          border: 'none',
+          background: 'none',
+          padding: 0,
+        }}
+        onClick={handleClickOpen}
+      >
+        Reply
+      </Button>
       <Dialog
         open={open}
         onClose={handleClose}
@@ -48,7 +59,7 @@ const ReplyButton = ({ name, description, addReply }) => {
               margin="dense"
               fullWidth
               placeholder="Write comment..."
-              style={{ minWidth: '300px' }}
+              style={{ minWidth: '280px' }}
               value={reply}
               onChange={(e) => setReply(e.target.value)}
             />

@@ -98,29 +98,39 @@ const Comment = (props) => {
               </Typography>
             )}
           </Avatar>
-          {user && (
-            <Typography variant="body1">{`${props.User.firstName} ${props.User.lastName}`}</Typography>
-          )}
         </div>
-        <Typography variant="caption" style={{ marginLeft: '17px' }}>
-          {props.comment}
-        </Typography>
-        <div className={classes.replyBtnContainer}>
-          <div style={{ display: 'flex' }}>
-            <ReplyButton
-              name={`${props.User.firstName} ${props.User.lastName}`}
-              description={props.comment}
-              addReply={addReply}
-            />
-            <ReactButton name={`${props.User.firstName} ${props.User.lastName}`} toggleEmoji={toggleEmoji} />
+        <div
+          style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', width: '100%' }}
+        >
+          {user && (
+            <Typography
+              style={{ fontWeight: 'bold' }}
+              variant="body1"
+            >{`${props.User.firstName} ${props.User.lastName}`}</Typography>
+          )}
+          <Typography variant="caption">{props.comment}</Typography>
+          <div className={classes.replyBtnContainer}>
+            <div className="buttons">
+              <ReplyButton
+                name={`${props.User.firstName} ${props.User.lastName}`}
+                description={props.comment}
+                addReply={addReply}
+              />
+              <ReactButton
+                name={`${props.User.firstName} ${props.User.lastName}`}
+                toggleEmoji={toggleEmoji}
+              />
+              <Typography variant="body2" color="textSecondary">
+                {moment(Number(props.dateCreated)).fromNow()}
+              </Typography>
+            </div>
+          </div>
+          <div style={{ display: 'flex', marginTop: '2px' }}>
             {reactions &&
               reactions.map((item, index) => {
                 return <ShowEmoji key={index} item={item} />;
               })}
           </div>
-          <Typography variant="body2" color="textSecondary">
-            {moment(Number(props.dateCreated)).fromNow()}
-          </Typography>
         </div>
       </div>
       <SubComments setSubComments={setSubComments} subcomments={subComments} eventId={props.eventId} />
