@@ -254,11 +254,14 @@ export const cardStyles = makeStyles((theme) => ({
   },
   statusButtonContainer: {
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
+    alignItems: 'center',
     paddingTop: '10px',
     width: '100%',
     '& div': {
       width: '100%',
+      display: 'flex',
+      justifyContent: 'center',
       '& button': {
         [theme.breakpoints.down('sm')]: {
           width: '30%',
@@ -351,6 +354,7 @@ export const cardStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    justifyContent: 'center',
     marginBottom: '5px',
   },
   buttonContainer: {
