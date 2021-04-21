@@ -479,7 +479,6 @@ export const cardStyles = makeStyles((theme) => ({
       borderRadius: '20px',
       border: '2px solid rgba(0,0,0,.2)',
       padding: '15px 20px',
-      [theme.breakpoints.down('sm')]: {},
     },
     '& button': {
       borderRadius: '20px',

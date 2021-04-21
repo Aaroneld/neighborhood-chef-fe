@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
-//style imports
 import { cardStyles } from '../../../../styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -11,23 +9,17 @@ import CardActions from '@material-ui/core/CardActions';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import { print } from 'graphql';
-
 import { Icon } from '@iconify/react';
 import starEmpty from '@iconify-icons/dashicons/star-empty';
 import starFilled from '@iconify-icons/carbon/star-filled';
-
 import { timeAgo, parseTime, chooseDefaultPicture } from '../../../../utilities/functions';
-
 import { axiosWithAuth } from '../../../../utilities/axiosWithAuth';
-
 import { ADD_FAVORITE_EVENT, REMOVE_FAVORITE_EVENT } from '../../../../graphql/users/user-mutations';
-
 import StatusButtons from './status-buttons/status-buttons';
 
 const RecentCard = (props) => {
   const classes = cardStyles();
   const [favorite, setFavorite] = useState(props.isFavorite);
-
   const timeObject = parseTime(props.startTime, props.endTime);
   const shownTime = timeAgo(props.createDateTime);
 

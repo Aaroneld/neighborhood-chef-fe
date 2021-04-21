@@ -83,7 +83,7 @@ const CommentsCard = ({ initialComments, eventId }) => {
               name="comment"
               required
               placeholder="Write a comment..."
-              style={{ width: '60%' }}
+              style={{ width: '70%' }}
               onChange={handleChange}
               value={commentFormInput}
               InputProps={{ disableUnderline: true }}

@@ -11,6 +11,7 @@ import ReplyButton from './reply-button/ReplyButton';
 import ReactButton from './react-buttom/ReactButton';
 import ShowEmoji from './show-emoji/ShowEmoji';
 import moment from 'moment';
+import { pickRandomColor } from '../../../../utilities/functions';
 
 import { ADD_COMMENT, HANDLE_REACTION } from '../../../../graphql/events/event-mutations';
 
@@ -19,6 +20,7 @@ const Comment = (props) => {
   const classes = cardStyles();
   const [reactions, setReactions] = useState(props.Reactions);
   const [subComments, setSubComments] = useState(props.Subcomments ? props.Subcomments : []);
+  const [randomColor] = useState(pickRandomColor());
 
   const toggleEmoji = (emoji) => {
     axiosWithAuth()({
@@ -91,6 +93,7 @@ const Comment = (props) => {
             aria-label="avatar"
             src={!props.User.photo ? null : props.User.photo}
             className={classes.photoContainer}
+            style={{ background: randomColor, color: 'white' }}
           >
             {!props.User.photo && (
               <Typography variant="body2">

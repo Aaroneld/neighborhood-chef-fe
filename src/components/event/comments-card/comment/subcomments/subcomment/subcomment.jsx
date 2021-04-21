@@ -10,6 +10,7 @@ import moment from 'moment';
 import ReplyButton from './../../reply-button/ReplyButton';
 import ReactButton from './../../react-buttom/ReactButton';
 import ShowEmoji from './../../show-emoji/ShowEmoji';
+import { pickRandomColor } from '../../../../../../utilities/functions';
 
 import { ADD_COMMENT, HANDLE_REACTION } from '../../../../../../graphql/events/event-mutations';
 
@@ -27,6 +28,7 @@ export default function SubComment({
   const user = useSelector((state) => state.user);
   const classes = cardStyles();
   const [reactions, setReactions] = useState(Reactions);
+  const [randomColor] = useState(pickRandomColor());
 
   const toggleEmoji = (emoji) => {
     axiosWithAuth()({
@@ -100,6 +102,7 @@ export default function SubComment({
               aria-label="avatar"
               src={!commentOwner.photo ? null : commentOwner.photo}
               className={classes.photoContainer}
+              style={{ background: randomColor, color: 'white' }}
             >
               {!commentOwner.photo && (
                 <Typography variant="body2">
@@ -118,7 +121,7 @@ export default function SubComment({
           variant="body1"
         >{`${commentOwner.firstName} ${commentOwner.lastName}`}</Typography>
         <div>
-          <Typography variant="caption" style={{ color: 'blue', fontSize: '1.4rem' }}>
+          <Typography variant="caption" style={{ color: '#5458F7', fontSize: '1.4rem' }}>
             {parent ? `@${parent.firstName} ${parent.lastName} ` : ``}
           </Typography>
           <Typography variant="caption" style={{ fontSize: '1.4rem' }}>
