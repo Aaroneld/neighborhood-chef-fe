@@ -116,10 +116,12 @@ export default function SubComment({
           variant="body1"
         >{`${commentOwner.firstName} ${commentOwner.lastName}`}</Typography>
         <div>
-          <Typography variant="caption" style={{ color: 'blue' }}>
+          <Typography variant="caption" style={{ color: 'blue', fontSize: '1.4rem' }}>
             {parent ? `@${parent.firstName} ${parent.lastName} ` : ``}
           </Typography>
-          <Typography variant="caption">{subcomment}</Typography>
+          <Typography variant="caption" style={{ fontSize: '1.4rem' }}>
+            {subcomment}{' '}
+          </Typography>
         </div>
 
         <div className={classes.replyBtnContainer}>

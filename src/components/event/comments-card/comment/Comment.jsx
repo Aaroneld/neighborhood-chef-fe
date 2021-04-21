@@ -108,7 +108,9 @@ const Comment = (props) => {
               variant="body1"
             >{`${props.User.firstName} ${props.User.lastName}`}</Typography>
           )}
-          <Typography variant="caption">{props.comment}</Typography>
+          <Typography variant="caption" style={{ fontSize: '1.4rem' }}>
+            {props.comment}
+          </Typography>
           <div className={classes.replyBtnContainer}>
             <div className="buttons">
               <ReplyButton
