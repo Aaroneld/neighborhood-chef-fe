@@ -5,7 +5,7 @@ export const DashboardTabStyles = makeStyles((theme) => ({
   container: {
     margin: '-9%',
     marginLeft: "-15%",
-    //margin: '-6% 0 0 5%',
+    marginTop: "-8.8%",
     maxWidth: '79vw',
     width: '55%',
     height: '5vw',
@@ -34,7 +34,8 @@ export const DashboardTabStyles = makeStyles((theme) => ({
 
     
     [theme.breakpoints.down('xs')]: {
-      marginTop: "-1%"
+      marginTop: "-15%",
+      marginLeft: "-10.5%"
     },
   },
   tabs: {
@@ -78,8 +79,17 @@ export const DashboardTabStyles = makeStyles((theme) => ({
         height: "4.5vw",
         left: (props) => {
           if (props.currentTab === 1) return '-.5%';
-          else if (props.currentTab === 2) return '34%';
+          else if (props.currentTab === 2) return '33%';
           else return '66%';
+        },
+      },
+
+      [theme.breakpoints.down("xs")]: {
+        height: "5.5vw",
+        left: (props) => {
+          if (props.currentTab === 1) return '-4%';
+          else if (props.currentTab === 2) return '30%';
+          else return '62.5%';
         },
       }
     },
@@ -89,13 +99,18 @@ export const DashboardTabStyles = makeStyles((theme) => ({
     },
 
     [theme.breakpoints.down("md")]: {
-      marginTop: '-1.7%',
+      marginTop: '-1.6%',
     },
 
     [theme.breakpoints.down('sm')]: {
       width: '100%',
       marginTop: '-1.65%',
     },
+
+    [theme.breakpoints.down('xs')]: {
+      marginTop: '-2.4%',
+    },
+
   },
   tab: {
     fontSize: "140%",
@@ -116,11 +131,15 @@ export const DashboardTabStyles = makeStyles((theme) => ({
     },
 
     [theme.breakpoints.down('sm')]: {
-      fontSize: "95%" 
+      fontSize: "95%",
+      whiteSpace: "nowrap",
      },
 
      [theme.breakpoints.down('xs')]: {
-      fontSize: "50%" 
+      fontSize: "80%" ,
+      paddingLeft: 0,
+      paddingRight: 0,
+      paddingTop: 0
      }
   },
   currentTab: {

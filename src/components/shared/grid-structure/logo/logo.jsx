@@ -16,6 +16,10 @@ export const logoStyles = makeStyles((theme) => ({
     width: '100%',
     marginLeft: "2%",
 
+    [theme.breakpoints.down("xs")] : {
+    
+    },
+
     '& .leftSideHeader': {
       display: 'flex',
       alignItems: 'center',

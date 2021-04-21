@@ -14,6 +14,7 @@ export const styles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'flex-end',
     width: '60px',
+    marginRight: "2%"
   },
   textContainer: {
     display: 'flex',

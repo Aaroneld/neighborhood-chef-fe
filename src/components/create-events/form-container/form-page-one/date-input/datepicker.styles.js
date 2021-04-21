@@ -13,6 +13,10 @@ export const styles = makeStyles((theme) => ({
 
     fontFamily: '"Poppins", san-serif',
 
+    [theme.breakpoints.down("xs")] : {
+      paddingTop: "85%"
+    },
+
     '& >div': {
       position: 'absolute',
       top: 0,

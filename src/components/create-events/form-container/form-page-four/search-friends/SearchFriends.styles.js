@@ -10,6 +10,7 @@ export const searchFriendsStyles = makeStyles((theme) => ({
     marginTop: '15px',
     marginBottom: '120px',
     padding: '30px',
+    height: "70vh",
     width: '90%',
   },
   h3: {

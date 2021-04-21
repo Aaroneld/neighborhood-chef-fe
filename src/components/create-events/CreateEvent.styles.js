@@ -5,10 +5,11 @@ export const cardStyles = makeStyles(theme => ({
     boxShadow: '-2px 3px 31px -13px rgba(117,117,117,0.46)', 
     height: '82vh', 
     width: "80vw", 
-    overflowY: "scroll",
+    
 
     [theme.breakpoints.down('md')]: {
-      width: "100vw"
+      width: "100vw",
+      overflowY: "scroll",
     }
   }
 }))
