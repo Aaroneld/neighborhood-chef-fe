@@ -6,12 +6,11 @@ import CreateEventHeader from '../../../../create-events/CreateEventHeader';
 
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { CompassCalibrationOutlined } from '@material-ui/icons';
- 
+
 const styles = makeStyles((theme) => ({
   container: {
     width: '100%',
-    flexBasis: "85%",
+    flexBasis: '85%',
     height: 'inherit',
     textAlign: 'center',
     display: 'flex',
@@ -19,7 +18,7 @@ const styles = makeStyles((theme) => ({
     paddingLeft: '20px',
     alignItems: 'center',
     paddingBottom: '1%',
-    marginTop: "0%",
+    marginTop: '0%',
 
     [theme.breakpoints.down('md')]: {
       paddingLeft: 0,
@@ -27,7 +26,7 @@ const styles = makeStyles((theme) => ({
   },
 }));
 
-function VariableHeader({setEmpty}) {
+function VariableHeader({ setEmpty }) {
   const classes = styles();
   const location = useLocation();
   const [urlLocation, setUrlLocation] = useState(location.pathname.split('/')[1]);
@@ -40,18 +39,19 @@ function VariableHeader({setEmpty}) {
   }, [location]);
 
   useEffect(() => {
-    console.log(urlLocation)
-    if(matches){
-      if(!['create-event', 'view-events', 'dashboard'].includes(urlLocation)) {
-        console.log(urlLocation)
-        setEmpty(true)
+    console.log(urlLocation);
+    if (matches) {
+      if (!['create-event', 'view-events', 'dashboard'].includes(urlLocation)) {
+        console.log(urlLocation);
+        setEmpty(true);
       } else {
-        setEmpty(false)
+        setEmpty(false);
       }
     } else {
-      setEmpty(false)
+      setEmpty(false);
     }
-  }, [location, urlLocation, matches])
+    // eslint-disable-next-line
+  }, [location, urlLocation, matches]);
 
   switch (urlLocation) {
     case 'create-event':
@@ -66,8 +66,8 @@ function VariableHeader({setEmpty}) {
           <MonthPicker />
         </section>
       );
-    default: 
-      return ""
+    default:
+      return '';
   }
 }
 

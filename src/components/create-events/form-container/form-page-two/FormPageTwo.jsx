@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import strollerIcon from '@iconify/icons-vs/stroller';
 import baselineOutdoorGrill from '@iconify/icons-ic/baseline-outdoor-grill';

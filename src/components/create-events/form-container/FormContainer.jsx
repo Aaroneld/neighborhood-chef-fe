@@ -33,6 +33,7 @@ const initValuesForNonEditMode = {
   photo: null,
 };
 
+// eslint-disable-next-line
 const testValues = {
   title: 'wooho yes good stuff',
   description:
@@ -115,10 +116,8 @@ const FormContainer = () => {
   const [initialValues, setInitialValues] = useState(testValues);
   const [loadedFlag, flag] = useState(0);
   const [loaded, setLoaded] = useState(false);
-  const page = useSelector((state) => 4);
-
+  const page = useSelector((state) => state.page);
   const { values, setValues, validate, errors } = useForm(initialValues, validationSchema);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -130,6 +129,7 @@ const FormContainer = () => {
   useEffect(() => {
     setValues(initialValues);
     return () => dispatch(changePage(1));
+    // eslint-disable-next-line
   }, [initialValues]);
 
   useEffect(() => {

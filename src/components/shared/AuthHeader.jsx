@@ -2,7 +2,7 @@ import React from 'react';
 import chefIcon from '@iconify/icons-whh/chef';
 import { Icon } from '@iconify/react';
 
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import { buttonStyles } from '../../styles';
 import { authHeaderStyles } from './authheader.styles';
@@ -16,8 +16,6 @@ const crypto = require('crypto-browserify');
 
 const AuthHeader = () => {
   const styles = authHeaderStyles();
-  const location = useLocation();
-  const url = location.pathname.split('/')[1];
   const buttonClass = buttonStyles();
   const { push } = useHistory();
 

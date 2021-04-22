@@ -47,7 +47,6 @@ const Header = ({ user, setUser, userid, loggedInUserId }) => {
           user={user}
           setUser={setUser}
           setShowForm={setShowForm}
-          userId={userid}
           loggedInUserId={loggedInUserId}
         />
       )}

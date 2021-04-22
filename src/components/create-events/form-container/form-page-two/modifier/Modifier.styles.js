@@ -11,7 +11,6 @@ export const modifierStyles = makeStyles((theme) => ({
     width: '10%',
     marginLeft: '-2%',
 
-    
     [theme.breakpoints.down('lg')]: {
       width: '13%',
     },
@@ -19,20 +18,18 @@ export const modifierStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('md')]: {
       width: '15%',
       fontSize: '77%',
-      color: 'black'
+      color: 'black',
     },
 
     [theme.breakpoints.down('sm')]: {
-      fontSize: '60%'
-    }
-    
+      fontSize: '60%',
+    },
   },
   modifierNotActive: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     background: '#82df96',
-    width: '50%',
     width: '80px',
     height: '80px',
     borderRadius: '50%',
@@ -41,7 +38,7 @@ export const modifierStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('lg')]: {
       width: '70px',
       height: '70px',
-    }
+    },
   },
   modifierActive: {
     opacity: '1',
@@ -55,7 +52,7 @@ export const modifierStyles = makeStyles((theme) => ({
     paddingTop: '10px',
 
     [theme.breakpoints.down('lg')]: {
-      fontSize: '80%'
-    }
+      fontSize: '80%',
+    },
   },
 }));

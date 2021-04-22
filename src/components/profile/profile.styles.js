@@ -3,7 +3,6 @@ import makeStyles from '@material-ui/styles/makeStyles';
 export const styles = makeStyles((theme) => ({
   root: {
     borderRadius: '10px',
-    height: '100%',
     width: '100%',
     display: 'flex',
     justifyContent: 'center',

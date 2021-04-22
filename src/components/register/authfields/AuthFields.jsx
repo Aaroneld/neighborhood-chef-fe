@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { styles } from './authfields.styles';
 import TextField from '@material-ui/core/TextField';
 import { Checkbox, Button } from '@material-ui/core';

@@ -14,11 +14,9 @@ export const logoStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'space-between',
     width: '100%',
-    marginLeft: "2%",
+    marginLeft: '2%',
 
-    [theme.breakpoints.down("xs")] : {
-    
-    },
+    [theme.breakpoints.down('xs')]: {},
 
     '& .leftSideHeader': {
       display: 'flex',
@@ -27,34 +25,33 @@ export const logoStyles = makeStyles((theme) => ({
       fontSize: '200%',
       fontWeight: '500',
       marginTop: '-5%',
-      marginLeft: "6%",
+      marginLeft: '6%',
       width: '100%',
       cursor: 'pointer',
       whiteSpace: 'nowrap',
 
       '& #navigation-arrow': {
-        display: "none",
+        display: 'none',
 
-        [theme.breakpoints.down("sm")] : {
-          display: "inherit",
-          flexBasis: "90%",
-          opacity: .5,
-          
-         "& >svg": {
-           width: "37px",
-           height: "37px"
-         }
+        [theme.breakpoints.down('sm')]: {
+          display: 'inherit',
+          flexBasis: '90%',
+          opacity: 0.5,
 
-        }
+          '& >svg': {
+            width: '37px',
+            height: '37px',
+          },
+        },
       },
 
       '& #logo-icon': {
         color: '#58D473',
         fontSize: '3rem',
-        marginTop: "2%",
+        marginTop: '2%',
 
         [theme.breakpoints.down('lg')]: {
-          fontSize: "2.6rem"
+          fontSize: '2.6rem',
         },
 
         [theme.breakpoints.down('md')]: {
@@ -64,14 +61,13 @@ export const logoStyles = makeStyles((theme) => ({
         },
         [theme.breakpoints.down('sm')]: {
           fontSize: '4.5rem',
-          transform: "translateX(50%)",
-          marginTop: "4%"
+          transform: 'translateX(50%)',
+          marginTop: '4%',
         },
       },
 
       '& #text': {
-        
-        paddingLeft: "3%",
+        paddingLeft: '3%',
 
         [theme.breakpoints.down('lg')]: {
           fontSize: '2.5rem',
@@ -82,13 +78,13 @@ export const logoStyles = makeStyles((theme) => ({
         },
 
         [theme.breakpoints.down('sm')]: {
-          display: "none"
+          display: 'none',
         },
       },
 
       [theme.breakpoints.down('lg')]: {
         fontSize: '150%',
-        marginLeft: "4%"
+        marginLeft: '4%',
       },
 
       [theme.breakpoints.down('md')]: {
@@ -102,7 +98,7 @@ export const logoStyles = makeStyles((theme) => ({
 
       [theme.breakpoints.down('sm')]: {
         fontSize: '150%',
-        flexBasis: "50%",
+        flexBasis: '50%',
         justifyContent: 'flex-end',
         marginLeft: '2%',
         marginRight: 0,
@@ -113,22 +109,21 @@ export const logoStyles = makeStyles((theme) => ({
       marginRight: '1%',
       alignSelf: 'center',
       marginTop: '1%',
-      display: 'flex',
       alignItems: 'center',
       justifyContent: 'flex-end',
-      flexBasis: "20%",
+      flexBasis: '20%',
       display: 'none',
 
       '& svg': {
         marginRight: '10%',
-        height: "43px",
-        width: "43px",
+        height: '43px',
+        width: '43px',
         color: 'black',
         opacity: 0.15,
 
-        [theme.breakpoints.down("sm")] : {
+        [theme.breakpoints.down('sm')]: {
           marginRight: '4%',
-        }
+        },
       },
 
       '& .avatar': {
@@ -157,17 +152,17 @@ export const logoStyles = makeStyles((theme) => ({
       },
       [theme.breakpoints.down('sm')]: {
         width: '25%',
-        flexBasis: "50%"
+        flexBasis: '50%',
       },
     },
 
     [theme.breakpoints.down('md')]: {
       justifyContent: 'flex-end',
-      marginTop: "1%"
+      marginTop: '1%',
     },
     [theme.breakpoints.down('sm')]: {
       justifyContent: 'space-between',
-      marginTop: "3%"
+      marginTop: '3%',
     },
   },
 }));
@@ -179,14 +174,16 @@ function Logo() {
 
   return (
     <div className={styles.root}>
-      <div className="leftSideHeader" >
-        <span id="navigation-arrow" onClick={() => push("/navigation")}>
+      <div className="leftSideHeader">
+        <span id="navigation-arrow" onClick={() => push('/navigation')}>
           <Icon icon={arrowLeftSquare} />
         </span>
         <span id="logo-icon" onClick={() => push('/dashboard')}>
           <Icon icon={chefIcon} />
         </span>
-        <span id="text" onClick={() => push('/dashboard')}>Neighborhood Chef</span>
+        <span id="text" onClick={() => push('/dashboard')}>
+          Neighborhood Chef
+        </span>
       </div>
       <div className="iconsRight">
         <Icon icon={logoutIcon} />

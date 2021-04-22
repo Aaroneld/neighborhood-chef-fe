@@ -23,7 +23,6 @@ export const landingPageStyles = makeStyles((theme) => ({
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'space-evenly',
-      transform: 'translateY(-5%)',
       borderRadius: '10px',
       padding: '5%',
       transform: 'translateX(-30%)',
