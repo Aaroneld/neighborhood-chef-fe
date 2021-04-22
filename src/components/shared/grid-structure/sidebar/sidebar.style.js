@@ -5,10 +5,10 @@ export const styles = makeStyles((theme) => ({
     paddingRight: '20px',
     width: '100%',
 
-    [theme.breakpoints.down("md")] : {
-      paddingRight: 0
+    [theme.breakpoints.down('md')]: {
+      paddingRight: 0,
     },
-    
+
     '& div': {
       width: '100%',
       '& nav': {
@@ -22,7 +22,7 @@ export const styles = makeStyles((theme) => ({
           flexDirection: 'row',
           flexWrap: 'no-wrap',
           justifyContent: 'center',
-          alignItems: "center"
+          alignItems: 'center',
         },
 
         '& a': {
@@ -58,6 +58,10 @@ export const styles = makeStyles((theme) => ({
                 justifyContent: 'center',
               },
 
+              [theme.breakpoints.down('800')]: {
+                fontSize: '130%',
+              },
+
               '& span': {
                 marginLeft: '6%',
                 whiteSpace: 'nowrap',
@@ -77,6 +81,9 @@ export const styles = makeStyles((theme) => ({
               '& svg': {
                 fontSize: '170%',
                 marginTop: '25%',
+                [theme.breakpoints.down('800')]: {
+                  fontSize: '190%',
+                },
 
                 [theme.breakpoints.down('md')]: {
                   marginTop: 0,

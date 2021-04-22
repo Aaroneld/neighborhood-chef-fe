@@ -65,7 +65,7 @@ const FormPageThree = (props) => {
           </div>
         </div>
 
-        <div style={{ width: '100%' }}>
+        <div className={styles.descriptionContainer}>
           <h4 id="description-header">Description</h4>
           <p id="description">{props.values.description}</p>
         </div>
