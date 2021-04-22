@@ -96,7 +96,7 @@ const SearchFriends = ({ event_id }) => {
           </button>
         </div>
       </div>
-      <div style={{ width: '100%', overflowY: "scroll", overflowX: "hidden", scrollbarWidth: "none"}}>
+      <div id="userlist">
         <UserList event_id={event_id} filteredList={filteredList} />
       </div>
     </div>

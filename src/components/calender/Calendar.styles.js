@@ -6,6 +6,7 @@ export const calendarStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     maxWidth: '80vw',
     height: '82vh',
+    background: "transparent",
     boxShadow: '-2px 3px 31px -13px rgba(117,117,117,0.46)',
     borderRadius: '20px',
     borderTopRightRadius: '0',
@@ -19,11 +20,15 @@ export const calendarStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     paddingTop: '10px',
-    overflowY: 'scroll',
+    overflowY: 'hidden',
     height: '80vh',
+
+    "&:hover": {
+      overflowY: 'scroll',
+    }
   },
   calendarRow: {
-    background: 'white',
+    background: 'transparent',
     borderRadius: '10px',
     padding: '10px 50px',
     marginBottom: '20px',

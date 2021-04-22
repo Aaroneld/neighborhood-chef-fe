@@ -7,11 +7,19 @@ export const searchFriendsStyles = makeStyles((theme) => ({
     border: '2px solid #f3f3f3',
     boxShadow: '0px 4px 15px rgba(179, 179, 179, 0.1)',
     borderRadius: '25px',
-    marginTop: '15px',
-    marginBottom: '120px',
     padding: '30px',
     height: "70vh",
     width: '90%',
+
+    "& #userlist": {
+      width: '100%', 
+      overflowY: "hidden", 
+      overflowX: "hidden", 
+
+      "&:hover": {
+        overflowY: "scroll", 
+      }
+    }
   },
   h3: {
     fontSize: '1.8rem',

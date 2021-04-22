@@ -10,6 +10,10 @@ export const formPageOneStyles = makeStyles((theme) => ({
       width: '95%',
     },
 
+    "& #title-input, #date-div" : {
+      marginTop: 0
+    },
+
     '& .error-message': {
       position: 'absolute',
       top: '130%',
@@ -48,9 +52,14 @@ export const formPageOneStyles = makeStyles((theme) => ({
 
     '& .form-button': {
       width: '100%',
+
+      [theme.breakpoints.down('lg')]: {
+        marginTop: "2%"
+      },
       
       [theme.breakpoints.down('md')]: {
-        width: "27%"
+        width: "27%",
+        marginTop: "0%"
       },
 
       [theme.breakpoints.down('sm')]: {
@@ -80,6 +89,11 @@ export const formPageOneStyles = makeStyles((theme) => ({
     borderRadius: '15px',
     margin: '40px 0',
     padding: '10px 15px',
+
+    [theme.breakpoints.down("lg")] : {
+      margin: "1%"
+    },
+
     [theme.breakpoints.down('md')]: {
       margin: '20px 0',
     },

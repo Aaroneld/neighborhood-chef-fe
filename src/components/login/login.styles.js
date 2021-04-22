@@ -2,6 +2,8 @@ import makeStyles from '@material-ui/styles/makeStyles';
 
 export const landingPageStyles = makeStyles((theme) => ({
   container: {
+    overflow: "hidden",
+    maxHeight: "100vh",
     background:
       'linear-gradient(0deg, rgba(226,226,226,1) 0%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 100%)',
   },
@@ -17,26 +19,109 @@ export const landingPageStyles = makeStyles((theme) => ({
     backgroundRepeat: 'repeat',
 
     '& .card': {
-      width: '50%',
-      height: '50vh',
+      width: '28%',
+      height: '70vh',
       boxShadow: '-2px 3px 31px -13px rgba(117,117,117,0.46)',
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'space-evenly',
+      justifyContent: 'flex-start',
       borderRadius: '10px',
-      padding: '5%',
-      transform: 'translateX(-30%)',
-      [theme.breakpoints.down('sm')]: {
-        width: '90%',
-        height: '60vh',
-        transform: 'translateX(0%)',
+      padding: '3% 3.5% 3% 3.5%',
+      transform: 'translate(-90%,-5%)',
+      background: "rgba(255,255,255, 1)",
+
+      [theme.breakpoints.down("lg")]: {
+        width: "42%",
+        height: "75vh",
+        transform: 'translate(-55%,-5%)',
       },
 
-      '& h4': {
+      [theme.breakpoints.down("md")] : {
+        width: "90%",
+        transform: 'translate(0%,0%)',
+        padding: "5%"
+      },
+
+      [theme.breakpoints.down("sm")] : {
+        height: "85vh",
+        transform: "translate(0, 0)",
+        width: "85%",
+      },
+
+      [theme.breakpoints.down('xs')]: {
+        height: "75vh"
+      },
+
+      "& >*": {
+        flexBasis: "20%"
+      },
+
+      "& #community": {
+        "-webkit-text-fill-color": "#58D573", /* Will override color (regardless of order) */
+        "-webkit-text-stroke-width": ".5px",
+        "-webkit-text-stroke-color": "black",
+        fontSize: "130%",
+        marginTop: '-10%',
+      },
+
+      "& >h4:first-child": {
         fontWeight: 'bold',
+        flexBasis: "10%",
+        fontSize: "240%",
+        
+       
+
+        [theme.breakpoints.down("md")] : {
+          fontSize: "200%"
+        },
+
+        [theme.breakpoints.down("sm")] : {
+          fontSize: "170%",
+          flexBasis: "5%"
+        },
+
+        [theme.breakpoints.down("xs")] : {
+          fontSize: "125%",
+        },
+      },
+
+      "& h6": {
+        fontSize: "135%",
+        opacity: .9,
+        marginTop: "4%",
+        fontWeight: "400",
+
+        [theme.breakpoints.down("md")] : {
+          fontSize: "175%"
+        },
+
+        [theme.breakpoints.down("sm")] : {
+          fontSize: "150%",
+          marginTop: "2.5%"
+        },
+
+        [theme.breakpoints.down("xs")]: {
+          fontSize: "110%"
+        }
+      },
+
+      "& #second-paragraph": {
+        [theme.breakpoints.down("xs")] : {
+          display: "none"
+        }
       },
 
       '& #bonAppetit': {
+        fontSize: "170%",   
+        marginTop: "8%",
+        color: "black",
+        fontWeight: "bold",
+        opacity: 1,
+
+        [theme.breakpoints.down('lg')]: {
+          marginTop: "4%",        
+        },
+
         [theme.breakpoints.down('sm')]: {
           display: 'none',
         },
@@ -49,17 +134,25 @@ export const landingPageStyles = makeStyles((theme) => ({
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          marginTop: '2%',
+          marginTop: '10%',
+        },
+
+        [theme.breakpoints.down('xs')]: {
+          marginTop: '6%',
         },
 
         '& h6': {
           marginBottom: '1%',
+          marginTop: "2%",
+          fontSize: "110%"
         },
 
         '& button': {
           fontSize: '1.6rem',
           marginBottom: '5%',
           width: '85%',
+          padding: "2%",
+          fontSize: "130%"
         },
 
         '& #register': {
@@ -76,6 +169,8 @@ export const landingPageStyles = makeStyles((theme) => ({
           border: '2px solid #58D573',
           color: '#58D573',
           background: 'white',
+          opacity: .7,
+          marginTop: "1.5%",
 
           '&:hover': {
             background: '#58D573',

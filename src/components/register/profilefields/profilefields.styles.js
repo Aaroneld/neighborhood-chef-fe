@@ -66,8 +66,9 @@ export const styles = makeStyles((theme) => ({
     },
     '& .error-message': {
       fontSize: '90%',
-      textAlign: 'center',
+      textAlign: 'left',
       margin: '2% 0',
+      position: "absolute"
     },
   },
 }));

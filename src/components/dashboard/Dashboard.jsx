@@ -13,6 +13,7 @@ export const styles = makeStyles((theme) => ({
     height: '100%',
     borderRadius: '20px',
     borderTopRightRadius: '0',
+    background: "transparent",
 
     '& .container': {
       display: 'flex',

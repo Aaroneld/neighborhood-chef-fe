@@ -24,15 +24,18 @@ import * as yup from 'yup';
 import axios from 'axios';
 
 const Register = () => {
-  const mapStyle = {
-    width: '100vw',
-    height: '96vh',
-  };
 
   const [stepper, setStepper] = useState(1);
   const [submitted, setSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
   const [checked, setChecked] = useState(false);
+  const [viewport, setViewport] = useState({
+    latitude: 0,
+    longitude: -30,
+    zoom: 2,
+    width: '100vw',
+    height: '96vh',
+  })
 
   const { values, setValues, validate, errors } = useForm(
     { email: '', address: '', longitude: null, latitude: null, gender: '', firstName: '', lastName: '' },
@@ -117,6 +120,7 @@ const Register = () => {
                   handleSubmit={handleSubmit}
                   setStepper={setStepper}
                   errorMessage={errorMessage}
+                  setViewport={setViewport}
                 />
               )}
             </form>
@@ -130,11 +134,13 @@ const Register = () => {
             id="register-map"
             className={'register-map'}
             mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
-            latitude={values.latitude || 0}
-            longitude={values.longitude || -30}
-            zoom={values.latitude ? 16 : 2}
-            {...mapStyle}
+            // latitude={values.latitude || 0}
+            // longitude={values.longitude || -30}
+            // zoom={values.latitude ? 16 : 2}
+            // {...mapStyle}
+            {...viewport} 
             mapStyle="mapbox://styles/aaroneld/ckmo07imp12x617o7q66m3hwm"
+            onViewportChange={setViewport}
           >
             <Marker
               longitude={values.longitude || 0}

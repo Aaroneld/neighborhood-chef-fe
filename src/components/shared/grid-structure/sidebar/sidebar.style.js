@@ -52,7 +52,7 @@ export const styles = makeStyles((theme) => ({
               },
 
               [theme.breakpoints.down('md')]: {
-                fontSize: '135%',
+                fontSize: '130%',
                 fontWeight: 700,
                 display: 'flex',
                 justifyContent: 'center',

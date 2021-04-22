@@ -6,7 +6,9 @@ export const fullEventStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     width: '100%',
     borderRadius: '20px',
-    boxShadow: '-2px 3px 31px -13px rgba(117,117,117,0.46)',
+    boxShadow: 'none',
+    background: "transparent"
+    ,
     borderTopRightRadius: '0',
     height: '100%',
 
@@ -19,7 +21,7 @@ export const fullEventStyles = makeStyles((theme) => ({
   singleEventBox: {
     padding: '10px',
     borderRadius: '10px',
-    height: 'calc(90vh - 20px)',
+    height: '80vh',
     maxHeight: 'calc(90vh - 20px)',
     width: '100%',
     display: 'flex',
@@ -37,17 +39,21 @@ export const fullEventStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     width: '100%',
-    height: '100%',
+    height: '80vh',
   },
   singleEventTopRow: {
     display: 'flex',
+    flexBasis: "20.5%",
+    overflowY: "hidden",
+
     [theme.breakpoints.down('md')]: {
       flexWrap: 'wrap',
     },
   },
   singleEventCommentCard: {
-    maxHeight: '72%',
-    minHeight: '72%',
+    flexBasis: "78%",
+    overflowY: "hidden",
+
   },
   hidden: {
     display: 'none',

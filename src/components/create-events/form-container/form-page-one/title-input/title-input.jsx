@@ -15,7 +15,7 @@ export default function TitleInput({ errors, setValues, values, validate }) {
 
   return (
     <div className={styles.inputContainer}>
-      <div className={styles.inputDiv}>
+      <div className={styles.inputDiv} id="title-input">
         <input
           type="text"
           name="title"

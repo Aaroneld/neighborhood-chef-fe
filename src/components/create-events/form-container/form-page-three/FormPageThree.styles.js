@@ -28,18 +28,30 @@ export const formPageThreeStyles = makeStyles((theme) => ({
       },
 
       [theme.breakpoints.down('sm')]: {
-        fontSize: '180%',
+        fontSize: '140%',
         marginLeft: '5%',
-        marginTop: 0,
+      },
+    },
+
+    '& #description': {
+      marginTop: '1%',
+      fontSize: '120%',
+
+      [theme.breakpoints.down('lg')]: {
+        fontSize: '90%',
+      },
+
+      [theme.breakpoints.down('sm')]: {
+        display: 'block',
       },
     },
 
     '& #form-buttons': {
-      marginTop: '6.5%',
-      marginLeft: '1.5%',
+      marginTop: '3.5%',
+      marginLeft: '2%',
 
       '& button': {
-        width: '17%',
+        width: '17.5%',
 
         [theme.breakpoints.down('md')]: {
           width: '25%',

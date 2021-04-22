@@ -22,6 +22,7 @@ export default function CatagoryInput({ setValues, values }) {
           value={values.category}
           onChange={handleChange}
           className={styles.input}
+          style={{ background: 'none' }}
         />
         <CreateIcon color="disabled" className={styles.icon} />
       </div>

@@ -6,6 +6,8 @@ export const styles = makeStyles((theme) => ({
     height: '100%',
     width: '100%',
     boxShadow: '-2px 3px 31px -13px rgba(117,117,117,0.46)',
+    background: "transparent",
+  
 
     '& .main': {
       padding: '20px',
