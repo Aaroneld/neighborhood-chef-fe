@@ -2,8 +2,8 @@ import makeStyles from '@material-ui/styles/makeStyles';
 
 export const landingPageStyles = makeStyles((theme) => ({
   container: {
-    overflow: "hidden",
-    maxHeight: "100vh",
+    overflow: 'hidden',
+    maxHeight: '100vh',
     background:
       'linear-gradient(0deg, rgba(226,226,226,1) 0%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 100%)',
   },
@@ -28,98 +28,96 @@ export const landingPageStyles = makeStyles((theme) => ({
       borderRadius: '10px',
       padding: '3% 3.5% 3% 3.5%',
       transform: 'translate(-90%,-5%)',
-      background: "rgba(255,255,255, 1)",
+      background: 'rgba(255,255,255, 1)',
 
-      [theme.breakpoints.down("lg")]: {
-        width: "42%",
-        height: "75vh",
-        transform: 'translate(-55%,-5%)',
+      [theme.breakpoints.down('lg')]: {
+        width: '42%',
+        height: '80vh',
+        transform: 'translate(-55%, -5%)',
       },
 
-      [theme.breakpoints.down("md")] : {
-        width: "90%",
+      [theme.breakpoints.down('md')]: {
+        width: '90%',
         transform: 'translate(0%,0%)',
-        padding: "5%"
+        padding: '5%',
       },
 
-      [theme.breakpoints.down("sm")] : {
-        height: "85vh",
-        transform: "translate(0, 0)",
-        width: "85%",
+      [theme.breakpoints.down('sm')]: {
+        height: '75vh',
+        transform: 'translate(0, 0)',
+        width: '85%',
       },
 
       [theme.breakpoints.down('xs')]: {
-        height: "75vh"
+        height: '75vh',
       },
 
-      "& >*": {
-        flexBasis: "20%"
+      '& >*': {
+        flexBasis: '20%',
       },
 
-      "& #community": {
-        "-webkit-text-fill-color": "#58D573", /* Will override color (regardless of order) */
-        "-webkit-text-stroke-width": ".5px",
-        "-webkit-text-stroke-color": "black",
-        fontSize: "130%",
+      '& #community': {
+        '-webkit-text-fill-color': '#58D573' /* Will override color (regardless of order) */,
+        '-webkit-text-stroke-width': '.5px',
+        '-webkit-text-stroke-color': 'black',
+        fontSize: '130%',
         marginTop: '-10%',
       },
 
-      "& >h4:first-child": {
+      '& >h4:first-child': {
         fontWeight: 'bold',
-        flexBasis: "10%",
-        fontSize: "240%",
-        
-       
+        flexBasis: '10%',
+        fontSize: '240%',
 
-        [theme.breakpoints.down("md")] : {
-          fontSize: "200%"
+        [theme.breakpoints.down('md')]: {
+          fontSize: '200%',
         },
 
-        [theme.breakpoints.down("sm")] : {
-          fontSize: "170%",
-          flexBasis: "5%"
+        [theme.breakpoints.down('sm')]: {
+          fontSize: '170%',
+          flexBasis: '5%',
         },
 
-        [theme.breakpoints.down("xs")] : {
-          fontSize: "125%",
+        [theme.breakpoints.down('xs')]: {
+          fontSize: '125%',
         },
       },
 
-      "& h6": {
-        fontSize: "135%",
-        opacity: .9,
-        marginTop: "4%",
-        fontWeight: "400",
+      '& h6': {
+        fontSize: '135%',
+        opacity: 0.9,
+        marginTop: '4%',
+        fontWeight: '400',
 
-        [theme.breakpoints.down("md")] : {
-          fontSize: "175%"
+        [theme.breakpoints.down('md')]: {
+          fontSize: '170%',
         },
 
-        [theme.breakpoints.down("sm")] : {
-          fontSize: "150%",
-          marginTop: "2.5%"
+        [theme.breakpoints.down('sm')]: {
+          fontSize: '150%',
+          marginTop: '2.5%',
         },
 
-        [theme.breakpoints.down("xs")]: {
-          fontSize: "110%"
-        }
+        [theme.breakpoints.down('xs')]: {
+          fontSize: '110%',
+        },
       },
 
-      "& #second-paragraph": {
-        [theme.breakpoints.down("xs")] : {
-          display: "none"
-        }
+      '& #second-paragraph': {
+        [theme.breakpoints.down('xs')]: {
+          display: 'none',
+        },
       },
 
       '& #bonAppetit': {
-        fontSize: "170%",   
-        marginTop: "8%",
-        color: "black",
-        fontWeight: "bold",
+        fontSize: '170%',
+        marginTop: '8%',
+        color: 'black',
+        fontWeight: 'bold',
         opacity: 1,
 
         [theme.breakpoints.down('lg')]: {
-          marginTop: "4%",        
+          marginTop: '4%',
         },
 
         [theme.breakpoints.down('sm')]: {
@@ -143,16 +141,16 @@ export const landingPageStyles = makeStyles((theme) => ({
 
         '& h6': {
           marginBottom: '1%',
-          marginTop: "2%",
-          fontSize: "110%"
+          marginTop: '2%',
+          fontSize: '110%',
         },
 
         '& button': {
           fontSize: '1.6rem',
           marginBottom: '5%',
           width: '85%',
-          padding: "2%",
-          fontSize: "130%"
+          padding: '2%',
+          fontSize: '130%',
         },
 
         '& #register': {
@@ -169,8 +167,8 @@ export const landingPageStyles = makeStyles((theme) => ({
           border: '2px solid #58D573',
           color: '#58D573',
           background: 'white',
-          opacity: .7,
-          marginTop: "1.5%",
+          opacity: 0.7,
+          marginTop: '1.5%',
 
           '&:hover': {
             background: '#58D573',
