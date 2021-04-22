@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { ErrorMessage } from '@hookform/error-message';
 import MapboxAddressSearch from './mapbox-address-search';
 import { styles } from './mapbox-geocoder.styles';
+import {FlyToInterpolator} from 'react-map-gl';
+import * as d3 from 'd3-ease';
 
-function MapboxGeocoder({ errors, setValues, values, validate }) {
+function MapboxGeocoder({ errors, setValues, values, validate, setViewport }) {
   const classnames = styles();
   const [data, setData] = useState({});
   const [open, setOpen] = useState(false);
@@ -17,6 +19,19 @@ function MapboxGeocoder({ errors, setValues, values, validate }) {
       setValues((values) => {
         return { ...values, ...data };
       });
+
+      if(data.latitude) {
+        setViewport(prev => { 
+          return {
+          ...prev,
+          longitude: data.longitude,
+          latitude: data.latitude,
+          zoom: 16,
+          transitionDuration: 4000,
+          transitionInterpolator: new FlyToInterpolator(),
+          transistionEasing: d3.easeCubic
+        }});
+      }
     }
   }, [data, setValues]);
 

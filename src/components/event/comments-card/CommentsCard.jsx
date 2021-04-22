@@ -68,9 +68,6 @@ const CommentsCard = ({ initialComments, eventId }) => {
   return (
     <div style={{ height: '100%' }}>
       <Card className={`${classes.root} ${classes.comments}`} ref={containerRef}>
-        <Typography variant="h6" align="left">
-          Comments
-        </Typography>
         <CardContent>
           <div>
             {comments &&

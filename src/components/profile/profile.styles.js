@@ -7,8 +7,11 @@ export const styles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     flexDirection: 'column',
-    boxShadow: '-2px 3px 31px -13px rgba(117,117,117,0.46)',
+    boxShadow: 'none',
     borderTopRightRadius: '0',
+    background: "transparent",
+    maxHeight: "82vh",
+    overflowY: "hidden",
 
     '& .header': {
       display: 'flex',
@@ -28,7 +31,7 @@ export const styles = makeStyles((theme) => ({
         fontSize: '5rem',
         border: '6px solid rgba(33, 186, 66, 0.75)',
         padding: '5px',
-        marginTop: '20px',
+        
       },
 
       '& h2': {
@@ -78,6 +81,8 @@ export const styles = makeStyles((theme) => ({
           color: '#868686',
 
           '& .bio': {
+            wordBreak: "break-word", 
+
             '& h6': {
               color: '#4E4E4E',
               fontWeight: '700',
@@ -114,7 +119,7 @@ export const styles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         borderRadius: '5px',
-        height: '73vh',
+        height: '50vh',
         marginTop: '16px',
         [theme.breakpoints.down('md')]: {
           width: '100%',

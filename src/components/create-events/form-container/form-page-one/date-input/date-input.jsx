@@ -8,7 +8,7 @@ export default function DateInput({ errors, setValues, validate }) {
 
   return (
     <>
-      <div className={styles.timeDiv}>
+      <div className={styles.timeDiv} id="date-div">
         <DatePicker
           setDate={(date) => {
             setValues((values) => ({ ...values, date }));

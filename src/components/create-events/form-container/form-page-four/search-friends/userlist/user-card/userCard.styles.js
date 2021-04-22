@@ -32,7 +32,8 @@ export const styles = makeStyles((theme) => ({
 
       '& #name': {
         [theme.breakpoints.down('sm')]: {
-          fontSize: '1.3rem',
+          fontSize: '.9rem',
+          whiteSpace: "nowrap"
         },
       },
     },

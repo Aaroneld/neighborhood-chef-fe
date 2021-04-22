@@ -85,6 +85,7 @@ const ProfileFields = (props) => {
         setValues={props.setValues}
         errors={props.errors}
         validate={props.validate}
+        setViewport={props.setViewport}
       />
 
       <FormControl className="gender-field">

@@ -29,7 +29,7 @@ export const formPageThreeStyles = makeStyles((theme) => ({
       },
 
       [theme.breakpoints.down("sm")]: {
-        fontSize: "180%",
+        fontSize: "140%",
         marginLeft: '5%'
       }
     },
@@ -51,11 +51,11 @@ export const formPageThreeStyles = makeStyles((theme) => ({
     },
 
     '& #form-buttons': {
-      marginTop: '6.5%',
-      marginLeft: "1.5%",
+      marginTop: '3.5%',
+      marginLeft: "2%",
 
       "& button": {
-        width: '17%',
+        width: '17.5%',
 
         [theme.breakpoints.down('md')]: {
           width: '25%'

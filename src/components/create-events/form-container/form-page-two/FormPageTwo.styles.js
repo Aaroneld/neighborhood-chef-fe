@@ -6,7 +6,7 @@ export const formPageTwoStyles = makeStyles((theme) => ({
 
     '& #image-hashtag-container': {
       display: 'flex',
-      marginTop: '40px',
+      
 
       [theme.breakpoints.down('md')]: {
         flexDirection: 'column',
