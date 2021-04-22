@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import logoutIcon from '@iconify-icons/mdi/logout';
 import { Icon } from '@iconify/react';
+import { logout } from '../../../../utilities/functions';
 
 const styles = makeStyles((theme) => ({
   container: {
@@ -69,7 +70,7 @@ function Header({ setEmpty }) {
       <div className="rightSide">
         {Object.keys(user).length > 0 && (
           <div className="avatar">
-            <Icon icon={logoutIcon} />
+            <Icon icon={logoutIcon} onClick={() => logout(push, '/')} />
             <Avatar
               aria-label="avatar"
               src={!user.photo ? null : user.photo}

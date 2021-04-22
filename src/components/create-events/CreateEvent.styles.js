@@ -5,15 +5,18 @@ export const cardStyles = makeStyles((theme) => ({
     boxShadow: '-2px 3px 31px -13px rgba(117,117,117,0.46)',
     height: '82vh',
     width: '80vw',
-    background: "transparent",
+    background: 'transparent',
+
+    [theme.breakpoints.down('lg')]: {
+      overflowY: 'scroll',
+    },
 
     [theme.breakpoints.down('md')]: {
       width: '100vw',
-      overflowY: 'scroll'
     },
 
     [theme.breakpoints.down('sm')]: {
-      height: "75vh"
+      height: '75vh',
     },
   },
 }));

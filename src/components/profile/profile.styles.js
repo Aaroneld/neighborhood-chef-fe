@@ -9,9 +9,9 @@ export const styles = makeStyles((theme) => ({
     flexDirection: 'column',
     boxShadow: 'none',
     borderTopRightRadius: '0',
-    background: "transparent",
-    maxHeight: "82vh",
-    overflowY: "hidden",
+    background: 'transparent',
+    // maxHeight: '82vh',
+    // overflowY: "hidden",
 
     '& .header': {
       display: 'flex',
@@ -31,7 +31,6 @@ export const styles = makeStyles((theme) => ({
         fontSize: '5rem',
         border: '6px solid rgba(33, 186, 66, 0.75)',
         padding: '5px',
-        
       },
 
       '& h2': {
@@ -67,7 +66,7 @@ export const styles = makeStyles((theme) => ({
         flexDirection: 'column',
         width: (props) => (props.user && props.user.UserEvents.owned.length > 0 ? '50%' : '100%'),
         marginRight: '1%',
-        maxHeight: '73vh',
+        height: '70vh',
 
         [theme.breakpoints.down('md')]: {
           width: () => '100%',
@@ -81,7 +80,7 @@ export const styles = makeStyles((theme) => ({
           color: '#868686',
 
           '& .bio': {
-            wordBreak: "break-word", 
+            wordBreak: 'break-word',
 
             '& h6': {
               color: '#4E4E4E',
@@ -119,7 +118,7 @@ export const styles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         borderRadius: '5px',
-        height: '50vh',
+        height: '70vh',
         marginTop: '16px',
         [theme.breakpoints.down('md')]: {
           width: '100%',
