@@ -17,8 +17,8 @@ export const logoStyles = makeStyles((theme) => ({
     width: '100%',
     marginLeft: '2%',
 
-    [theme.breakpoints.down("md")] : {
-      justifyContent: "space-between"
+    [theme.breakpoints.down('md')]: {
+      justifyContent: 'space-between',
     },
 
     '& .leftSideHeader': {
@@ -28,34 +28,32 @@ export const logoStyles = makeStyles((theme) => ({
       fontSize: '200%',
       fontWeight: '500',
       marginTop: '-5%',
-      marginLeft: "4%",
+      marginLeft: '4%',
       width: '100%',
       cursor: 'pointer',
       whiteSpace: 'nowrap',
 
       '& #navigation-arrow': {
-        display: "none",
+        display: 'none',
 
-        [theme.breakpoints.down("sm")] : {
-          display: "inherit",
-          flexBasis: "90%",
-          opacity: .5,
-          
-         "& >svg": {
-           width: "37px",
-           height: "37px",
-           marginTop: "8%"
-         }
+        [theme.breakpoints.down('sm')]: {
+          display: 'inherit',
+          flexBasis: '90%',
+          opacity: 0.5,
 
+          '& >svg': {
+            width: '37px',
+            height: '37px',
+            marginTop: '8%',
+          },
         },
 
-        [theme.breakpoints.down("xs")] : {          
-         "& >svg": {
-           width: "30px",
-           height: "30px"
-         }
-
-        }
+        [theme.breakpoints.down('xs')]: {
+          '& >svg': {
+            width: '30px',
+            height: '30px',
+          },
+        },
       },
 
       '& #logo-icon': {
@@ -74,16 +72,16 @@ export const logoStyles = makeStyles((theme) => ({
         },
         [theme.breakpoints.down('sm')]: {
           fontSize: '4.5rem',
-          transform: "translateX(50%)",
-          marginTop: "4%",
-          width: "100%",
-          height: "100px",
-          background: "rgb(88,213,115)",
-          background: "radial-gradient(circle, rgba(88,213,115,0.35) 7%, rgba(255,255,255,1) 65%)",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center"
-       },
+          transform: 'translateX(50%)',
+          marginTop: '4%',
+          width: '100%',
+          height: '100px',
+          // background: 'rgb(88,213,115)',
+          // background: 'radial-gradient(circle, rgba(88,213,115,0.35) 7%, rgba(255,255,255,1) 65%)',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        },
       },
 
       '& #text': {
@@ -110,10 +108,10 @@ export const logoStyles = makeStyles((theme) => ({
       [theme.breakpoints.down('md')]: {
         width: '50%',
         fontSize: '200%',
-        marginLeft: "1%",
+        marginLeft: '1%',
         marginRight: '5.5%',
         marginTop: '1%',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
       },
 
       [theme.breakpoints.down('sm')]: {
@@ -131,8 +129,8 @@ export const logoStyles = makeStyles((theme) => ({
       marginTop: '1%',
       alignItems: 'center',
       justifyContent: 'flex-end',
-      flexBasis: "20%",
-      display: "none",
+      flexBasis: '20%',
+      display: 'none',
 
       '& svg': {
         marginRight: '10%',
@@ -146,7 +144,7 @@ export const logoStyles = makeStyles((theme) => ({
         },
 
         [theme.breakpoints.down('sm')]: {
-          display: "none"
+          display: 'none',
         },
       },
 
@@ -166,29 +164,29 @@ export const logoStyles = makeStyles((theme) => ({
             width: '50px',
           },
           [theme.breakpoints.down('sm')]: {
-            display: "none"
+            display: 'none',
           },
+        },
+        [theme.breakpoints.down('md')]: {
+          display: 'flex',
+        },
+        [theme.breakpoints.down('sm')]: {
+          width: '25%',
+          flexBasis: '50%',
+        },
       },
+
       [theme.breakpoints.down('md')]: {
         display: 'flex',
+        justifyContent: 'flex-end',
+        marginTop: '1%',
       },
       [theme.breakpoints.down('sm')]: {
-        width: '25%',
-        flexBasis: '50%',
+        justifyContent: 'space-between',
+        marginTop: '3%',
       },
     },
-
-    [theme.breakpoints.down('md')]: {
-      display: "flex",
-      justifyContent: 'flex-end',
-      marginTop: "1%",
-    },
-    [theme.breakpoints.down('sm')]: {
-      justifyContent: 'space-between',
-      marginTop: '3%',
-    },
   },
-},
 }));
 
 function Logo() {
