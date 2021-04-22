@@ -1,5 +1,4 @@
 import moment from 'moment';
-
 import bbq from '../../assets/bbq.jpg';
 import cats from '../../assets/cats.jpg';
 import dogs from '../../assets/dogs.jpg';
@@ -131,4 +130,9 @@ const colors = [
 ];
 export const pickRandomColor = () => {
   return colors[Math.floor(Math.random() * colors.length)];
+};
+
+export const logout = (callback, url) => {
+  localStorage.clear();
+  callback(url);
 };

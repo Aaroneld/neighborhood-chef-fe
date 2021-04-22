@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import logoutIcon from '@iconify-icons/mdi/logout';
 import arrowLeftSquare from '@iconify-icons/bi/arrow-left-square';
+import { logout } from '../../../../utilities/functions';
 
 export const logoStyles = makeStyles((theme) => ({
   root: {
@@ -186,7 +187,7 @@ function Logo() {
         </span>
       </div>
       <div className="iconsRight">
-        <Icon icon={logoutIcon} />
+        <Icon icon={logoutIcon} style={{ cursor: 'pointer' }} onClick={() => logout(push, '/')} />
         {Object.keys(user).length > 0 && (
           <div className="avatar">
             <Avatar

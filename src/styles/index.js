@@ -497,6 +497,7 @@ export const cardStyles = makeStyles((theme) => ({
     padding: '5px',
     display: 'flex',
     alignItems: 'flex-start',
+    wordBreak: 'break-word',
   },
   singleCommentChild: {
     marginBottom: '10px',
@@ -505,6 +506,7 @@ export const cardStyles = makeStyles((theme) => ({
     marginLeft: '10%',
     display: 'flex',
     alignItems: 'flex-start',
+    wordBreak: 'break-word',
   },
   avatarContainer: {
     display: 'flex',
