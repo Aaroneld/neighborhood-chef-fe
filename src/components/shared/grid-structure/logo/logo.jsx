@@ -16,8 +16,8 @@ export const logoStyles = makeStyles((theme) => ({
     width: '100%',
     marginLeft: "2%",
 
-    [theme.breakpoints.down("xs")] : {
-    
+    [theme.breakpoints.down("md")] : {
+      justifyContent: "space-between"
     },
 
     '& .leftSideHeader': {
@@ -27,7 +27,7 @@ export const logoStyles = makeStyles((theme) => ({
       fontSize: '200%',
       fontWeight: '500',
       marginTop: '-5%',
-      marginLeft: "6%",
+      marginLeft: "4%",
       width: '100%',
       cursor: 'pointer',
       whiteSpace: 'nowrap',
@@ -42,7 +42,16 @@ export const logoStyles = makeStyles((theme) => ({
           
          "& >svg": {
            width: "37px",
-           height: "37px"
+           height: "37px",
+           marginTop: "8%"
+         }
+
+        },
+
+        [theme.breakpoints.down("xs")] : {          
+         "& >svg": {
+           width: "30px",
+           height: "30px"
          }
 
         }
@@ -65,8 +74,15 @@ export const logoStyles = makeStyles((theme) => ({
         [theme.breakpoints.down('sm')]: {
           fontSize: '4.5rem',
           transform: "translateX(50%)",
-          marginTop: "4%"
-        },
+          marginTop: "4%",
+          width: "100%",
+          height: "100px",
+          background: "rgb(88,213,115)",
+          background: "radial-gradient(circle, rgba(88,213,115,0.35) 7%, rgba(255,255,255,1) 65%)",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center"
+       },
       },
 
       '& #text': {
@@ -94,7 +110,7 @@ export const logoStyles = makeStyles((theme) => ({
       [theme.breakpoints.down('md')]: {
         width: '50%',
         fontSize: '200%',
-        marginLeft: 0,
+        marginLeft: "1%",
         marginRight: '5.5%',
         marginTop: '1%',
         justifyContent: 'center',
@@ -117,7 +133,7 @@ export const logoStyles = makeStyles((theme) => ({
       alignItems: 'center',
       justifyContent: 'flex-end',
       flexBasis: "20%",
-      display: 'none',
+      display: "none",
 
       '& svg': {
         marginRight: '10%',
@@ -128,7 +144,11 @@ export const logoStyles = makeStyles((theme) => ({
 
         [theme.breakpoints.down("sm")] : {
           marginRight: '4%',
-        }
+        },
+
+        [theme.breakpoints.down('sm')]: {
+          display: "none"
+        },
       },
 
       '& .avatar': {
@@ -147,10 +167,8 @@ export const logoStyles = makeStyles((theme) => ({
             width: '50px',
           },
           [theme.breakpoints.down('sm')]: {
-            height: '40px',
-            width: '40px',
+            display: "none"
           },
-        },
       },
       [theme.breakpoints.down('md')]: {
         display: 'flex',
@@ -162,14 +180,16 @@ export const logoStyles = makeStyles((theme) => ({
     },
 
     [theme.breakpoints.down('md')]: {
+      display: "flex",
       justifyContent: 'flex-end',
-      marginTop: "1%"
+      marginTop: "1%",
     },
     [theme.breakpoints.down('sm')]: {
       justifyContent: 'space-between',
       marginTop: "3%"
     },
   },
+},
 }));
 
 function Logo() {

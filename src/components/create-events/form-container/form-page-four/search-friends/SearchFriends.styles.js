@@ -12,6 +12,16 @@ export const searchFriendsStyles = makeStyles((theme) => ({
     padding: '30px',
     height: "70vh",
     width: '90%',
+
+    "& #userlist": {
+      width: '100%', 
+      overflowY: "hidden", 
+      overflowX: "hidden", 
+
+      "&:hover": {
+        overflowY: "scroll", 
+      }
+    }
   },
   h3: {
     fontSize: '1.8rem',

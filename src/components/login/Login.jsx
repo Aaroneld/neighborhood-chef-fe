@@ -46,13 +46,18 @@ const Login = () => {
       <AuthHeader />
       <div className={styles.landingPageContainer}>
         <Card className="card">
-          <Typography variant="h4">Let's start dining with the community.</Typography>
+          <Typography variant="h4">Let's start dining with the <span id="community">community!</span></Typography>
           <Typography variant="h6">
             Welcome to Neighborhood Chef, a powerful new tool to help you engage with your community, make
             friends, plan culinary related events, and most importantly, eat good food.
           </Typography>
+          <Typography variant="h6" id="second-paragraph">
+            It is our mission to help people engage with others in a safe and inclusive manner. Community is an 
+            important aspect of social life and food has long been the medium through which this is shared. It is our hope that this service 
+            is a small contributions to help <b>YOU</b> build your own. 
+          </Typography>
           <Typography id="bonAppetit" variant="h6">
-            Bon appétit!
+            ...Bon appétit!
           </Typography>
           <div className="buttons">
             <Button id="register" onClick={() => push('/register')}>

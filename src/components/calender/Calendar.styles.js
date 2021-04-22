@@ -19,8 +19,12 @@ export const calendarStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     paddingTop: '10px',
-    overflowY: 'scroll',
+    overflowY: 'hidden',
     height: '80vh',
+
+    "&:hover": {
+      overflowY: 'scroll',
+    }
   },
   calendarRow: {
     background: 'white',
