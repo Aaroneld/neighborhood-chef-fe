@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import VariableHeader from './header-partition-variable/headerPartitionVariable';
@@ -15,26 +15,24 @@ const styles = makeStyles((theme) => ({
     alignItems: 'center',
     width: '100%',
     height: 'inherit',
-    'header-persistent': {
-     
-    },
+    'header-persistent': {},
     'header-variable': {},
 
     '& .rightSide': {
-      width: "100%",
+      width: '100%',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'flex-end',
       marginTop: '-1.2%',
       marginRight: '3.5%',
-      flexBasis: "15%",
+      flexBasis: '15%',
       [theme.breakpoints.down('md')]: {
         display: 'none',
       },
       '& svg': {
         fontSize: '4.5rem',
         color: 'black',
-        opacity: .2,
+        opacity: 0.2,
       },
 
       '& .avatar': {
@@ -42,14 +40,13 @@ const styles = makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'flex-end',
-        width: "100%",
-       
+        width: '100%',
 
         '& >div': {
           border: '2px solid rgba(88, 212, 115, 0.3)',
           height: '45px',
           width: '45px',
-          marginLeft: "10%",
+          marginLeft: '10%',
 
           [theme.breakpoints.down('lg')]: {
             height: '50px',
@@ -61,20 +58,15 @@ const styles = makeStyles((theme) => ({
   },
 }));
 
-function Header({setEmpty}) {
+function Header({ setEmpty }) {
   const classes = styles();
   const user = useSelector((state) => state.user);
   const { push } = useHistory();
-  
 
   return (
     <div className={classes['container']}>
-      <VariableHeader 
-      className={classes['header-variable']} 
-      setEmpty={setEmpty}
-     />
+      <VariableHeader className={classes['header-variable']} setEmpty={setEmpty} />
       <div className="rightSide">
-      
         {Object.keys(user).length > 0 && (
           <div className="avatar">
             <Icon icon={logoutIcon} />

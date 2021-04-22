@@ -1,21 +1,22 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export const cardStyles = makeStyles(theme => ({
+export const cardStyles = makeStyles((theme) => ({
   root: {
-    boxShadow: '-2px 3px 31px -13px rgba(117,117,117,0.46)', 
-    height: '82vh', 
-    width: "80vw", 
-    
+    boxShadow: '-2px 3px 31px -13px rgba(117,117,117,0.46)',
+    height: '82vh',
+    width: '80vw',
+
+    [theme.breakpoints.down('lg')]: {
+      overflowY: 'scroll',
+    },
 
     [theme.breakpoints.down('md')]: {
-      width: "100vw",
-      overflowY: "scroll",
-    }
-  }
-}))
+      width: '100vw',
+    },
+  },
+}));
 
 export const headerStyles = makeStyles((theme) => ({
-
   root: {
     display: 'flex',
     justifyContent: 'space-between',
@@ -45,7 +46,7 @@ export const headerStyles = makeStyles((theme) => ({
   icon: {
     fontSize: '5rem',
     marginRight: '5px',
-    
+
     [theme.breakpoints.down('sm')]: {
       display: 'none',
     },
@@ -53,10 +54,10 @@ export const headerStyles = makeStyles((theme) => ({
   h3: {
     fontSize: '140%',
     fontWeight: '200',
-    paddingLeft: "8%",
+    paddingLeft: '8%',
 
-    [theme.breakpoints.down("lg")]: {
-      fontSize: "120%"
+    [theme.breakpoints.down('lg')]: {
+      fontSize: '120%',
     },
 
     [theme.breakpoints.down('sm')]: {

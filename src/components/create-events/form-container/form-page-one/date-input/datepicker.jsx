@@ -87,6 +87,7 @@ export default function DatePicker({ setDate }) {
         selectDate < 10 ? '0' : ''
       }${selectedDate}`
     );
+    // eslint-disable-next-line
   }, [selectedDate]);
 
   return (

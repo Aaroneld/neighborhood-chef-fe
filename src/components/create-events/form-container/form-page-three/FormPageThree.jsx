@@ -13,7 +13,9 @@ import { changePage } from '../../../../utilities/actions';
 import { useDispatch } from 'react-redux';
 
 const FormPageThree = (props) => {
-  const styles = formPageThreeStyles({image: props.values.photo || chooseDefaultPicture(props.values.title.charAt(0))});
+  const styles = formPageThreeStyles({
+    image: props.values.photo || chooseDefaultPicture(props.values.title.charAt(0)),
+  });
   const dispatch = useDispatch();
 
   return (
@@ -23,7 +25,7 @@ const FormPageThree = (props) => {
       </h3>
       <div className={styles.cardContainer}>
         <div className={styles.card}>
-          <div className={styles.img} id="form-confirm-image" alt="Event Page 3 Img"/>
+          <div className={styles.img} id="form-confirm-image" alt="Event Page 3 Img" />
           <div className={styles.text}>
             <h4 className={styles.h4} id="title">
               {props.values.title.length < 22 ? props.values.title : `${props.values.title.slice(0, 22)}...`}
@@ -48,22 +50,28 @@ const FormPageThree = (props) => {
                 <h4 className={styles.h4}>Hashtags</h4>
                 <div className={styles.modifier} id="hashtags">
                   {props.values.hashtags.map((hashtag) => {
-                    return <Hashtag key={hashtag} hashtag={hashtag} values={props.values} setValues={props.setValues} />;
+                    return (
+                      <Hashtag
+                        key={hashtag}
+                        hashtag={hashtag}
+                        values={props.values}
+                        setValues={props.setValues}
+                      />
+                    );
                   })}
                 </div>
               </div>
-        )}
+            )}
           </div>
         </div>
 
-        <div>
+        <div style={{ width: '100%' }}>
           <h4 id="description-header">Description</h4>
           <p id="description">{props.values.description}</p>
         </div>
         <DisplayEventModifiers values={props.values} setValues={props.setValues} />
       </div>
       <EventButtons
-        
         leftBtnText="Previous"
         leftBtnClick={() => {
           dispatch(changePage(2));

@@ -100,9 +100,13 @@ const UserBioForm = ({ user, setUser, setShowForm, loggedInUserId, state, setSta
           Cancel
         </button>
         <button
-          style={{ opacity: !state.biography ? '.3' : '1' }}
           disabled={!state.biography}
-          style={{ background: '#58D573', color: 'white', border: '#58D573' }}
+          style={{
+            background: '#58D573',
+            color: 'white',
+            border: '#58D573',
+            opacity: !state.biography ? '.3' : '1',
+          }}
           className={`${btnStyles.root}`}
         >
           Submit
