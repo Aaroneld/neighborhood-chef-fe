@@ -66,7 +66,7 @@ export const styles = makeStyles((theme) => ({
         flexDirection: 'column',
         width: (props) => (props.user && props.user.UserEvents.owned.length > 0 ? '50%' : '100%'),
         marginRight: '1%',
-        maxHeight: '73vh',
+        height: '70vh',
 
         [theme.breakpoints.down('md')]: {
           width: () => '100%',
@@ -118,7 +118,7 @@ export const styles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         borderRadius: '5px',
-        height: '50vh',
+        height: '70vh',
         marginTop: '16px',
         [theme.breakpoints.down('md')]: {
           width: '100%',
