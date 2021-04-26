@@ -231,6 +231,7 @@ export const formPageThreeStyles = makeStyles((theme) => ({
       width: '82%',
       marginTop: '10px',
       height: '100px',
+      alignSelf: 'center',
     },
     [theme.breakpoints.down('695')]: {
       width: '96%',
