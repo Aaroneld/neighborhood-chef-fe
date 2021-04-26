@@ -89,6 +89,7 @@ export const formPageOneStyles = makeStyles((theme) => ({
     borderRadius: '15px',
     margin: '40px 0',
     padding: '10px 15px',
+    background: "white",
 
     [theme.breakpoints.down("lg")] : {
       margin: "1%"
@@ -113,6 +114,7 @@ export const formPageOneStyles = makeStyles((theme) => ({
     borderRadius: '15px',
     outline: 'none',
     fontSize: '1.6rem',
+   
     width: '90%',
     '&::placeholder': {
       color: '#b7b7b7',

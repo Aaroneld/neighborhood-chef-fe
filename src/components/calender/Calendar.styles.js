@@ -99,9 +99,10 @@ export const calendarStyles = makeStyles((theme) => ({
   },
   rightSideCalendar: {
     display: 'flex',
-    background: '#f2f2f2',
+    background: 'transparent',
+    boxShadow: '-2px 3px 31px -13px rgba(117,117,117,0.46)',
     height: '80vh',
-    borderRadius: '10px',
+    borderRadius: '20px',
     padding: '10px',
     marginTop: '10px',
     width: '33%',
@@ -140,6 +141,8 @@ export const cardStyles = makeStyles((theme) => ({
   fullEvent: {
     maxWidth: '100%',
     height: 'calc(100% - 24px)',
+    background: "transparent",
+    boxShadow: "none"
   },
   addressContainer: {
     display: 'flex',
