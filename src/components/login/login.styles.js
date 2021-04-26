@@ -43,7 +43,7 @@ export const landingPageStyles = makeStyles((theme) => ({
       },
 
       [theme.breakpoints.down('sm')]: {
-        height: '75vh',
+        height: '100%',
         transform: 'translate(0, 0)',
         width: '85%',
       },
