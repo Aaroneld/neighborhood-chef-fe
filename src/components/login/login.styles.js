@@ -34,6 +34,12 @@ export const landingPageStyles = makeStyles((theme) => ({
         width: '42%',
         height: '80vh',
         transform: 'translate(-55%, -5%)',
+        overflowY: 'scroll',
+        msOverflowStyle: 'none' /* Hide scrollbar for IE and Edge */,
+        scrollbarWidth: 'none' /* Hide scrollbar for Firefox */,
+        '&::-webkit-scrollbar': {
+          display: 'none' /* Hide scrollbar for Chrome, Safari and Opera */,
+        },
       },
 
       [theme.breakpoints.down('md')]: {
@@ -88,6 +94,10 @@ export const landingPageStyles = makeStyles((theme) => ({
         opacity: 0.9,
         marginTop: '4%',
         fontWeight: '400',
+
+        [theme.breakpoints.down('lg')]: {
+          fontSize: '120%',
+        },
 
         [theme.breakpoints.down('md')]: {
           fontSize: '170%',
