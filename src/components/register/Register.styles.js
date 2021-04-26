@@ -73,20 +73,22 @@ export const styles = makeStyles((theme) => ({
         height: '80vh',
       },
     },
+  
     '& .register-map, .overlays': {
       overflow: 'hidden',
       position: 'relative',
       left: '50%',
-      transform: 'translate(-50%, -79%)',
+      transform: 'translate(-50%, -82%)',
       height: '92vh',
       zIndex: '0',
-      [theme.breakpoints.down('lg')]: {
-        transform: 'translate(-50%, -75%)',
-      },
-
-      // [theme.breakpoints.down('md')]: {
-      //   transform: 'translate(-50%, -57.3%)',
+      // [theme.breakpoints.down('lg')]: {
+      //    height: '92vh',
+      //   transform: 'translate(-50%, -75%)',
       // },
+
+      [theme.breakpoints.down('md')]: {
+        transform: 'translate(-50%, -78.3%)',
+      },
 
       // [theme.breakpoints.down('sm')]: {
       //   transform: 'translate(-50%, -200%)',

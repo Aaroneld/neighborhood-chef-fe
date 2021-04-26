@@ -16,7 +16,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Typography from '@material-ui/core/Typography';
 
-import ReactMapGL, { Marker } from 'react-map-gl';
+import ReactMapGL, { Marker, InteractiveMap } from 'react-map-gl';
+import * as MapboxGl from 'mapbox-gl';
 
 import useForm from '../../hooks/useForm';
 import * as yup from 'yup';
@@ -34,7 +35,7 @@ const Register = () => {
     longitude: -30,
     zoom: 2,
     width: '100vw',
-    height: '96vh',
+    height: "93vh"
   })
 
   const { values, setValues, validate, errors } = useForm(
@@ -80,6 +81,7 @@ const Register = () => {
   };
 
   const classnames = styles();
+
 
   return (
     <div>
@@ -129,18 +131,22 @@ const Register = () => {
             </CardActions>
           </Card>
         </div>
-        {true && (
-          <ReactMapGL
+        <div className="map-container">
+          <InteractiveMap
             id="register-map"
             className={'register-map'}
             mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
+            containerStyles
             // latitude={values.latitude || 0}
             // longitude={values.longitude || -30}
             // zoom={values.latitude ? 16 : 2}
             // {...mapStyle}
             {...viewport} 
             mapStyle="mapbox://styles/aaroneld/ckmo07imp12x617o7q66m3hwm"
-            onViewportChange={setViewport}
+            onViewportChange={setViewport}     
+            scrollZoom={false}
+            dragPan={false}
+            dragRotate={false}   
           >
             <Marker
               longitude={values.longitude || 0}
@@ -152,8 +158,8 @@ const Register = () => {
                 <Icon width="2em" icon={chefIcon} />
               </span>
             </Marker>
-          </ReactMapGL>
-        )}
+          </InteractiveMap>
+        </div>
       </div>
     </div>
   );
