@@ -113,7 +113,7 @@ const createOrUpdateEvent = (values, user, dispatch, setValues) => {
 const FormContainer = () => {
   const styles = formContainerStyles();
   const user = useSelector((state) => state.user);
-  const [initialValues, setInitialValues] = useState(testValues);
+  const [initialValues, setInitialValues] = useState(initValuesForNonEditMode);
   const [loadedFlag, flag] = useState(0);
   const [loaded, setLoaded] = useState(false);
   const page = useSelector((state) => state.page);

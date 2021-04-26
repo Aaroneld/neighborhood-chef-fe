@@ -90,9 +90,9 @@ export const authHeaderStyles = makeStyles((theme) => ({
         display: 'none',
       },
     },
-    // [theme.breakpoints.down('lg')]: {
-    //   height: '10vh',
-    // },
+    [theme.breakpoints.down('lg')]: {
+      height: '10vh',
+    },
 
     [theme.breakpoints.down('md')]: {
       justifyContent: 'space-between',

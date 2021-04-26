@@ -4,8 +4,8 @@ import tabImage from '../../../assets/tab.svg';
 export const DashboardTabStyles = makeStyles((theme) => ({
   container: {
     margin: '-9%',
-    marginLeft: "-15%",
-    marginTop: "-8.8%",
+    marginLeft: '-15%',
+    marginTop: '-8.8%',
     maxWidth: '79vw',
     width: '55%',
     height: '5vw',
@@ -13,29 +13,28 @@ export const DashboardTabStyles = makeStyles((theme) => ({
     position: 'absolute',
 
     [theme.breakpoints.down('lg')]: {
-      marginTop: "-9.4%"
+      marginTop: '-9.4%',
     },
 
     [theme.breakpoints.down('lgmd')]: {
-      marginTop: "-8.4%"
+      marginTop: '-8.4%',
     },
 
-    [theme.breakpoints.down('md')] : {
-      width: "90%",
-      maxWidth: "100%",
-      marginLeft: "-10%",
-      marginTop: "-6.8%"
+    [theme.breakpoints.down('md')]: {
+      width: '90%',
+      maxWidth: '100%',
+      marginLeft: '-10%',
+      marginTop: '-6.8%',
     },
 
     [theme.breakpoints.down('sm')]: {
       maxWidth: '100vw',
-      marginTop: "-10%"
+      marginTop: '-10%',
     },
 
-    
     [theme.breakpoints.down('xs')]: {
-      marginTop: "-15%",
-      marginLeft: "-10.5%"
+      marginTop: '-15%',
+      marginLeft: '-10.5%',
     },
   },
   tabs: {
@@ -74,9 +73,9 @@ export const DashboardTabStyles = makeStyles((theme) => ({
         },
       },
 
-      [theme.breakpoints.down("md")]: {
-        width: "100%",
-        height: "4.5vw",
+      [theme.breakpoints.down('md')]: {
+        width: '100%',
+        height: '4.5vw',
         left: (props) => {
           if (props.currentTab === 1) return '-.5%';
           else if (props.currentTab === 2) return '33%';
@@ -84,21 +83,21 @@ export const DashboardTabStyles = makeStyles((theme) => ({
         },
       },
 
-      [theme.breakpoints.down("xs")]: {
-        height: "5.5vw",
+      [theme.breakpoints.down('xs')]: {
+        height: '5.5vw',
         left: (props) => {
           if (props.currentTab === 1) return '-4%';
           else if (props.currentTab === 2) return '30%';
           else return '62.5%';
         },
-      }
+      },
     },
     [theme.breakpoints.down('lg')]: {
       width: '100%',
       marginTop: '.3%',
     },
 
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down('md')]: {
       marginTop: '-1.6%',
     },
 
@@ -110,40 +109,39 @@ export const DashboardTabStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('xs')]: {
       marginTop: '-2.4%',
     },
-
   },
   tab: {
-    fontSize: "140%",
+    fontSize: '140%',
     color: 'black',
-    opacity: .5,
+    opacity: 0.5,
     padding: '.25% 7% 4% 7%',
-    fontWeight: "200",
+    fontWeight: '200',
 
     [theme.breakpoints.down('lg')]: {
-      fontSize: "120%",
-      padding: "0% 7% 4% 7%"
+      fontSize: '120%',
+      padding: '0% 7% 4% 7%',
     },
 
     [theme.breakpoints.down('md')]: {
-     marginTop: "-.25%",
-     fontSize: "130%",
-     padding: ".5% 7% 4% 7%"
+      marginTop: '-.25%',
+      fontSize: '130%',
+      padding: '.5% 7% 4% 7%',
     },
 
     [theme.breakpoints.down('sm')]: {
-      fontSize: "95%",
-      whiteSpace: "nowrap",
-     },
+      fontSize: '95%',
+      whiteSpace: 'nowrap',
+    },
 
-     [theme.breakpoints.down('xs')]: {
-      fontSize: "80%" ,
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '80%',
       paddingLeft: 0,
       paddingRight: 0,
-      paddingTop: 0
-     }
+      paddingTop: 0,
+    },
   },
   currentTab: {
     color: 'white',
-    opacity: 1
+    opacity: 1,
   },
 }));

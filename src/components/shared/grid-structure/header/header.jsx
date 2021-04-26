@@ -42,6 +42,7 @@ const styles = makeStyles((theme) => ({
         alignItems: 'center',
         justifyContent: 'flex-end',
         width: '100%',
+        zIndex: '2',
 
         '& >div': {
           border: '2px solid rgba(88, 212, 115, 0.3)',

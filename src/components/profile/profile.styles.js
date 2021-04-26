@@ -10,8 +10,6 @@ export const styles = makeStyles((theme) => ({
     boxShadow: 'none',
     borderTopRightRadius: '0',
     background: 'transparent',
-    // maxHeight: '82vh',
-    // overflowY: "hidden",
 
     '& .header': {
       display: 'flex',
