@@ -241,7 +241,7 @@ export const cardStyles = makeStyles((theme) => ({
     maxHeight: '60%',
     maxWidth: '390px',
     [theme.breakpoints.down('lg')]: {
-      maxHeight: '80%',
+      maxHeight: '90%',
     },
     [theme.breakpoints.down('xs')]: {
       maxHeight: '100%',
