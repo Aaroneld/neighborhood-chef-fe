@@ -13,18 +13,20 @@ export const styles = makeStyles((theme) => ({
     height: '100%',
     borderRadius: '20px',
     borderTopRightRadius: '0',
-    background: "transparent",
+    background: 'transparent',
+    overflowX: 'hidden',
 
     '& .container': {
       display: 'flex',
       flexDirection: 'column',
       width: '100%',
       alignItems: 'center',
+      overflowX: 'hidden',
     },
 
-    [theme.breakpoints.down("md")]: {
-      width: "100vw"
-    }
+    [theme.breakpoints.down('md')]: {
+      width: '100vw',
+    },
   },
 }));
 

@@ -238,8 +238,14 @@ export const cardStyles = makeStyles((theme) => ({
     boxShadow: '-2px 3px 31px -13px rgba(117,117,117,0.46)',
   },
   dashboard: {
-    maxHeight: '90%',
+    maxHeight: '60%',
     maxWidth: '390px',
+    [theme.breakpoints.down('lg')]: {
+      maxHeight: '80%',
+    },
+    [theme.breakpoints.down('xs')]: {
+      maxHeight: '100%',
+    },
   },
   eventDetailsContainer: {
     width: '100%',
