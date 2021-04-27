@@ -1,13 +1,9 @@
 import React from 'react';
 import moment from 'moment';
-
 import DisplayEventModifiers from './display-event-modifiers/DisplayEventModifiers';
 import Hashtag from '../form-page-two/add-hashtag/hashtag/Hashtag';
 import EventButtons from '../event-buttons/EventButtons';
-import { scrollToTop } from '../form-page-one/FormPageOne.jsx';
-
 import { convertTime, chooseDefaultPicture } from '../../../../utilities/functions';
-
 import { formPageThreeStyles } from './FormPageThree.styles';
 import { changePage } from '../../../../utilities/actions';
 import { useDispatch } from 'react-redux';
@@ -75,7 +71,6 @@ const FormPageThree = (props) => {
         leftBtnText="Previous"
         leftBtnClick={() => {
           dispatch(changePage(2));
-          scrollToTop();
         }}
         rightBtnText="Done"
         rightBtnClick={props.handleSubmit}

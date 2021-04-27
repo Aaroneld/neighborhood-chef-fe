@@ -6,21 +6,15 @@ import bottleWine from '@iconify/icons-mdi/bottle-wine';
 import dogIcon from '@iconify/icons-whh/dog';
 import icon18Plus from '@iconify/icons-uil/18-plus';
 import foodApple from '@iconify/icons-mdi/food-apple';
-
 import EventImageUpload from '../../../shared/event-image-upload/EventImageUpload';
 import Modifier from './modifier/Modifier.jsx';
 import AddHashtag from './add-hashtag/AddHashtag.jsx';
 import EventButtons from '../event-buttons/EventButtons';
-import { scrollToTop } from '../form-page-one/FormPageOne.jsx';
-
 import AllergyModifier from './allergies-modifiers.jsx/allergies-modifiers';
-
 import Typography from '@material-ui/core/Typography';
-
 import { formPageTwoStyles } from './FormPageTwo.styles';
 import { changePage } from '../../../../utilities/actions';
 import { useDispatch } from 'react-redux';
-
 import peanutIcon from '@iconify-icons/mdi/peanut';
 import crabIcon from '@iconify-icons/emojione-monotone/crab';
 import eggsIcon from '@iconify-icons/jam/eggs';
@@ -112,12 +106,10 @@ const FormPageTwo = (props) => {
         leftBtnText="Previous"
         leftBtnClick={() => {
           dispatch(changePage(1));
-          scrollToTop();
         }}
         rightBtnText="Next"
         rightBtnClick={() => {
           dispatch(changePage(3));
-          scrollToTop();
         }}
       />
     </>

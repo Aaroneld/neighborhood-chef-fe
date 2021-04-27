@@ -13,13 +13,6 @@ import EventButtons from '../event-buttons/EventButtons';
 import { changePage } from '../../../../utilities/actions';
 import { useDispatch } from 'react-redux';
 
-export const scrollToTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth',
-  });
-};
-
 const FormPageOne = ({ errors, values, setValues, validate }) => {
   const { push } = useHistory();
   const styles = formPageOneStyles();
@@ -30,7 +23,6 @@ const FormPageOne = ({ errors, values, setValues, validate }) => {
 
     if (isValid) {
       dispatch(changePage(2));
-      scrollToTop();
     }
   };
 
