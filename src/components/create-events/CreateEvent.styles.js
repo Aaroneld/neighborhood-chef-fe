@@ -6,7 +6,12 @@ export const cardStyles = makeStyles((theme) => ({
     height: '82vh',
     width: '80vw',
     background: 'transparent',
+    overflowY: "hidden",
 
+    "&:hover": {
+      overflowY: "scroll"
+    },
+  
     [theme.breakpoints.down('lg')]: {
       overflowY: 'scroll',
     },
