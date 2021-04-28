@@ -38,7 +38,16 @@ const Register = () => {
   });
 
   const { values, setValues, validate, errors } = useForm(
-    { email: '', address: '', longitude: null, latitude: null, gender: '', firstName: '', lastName: '' },
+    {
+      email: '',
+      address: '',
+      longitude: null,
+      latitude: null,
+      gender: '',
+      firstName: '',
+      lastName: '',
+      photo: null,
+    },
     yup.object().shape({
       email: yup.string().email().required(),
       address: yup.string().required(),
