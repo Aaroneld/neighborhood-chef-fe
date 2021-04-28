@@ -7,7 +7,8 @@ export const cardStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     marginLeft: '2%',
     [theme.breakpoints.down('sm')]: {
-      marginLeft: '0',
+      marginLeft: '-1%',
+      width: '100%',
     },
 
     '& img': {
@@ -47,7 +48,6 @@ export const cardStyles = makeStyles((theme) => ({
       },
       [theme.breakpoints.down('sm')]: {
         width: '80%',
-        marginLeft: '10%',
         justifyContent: 'center',
         '& a, & p, & span': {
           textAlign: 'center',
