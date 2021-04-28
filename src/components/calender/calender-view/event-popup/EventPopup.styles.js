@@ -6,6 +6,9 @@ export const cardStyles = makeStyles((theme) => ({
     width: '90%',
     justifyContent: 'center',
     marginLeft: '2%',
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: '0',
+    },
 
     '& img': {
       maxWidth: '30%',
