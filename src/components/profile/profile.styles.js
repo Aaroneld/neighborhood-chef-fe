@@ -68,6 +68,7 @@ export const styles = makeStyles((theme) => ({
 
         [theme.breakpoints.down('md')]: {
           width: () => '100%',
+          height: '100%',
         },
 
         '& .details': {

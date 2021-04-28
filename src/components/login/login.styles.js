@@ -44,13 +44,12 @@ export const landingPageStyles = makeStyles((theme) => ({
 
       [theme.breakpoints.down('md')]: {
         width: '90%',
-        transform: 'translate(0%,0%)',
+        transform: 'translate(0%, 0%)',
         padding: '5%',
       },
 
       [theme.breakpoints.down('sm')]: {
-        height: '100%',
-        transform: 'translate(0, 0)',
+        height: '90%',
         width: '85%',
       },
 
