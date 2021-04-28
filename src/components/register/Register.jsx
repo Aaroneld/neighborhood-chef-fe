@@ -25,7 +25,6 @@ import * as yup from 'yup';
 import axios from 'axios';
 
 const Register = () => {
-
   const [stepper, setStepper] = useState(1);
   const [submitted, setSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -35,11 +34,20 @@ const Register = () => {
     longitude: -30,
     zoom: 2,
     width: '100vw',
-    height: "93vh"
-  })
+    height: '93vh',
+  });
 
   const { values, setValues, validate, errors } = useForm(
-    { email: '', address: '', longitude: null, latitude: null, gender: '', firstName: '', lastName: '' },
+    {
+      email: '',
+      address: '',
+      longitude: null,
+      latitude: null,
+      gender: '',
+      firstName: '',
+      lastName: '',
+      photo: null,
+    },
     yup.object().shape({
       email: yup.string().email().required(),
       address: yup.string().required(),
@@ -81,7 +89,6 @@ const Register = () => {
   };
 
   const classnames = styles();
-
 
   return (
     <div>
@@ -141,12 +148,12 @@ const Register = () => {
             // longitude={values.longitude || -30}
             // zoom={values.latitude ? 16 : 2}
             // {...mapStyle}
-            {...viewport} 
+            {...viewport}
             mapStyle="mapbox://styles/aaroneld/ckmo07imp12x617o7q66m3hwm"
-            onViewportChange={setViewport}     
+            onViewportChange={setViewport}
             scrollZoom={false}
             dragPan={false}
-            dragRotate={false}   
+            dragRotate={false}
           >
             <Marker
               longitude={values.longitude || 0}

@@ -44,6 +44,7 @@ export const styles = makeStyles((theme) => ({
 
     '& h6': {
       textDecoration: 'underline',
+      fontWeight: 'bold',
     },
 
     '& h4': {
