@@ -70,6 +70,7 @@ const EventDetails = ({ event, attending, setAttending }) => {
         hashtags: event.hashtags ? event.hashtags : [],
         allergenWarnings: event.allergenWarnings ? event.allergenWarnings : [],
         dietaryWarnings: event.dietaryWarnings ? event.dietaryWarnings : [],
+        photo: event.photo,
       },
       'secret'
     );

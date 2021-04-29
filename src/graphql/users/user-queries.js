@@ -14,10 +14,12 @@ longitude
 modifiers
 hashtags
 status
+photo
 User {
     id
     firstName
     lastName
+    photo
 }
 EventUsers {
     attending {
@@ -29,6 +31,7 @@ EventUsers {
         longitude
         latitude
         status
+        photo
     }
     invited {
         id
@@ -39,6 +42,7 @@ EventUsers {
         longitude
         latitude
         status
+        photo
     }
 }`;
 
@@ -71,6 +75,7 @@ export const USER_BY_EMAIL = gql`
             latitude
             longitude
             biography
+            photo
             UserEvents {
                 attending {
                     ${getBYEmailEventString}
@@ -101,6 +106,7 @@ export const RECENT_EVENTS = gql`
                         firstName
                         lastName
                         status
+                        photo
                     }
                     ${getBYEmailEventString}
                 }
@@ -110,6 +116,7 @@ export const RECENT_EVENTS = gql`
                         firstName
                         lastName
                         status
+                        photo
                     }
                     ${getBYEmailEventString}
                 }
@@ -120,6 +127,7 @@ export const RECENT_EVENTS = gql`
                         firstName
                         lastName
                         status
+                        photo
                     }
                     ${getBYEmailEventString}
                 }
@@ -140,6 +148,7 @@ export const USER_BY_ID = gql`
             latitude
             longitude
             biography
+            photo
             UserEvents {
                 attending {
                     ${getBYEmailEventString}

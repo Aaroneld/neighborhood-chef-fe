@@ -61,13 +61,11 @@ function GridStructure(props) {
       <div className={classes['Sidebar']}>
         <Sidebar active={urlLocation} />
       </div>
-      <div className={classes['Header']} 
-           style={{display: `${isEmpty ? "none" : "block"}`}}
-      >
-        <Header setEmpty={setEmpty}/>
+      <div className={classes['Header']} style={{ display: `${isEmpty ? 'none' : 'block'}` }}>
+        <Header setEmpty={setEmpty} />
       </div>
       <div className={classes['Variable']}>
-        <VariableMainContent {...props} active={urlLocation}/>
+        <VariableMainContent {...props} active={urlLocation} />
       </div>
     </div>
   );
