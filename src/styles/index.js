@@ -226,9 +226,8 @@ export const cardStyles = makeStyles((theme) => ({
     margin: '8px',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-between',
     width: 'calc(100% - 36px)',
-    padding: '5px',
+    padding: '2.5% 5% 5% 5%',
     overflowY: 'auto',
     wordWrap: 'break-word',
     borderRadius: '20px',
@@ -236,6 +235,8 @@ export const cardStyles = makeStyles((theme) => ({
     '&::-webkit-scrollbar': { display: 'none' },
     '-ms-overflow-style': 'none',
     boxShadow: '-2px 3px 31px -13px rgba(117,117,117,0.46)',
+    zIndex: 1,
+    position: 'relative',
   },
   dashboard: {
     maxHeight: '60%',
@@ -257,6 +258,13 @@ export const cardStyles = makeStyles((theme) => ({
   addressContainer: {
     display: 'flex',
     alignItems: 'center',
+
+    '&  a': {
+      alignSelf: 'center',
+      justifySelf: 'center',
+      marginLeft: '5%',
+      whiteSpace: 'nowrap',
+    },
   },
   statusButtonContainer: {
     display: 'flex',
@@ -308,24 +316,75 @@ export const cardStyles = makeStyles((theme) => ({
     opacity: '.5',
   },
   img: {
-    width: '100%',
-    paddingTop: '56.25%',
+    width: '50%',
+    position: 'relative',
     backgroundImage: (props) => `url(${props.img})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    borderRadius: '20px',
+    backgroundSize: '100% 66%',
+    backgroundPosition: 'top center',
+    backgroundRepeat: 'no-repeat',
+  },
+  imageAndContent: {
+    display: 'flex',
+  },
+  contentContainer: {
+    padding: '0 2%',
+    width: '50%',
+
+    '& >h6:first-child': {
+      marginTop: '-2%',
+    },
+
+    '& >*': {
+      margin: '4%',
+    },
+  },
+  eventDetailsModifier: {
+    '& .modifier': {
+      '& .modifier-icon': {
+        width: '40px !important',
+        height: '40px !important',
+
+        '& svg': {
+          fontSize: '2rem !Important',
+        },
+      },
+
+      '& p': {
+        display: 'none !important',
+      },
+    },
+  },
+  iconsContainer: {
+    display: 'flex',
+    position: 'absolute',
+    top: '5%',
+    right: '5%',
   },
   dashboardImg: {
     maxHeight: '20%',
   },
   description: {
-    margin: '5px 0',
+    margin: '2.5% 0',
     fontWeight: '700',
     wordBreak: 'break-word',
+  },
+  avatarGroup: {
+    marginBottom: '2.5%',
+  },
+  detailsContainer: {
+    display: 'flex',
+    justifyContent: 'space-around',
   },
   iconTextContainer: {
     display: 'flex',
     margin: '5px 0',
+
+    '& p': {
+      alignSelf: 'center',
+      justifySelf: 'center',
+      marginLeft: '5%',
+      whiteSpace: 'nowrap',
+    },
   },
   span: {
     marginRight: '5px',
