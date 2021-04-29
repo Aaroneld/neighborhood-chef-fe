@@ -95,7 +95,7 @@ const RecentCard = (props) => {
       <CardMedia
         className={classes.dashboardImg}
         component="img"
-        src={props.User.photo ? props.User.photo : chooseDefaultPicture(props.title.charAt(0))}
+        src={props.photo ? props.photo : chooseDefaultPicture(props.title.charAt(0))}
         title="Recent Card Event Photo"
       />
 
