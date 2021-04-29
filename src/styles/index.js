@@ -227,7 +227,7 @@ export const cardStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     width: 'calc(100% - 36px)',
-    padding: '2.5% 5% 5% 5%',
+    padding: '1.5% 5% 5% 5%',
     overflowY: 'auto',
     wordWrap: 'break-word',
     borderRadius: '20px',
@@ -250,6 +250,7 @@ export const cardStyles = makeStyles((theme) => ({
   },
   eventDetailsContainer: {
     width: '100%',
+    background: 'transparent',
     [theme.breakpoints.down('md')]: {
       width: '100%',
       maxWidth: '100%',
@@ -319,9 +320,11 @@ export const cardStyles = makeStyles((theme) => ({
     width: '50%',
     position: 'relative',
     backgroundImage: (props) => `url(${props.img})`,
-    backgroundSize: '100% 66%',
+    backgroundSize: '100% 100%',
     backgroundPosition: 'top center',
     backgroundRepeat: 'no-repeat',
+    boxShadow: '5px 5px 12px 1px rgba(25,25,25,0.28)',
+    borderRadius: '20px',
   },
   imageAndContent: {
     display: 'flex',
@@ -335,17 +338,20 @@ export const cardStyles = makeStyles((theme) => ({
     },
 
     '& >*': {
-      margin: '4%',
+      marginBottom: '4%',
     },
+  },
+  modifierContainer: {
+    marginTop: '-2%',
   },
   eventDetailsModifier: {
     '& .modifier': {
       '& .modifier-icon': {
-        width: '40px !important',
-        height: '40px !important',
+        width: '43px !important',
+        height: '43px !important',
 
         '& svg': {
-          fontSize: '2rem !Important',
+          fontSize: '2.4rem !Important',
         },
       },
 
@@ -360,6 +366,19 @@ export const cardStyles = makeStyles((theme) => ({
     top: '5%',
     right: '5%',
   },
+  hashtags: {
+    display: 'flex',
+    flexDirection: 'row',
+    width: '100%',
+    flexWrap: 'wrap',
+    '& .hashtags': {
+      padding: '0% 1%',
+    },
+
+    '& p': {
+      fontSize: '75%',
+    },
+  },
   dashboardImg: {
     maxHeight: '20%',
   },
@@ -367,6 +386,10 @@ export const cardStyles = makeStyles((theme) => ({
     margin: '2.5% 0',
     fontWeight: '700',
     wordBreak: 'break-word',
+
+    '& p': {
+      fontWeight: 300,
+    },
   },
   avatarGroup: {
     marginBottom: '2.5%',
@@ -402,6 +425,12 @@ export const cardStyles = makeStyles((theme) => ({
   fullEvent: {
     width: '97%',
     height: '100%',
+    background: 'transparent',
+
+    '& h6': {
+      opacity: 0.6,
+    },
+
     [theme.breakpoints.down('md')]: {
       height: 'calc(100% - 16px)',
     },
