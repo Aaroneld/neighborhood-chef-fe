@@ -3,13 +3,14 @@ import { formPageOneStyles } from '../FormPageOne.styles';
 import { ErrorMessage } from '@hookform/error-message';
 import DatePicker from './datepicker';
 
-export default function DateInput({ errors, setValues, validate }) {
+export default function DateInput({ errors, setValues, validate, values }) {
   const styles = formPageOneStyles();
 
   return (
     <>
       <div className={styles.timeDiv} id="date-div">
         <DatePicker
+          values={values}
           setDate={(date) => {
             setValues((values) => ({ ...values, date }));
           }}

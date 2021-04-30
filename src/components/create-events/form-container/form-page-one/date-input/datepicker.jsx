@@ -19,23 +19,39 @@ MONTHS[9] = 'October';
 MONTHS[10] = 'November';
 MONTHS[11] = 'December';
 
-export default function DatePicker({ setDate }) {
+export default function DatePicker({ setDate, values }) {
+  console.log('values', values);
   const classnames = styles();
   const DAYS_OF_THE_WEEK = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
 
   const [currentSelectedMonth, setSelectedMonth] = useState(() => {
-    const currentDate = new Date();
-    return currentDate.getMonth();
+    if (!values.date) {
+      const currentDate = new Date();
+      return currentDate.getMonth();
+    } else {
+      return new Date(values.date).getMonth();
+    }
   });
 
   const [currentSelectedYear, setSelectedYear] = useState(() => {
-    const currentDate = new Date();
-    return currentDate.getFullYear();
+    if (!values.date) {
+      const currentDate = new Date();
+      return currentDate.getFullYear();
+    } else {
+      return new Date(values.date).getFullYear();
+    }
   });
 
   const [currentDaysInMonth, setCurrentDaysInMonth] = useState(null);
 
-  const [selectedDate, setSelectedDate] = useState(1);
+  const [selectedDate, setSelectedDate] = useState(() => {
+    if (!values.date) {
+      const currentDate = new Date();
+      return currentDate.getDate() + 1;
+    } else {
+      return new Date(values.date).getDate();
+    }
+  });
 
   const [open, setOpen] = useState(false);
 
@@ -44,7 +60,13 @@ export default function DatePicker({ setDate }) {
   };
 
   useEffect(() => {
-    setSelectedDate(1);
+    if (currentSelectedMonth === new Date().getMonth() && !values.date) {
+      setSelectedDate(new Date().getDate());
+    } else if (values.date && new Date(values.date).getMonth() === currentSelectedMonth) {
+      setSelectedDate(new Date(values.date).getDate() + 1);
+    } else if (currentSelectedMonth !== new Date().getMonth()) {
+      setSelectedDate(1);
+    }
     let date = new Date(currentSelectedYear, currentSelectedMonth, 1);
     const firstDay = date.getDay();
     let lastDay = '';
