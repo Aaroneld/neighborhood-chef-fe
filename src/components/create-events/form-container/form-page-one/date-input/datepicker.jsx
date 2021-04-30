@@ -110,7 +110,7 @@ export default function DatePicker({ setDate, values }) {
       }${selectedDate}`
     );
     // eslint-disable-next-line
-  }, [selectedDate]);
+  }, [selectedDate, currentSelectedYear]);
 
   return (
     <div
