@@ -13,7 +13,7 @@ import AvatarGroup from '@material-ui/lab/AvatarGroup';
 
 const ParticipantCard = ({ attending }) => {
   const classes = cardStyles();
-  const currentUserId = useSelector(state => state.user.id)
+  const currentUserId = useSelector((state) => state.user.id);
   const testAvatar = [
     {
       firstName: 'Aaron',
@@ -37,34 +37,36 @@ const ParticipantCard = ({ attending }) => {
     <>
       <Card className={`${classes.root} ${classes.participants}`}>
         {testAvatar && attending.length > 0 ? (
-          <CardContent className={classes.cardContent + " " + classes.avatarGroup}>
+          <CardContent className={classes.cardContent + ' ' + classes.avatarGroup}>
             <AvatarGroup max={4}>
-              {attending.filter(user => user.id !== currentUserId).map((user) => {
-                return (
-                  <Link
-                    to={`/profile/${user.id}`}
-                    style={{ border: 'none', background: 'transparent', overflow: 'hidden' }}
-                  >
-                    <Avatar
-                      key={user.id}
-                      title={`${user.firstName} ${user.lastName}`}
-                      aria-label="avatar"
-                      className={classes.avatar}
-                      style={{
-                        cursor: 'pointer',
-                        border: '2px solid rgb(88, 212, 115)',
-                      }}
-                      src={user.photo ? null : user.photo}
+              {attending
+                .filter((user) => user.id !== currentUserId)
+                .map((user) => {
+                  return (
+                    <Link
+                      to={`/profile/${user.id}`}
+                      style={{ border: 'none', background: 'transparent', overflow: 'hidden' }}
                     >
-                      {!user.photo && (
-                        <Typography>{`${user.firstName.split('')[0]}${
-                          user.lastName.split('')[0]
-                        }`}</Typography>
-                      )}
-                    </Avatar>
-                  </Link>
-                );
-              })}
+                      <Avatar
+                        key={user.id}
+                        title={`${user.firstName} ${user.lastName}`}
+                        aria-label="avatar"
+                        className={classes.avatar}
+                        style={{
+                          cursor: 'pointer',
+                          border: '2px solid rgb(88, 212, 115)',
+                        }}
+                        src={user.photo ? null : user.photo}
+                      >
+                        {!user.photo && (
+                          <Typography>{`${user.firstName.split('')[0]}${
+                            user.lastName.split('')[0]
+                          }`}</Typography>
+                        )}
+                      </Avatar>
+                    </Link>
+                  );
+                })}
             </AvatarGroup>
           </CardContent>
         ) : (
