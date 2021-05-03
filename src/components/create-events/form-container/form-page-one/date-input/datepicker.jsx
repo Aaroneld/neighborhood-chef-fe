@@ -20,9 +20,12 @@ MONTHS[10] = 'November';
 MONTHS[11] = 'December';
 
 export default function DatePicker({ setDate, values }) {
-  console.log('values', values);
   const classnames = styles();
   const DAYS_OF_THE_WEEK = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+  const currentMonth = new Date().getMonth();
+  const currentYear = new Date().getFullYear();
+  const currentDay = new Date().getDate();
+  const [initialRender, setInitialRender] = useState(true);
 
   const [currentSelectedMonth, setSelectedMonth] = useState(() => {
     if (!values.date) {
@@ -59,22 +62,38 @@ export default function DatePicker({ setDate, values }) {
     setSelectedDate(Number(e.target.textContent));
   };
 
+  const isValid = (date) => {
+    if (currentSelectedMonth > currentMonth || currentSelectedYear > currentYear) {
+      return true;
+    } else if (currentSelectedMonth === currentMonth && currentSelectedYear === currentYear) {
+      return date >= currentDay;
+    }
+    return false;
+  };
+
   useEffect(() => {
-    if (currentSelectedMonth === new Date().getMonth() && !values.date) {
-      setSelectedDate(new Date().getDate());
+    if (
+      currentSelectedMonth === currentMonth &&
+      currentSelectedYear === currentYear &&
+      values.date &&
+      initialRender
+    ) {
+      let editModeDate = values.date.split('-');
+      setSelectedDate(Number(editModeDate[editModeDate.length - 1]));
+    } else if (currentSelectedMonth === currentMonth && currentSelectedYear === currentYear) {
+      setSelectedDate(currentDay);
     } else if (values.date && new Date(values.date).getMonth() === currentSelectedMonth) {
       setSelectedDate(new Date(values.date).getDate() + 1);
-    } else if (currentSelectedMonth !== new Date().getMonth()) {
+    } else if (currentSelectedMonth !== currentMonth) {
       setSelectedDate(1);
     }
+    setInitialRender(false);
     let date = new Date(currentSelectedYear, currentSelectedMonth, 1);
     const firstDay = date.getDay();
     let lastDay = '';
     const days = [];
 
-    console.log(date, firstDay);
     while (date.getMonth() === currentSelectedMonth) {
-      console.log('here');
       days.push({ date: date.getDate(), currentMonth: true });
       date.setDate(date.getDate() + 1);
     }
@@ -91,7 +110,6 @@ export default function DatePicker({ setDate, values }) {
       }
     }
 
-    console.log(lastDay);
     date = new Date(currentSelectedYear, currentSelectedMonth, lastDay);
     while (days.length < 35) {
       date.setDate(date.getDate() + 1);
@@ -99,11 +117,11 @@ export default function DatePicker({ setDate, values }) {
     }
 
     setCurrentDaysInMonth(days);
+    // eslint-disable-next-line
   }, [currentSelectedYear, currentSelectedMonth]);
 
   useEffect(() => {
     //prettier-ignore
-    console.log('here', selectedDate)
     setDate(
       `${currentSelectedYear}-${currentSelectedMonth + 1 < 10 ? '0' : ''}${currentSelectedMonth + 1}-${
         selectDate < 10 ? '0' : ''
@@ -156,6 +174,7 @@ export default function DatePicker({ setDate, values }) {
                 setSelectedDate={setSelectedDate}
                 selectedDate={selectedDate}
                 selectDate={selectDate}
+                isValid={isValid}
               />
             ))}
         </div>

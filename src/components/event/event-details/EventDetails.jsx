@@ -14,7 +14,6 @@ import ImageAndContent from './image-and-content/image-and-content';
 import Description from './description/description';
 import Modifiers from './modifiers/modifiers';
 import Details from './details/details';
-import AttendingButtons from './attending-buttons/attending-buttons';
 import Hashtags from './hashtag/hashtags';
 
 const EventDetails = ({ event }) => {
@@ -29,7 +28,7 @@ const EventDetails = ({ event }) => {
           <Card className={`${classes.root} ${classes.fullEvent}`}>
             <ImageAndContent event={event} classes={classes} />
             <Description event={event} classes={classes} />
-            <Divider variant="middle" style={{ margin: '1% auto', width: "95%"}} />
+            <Divider variant="middle" style={{ margin: '1% auto', width: '95%' }} />
             <Details event={event} classes={classes} />
             <Hashtags event={event} classes={classes} />
             <Modifiers event={event} classes={classes} />

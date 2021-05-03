@@ -67,21 +67,18 @@ const ParticipantCard = () => {
               );
             })}
           </div>
-
-          <Typography variant="caption">
-            Copy Link:
-            <CopyToClipboard text={url} onCopy={() => setCopied(true)}>
-              {copied ? (
-                <Typography color="textSecondary" style={{ marginLeft: '10px' }}>
-                  Copied!
-                </Typography>
-              ) : (
-                <IconButton>
-                  <LinkIcon fontSize="large" />
-                </IconButton>
-              )}
-            </CopyToClipboard>
-          </Typography>
+          {copied ? (
+            <Typography color="textSecondary" style={{ marginLeft: '10px' }}>
+              Copied!
+            </Typography>
+          ) : (
+            <Typography variant="caption" style={{ display: 'flex', alignItems: 'center' }}>
+              Copy Link:
+              <CopyToClipboard text={url} onCopy={() => setCopied(true)}>
+                <LinkIcon fontSize="large" style={{ cursor: 'pointer', color: 'gray', marginTop: '1%' }} />
+              </CopyToClipboard>
+            </Typography>
+          )}
         </CardContent>
       </Card>
     </>

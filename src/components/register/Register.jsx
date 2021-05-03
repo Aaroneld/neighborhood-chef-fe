@@ -16,8 +16,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Typography from '@material-ui/core/Typography';
 
-import ReactMapGL, { Marker, InteractiveMap } from 'react-map-gl';
-import * as MapboxGl from 'mapbox-gl';
+import { Marker, InteractiveMap } from 'react-map-gl';
 
 import useForm from '../../hooks/useForm';
 import * as yup from 'yup';

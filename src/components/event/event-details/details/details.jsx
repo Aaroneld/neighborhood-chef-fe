@@ -1,6 +1,4 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
-
 import { Icon } from '@iconify/react';
 import calendarIcon from '@iconify/icons-flat-color-icons/calendar';
 import clockIcon from '@iconify/icons-flat-color-icons/clock';

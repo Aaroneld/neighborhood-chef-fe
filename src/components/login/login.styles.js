@@ -155,7 +155,6 @@ export const landingPageStyles = makeStyles((theme) => ({
         },
 
         '& button': {
-          fontSize: '1.6rem',
           marginBottom: '5%',
           width: '85%',
           padding: '2%',

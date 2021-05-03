@@ -54,6 +54,7 @@ const FullEvent = ({ match }) => {
         }
       );
     }
+    // eslint-disable-next-line
   }, [eventId]);
 
   if (loading) {
