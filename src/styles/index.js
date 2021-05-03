@@ -739,6 +739,7 @@ export const cardStyles = makeStyles((theme) => ({
     position: 'absolute',
     zIndex: 5,
     height: '80%',
+    width: '97%',
     overflowY: 'hidden',
     scrollbarWidth: 'none',
     paddingRight: '6px',
