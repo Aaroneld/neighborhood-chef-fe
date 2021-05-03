@@ -31,6 +31,9 @@ export default function MonthYearPicker({
     const currentDate = new Date();
     return currentDate.getFullYear();
   });
+
+  const currentMonth = new Date().getMonth();
+  console.log(currentMonth);
   const classnames = styles();
 
   const handleYearDecrement = (e) => {
@@ -68,17 +71,24 @@ export default function MonthYearPicker({
           />
         </div>
         <div className="month-picker">
-          {MONTHS.map((month, index) => (
-            <p
-              className={`day picker-cell ${index === currentSelectedMonth ? 'selected-month' : ''}`}
-              onClick={() => {
-                console.log(index);
-                setSelectedMonth(index);
-              }}
-            >
-              {month.slice(0, 3)}
-            </p>
-          ))}
+          {MONTHS.map((month, index) => {
+            if (
+              currentSelectedYear > currentYear ||
+              (currentSelectedYear === currentYear && currentMonth <= index)
+            ) {
+              return (
+                <p
+                  className={`day picker-cell ${index === currentSelectedMonth ? 'selected-month' : ''}`}
+                  onClick={() => {
+                    console.log(index);
+                    setSelectedMonth(index);
+                  }}
+                >
+                  {month.slice(0, 3)}
+                </p>
+              );
+            }
+          })}
         </div>
       </div>
     </div>

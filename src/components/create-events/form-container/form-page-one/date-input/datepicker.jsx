@@ -23,6 +23,9 @@ export default function DatePicker({ setDate, values }) {
   console.log('values', values);
   const classnames = styles();
   const DAYS_OF_THE_WEEK = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+  const currentMonth = new Date().getMonth();
+  const currentYear = new Date().getFullYear();
+  const currentDay = new Date().getDate();
 
   const [currentSelectedMonth, setSelectedMonth] = useState(() => {
     if (!values.date) {
@@ -59,12 +62,21 @@ export default function DatePicker({ setDate, values }) {
     setSelectedDate(Number(e.target.textContent));
   };
 
+  const isValid = (date) => {
+    if (currentSelectedMonth > currentMonth || currentSelectedYear > currentYear) {
+      return true;
+    } else if (currentSelectedMonth === currentMonth && currentSelectedYear === currentYear) {
+      return date >= currentDay;
+    }
+    return false;
+  };
+
   useEffect(() => {
-    if (currentSelectedMonth === new Date().getMonth() && !values.date) {
-      setSelectedDate(new Date().getDate());
+    if (currentSelectedMonth === currentMonth && currentSelectedYear === currentYear) {
+      setSelectedDate(currentDay);
     } else if (values.date && new Date(values.date).getMonth() === currentSelectedMonth) {
       setSelectedDate(new Date(values.date).getDate() + 1);
-    } else if (currentSelectedMonth !== new Date().getMonth()) {
+    } else if (currentSelectedMonth !== currentMonth) {
       setSelectedDate(1);
     }
     let date = new Date(currentSelectedYear, currentSelectedMonth, 1);
@@ -156,6 +168,7 @@ export default function DatePicker({ setDate, values }) {
                 setSelectedDate={setSelectedDate}
                 selectedDate={selectedDate}
                 selectDate={selectDate}
+                isValid={isValid}
               />
             ))}
         </div>
