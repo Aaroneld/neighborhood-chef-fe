@@ -1,5 +1,4 @@
 import { makeStyles, createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
-import zIndex from '@material-ui/core/styles/zIndex';
 
 export const buttonStyles = makeStyles((theme) => ({
   root: {
@@ -61,7 +60,7 @@ export const buttonStyles = makeStyles((theme) => ({
   },
   rsvpRoot: {
     width: '33%',
-    padding: "2%",
+    padding: '2%',
     borderRadius: '5px',
     color: 'white',
     fontWeight: 'bolder',
@@ -269,14 +268,13 @@ export const cardStyles = makeStyles((theme) => ({
       whiteSpace: 'wrap',
       fontWeight: 200,
 
-      
-      [theme.breakpoints.down("lg")]: {
-        fontSize: "80%"
+      [theme.breakpoints.down('lg')]: {
+        fontSize: '80%',
       },
 
-      [theme.breakpoints.down("md")]: {
-        fontSize: "100%"
-      }
+      [theme.breakpoints.down('md')]: {
+        fontSize: '100%',
+      },
     },
   },
   statusButtonContainer: {
@@ -284,7 +282,7 @@ export const cardStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
-    paddingTop: ".5%",
+    paddingTop: '.5%',
     '& div': {
       width: '100%',
       display: 'flex',
@@ -335,57 +333,52 @@ export const cardStyles = makeStyles((theme) => ({
     backgroundImage: (props) => `url(${props.img})`,
     backgroundSize: '100%',
     backgroundPosition: 'bottom center',
-    backgroundRepeat: 'no-repeat',  
-    borderRadius: "0 0 40% 0",
+    backgroundRepeat: 'no-repeat',
+    borderRadius: '0 0 40% 0',
     zIndex: 1,
-    position: "relative"
-
-  
+    position: 'relative',
   },
   imageContainer: {
     width: '112%',
-    position: "relative",
+    position: 'relative',
     zIndex: 2,
-    background: "rgba(88, 212, 115, .4)",
-    borderRadius: "0 0 40% 0",
-    overflow: "hidden"
-        // boxShadow: '5px 5px 12px 1px rgba(25,25,25,0.18)',
+    background: 'rgba(88, 212, 115, .4)',
+    borderRadius: '0 0 40% 0',
+    overflow: 'hidden',
+    // boxShadow: '5px 5px 12px 1px rgba(25,25,25,0.18)',
   },
   imageAndContent: {
     display: 'flex',
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   contentContainer: {
     width: '100%',
-    marginTop: "2%",
-    display: "flex",
-    textAlign: "center",
-    justifyContent: "space-around",
-    padding: "0 5%",
+    marginTop: '2%',
+    display: 'flex',
+    textAlign: 'center',
+    justifyContent: 'space-around',
+    padding: '0 5%',
 
-    "& >*": {
-      flexBasis: "50%"
-    }
+    '& >*': {
+      flexBasis: '50%',
+    },
   },
   eventDetailsModifier: {
     justifyContent: 'center !important',
 
     '& .modifier': {
-      
-
       '& .modifier-icon': {
         width: '43px !important',
         height: '43px !important',
 
-        [theme.breakpoints.down("lg")]: {
+        [theme.breakpoints.down('lg')]: {
           width: '30px !important',
           height: '30px !important',
         },
 
-        
-        [theme.breakpoints.down("lg")]: {
+        [theme.breakpoints.down('lg')]: {
           width: '40px !important',
           height: '40px !important',
         },
@@ -393,11 +386,11 @@ export const cardStyles = makeStyles((theme) => ({
         '& svg': {
           fontSize: '2.4rem !Important',
 
-          [theme.breakpoints.down("lg")]: {
+          [theme.breakpoints.down('lg')]: {
             fontSize: '1.8rem !Important',
           },
 
-          [theme.breakpoints.down("md")]: {
+          [theme.breakpoints.down('md')]: {
             fontSize: '2rem !Important',
           },
         },
@@ -418,15 +411,15 @@ export const cardStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'row',
     width: '100%',
-    padding: "0 5%",
+    padding: '0 5%',
     flexWrap: 'wrap',
     '& .hashtags': {
       padding: '.5% 1%',
-      marginTop: ".5%",
+      marginTop: '.5%',
 
-      "&:hover": {
-        transform: "scale(1.1)"
-      }
+      '&:hover': {
+        transform: 'scale(1.1)',
+      },
     },
 
     '& p': {
@@ -438,25 +431,23 @@ export const cardStyles = makeStyles((theme) => ({
   },
   description: {
     margin: '2.5% 0',
-    padding: "0 5%",
+    padding: '0 5%',
     fontWeight: '700',
     wordBreak: 'break-word',
 
     '& p': {
       fontWeight: 100,
 
-      [theme.breakpoints.down("lg")] : {
-        fontSize: "90%"
+      [theme.breakpoints.down('lg')]: {
+        fontSize: '90%',
       },
 
-      [theme.breakpoints.down("md")] : {
-        
-      }
+      [theme.breakpoints.down('md')]: {},
     },
   },
   details: {
     marginTop: '1%',
-    padding: "0 5%"
+    padding: '0 5%',
   },
   detailsContainer: {
     display: 'flex',
@@ -468,45 +459,41 @@ export const cardStyles = makeStyles((theme) => ({
     display: 'flex',
     margin: '5px 0',
 
-
-
     '& p': {
       alignSelf: 'center',
       justifySelf: 'center',
       marginLeft: '5%',
       whiteSpace: 'nowrap',
 
-      [theme.breakpoints.down("lg")]: {
-        fontSize: "80%"
+      [theme.breakpoints.down('lg')]: {
+        fontSize: '80%',
       },
 
-      [theme.breakpoints.down("md")]: {
-        fontSize: "100%"
-      }
+      [theme.breakpoints.down('md')]: {
+        fontSize: '100%',
+      },
     },
   },
   span: {
     marginRight: '5px',
     verticalAlign: 'middle',
 
-    [theme.breakpoints.down("lg")]: {
-      display: "flex",
-      alignItems: "center"
+    [theme.breakpoints.down('lg')]: {
+      display: 'flex',
+      alignItems: 'center',
     },
 
-    "& svg": {
-      [theme.breakpoints.down("lg")]: {
-        height: "30px",
-        width: "30px",
-   
+    '& svg': {
+      [theme.breakpoints.down('lg')]: {
+        height: '30px',
+        width: '30px',
       },
 
-      [theme.breakpoints.down("md")]: {
-        height: "40px",
-        width: "40px",
-   
-      }
-    }
+      [theme.breakpoints.down('md')]: {
+        height: '40px',
+        width: '40px',
+      },
+    },
   },
   title: {
     wordBreak: 'break-word',
@@ -529,16 +516,16 @@ export const cardStyles = makeStyles((theme) => ({
       marginBottom: '2%',
 
       [theme.breakpoints.down('lg')]: {
-        fontSize: "100%"
+        fontSize: '100%',
       },
 
       [theme.breakpoints.down('md')]: {
-        fontSize: "120%"
+        fontSize: '120%',
       },
     },
 
     [theme.breakpoints.down('md')]: {
-      height: "70vh"
+      height: '70vh',
     },
   },
   cardContent: {
@@ -554,39 +541,37 @@ export const cardStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    width: "140%",
+    width: '140%',
 
-    "& h6": {
-      fontWeight: "200",
+    '& h6': {
+      fontWeight: '200',
 
-      [theme.breakpoints.down("lg")] : {
-        fontSize: "90%",
+      [theme.breakpoints.down('lg')]: {
+        fontSize: '90%',
       },
 
-      [theme.breakpoints.down("md")] : {
-        fontSize: "110%",
+      [theme.breakpoints.down('md')]: {
+        fontSize: '110%',
       },
 
-      [theme.breakpoints.down("sm")] : {
-        fontSize: "90%",
-      }
+      [theme.breakpoints.down('sm')]: {
+        fontSize: '90%',
+      },
     },
 
-    "& button": {
-      
-      [theme.breakpoints.down("lg")] : {
-        fontSize: "70%",
+    '& button': {
+      [theme.breakpoints.down('lg')]: {
+        fontSize: '70%',
       },
 
-      [theme.breakpoints.down("sm")] : {
-        fontSize: "10%",
-      }
+      [theme.breakpoints.down('sm')]: {
+        fontSize: '10%',
+      },
     },
 
-    [theme.breakpoints.down("lg")] : {
-      width: "120%"
-    }
-
+    [theme.breakpoints.down('lg')]: {
+      width: '120%',
+    },
   },
   buttonContainer: {
     display: 'flex',
@@ -598,12 +583,12 @@ export const cardStyles = makeStyles((theme) => ({
     maxWidth: '100%',
     justifyContent: 'center',
 
-    [theme.breakpoints.down("md")]: {
-      display: "none"
-    }
+    [theme.breakpoints.down('md')]: {
+      display: 'none',
+    },
   },
   avatarGroup: {
-    paddingBottom: "0 !important"
+    paddingBottom: '0 !important',
   },
   landingPage: {
     justifyContent: 'space-between',
@@ -647,25 +632,25 @@ export const cardStyles = makeStyles((theme) => ({
     width: '100%',
     maxWidth: '97%',
     padding: '.5%',
-    overflow: "hidden",
-    background: "transparent",
+    overflow: 'hidden',
+    background: 'transparent',
 
     '& .react-share__ShareButton': {
       marginTop: '15%',
 
-      "& svg": {
-        [theme.breakpoints.down("lg")]: {
-          fontSize: "1.6rem"
+      '& svg': {
+        [theme.breakpoints.down('lg')]: {
+          fontSize: '1.6rem',
         },
-        [theme.breakpoints.down("md")]: {
-          fontSize: "2.5rem"
-        }
-      }
+        [theme.breakpoints.down('md')]: {
+          fontSize: '2.5rem',
+        },
+      },
     },
 
-    [theme.breakpoints.down("md")]: {
-      display: "none"
-    }
+    [theme.breakpoints.down('md')]: {
+      display: 'none',
+    },
   },
   shareButtons: {
     width: '40px',
@@ -708,15 +693,15 @@ export const cardStyles = makeStyles((theme) => ({
       background: '#f8f8f8',
     },
 
-    [theme.breakpoints.down("lg")]: {
-      width: "25px",
-      height: "25px"
+    [theme.breakpoints.down('lg')]: {
+      width: '25px',
+      height: '25px',
     },
 
-    [theme.breakpoints.down("md")]: {
-      width: "30px",
-      height: "30px"
-    }
+    [theme.breakpoints.down('md')]: {
+      width: '30px',
+      height: '30px',
+    },
   },
   accountEvent: {
     width: '96%',
@@ -735,34 +720,32 @@ export const cardStyles = makeStyles((theme) => ({
     width: '97%',
     maxWidth: '100%',
     height: '100%',
-    position: "relative",
-    overflow: "hidden",
-    padding: "1.5%",
-    boxShadow: "none",
-    background: "transparent",
-    
+    position: 'relative',
+    overflow: 'hidden',
+    padding: '1.5%',
+    boxShadow: 'none',
+    background: 'transparent',
   },
   commentsActual: {
-    position: "absolute",
+    position: 'absolute',
     zIndex: 5,
-    height: "80%",
-    overflowY: "hidden",
-    scrollbarWidth: "none",
-    paddingRight: "6px",
+    height: '80%',
+    overflowY: 'hidden',
+    scrollbarWidth: 'none',
+    paddingRight: '6px',
 
-    "&:hover": {
-      overflowY: "scroll",
-      paddingRight: 0
+    '&:hover': {
+      overflowY: 'scroll',
+      paddingRight: 0,
     },
-
   },
   commentForm: {
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     width: '100%',
-    position: "absolute",
-    bottom: "7%",
+    position: 'absolute',
+    bottom: '7%',
     zIndex: 10,
 
     '& input': {
@@ -773,7 +756,7 @@ export const cardStyles = makeStyles((theme) => ({
     '& button': {
       borderRadius: '10px',
       padding: '15px 50px',
-      marginLeft: "2%",
+      marginLeft: '2%',
       width: '20%',
       marginBottom: 0,
 

@@ -111,6 +111,7 @@ export default function DatePicker({ setDate, values }) {
     }
 
     setCurrentDaysInMonth(days);
+    // eslint-disable-next-line
   }, [currentSelectedYear, currentSelectedMonth]);
 
   useEffect(() => {

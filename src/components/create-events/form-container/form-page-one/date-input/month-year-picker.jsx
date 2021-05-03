@@ -88,6 +88,7 @@ export default function MonthYearPicker({
                 </p>
               );
             }
+            return '';
           })}
         </div>
       </div>

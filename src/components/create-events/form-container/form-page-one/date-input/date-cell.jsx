@@ -1,4 +1,3 @@
-import data from '@iconify-icons/entypo/triangle-left';
 import React from 'react';
 
 export default function DateCell({ date, selectDate, selectedDate, isValid }) {
