@@ -26,6 +26,7 @@ export default function DatePicker({ setDate, values }) {
   const currentMonth = new Date().getMonth();
   const currentYear = new Date().getFullYear();
   const currentDay = new Date().getDate();
+  const [initialRender, setInitialRender] = useState(true);
 
   const [currentSelectedMonth, setSelectedMonth] = useState(() => {
     if (!values.date) {
@@ -72,19 +73,28 @@ export default function DatePicker({ setDate, values }) {
   };
 
   useEffect(() => {
-    if (currentSelectedMonth === currentMonth && currentSelectedYear === currentYear) {
+    if (
+      currentSelectedMonth === currentMonth &&
+      currentSelectedYear === currentYear &&
+      values.date &&
+      initialRender
+    ) {
+      let editModeDate = values.date.split('-');
+      setSelectedDate(Number(editModeDate[editModeDate.length - 1]));
+    } else if (currentSelectedMonth === currentMonth && currentSelectedYear === currentYear) {
       setSelectedDate(currentDay);
     } else if (values.date && new Date(values.date).getMonth() === currentSelectedMonth) {
       setSelectedDate(new Date(values.date).getDate() + 1);
     } else if (currentSelectedMonth !== currentMonth) {
       setSelectedDate(1);
     }
+    setInitialRender(false);
     let date = new Date(currentSelectedYear, currentSelectedMonth, 1);
     const firstDay = date.getDay();
     let lastDay = '';
     const days = [];
 
-    console.log(date, firstDay);
+    //console.log(date, firstDay);
     while (date.getMonth() === currentSelectedMonth) {
       console.log('here');
       days.push({ date: date.getDate(), currentMonth: true });
@@ -103,7 +113,7 @@ export default function DatePicker({ setDate, values }) {
       }
     }
 
-    console.log(lastDay);
+    //console.log(lastDay);
     date = new Date(currentSelectedYear, currentSelectedMonth, lastDay);
     while (days.length < 35) {
       date.setDate(date.getDate() + 1);
@@ -116,7 +126,7 @@ export default function DatePicker({ setDate, values }) {
 
   useEffect(() => {
     //prettier-ignore
-    console.log('here', selectedDate)
+    //console.log('here', selectedDate)
     setDate(
       `${currentSelectedYear}-${currentSelectedMonth + 1 < 10 ? '0' : ''}${currentSelectedMonth + 1}-${
         selectDate < 10 ? '0' : ''
