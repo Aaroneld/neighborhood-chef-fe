@@ -6,7 +6,7 @@ export const calendarStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     maxWidth: '80vw',
     height: '82vh',
-    background: "transparent",
+    background: 'transparent',
     boxShadow: '-2px 3px 31px -13px rgba(117,117,117,0.46)',
     borderRadius: '20px',
     borderTopRightRadius: '0',
@@ -22,12 +22,12 @@ export const calendarStyles = makeStyles((theme) => ({
     paddingTop: '10px',
     overflowY: 'hidden',
     height: '80vh',
-    paddingRight: "6px",
+    paddingRight: '6px',
 
-    "&:hover": {
+    '&:hover': {
       overflowY: 'scroll',
       paddingRight: 0,
-    }
+    },
   },
   calendarRow: {
     background: 'transparent',
@@ -143,8 +143,8 @@ export const cardStyles = makeStyles((theme) => ({
   fullEvent: {
     maxWidth: '100%',
     height: 'calc(100% - 24px)',
-    background: "transparent",
-    boxShadow: "none"
+    background: 'transparent',
+    boxShadow: 'none',
   },
   addressContainer: {
     display: 'flex',
@@ -155,6 +155,14 @@ export const cardStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingTop: '10px',
+
+    '& div': {
+      width: '100%',
+
+      '& button': {
+        width: '30%',
+      },
+    },
   },
   headerContainer: {
     display: 'flex',

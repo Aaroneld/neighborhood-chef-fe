@@ -39,8 +39,9 @@ export const cardStyles = makeStyles((theme) => ({
         },
         '& div': {
           '& button': {
-            [theme.breakpoints.down('sm')]: {
-              width: '30%',
+            [theme.breakpoints.down('md')]: {
+              width: '25%',
+              padding: '8px 0px',
               fontSize: '1.2rem',
             },
           },
