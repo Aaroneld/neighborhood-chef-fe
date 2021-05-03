@@ -19,7 +19,7 @@ const AccountEventCard = ({ event, setEvents }) => {
   const timeObject = parseTime(event.startTime);
   const photo = event.photo ? event.photo : chooseDefaultPicture(event.title.charAt(0));
   const attending = event.EventUsers.attending;
-  const { push, history } = useHistory();
+  const { push } = useHistory();
   const dispatch = useDispatch();
 
   const removeEvent = () => {
@@ -85,8 +85,7 @@ const AccountEventCard = ({ event, setEvents }) => {
         variant="h6"
         style={{ fontWeight: 'bold', cursor: 'pointer' }}
         onClick={() => {
-          history.push(`/events/${event.id}`);
-          history.go();
+          push(`/events/${event.id}`);
         }}
       >
         {event.title.length < 22 ? event.title : `${event.title.slice(0, 22)}...`}
@@ -94,16 +93,9 @@ const AccountEventCard = ({ event, setEvents }) => {
       <Typography>{`${attending.length || '0'} attending`}</Typography>
       <Typography>{timeObject.commentTime}</Typography>
       {event.User.id === currentUserId && (
-        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-          <DeleteOutlinedIcon
-            onClick={removeEvent}
-            style={{ fontSize: '2.5rem', cursor: 'pointer', margin: '.5%' }}
-          />
-          <Icon
-            icon={pencilIcon}
-            onClick={redirectToEventEdit}
-            style={{ fontSize: '2.5rem', cursor: 'pointer', margin: '.5%' }}
-          />
+        <div className="iconContainer">
+          <DeleteOutlinedIcon onClick={removeEvent} />
+          <Icon icon={pencilIcon} onClick={redirectToEventEdit} />
         </div>
       )}
     </Card>

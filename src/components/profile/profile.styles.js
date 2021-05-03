@@ -189,6 +189,16 @@ export const styles = makeStyles((theme) => ({
               [theme.breakpoints.down('sm')]: {
                 width: '96%',
               },
+              '& .iconContainer': {
+                display: 'flex',
+                justifyContent: 'flex-end',
+
+                '& svg': {
+                  fontSize: '2.5rem',
+                  cursor: 'pointer',
+                  margin: '.5%',
+                },
+              },
             },
           },
         },
