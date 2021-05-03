@@ -59,7 +59,7 @@ export const fullEventStyles = makeStyles((theme) => ({
     },
   },
   singleEventCommentCard: {
-    height: '83.5%',
+    height: '81.1%',
     left: "1%",
     width: "98%",
     overflowY: 'hidden',

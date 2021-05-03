@@ -541,10 +541,11 @@ export const cardStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    width: '140%',
+    width: '20vw',
 
     '& h6': {
       fontWeight: '200',
+      whiteSpace: 'nowrap',
 
       [theme.breakpoints.down('lg')]: {
         fontSize: '90%',
@@ -570,7 +571,15 @@ export const cardStyles = makeStyles((theme) => ({
     },
 
     [theme.breakpoints.down('lg')]: {
-      width: '120%',
+      width: '20vw',
+    },
+
+    [theme.breakpoints.down('md')]: {
+      width: '30vw',
+    },
+
+    [theme.breakpoints.down('sm')]: {
+      width: '70vw',
     },
   },
   buttonContainer: {
@@ -738,6 +747,12 @@ export const cardStyles = makeStyles((theme) => ({
       overflowY: 'scroll',
       paddingRight: 0,
     },
+
+    '& .show-hide-replies': {
+      '&:hover': {
+        textDecoration: 'underline',
+      },
+    },
   },
   commentForm: {
     display: 'flex',
@@ -804,7 +819,10 @@ export const cardStyles = makeStyles((theme) => ({
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'flex-start',
-      width: '100%',
+
+      '& button': {
+        width: '20px',
+      },
     },
   },
 }));

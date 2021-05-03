@@ -9,16 +9,13 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 
-//icon imports
-import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
-import ThumbUpOutlinedIcon from '@material-ui/icons/ThumbUpOutlined';
-import ThumbDownOutlinedIcon from '@material-ui/icons/ThumbDownOutlined';
+import emojiHeartEyesFill from '@iconify-icons/bi/emoji-heart-eyes-fill';
 
 import { Icon } from '@iconify/react';
-import bxLaugh from '@iconify/icons-bx/bx-laugh';
-import bxSad from '@iconify/icons-bx/bx-sad';
-import bxAngry from '@iconify/icons-bx/bx-angry';
-import bxHappy from '@iconify/icons-bx/bx-happy';
+import emojiLaughingFill from '@iconify-icons/bi/emoji-laughing-fill';
+import emojiFrownFill from '@iconify-icons/bi/emoji-frown-fill';
+import emojiAngryFill from '@iconify-icons/bi/emoji-angry-fill';
+import emojiSmileFill from '@iconify-icons/bi/emoji-smile-fill';
 
 const ReactButton = ({ name, toggleEmoji }) => {
   const classes = buttonStyles();
@@ -67,23 +64,7 @@ const ReactButton = ({ name, toggleEmoji }) => {
                 handleClose();
               }}
             >
-              <FavoriteBorderOutlinedIcon fontSize="large" />
-            </IconButton>
-            <IconButton
-              onClick={() => {
-                toggleEmoji('thumbsUp');
-                handleClose();
-              }}
-            >
-              <ThumbUpOutlinedIcon fontSize="large" />
-            </IconButton>
-            <IconButton
-              onClick={() => {
-                toggleEmoji('thumbsDown');
-                handleClose();
-              }}
-            >
-              <ThumbDownOutlinedIcon fontSize="large" />
+              <Icon icon={emojiHeartEyesFill} style={{ color: '#58D573' }} height="1.5em" />
             </IconButton>
             <IconButton
               onClick={() => {
@@ -91,7 +72,7 @@ const ReactButton = ({ name, toggleEmoji }) => {
                 handleClose();
               }}
             >
-              <Icon icon={bxHappy} height="1.5em" />
+              <Icon icon={emojiSmileFill} style={{ color: '#58D573' }} height="1.5em" />
             </IconButton>
             <IconButton
               onClick={() => {
@@ -99,7 +80,7 @@ const ReactButton = ({ name, toggleEmoji }) => {
                 handleClose();
               }}
             >
-              <Icon icon={bxLaugh} height="1.5em" />
+              <Icon icon={emojiLaughingFill} style={{ color: '#58D573' }} height="1.5em" />
             </IconButton>
             <IconButton
               onClick={() => {
@@ -107,7 +88,7 @@ const ReactButton = ({ name, toggleEmoji }) => {
                 handleClose();
               }}
             >
-              <Icon icon={bxSad} height="1.5em" />
+              <Icon icon={emojiFrownFill} style={{ color: '#58D573' }} height="1.5em" />
             </IconButton>
             <IconButton
               onClick={() => {
@@ -115,7 +96,7 @@ const ReactButton = ({ name, toggleEmoji }) => {
                 handleClose();
               }}
             >
-              <Icon icon={bxAngry} height="1.5em" />
+              <Icon icon={emojiAngryFill} style={{ color: '#58D573' }} height="1.5em" />
             </IconButton>
           </DialogContentText>
         </DialogContent>
