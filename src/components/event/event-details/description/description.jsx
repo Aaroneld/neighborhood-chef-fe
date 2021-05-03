@@ -1,11 +1,9 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
 
 export default function Description({ classes, event }) {
   return (
     <div className={classes.description}>
-      <Typography variant="h6">Description</Typography>
-      <p> {event.description}</p>
+      <p><u>{"\u00A0\u00A0\u00A0\u00A0\u00A0\u00A0"}</u> {event.description} </p>
     </div>
   );
 }

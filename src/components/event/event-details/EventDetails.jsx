@@ -11,13 +11,13 @@ import Divider from '@material-ui/core/Divider';
 import { chooseDefaultPicture } from '../../../utilities/functions';
 
 import ImageAndContent from './image-and-content/image-and-content';
-import Header from './header/header';
 import Description from './description/description';
+import Modifiers from './modifiers/modifiers';
 import Details from './details/details';
 import AttendingButtons from './attending-buttons/attending-buttons';
 import Hashtags from './hashtag/hashtags';
 
-const EventDetails = ({ event, attending, setAttending }) => {
+const EventDetails = ({ event }) => {
   const photo = event.photo ? event.photo : chooseDefaultPicture(event.title.charAt(0));
   const classes = cardStyles({ img: photo });
 
@@ -27,18 +27,12 @@ const EventDetails = ({ event, attending, setAttending }) => {
         <>
           <div className={classes.headerImg} />
           <Card className={`${classes.root} ${classes.fullEvent}`}>
-            <Header event={event} classes={classes} />
             <ImageAndContent event={event} classes={classes} />
-            <Hashtags event={event} classes={classes} />
             <Description event={event} classes={classes} />
-            <Divider variant="middle" style={{ margin: '1% 0' }} />
+            <Divider variant="middle" style={{ margin: '1% auto', width: "95%"}} />
             <Details event={event} classes={classes} />
-            <AttendingButtons
-              attending={attending}
-              setAttending={setAttending}
-              event={event}
-              classes={classes}
-            />
+            <Hashtags event={event} classes={classes} />
+            <Modifiers event={event} classes={classes} />
           </Card>
         </>
       ) : (

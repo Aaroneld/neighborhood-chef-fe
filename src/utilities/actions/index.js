@@ -13,6 +13,7 @@ export const SAVE_USER = 'SAVE_USER';
 export const CHANGE_STATUS_FOR_SINGLE_EVENT = 'CHANGE_STATUS_FOR_SINGLE_EVENT';
 export const DELETE_EVENT = 'DELETE_EVENT';
 export const CHANGE_PAGE = 'CHANGE_PAGE';
+export const ADD_FOCUSED_EVENT_INFO = 'ADD_FOCUSED_EVENT_INFO';
 
 export const changeStatusForSingleEvent = (data) => (dispatch) => {
   axiosWithAuth()
@@ -75,3 +76,5 @@ export const changePage = (page) => ({
   type: CHANGE_PAGE,
   payload: page,
 });
+
+export const addFocusedEventInfo = (eventInfo) => ({ type: ADD_FOCUSED_EVENT_INFO, payload: eventInfo });

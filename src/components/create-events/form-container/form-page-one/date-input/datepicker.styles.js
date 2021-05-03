@@ -13,8 +13,8 @@ export const styles = makeStyles((theme) => ({
 
     fontFamily: '"Poppins", san-serif',
 
-    [theme.breakpoints.down("xs")] : {
-      paddingTop: "85%"
+    [theme.breakpoints.down('xs')]: {
+      paddingTop: '85%',
     },
 
     '& >div': {
@@ -56,8 +56,8 @@ export const styles = makeStyles((theme) => ({
 
           '&::before': {
             content: '""',
-            width: '19%',
-            right: '11%',
+            width: '20%',
+            right: '11.5%',
             top: '5.5%',
             borderRadius: '10px',
             paddingTop: '7%',
@@ -66,9 +66,9 @@ export const styles = makeStyles((theme) => ({
             position: 'absolute',
 
             [theme.breakpoints.down('lg')]: {
-                width: "23%",
-                right: "10%",
-                paddingTop: '8%'
+              width: '23%',
+              right: '10%',
+              paddingTop: '8%',
             },
 
             [theme.breakpoints.down('md')]: {

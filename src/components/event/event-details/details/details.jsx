@@ -17,10 +17,7 @@ export default function Details({ event, classes }) {
   }
 
   return (
-    <div>
-      <Typography variant="h6" style={{ textAlign: 'center' }}>
-        Details
-      </Typography>
+    <div className={classes.details}>
       <div className={classes.detailsContainer}>
         <div className={classes.iconTextContainer}>
           <span className={classes.span}>
@@ -40,12 +37,12 @@ export default function Details({ event, classes }) {
         </div>
 
         <div className={classes.addressContainer}>
-          <span>
+          <span className={classes.span}>
             <Icon height="45" icon={globeIcon} />
           </span>
 
           <a href={parsedAddressURL} target="_blank" rel="noopener noreferrer">
-            {event.address.split(',').slice(0, 2).join(', ')}
+            {event.address.split(',').slice(0, 1).join(', ')}
           </a>
         </div>
       </div>

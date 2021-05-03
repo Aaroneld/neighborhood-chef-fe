@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { useLocation } from 'react-router-dom';
 import MonthPicker from '../../../../calender/MonthPicker';
 import CreateEventHeader from '../../../../create-events/CreateEventHeader';
+import EventHeader from '../../../../../components/event/event-header';
 
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
@@ -41,7 +42,7 @@ function VariableHeader({ setEmpty }) {
   useEffect(() => {
     console.log(urlLocation);
     if (matches) {
-      if (!['create-event', 'view-events', 'dashboard'].includes(urlLocation)) {
+      if (!['create-event', 'view-events', 'dashboard', 'events'].includes(urlLocation)) {
         console.log(urlLocation);
         setEmpty(true);
       } else {
@@ -64,6 +65,12 @@ function VariableHeader({ setEmpty }) {
       return (
         <section className={classes['container']}>
           <MonthPicker />
+        </section>
+      );
+    case 'events':
+      return (
+        <section className={classes['container']}>
+          <EventHeader/>
         </section>
       );
     default:

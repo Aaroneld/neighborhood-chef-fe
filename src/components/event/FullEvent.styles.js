@@ -7,8 +7,7 @@ export const fullEventStyles = makeStyles((theme) => ({
     width: '100%',
     borderRadius: '20px',
     boxShadow: 'none',
-    background: "transparent"
-    ,
+    background: 'transparent',
     borderTopRightRadius: '0',
     height: '100%',
 
@@ -16,6 +15,7 @@ export const fullEventStyles = makeStyles((theme) => ({
       flexWrap: 'wrap',
       borderRadius: '20px',
       justifyContent: 'center',
+      alignItems: "center"
     },
   },
   singleEventBox: {
@@ -26,7 +26,9 @@ export const fullEventStyles = makeStyles((theme) => ({
     width: '100%',
     display: 'flex',
     [theme.breakpoints.down('md')]: {
-      flexWrap: 'wrap',
+      flexDirection: "column",
+      justifyContent: "flex-start",
+      alignItems: "center",
       maxHeight: '100%',
       height: '100%',
       marginLeft: '1%',
@@ -40,20 +42,39 @@ export const fullEventStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     width: '100%',
     height: '80vh',
+    background: "transparent",
+    position: "relative",
+
+    [theme.breakpoints.down('md')]: {
+      margin: "1% 0%"
+    },
   },
   singleEventTopRow: {
     display: 'flex',
-    flexBasis: "20.5%",
-    overflowY: "hidden",
+    flexBasis: '15.5%',
+    overflowY: 'hidden',
 
     [theme.breakpoints.down('md')]: {
-      flexWrap: 'wrap',
+      flexBasis: 0
     },
   },
   singleEventCommentCard: {
-    flexBasis: "78%",
-    overflowY: "hidden",
-
+    height: '83.5%',
+    left: "1%",
+    width: "98%",
+    overflowY: 'hidden',
+    position: "absolute",
+    zIndex: 10,
+    top: "17.5%",
+    borderRadius: "20px",
+    boxShadow: "-2px 3px 31px -13px rgb(117 117 117 / 46%)",
+    background: "transparent",
+    
+    [theme.breakpoints.down('md')]: {
+      position: "static",
+      width: "97.25%",
+      margin: "0 1%"
+    },
   },
   hidden: {
     display: 'none',

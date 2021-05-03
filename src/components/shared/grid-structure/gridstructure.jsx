@@ -44,6 +44,7 @@ function GridStructure(props) {
         },
       })
         .then((res) => {
+          console.log(res);
           dispatch(saveUser(res.data.data.Users[0]));
         })
         .catch((err) => {
@@ -62,7 +63,7 @@ function GridStructure(props) {
         <Sidebar active={urlLocation} />
       </div>
       <div className={classes['Header']} style={{ display: `${isEmpty ? 'none' : 'block'}` }}>
-        <Header setEmpty={setEmpty} />
+        <Header setEmpty={setEmpty}/>
       </div>
       <div className={classes['Variable']}>
         <VariableMainContent {...props} active={urlLocation} />

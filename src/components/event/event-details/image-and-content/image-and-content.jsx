@@ -15,36 +15,8 @@ export default function ImageAndContent({ event, classes }) {
 
   return (
     <div className={classes.imageAndContent}>
-      <div className={classes.img} title="Event Details Photo" />
-      <div className={classes.contentContainer}>
-        {event.modifiers.length > 0 && (
-          <div className={classes.modifierContainer}>
-            <Typography variant="h6">Modifications</Typography>
-            <div className={classes.eventDetailsModifier + ' ' + modifierClasses.modifier}>
-              {modifierData.map((modifier) => {
-                if (event.modifiers.includes(modifier.title)) {
-                  return <Modifier key={modifier.title} modifier={modifier} />;
-                } else {
-                  return '';
-                }
-              })}
-            </div>
-          </div>
-        )}
-        {event.allergenWarnings.length > 0 && (
-          <div>
-            <Typography variant="h6">Allergy Warnings</Typography>
-            <div className={classes.eventDetailsModifier + ' ' + modifierClasses.modifier}>
-              {allergenModifiers.map((modifier) => {
-                if (event.allergenWarnings.includes(modifier.title)) {
-                  return <AllergyModifier key={modifier.title} modifier={modifier} />;
-                } else {
-                  return '';
-                }
-              })}
-            </div>
-          </div>
-        )}
+      <div className={classes.imageContainer}>
+        <div className={classes.img} title="Event Details Photo" /> 
       </div>
     </div>
   );

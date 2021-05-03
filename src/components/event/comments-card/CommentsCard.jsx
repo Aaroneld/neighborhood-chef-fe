@@ -68,7 +68,7 @@ const CommentsCard = ({ initialComments, eventId }) => {
   return (
     <div style={{ height: '100%' }}>
       <Card className={`${classes.root} ${classes.comments}`} ref={containerRef}>
-        <CardContent>
+        <CardContent className={classes.commentsActual}>
           <div>
             {comments &&
               comments.map((comment) => <Comment key={comment.id} {...comment} eventId={eventId} />)}

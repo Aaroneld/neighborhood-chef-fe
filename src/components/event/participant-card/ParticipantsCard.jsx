@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 //style imports
 import { cardStyles } from '../../../styles';
+import { useSelector } from 'react-redux';
 
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -12,31 +13,47 @@ import AvatarGroup from '@material-ui/lab/AvatarGroup';
 
 const ParticipantCard = ({ attending }) => {
   const classes = cardStyles();
+  const currentUserId = useSelector(state => state.user.id)
+  const testAvatar = [
+    {
+      firstName: 'Aaron',
+      lastName: 'Merrifield',
+    },
+    {
+      firstName: 'Aaron',
+      lastName: 'Merrifield',
+    },
+    {
+      firstName: 'Aaron',
+      lastName: 'Merrifield',
+    },
+    {
+      firstName: 'Aaron',
+      lastName: 'Merrifield',
+    },
+  ];
 
   return (
     <>
       <Card className={`${classes.root} ${classes.participants}`}>
-        <Typography variant="h6" align="left">
-          Attending:
-        </Typography>
-        {attending && attending.length > 0 ? (
-          <CardContent className={classes.cardContent}>
+        {testAvatar && attending.length > 0 ? (
+          <CardContent className={classes.cardContent + " " + classes.avatarGroup}>
             <AvatarGroup max={4}>
-              {attending.map((user) => {
+              {attending.filter(user => user.id !== currentUserId).map((user) => {
                 return (
                   <Link
                     to={`/profile/${user.id}`}
-                    style={{
-                      cursor: 'pointer',
-                      border: 'none',
-                      margin: '.5%',
-                    }}
+                    style={{ border: 'none', background: 'transparent', overflow: 'hidden' }}
                   >
                     <Avatar
                       key={user.id}
                       title={`${user.firstName} ${user.lastName}`}
                       aria-label="avatar"
                       className={classes.avatar}
+                      style={{
+                        cursor: 'pointer',
+                        border: '2px solid rgb(88, 212, 115)',
+                      }}
                       src={user.photo ? null : user.photo}
                     >
                       {!user.photo && (

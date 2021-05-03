@@ -15,9 +15,11 @@ export const searchFriendsStyles = makeStyles((theme) => ({
       width: '100%', 
       overflowY: "hidden", 
       overflowX: "hidden", 
+      paddingRight: "6px",
 
       "&:hover": {
         overflowY: "scroll", 
+        paddingRight: 0
       }
     }
   },

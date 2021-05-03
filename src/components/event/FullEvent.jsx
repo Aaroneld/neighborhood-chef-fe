@@ -3,7 +3,8 @@ import { axiosWithAuth } from '../../utilities/axiosWithAuth';
 import { print } from 'graphql';
 import { EVENT_BY_ID } from '../../graphql/events/event-queries';
 import Card from '@material-ui/core/Card';
-
+import { useDispatch } from 'react-redux';
+import { addFocusedEventInfo } from '../../utilities/actions';
 import EventDetails from './event-details/EventDetails';
 import ParticipantCard from './participant-card/ParticipantsCard';
 import ShareCard from './share-card/ShareCard';
@@ -17,6 +18,8 @@ const FullEvent = ({ match }) => {
   const [attending, setAttending] = useState([]);
   const [loading, setLoading] = useState(false);
   const styles = fullEventStyles();
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (eventId) {
@@ -37,6 +40,13 @@ const FullEvent = ({ match }) => {
           setLoading(false);
           setEvent(res.data.data.Events[0]);
           setAttending(res.data.data.Events[0].EventUsers.attending);
+          dispatch(
+            addFocusedEventInfo({
+              id: res.data.data.Events[0].id,
+              title: res.data.data.Events[0].title,
+              eventuser: res.data.data.Events[0].User,
+            })
+          );
         },
         (err) => {
           console.dir(err);

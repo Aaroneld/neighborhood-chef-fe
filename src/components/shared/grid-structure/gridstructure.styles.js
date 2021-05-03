@@ -38,6 +38,11 @@ export const styles = makeStyles((theme) => {
 
       [theme.breakpoints.down('md')]: {
         height: '10vh',
+        marginBottom: "2%"
+      },
+
+      [theme.breakpoints.down('sm')]: {
+        margin: "4% 0%"
       },
     },
     Sidebar: {
