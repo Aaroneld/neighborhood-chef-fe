@@ -70,9 +70,7 @@ const ParticipantCard = ({ attending }) => {
             </AvatarGroup>
           </CardContent>
         ) : (
-          <Typography>
-            No one has indicated they are going to this event yet. Share it with your neighbors!
-          </Typography>
+          <Typography>No one has indicated they are going to this event yet.</Typography>
         )}
       </Card>
     </>
