@@ -12,7 +12,8 @@ export const styles = makeStyles((theme) => {
       'grid-template-areas': ' "Logo Header" "Sidebar Variable" ',
       overflowY: 'hidden',
       overflowX: 'hidden',
-      background: "linear-gradient(0deg, rgba(226,226,226,1) 0%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 100%)",
+      background:
+        'linear-gradient(0deg, rgba(226,226,226,1) 0%, rgba(255,255,255,1) 25%, rgba(255,255,255,1) 100%)',
 
       [theme.breakpoints.down('md')]: {
         display: 'flex',
@@ -38,17 +39,17 @@ export const styles = makeStyles((theme) => {
 
       [theme.breakpoints.down('md')]: {
         height: '10vh',
-        marginBottom: "2%"
+        marginBottom: '4%',
       },
 
       [theme.breakpoints.down('sm')]: {
-        margin: "4% 0%"
+        margin: '4% 0%',
       },
     },
     Sidebar: {
       gridArea: 'Sidebar',
       paddingLeft: '5%',
-      background: "transparent",
+      background: 'transparent',
 
       [theme.breakpoints.down('md')]: {
         paddingLeft: 0,

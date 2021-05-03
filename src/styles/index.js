@@ -751,6 +751,7 @@ export const cardStyles = makeStyles((theme) => ({
     '& .show-hide-replies': {
       '&:hover': {
         textDecoration: 'underline',
+        cursor: 'pointer',
       },
     },
   },
