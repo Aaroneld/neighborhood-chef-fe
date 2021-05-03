@@ -20,6 +20,7 @@ const styles = makeStyles((theme) => ({
     alignItems: 'center',
     paddingBottom: '1%',
     marginTop: '0%',
+    position: "relative",
 
     [theme.breakpoints.down('md')]: {
       paddingLeft: 0,

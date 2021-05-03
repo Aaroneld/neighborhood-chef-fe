@@ -18,9 +18,21 @@ import { ADD_COMMENT, HANDLE_REACTION } from '../../../../graphql/events/event-m
 const Comment = (props) => {
   const user = useSelector((state) => state.user);
   const classes = cardStyles();
-  const [reactions, setReactions] = useState(props.Reactions);
+  const [reactions, setReactions] = useState(
+    Object.entries(
+      props.Reactions.reduce((acc, curr) => {
+        if (acc.hasOwnProperty(curr.reaction)) {
+          return { ...acc, [curr.reaction]: acc[curr.reaction] + 1 };
+        } else {
+          return { ...acc, [curr.reaction]: 1 };
+        }
+      }, {})
+    )
+  );
+
   const [subComments, setSubComments] = useState(props.Subcomments ? props.Subcomments : []);
   const [randomColor] = useState(pickRandomColor());
+  const [showReplies, setShowReplies] = useState(false);
 
   const toggleEmoji = (emoji) => {
     axiosWithAuth()({
@@ -38,7 +50,17 @@ const Comment = (props) => {
       },
     })
       .then((res) => {
-        setReactions(res.data.data.handleReaction);
+        setReactions(
+          Object.entries(
+            res.data.data.handleReaction.reduce((acc, curr) => {
+              if (acc.hasOwnProperty(curr.reaction)) {
+                return { ...acc, [curr.reaction]: acc[curr.reaction] + 1 };
+              } else {
+                return { ...acc, [curr.reaction]: 1 };
+              }
+            }, {})
+          )
+        );
       })
       .catch((err) => {
         console.dir(err);
@@ -116,6 +138,12 @@ const Comment = (props) => {
           <Typography variant="caption" style={{ fontSize: '1.4rem' }}>
             {props.comment}
           </Typography>
+          <div style={{ display: 'flex', marginTop: '2px' }}>
+            {reactions &&
+              reactions.map((item, index) => {
+                return <ShowEmoji key={index} item={item} />;
+              })}
+          </div>
           <div className={classes.replyBtnContainer}>
             <div className="buttons">
               <ReplyButton
@@ -127,20 +155,31 @@ const Comment = (props) => {
                 name={`${props.User.firstName} ${props.User.lastName}`}
                 toggleEmoji={toggleEmoji}
               />
-              <Typography variant="body2" color="textSecondary">
+              <Typography variant="body2" color="textSecondary" style={{ paddingBottom: '2%' }}>
                 {moment(Number(props.dateCreated)).fromNow()}
               </Typography>
             </div>
           </div>
-          <div style={{ display: 'flex', marginTop: '2px' }}>
-            {reactions &&
-              reactions.map((item, index) => {
-                return <ShowEmoji key={index} item={item} />;
-              })}
+
+          <div>
+            {subComments.length > 0 && (
+              <Typography
+                variant="body2"
+                onClick={() => {
+                  setShowReplies(!showReplies);
+                }}
+                className="show-hide-replies"
+              >
+                {`${showReplies ? 'Hide Replies' : `Show ${subComments.length} Replies`}`}
+              </Typography>
+            )}
           </div>
         </div>
       </div>
-      <SubComments setSubComments={setSubComments} subcomments={subComments} eventId={props.eventId} />
+
+      {showReplies && (
+        <SubComments setSubComments={setSubComments} subcomments={subComments} eventId={props.eventId} />
+      )}
     </>
   );
 };
