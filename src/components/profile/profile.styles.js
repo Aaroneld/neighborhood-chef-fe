@@ -24,8 +24,8 @@ export const styles = makeStyles((theme) => ({
       },
 
       '& .avatar': {
-        width: '180px',
-        height: '180px',
+        width: '160px',
+        height: '160px',
         fontSize: '5rem',
         border: '6px solid rgba(33, 186, 66, 0.75)',
         padding: '5px',
@@ -33,6 +33,8 @@ export const styles = makeStyles((theme) => ({
 
       '& h2': {
         margin: '5px 0',
+        fontSize: '3rem',
+        fontWeight: 'bold',
       },
 
       '& div': {
@@ -45,7 +47,6 @@ export const styles = makeStyles((theme) => ({
         '& h6': {
           color: '#4E4E4E',
           fontWeight: '600',
-          marginBottom: '5px',
           cursor: 'pointer',
         },
       },
@@ -64,7 +65,7 @@ export const styles = makeStyles((theme) => ({
         flexDirection: 'column',
         width: (props) => (props.user && props.user.UserEvents.owned.length > 0 ? '50%' : '100%'),
         marginRight: '1%',
-        height: '70vh',
+        height: '65vh',
 
         [theme.breakpoints.down('md')]: {
           width: () => '100%',
@@ -91,7 +92,7 @@ export const styles = makeStyles((theme) => ({
           '& .textIconContainer': {
             display: 'flex',
             flexDirection: 'column',
-            margin: '20px 0',
+            margin: '15px 0',
             wordBreak: 'break-word',
             width: '95%',
 
@@ -117,7 +118,7 @@ export const styles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         borderRadius: '5px',
-        height: '70vh',
+        height: '65vh',
         marginTop: '16px',
         [theme.breakpoints.down('md')]: {
           width: '100%',

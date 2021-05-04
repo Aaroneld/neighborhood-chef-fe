@@ -239,10 +239,10 @@ export const cardStyles = makeStyles((theme) => ({
     position: 'relative',
   },
   dashboard: {
-    maxHeight: '60%',
+    maxHeight: '55%',
     maxWidth: '390px',
     [theme.breakpoints.down('lg')]: {
-      maxHeight: '90%',
+      maxHeight: '80%',
     },
     [theme.breakpoints.down('xs')]: {
       maxHeight: '100%',

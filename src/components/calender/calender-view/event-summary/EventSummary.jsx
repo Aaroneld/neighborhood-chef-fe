@@ -60,23 +60,17 @@ const EventSummary = ({ selectedEvent }) => {
           <CardMedia className={classes.img} component="img" src={photo} title="Event Details Photo" />
           <div>Confirmed Attending: {selectedEvent.EventUsers.attending.length}</div>
           <div className={classes.iconContainer}>
-            <span>
-              <Icon height="20" icon={calendarIcon} />
-            </span>
+            <Icon height="25" icon={calendarIcon} />
             {timeObject.formattedDate}
           </div>
           <div className={classes.iconContainer}>
-            <span>
-              <Icon height="20" icon={clockIcon} />
-            </span>
+            <Icon height="25" icon={clockIcon} />
             {`${timeObject.startTime} ${
               timeObject.endTime !== 'Invalid date' ? '- ' + timeObject.endTime : ''
             }`}
           </div>
           <div className={classes.iconContainer}>
-            <span>
-              <Icon height="20" icon={globeIcon} />
-            </span>
+            <Icon height="25" icon={globeIcon} />
             <a href={parsedAddressURL} target="_blank" rel="noopener noreferrer">
               {selectedEvent.address}
             </a>
