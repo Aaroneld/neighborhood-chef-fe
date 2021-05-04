@@ -72,17 +72,11 @@ export default function DatePicker({ setDate, values }) {
   };
 
   useEffect(() => {
-    if (
-      currentSelectedMonth === currentMonth &&
-      currentSelectedYear === currentYear &&
-      values.date &&
-      initialRender
-    ) {
-      let editModeDate = values.date.split('-');
-      setSelectedDate(Number(editModeDate[editModeDate.length - 1]));
-    } else if (currentSelectedMonth === currentMonth && currentSelectedYear === currentYear) {
+    if (currentSelectedMonth === currentMonth && currentSelectedYear === currentYear && !values.date) {
       setSelectedDate(currentDay);
-    } else {
+    } else if (values.date && initialRender) {
+      setSelectedDate(new Date(values.date).getDate() + 1);
+    } else if (currentSelectedMonth !== currentMonth || currentSelectedYear > currentYear) {
       setSelectedDate(1);
     }
     setInitialRender(false);
