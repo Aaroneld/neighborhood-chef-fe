@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { cardStyles } from '../../../../styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -16,12 +16,14 @@ import { timeAgo, parseTime, chooseDefaultPicture } from '../../../../utilities/
 import { axiosWithAuth } from '../../../../utilities/axiosWithAuth';
 import { ADD_FAVORITE_EVENT, REMOVE_FAVORITE_EVENT } from '../../../../graphql/users/user-mutations';
 import StatusButtons from './status-buttons/status-buttons';
+import softwareUpload from '@iconify-icons/gg/software-upload';
 
 const RecentCard = (props) => {
   const classes = cardStyles();
   const [favorite, setFavorite] = useState(props.isFavorite);
   const timeObject = parseTime(props.startTime, props.endTime);
   const shownTime = timeAgo(props.createDateTime);
+  const { push } = useHistory();
 
   const addFavoriteEvent = () => {
     const favoriteEvent = {
@@ -58,7 +60,7 @@ const RecentCard = (props) => {
   };
 
   return (
-    <Card className={`${classes.root} ${classes.dashboard}`} style={{ marginTop: '10px' }}>
+    <Card className={`${classes.root} ${classes.dashboard}`}>
       <CardHeader
         avatar={
           <Avatar
@@ -76,12 +78,33 @@ const RecentCard = (props) => {
           </Avatar>
         }
         title={
-          <Link to={`/profile/${props.User.id}`} style={{ cursor: 'pointer' }}>
-            <Typography variant="h6">
-              {`${props.User.firstName} ${props.User.lastName} `}
-              <span style={{ opacity: '.6' }}> created an event</span>
-            </Typography>
-          </Link>
+          <div
+            style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'space-between' }}
+          >
+            <div style={{ display: 'flex', width: '80%', alignItems: 'center' }}>
+              <Link to={`/profile/${props.User.id}`} style={{ cursor: 'pointer' }}>
+                <Typography variant="h6">{`${props.User.firstName} `}</Typography>
+              </Link>
+              <Typography variant="h6" style={{ color: '#A2A4AD' }}>
+                &nbsp; created an event
+              </Typography>
+            </div>
+            <button
+              style={{ border: 'none', borderRadius: '50%', padding: '5px', cursor: 'pointer' }}
+              onClick={() => push(`events/${props.id}`)}
+            >
+              <Icon
+                icon={softwareUpload}
+                style={{
+                  fontSize: '3rem',
+                  color: '#9597A1',
+                  marginTop: '1%',
+                  marginLeft: '2%',
+                  alignSelf: 'right',
+                }}
+              />
+            </button>
+          </div>
         }
         subheader={
           <Typography variant="caption">
@@ -89,9 +112,6 @@ const RecentCard = (props) => {
           </Typography>
         }
       />
-
-      {/* If you need to disable functionality of events showing custom uploaded images on 
-        dashboard, change REACT_APP_ALLOW_USER_IMG variable within .env file to 0 (zero) */}
       <CardMedia
         className={classes.dashboardImg}
         component="img"
@@ -101,62 +121,58 @@ const RecentCard = (props) => {
 
       <div className={classes.dateOverlay}>
         <Typography variant="h5">{timeObject.day}</Typography>
-        <Typography variant="h5" color="secondary">
+        <Typography variant="h5" style={{ color: '#FF9900' }}>
           {timeObject.monthShort}
         </Typography>
       </div>
-      <Typography variant="body1" align="center">
-        {`@ ${timeObject.startTime}`}
-      </Typography>
-      <CardContent style={{ padding: '5px' }}>
-        <Link to={`events/${props.id}`}>
-          <Typography variant="h4" align="center">
+
+      <CardContent
+        style={{
+          padding: '5px',
+          display: 'flex',
+          flexDirection: 'column',
+          paddingLeft: '5%',
+        }}
+      >
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <Typography variant="h4">
             {props.title.length < 22 ? props.title : `${props.title.slice(0, 22)}...`}
           </Typography>
-        </Link>
-        <Typography variant="body1" align="center">
-          <span
-            style={
-              props.status === 'NOT_GOING'
-                ? { color: 'rgba(232, 64, 64, .75)' }
-                : props.status === 'MAYBE_GOING'
-                ? { color: 'rgba(255, 169, 40, .75)' }
-                : props.status === 'GOING'
-                ? { color: 'rgba(33, 186, 66, .75)' }
-                : { color: 'rgba(0,0,0, .3)' }
-            }
-          >
-            {props.status === 'GOING'
-              ? 'Going'
-              : props.status === 'NOT_GOING'
-              ? 'Not Going'
-              : props.status === 'MAYBE_GOING'
-              ? 'Maybe Going'
-              : 'undecided'}
-          </span>
-        </Typography>
+          <CardActions disableSpacing>
+            {!favorite ? (
+              <div style={{ cursor: 'pointer' }} onClick={addFavoriteEvent}>
+                <Icon icon={starEmpty} style={{ fontSize: '3.5rem', color: 'gray' }} />
+              </div>
+            ) : (
+              <div style={{ cursor: 'pointer' }} onClick={removeFavoriteEvent}>
+                <Icon
+                  icon={starFilled}
+                  style={{
+                    fontSize: '3.5rem',
+                    color: '#f50057',
+                  }}
+                />
+              </div>
+            )}
+          </CardActions>
+        </div>
+        <div style={{ margin: '3% 0', display: 'flex' }}>
+          <Typography style={{ color: '#58D473' }}>{timeObject.startTime.toUpperCase()}</Typography>
+
+          {props.endTime && (
+            <>
+              <Typography style={{ color: '#9597A1' }}>&nbsp;to&nbsp;</Typography>
+              <Typography style={{ color: '#F65252' }}>{timeObject.endTime.toUpperCase()}</Typography>
+            </>
+          )}
+        </div>
+        <div style={{ margin: '3% 0' }}>Confirmed Attending: {props.EventUsers.attending.length}</div>
       </CardContent>
 
-      <CardActions disableSpacing>
-        {!favorite ? (
-          <div style={{ cursor: 'pointer' }} onClick={addFavoriteEvent}>
-            <Icon icon={starEmpty} style={{ fontSize: '3.5rem', color: 'gray' }} />
-          </div>
-        ) : (
-          <div style={{ cursor: 'pointer' }} onClick={removeFavoriteEvent}>
-            <Icon
-              icon={starFilled}
-              style={{
-                fontSize: '3.5rem',
-                color: '#f50057',
-              }}
-            />
-          </div>
-        )}
-      </CardActions>
+      <div style={{ borderTop: '.75px solid #F2F2F2', width: '90%', alignSelf: 'center' }} />
       <CardContent>
-        <Typography variant="h6">Are you attending this event?</Typography>
-        <div className={classes.statusButtonContainer}>
+        <div className={classes.statusButtonContainerDashboard}>
+          <Typography variant="h6">Going?</Typography>
           <StatusButtons id={props.id} currentUserId={props.currentUserId} />
         </div>
       </CardContent>

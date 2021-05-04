@@ -239,13 +239,12 @@ export const cardStyles = makeStyles((theme) => ({
     position: 'relative',
   },
   dashboard: {
-    maxHeight: '55%',
+    marginTop: '10px',
+    maxHeight: '50%',
     maxWidth: '390px',
+    overflowY: 'hidden',
     [theme.breakpoints.down('lg')]: {
       maxHeight: '80%',
-    },
-    [theme.breakpoints.down('xs')]: {
-      maxHeight: '100%',
     },
   },
   eventDetailsContainer: {
@@ -295,6 +294,26 @@ export const cardStyles = makeStyles((theme) => ({
       },
     },
   },
+  statusButtonContainerDashboard: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    paddingTop: '.5%',
+    '& div': {
+      width: '80%',
+      display: 'flex',
+      justifyContent: 'center',
+      '& button': {
+        padding: '10px 0',
+        width: '30%',
+        [theme.breakpoints.down('sm')]: {
+          width: '30%',
+          fontSize: '1.4rem',
+        },
+      },
+    },
+  },
   headerContainer: {
     display: 'flex',
     justifyContent: 'space-between',
@@ -316,7 +335,7 @@ export const cardStyles = makeStyles((theme) => ({
     marginTop: '-14%',
     marginLeft: '5%',
     alignSelf: 'left',
-    width: '46px',
+    width: '55px',
     alignItems: 'center',
     position: 'relative',
   },
