@@ -72,10 +72,10 @@ export default function DatePicker({ setDate, values }) {
   };
 
   useEffect(() => {
-    if (currentSelectedMonth === currentMonth && currentSelectedYear === currentYear && !values.date) {
-      setSelectedDate(currentDay);
-    } else if (values.date && initialRender) {
+    if (values.date && initialRender) {
       setSelectedDate(new Date(values.date).getDate() + 1);
+    } else if (currentSelectedMonth === currentMonth && currentSelectedYear === currentYear) {
+      setSelectedDate(currentDay);
     } else if (currentSelectedMonth !== currentMonth || currentSelectedYear > currentYear) {
       setSelectedDate(1);
     }
