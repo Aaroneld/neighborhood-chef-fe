@@ -338,6 +338,10 @@ export const cardStyles = makeStyles((theme) => ({
     borderRadius: '0 0 40% 0',
     zIndex: 1,
     position: 'relative',
+
+    '&:hover': {
+      filter: 'brightness(70%)',
+    },
   },
   imageContainer: {
     width: '112%',
@@ -407,6 +411,7 @@ export const cardStyles = makeStyles((theme) => ({
     position: 'absolute',
     top: '5%',
     right: '5%',
+    zIndex: 8,
   },
   hashtags: {
     display: 'flex',
@@ -638,7 +643,7 @@ export const cardStyles = makeStyles((theme) => ({
   share: {
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'space-around',
+
     width: '100%',
     maxWidth: '97%',
     padding: '.5%',
@@ -658,13 +663,35 @@ export const cardStyles = makeStyles((theme) => ({
       },
     },
 
-    [theme.breakpoints.down('md')]: {
-      display: 'none',
+    '& .share-link-container': {
+      width: '80%',
+      display: 'flex',
+      justifyContent: 'center',
+      alignContent: 'center',
+      margin: '2%',
+
+      '& span': {
+        fontSize: '120%',
+        padding: '1% 0',
+        whiteSpace: 'nowrap',
+      },
+
+      '& input': {
+        marginLeft: '2%',
+        width: '80%',
+        borderRadius: '5px',
+        outline: 'none',
+        border: '1px solid #E8E8E8',
+        padding: '1.5%',
+        background: '#F5F5F5',
+        fontSize: '101%',
+      },
     },
   },
   shareButtons: {
-    width: '40px',
-    height: '40px',
+    width: '50px',
+    height: '50px',
+    margin: '0 3%',
     display: 'flex',
     alignItems: 'center',
     textAlign: 'center',
@@ -684,6 +711,9 @@ export const cardStyles = makeStyles((theme) => ({
       if (props.name === 'Email') {
         return '#5192f3';
       }
+      if (props.name === 'Pinterest') {
+        return '#FB5E4F';
+      }
     },
     background: (props) => {
       if (props.name === 'Facebook') {
@@ -697,6 +727,9 @@ export const cardStyles = makeStyles((theme) => ({
       }
       if (props.name === 'Email') {
         return '#e0e6ff';
+      }
+      if (props.name === 'Pinterest') {
+        return '#FAC5C2';
       }
     },
     '&:hover': {
@@ -750,6 +783,8 @@ export const cardStyles = makeStyles((theme) => ({
     },
 
     '& .show-hide-replies': {
+      marginTop: '1%',
+      marginLeft: '.5%',
       '&:hover': {
         textDecoration: 'underline',
       },
@@ -784,26 +819,47 @@ export const cardStyles = makeStyles((theme) => ({
     },
   },
   singleCommentParent: {
-    marginBottom: '10px',
-    borderRadius: '10px',
-    padding: '5px',
+    marginBottom: '7px',
     display: 'flex',
     alignItems: 'flex-start',
     wordBreak: 'break-word',
+    paddingRight: '6px',
+
+    '& .comment-content': {
+      background: '#F5F5F5',
+      borderRadius: '20px',
+      padding: '2%',
+
+      '& .comment-text': {
+        fontSize: '100%',
+      },
+    },
   },
   singleCommentChild: {
-    marginBottom: '10px',
+    marginBottom: '5px',
     borderRadius: '10px',
-    padding: '5px',
-    marginLeft: '10%',
+    marginLeft: '5%',
     display: 'flex',
     alignItems: 'flex-start',
     wordBreak: 'break-word',
+    paddingRight: '6px',
+
+    '& .comment-content': {
+      background: '#F5F5F5',
+      borderRadius: '20px',
+      padding: '2%',
+
+      '& .comment-text': {
+        fontSize: '100%',
+      },
+    },
   },
   avatarContainer: {
     display: 'flex',
     flexWrap: 'wrap',
     alignItems: 'center',
+    marginTop: '.15%',
+    fontSize: '70%',
   },
   photoContainer: {
     marginRight: '5px',
@@ -812,17 +868,28 @@ export const cardStyles = makeStyles((theme) => ({
   },
   replyBtnContainer: {
     display: 'flex',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     width: '100%',
     marginTop: '2px',
+    marginLeft: '.5%',
     '& .buttons': {
       display: 'flex',
+      flexBasis: '85%',
       alignItems: 'center',
       justifyContent: 'flex-start',
 
+      '& >*': {
+        margin: '0 3% 0 0',
+      },
+
       '& button': {
-        width: '20px',
+        background: '#58D573',
+        color: 'white',
+        '&:hover': {
+          color: '#58D573',
+          background: 'white',
+        },
       },
     },
   },

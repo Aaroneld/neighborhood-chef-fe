@@ -10,6 +10,7 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import EmailIcon from '@material-ui/icons/Email';
 import MessageIcon from '@material-ui/icons/Message';
+import PinterestIcon from '@material-ui/icons/Pinterest';
 import LinkIcon from '@material-ui/icons/Link';
 
 import IconButton from '@material-ui/core/IconButton';
@@ -17,7 +18,14 @@ import IconButton from '@material-ui/core/IconButton';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 import { useLocation } from 'react-router-dom';
-import { EmailShareButton, FacebookShareButton, TwitterShareButton, WhatsappShareButton } from 'react-share';
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+  PinterestShareButton,
+  TumblrShareButton,
+} from 'react-share';
 
 const shareButtons = [
   {
@@ -36,6 +44,10 @@ const shareButtons = [
     name: 'Email',
     icon: EmailIcon,
   },
+  {
+    name: 'Pinterest',
+    icon: PinterestIcon,
+  },
 ];
 
 const Components = {
@@ -43,6 +55,8 @@ const Components = {
   Twitter: TwitterShareButton,
   Text: WhatsappShareButton,
   Email: EmailShareButton,
+  Tumblr: TumblrShareButton,
+  Pinterest: PinterestShareButton,
 };
 
 const ParticipantCard = () => {
@@ -55,7 +69,7 @@ const ParticipantCard = () => {
     <>
       <Card className={`${classes.root} ${classes.share}`}>
         <CardContent style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <div style={{ width: '100%', display: 'flex', justifyContent: 'space-evenly' }}>
+          <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
             {shareButtons.map((b) => {
               const TagName = Components[b.name];
               return (
@@ -68,20 +82,16 @@ const ParticipantCard = () => {
             })}
           </div>
 
-          <Typography variant="caption">
-            Copy Link:
+          <div className="share-link-container">
+            <Typography variant="caption">Event Link:</Typography>
             <CopyToClipboard text={url} onCopy={() => setCopied(true)}>
               {copied ? (
-                <Typography color="textSecondary" style={{ marginLeft: '10px' }}>
-                  Copied!
-                </Typography>
+                <input disabled placeholder="Copied!" />
               ) : (
-                <IconButton>
-                  <LinkIcon fontSize="large" />
-                </IconButton>
+                <input placeholder={window.location.href} />
               )}
             </CopyToClipboard>
-          </Typography>
+          </div>
         </CardContent>
       </Card>
     </>
