@@ -82,9 +82,7 @@ export default function DatePicker({ setDate, values }) {
       setSelectedDate(Number(editModeDate[editModeDate.length - 1]));
     } else if (currentSelectedMonth === currentMonth && currentSelectedYear === currentYear) {
       setSelectedDate(currentDay);
-    } else if (values.date && new Date(values.date).getMonth() === currentSelectedMonth) {
-      setSelectedDate(new Date(values.date).getDate() + 1);
-    } else if (currentSelectedMonth !== currentMonth) {
+    } else {
       setSelectedDate(1);
     }
     setInitialRender(false);
