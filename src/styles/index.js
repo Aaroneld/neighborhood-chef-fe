@@ -1,4 +1,5 @@
 import { makeStyles, createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
+import { autoType } from 'd3-dsv';
 
 export const buttonStyles = makeStyles((theme) => ({
   root: {
@@ -240,12 +241,9 @@ export const cardStyles = makeStyles((theme) => ({
   },
   dashboard: {
     marginTop: '10px',
-    maxHeight: '50%',
+    maxHeight: '470px',
     maxWidth: '390px',
     overflowY: 'hidden',
-    [theme.breakpoints.down('lg')]: {
-      maxHeight: '80%',
-    },
   },
   eventDetailsContainer: {
     width: '100%',

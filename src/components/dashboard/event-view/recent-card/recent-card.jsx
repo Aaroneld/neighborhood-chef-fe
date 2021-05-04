@@ -17,6 +17,42 @@ import { axiosWithAuth } from '../../../../utilities/axiosWithAuth';
 import { ADD_FAVORITE_EVENT, REMOVE_FAVORITE_EVENT } from '../../../../graphql/users/user-mutations';
 import StatusButtons from './status-buttons/status-buttons';
 import softwareUpload from '@iconify-icons/gg/software-upload';
+import AvatarGroup from '@material-ui/lab/AvatarGroup';
+
+// const testAvatar = [
+//   {
+//     firstName: 'Aaron',
+//     lastName: 'Merrifield',
+//   },
+//   {
+//     firstName: 'Aaron',
+//     lastName: 'Merrifield',
+//   },
+//   {
+//     firstName: 'Aaron',
+//     lastName: 'Merrifield',
+//   },
+//   {
+//     firstName: 'Aaron',
+//     lastName: 'Merrifield',
+//   },
+//   {
+//     firstName: 'Aaron',
+//     lastName: 'Merrifield',
+//   },
+//   {
+//     firstName: 'Aaron',
+//     lastName: 'Merrifield',
+//   },
+//   {
+//     firstName: 'Aaron',
+//     lastName: 'Merrifield',
+//   },
+//   {
+//     firstName: 'Aaron',
+//     lastName: 'Merrifield',
+//   },
+// ];
 
 const RecentCard = (props) => {
   const classes = cardStyles();
@@ -166,7 +202,63 @@ const RecentCard = (props) => {
             </>
           )}
         </div>
-        <div style={{ margin: '3% 0' }}>Confirmed Attending: {props.EventUsers.attending.length}</div>
+        {props.EventUsers.attending.length > 0 && (
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <AvatarGroup max={5}>
+              {props.EventUsers.attending.length > 0 &&
+                props.EventUsers.attending.map((user) => {
+                  console.log(user);
+                  return (
+                    <Link
+                      to={`/profile/${user.id}`}
+                      style={{ border: 'none', background: 'transparent', overflow: 'hidden' }}
+                    >
+                      <Avatar
+                        key={user.id}
+                        title={`${user.firstName} ${user.lastName}`}
+                        aria-label="avatar"
+                        style={{
+                          cursor: 'pointer',
+                          border: '1px solid white',
+                          background: '#DCDCDC',
+                        }}
+                        src={user.photo ? user.photo : ''}
+                      >
+                        {!user.photo && (
+                          <Typography
+                            style={{ fontSize: '130%', paddingRight: '2%' }}
+                          >{`${user.firstName.split('')[0].toUpperCase()}${user.lastName
+                            .split('')[0]
+                            .toUpperCase()}`}</Typography>
+                        )}
+                      </Avatar>
+                    </Link>
+                  );
+                })}
+              {props.EventUsers.attending.length > 4 && (
+                <Avatar
+                  key={'count'}
+                  title={'count'}
+                  aria-label="avatar"
+                  style={{
+                    cursor: 'pointer',
+                    border: '1px solid white',
+                    background: '#DCDCDC',
+                  }}
+                >
+                  <Typography style={{ fontSize: '130%', paddingRight: '2%' }}>
+                    +{props.EventUsers.attending.length - 4}
+                  </Typography>
+                </Avatar>
+              )}
+              );
+            </AvatarGroup>
+            <div style={{ paddingRight: '6%' }}>{props.EventUsers.attending.length} neighbors going</div>
+          </div>
+        )}
+        {props.EventUsers.attending.length === 0 && (
+          <div style={{ margin: '3% 0' }}>Confirmed Attending: {props.EventUsers.attending.length}</div>
+        )}
       </CardContent>
 
       <div style={{ borderTop: '.75px solid #F2F2F2', width: '90%', alignSelf: 'center' }} />
