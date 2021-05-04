@@ -52,6 +52,7 @@ const FormPageThree = (props) => {
                         hashtag={hashtag}
                         values={props.values}
                         setValues={props.setValues}
+                        disableX
                       />
                     );
                   })}

@@ -68,7 +68,6 @@ const FullEvent = ({ match }) => {
               <EventDetails event={event} attending={attending} setAttending={setAttending} />
               <div className={styles.singleEventRightColumn}>
                 <div className={styles.singleEventTopRow}>
-                  <ParticipantCard attending={attending} />
                   <ShareCard />
                 </div>
                 <div className={styles.singleEventCommentCard}>

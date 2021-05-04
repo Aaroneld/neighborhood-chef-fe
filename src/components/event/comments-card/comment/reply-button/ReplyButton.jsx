@@ -31,18 +31,19 @@ const ReplyButton = ({ name, description, addReply }) => {
 
   return (
     <div>
-      <Button
+      <button
         style={{
-          display: 'flex',
-          justifyContent: 'flex-start',
+          width: '140%',
+          height: '18px',
           border: 'none',
-          background: 'none',
-          padding: 0,
+          padding: '2% 8%',
+          borderRadius: '4px',
+          fontSize: '50%',
         }}
         onClick={handleClickOpen}
       >
         Reply
-      </Button>
+      </button>
       <Dialog
         open={open}
         onClose={handleClose}

@@ -51,7 +51,7 @@ export const fullEventStyles = makeStyles((theme) => ({
   },
   singleEventTopRow: {
     display: 'flex',
-    flexBasis: '15.5%',
+    flexBasis: '20%',
     overflowY: 'hidden',
 
     [theme.breakpoints.down('md')]: {
@@ -59,13 +59,13 @@ export const fullEventStyles = makeStyles((theme) => ({
     },
   },
   singleEventCommentCard: {
-    height: '81.1%',
+    height: '77.7%',
     left: '1%',
     width: '98%',
     overflowY: 'hidden',
     position: 'absolute',
     zIndex: 10,
-    top: '17.5%',
+    top: '21%',
     borderRadius: '20px',
     boxShadow: '-2px 3px 31px -13px rgb(117 117 117 / 46%)',
     background: 'transparent',

@@ -27,7 +27,19 @@ export default function SubComment({
 }) {
   const user = useSelector((state) => state.user);
   const classes = cardStyles();
-  const [reactions, setReactions] = useState(Reactions);
+  const [reactions, setReactions] = useState(
+    Reactions
+      ? Object.entries(
+          Reactions.reduce((acc, curr) => {
+            if (acc.hasOwnProperty(curr.reaction)) {
+              return { ...acc, [curr.reaction]: acc[curr.reaction] + 1 };
+            } else {
+              return { ...acc, [curr.reaction]: 1 };
+            }
+          }, {})
+        )
+      : []
+  );
   const [randomColor] = useState(pickRandomColor());
 
   const toggleEmoji = (emoji) => {
@@ -46,7 +58,17 @@ export default function SubComment({
       },
     })
       .then((res) => {
-        setReactions(res.data.data.handleReaction);
+        setReactions(
+          Object.entries(
+            res.data.data.handleReaction.reduce((acc, curr) => {
+              if (acc.hasOwnProperty(curr.reaction)) {
+                return { ...acc, [curr.reaction]: acc[curr.reaction] + 1 };
+              } else {
+                return { ...acc, [curr.reaction]: 1 };
+              }
+            }, {})
+          )
+        );
       })
       .catch((err) => {
         console.dir(err);
@@ -105,7 +127,7 @@ export default function SubComment({
               style={{ background: randomColor, color: 'white' }}
             >
               {!commentOwner.photo && (
-                <Typography variant="body2">
+                <Typography variant="body2" style={{ fontSize: '85%' }}>
                   {`${commentOwner.firstName.split('')[0].toUpperCase()}${commentOwner.lastName
                     .split('')[0]
                     .toUpperCase()}`}
@@ -116,17 +138,24 @@ export default function SubComment({
         )}
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', width: '100%' }}>
-        <Typography
-          style={{ fontWeight: 'bold' }}
-          variant="body1"
-        >{`${commentOwner.firstName} ${commentOwner.lastName}`}</Typography>
-        <div>
-          <Typography variant="caption" style={{ color: '#5458F7', fontSize: '1.4rem' }}>
-            {parent ? `@${parent.firstName} ${parent.lastName} ` : ``}
-          </Typography>
-          <Typography variant="caption" style={{ fontSize: '1.4rem' }}>
-            {subcomment}{' '}
-          </Typography>
+        <div className="comment-content">
+          <Typography
+            style={{ fontWeight: 'bold' }}
+            variant="body1"
+            className="comment-text"
+          >{`${commentOwner.firstName} ${commentOwner.lastName}`}</Typography>
+          <div>
+            <Typography
+              variant="caption"
+              className="comment-text"
+              style={{ color: '#5458F7', fontSize: '1.4rem' }}
+            >
+              {parent ? `@${parent.firstName} ${parent.lastName} ` : ``}
+            </Typography>
+            <Typography className="comment-text" variant="caption" style={{ fontSize: '1.4rem' }}>
+              {subcomment}{' '}
+            </Typography>
+          </div>
         </div>
 
         <div className={classes.replyBtnContainer}>
@@ -144,12 +173,19 @@ export default function SubComment({
               {moment(Number(dateCreated)).fromNow()}
             </Typography>
           </div>
-        </div>
-        <div style={{ display: 'flex', marginTop: '2px' }}>
-          {reactions &&
-            reactions.map((item, index) => {
-              return <ShowEmoji key={index} item={item} />;
-            })}
+          <div
+            style={{
+              display: 'flex',
+              marginTop: '-4%',
+              justifyContent: 'flex-end',
+              padding: '0 5%',
+            }}
+          >
+            {reactions &&
+              reactions.map((item, index) => {
+                return <ShowEmoji key={index} item={item} />;
+              })}
+          </div>
         </div>
       </div>
     </div>

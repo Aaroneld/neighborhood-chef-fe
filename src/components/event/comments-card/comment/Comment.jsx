@@ -19,15 +19,17 @@ const Comment = (props) => {
   const user = useSelector((state) => state.user);
   const classes = cardStyles();
   const [reactions, setReactions] = useState(
-    Object.entries(
-      props.Reactions.reduce((acc, curr) => {
-        if (acc.hasOwnProperty(curr.reaction)) {
-          return { ...acc, [curr.reaction]: acc[curr.reaction] + 1 };
-        } else {
-          return { ...acc, [curr.reaction]: 1 };
-        }
-      }, {})
-    )
+    props.Reactions
+      ? Object.entries(
+          props.Reactions.reduce((acc, curr) => {
+            if (acc.hasOwnProperty(curr.reaction)) {
+              return { ...acc, [curr.reaction]: acc[curr.reaction] + 1 };
+            } else {
+              return { ...acc, [curr.reaction]: 1 };
+            }
+          }, {})
+        )
+      : []
   );
 
   const [subComments, setSubComments] = useState(props.Subcomments ? props.Subcomments : []);
@@ -118,7 +120,7 @@ const Comment = (props) => {
             style={{ background: randomColor, color: 'white' }}
           >
             {!props.User.photo && (
-              <Typography variant="body2">
+              <Typography variant="body2" style={{ fontSize: '85%' }}>
                 {`${props.User.firstName.split('')[0].toUpperCase()}${props.User.lastName
                   .split('')[0]
                   .toUpperCase()}`}
@@ -129,21 +131,19 @@ const Comment = (props) => {
         <div
           style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', width: '100%' }}
         >
-          {user && (
-            <Typography
-              style={{ fontWeight: 'bold' }}
-              variant="body1"
-            >{`${props.User.firstName} ${props.User.lastName}`}</Typography>
-          )}
-          <Typography variant="caption" style={{ fontSize: '1.4rem' }}>
-            {props.comment}
-          </Typography>
-          <div style={{ display: 'flex', marginTop: '2px' }}>
-            {reactions &&
-              reactions.map((item, index) => {
-                return <ShowEmoji key={index} item={item} />;
-              })}
+          <div className="comment-content">
+            {user && (
+              <Typography
+                className="comment-text"
+                style={{ fontWeight: 'bold' }}
+                variant="body1"
+              >{`${props.User.firstName} ${props.User.lastName}`}</Typography>
+            )}
+            <Typography className="comment-text" variant="caption">
+              {props.comment}
+            </Typography>
           </div>
+
           <div className={classes.replyBtnContainer}>
             <div className="buttons">
               <ReplyButton
@@ -155,9 +155,22 @@ const Comment = (props) => {
                 name={`${props.User.firstName} ${props.User.lastName}`}
                 toggleEmoji={toggleEmoji}
               />
-              <Typography variant="body2" color="textSecondary" style={{ paddingBottom: '2%' }}>
+              <Typography variant="body2" color="textSecondary" style={{ paddingTop: '.5%' }}>
                 {moment(Number(props.dateCreated)).fromNow()}
               </Typography>
+            </div>
+            <div
+              style={{
+                display: 'flex',
+                marginTop: '-4%',
+                justifyContent: 'flex-end',
+                padding: '0 5%',
+              }}
+            >
+              {reactions &&
+                reactions.map((item, index) => {
+                  return <ShowEmoji key={index} item={item} />;
+                })}
             </div>
           </div>
 
