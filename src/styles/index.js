@@ -1,5 +1,4 @@
 import { makeStyles, createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
-import zIndex from '@material-ui/core/styles/zIndex';
 
 export const buttonStyles = makeStyles((theme) => ({
   root: {
@@ -773,6 +772,7 @@ export const cardStyles = makeStyles((theme) => ({
     position: 'absolute',
     zIndex: 5,
     height: '80%',
+    width: '97%',
     overflowY: 'hidden',
     scrollbarWidth: 'none',
     paddingRight: '6px',
@@ -787,6 +787,7 @@ export const cardStyles = makeStyles((theme) => ({
       marginLeft: '.5%',
       '&:hover': {
         textDecoration: 'underline',
+        cursor: 'pointer',
       },
     },
   },

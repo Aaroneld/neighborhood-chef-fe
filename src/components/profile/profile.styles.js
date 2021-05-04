@@ -174,11 +174,9 @@ export const styles = makeStyles((theme) => ({
               flexDirection: 'column',
               justifyContent: 'space-between',
               padding: '5px',
-              cursor: 'pointer',
               textAlign: 'center',
-              height: 'calc(100% - 36px)',
-              minHeight: 200,
-              maxHeight: 200,
+              height: '100%',
+              minHeight: 225,
               msOverflowStyle: 'none' /* Hide scrollbar for IE and Edge */,
               scrollbarWidth: 'none' /* Hide scrollbar for Firefox */,
               '&::-webkit-scrollbar': {
@@ -190,6 +188,16 @@ export const styles = makeStyles((theme) => ({
               },
               [theme.breakpoints.down('sm')]: {
                 width: '96%',
+              },
+              '& .iconContainer': {
+                display: 'flex',
+                justifyContent: 'flex-end',
+
+                '& svg': {
+                  fontSize: '2.5rem',
+                  cursor: 'pointer',
+                  margin: '.5%',
+                },
               },
             },
           },

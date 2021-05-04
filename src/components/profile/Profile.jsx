@@ -13,6 +13,7 @@ import RightSide from './right-side/RightSide';
 
 const Profile = () => {
   const [user, setUser] = useState(null);
+  const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(false);
   const [parsedAddressURL, setParsedAddressURL] = useState('');
   const { userid } = useParams();
@@ -37,6 +38,7 @@ const Profile = () => {
         (res) => {
           setLoading(false);
           setUser(res.data.data.Users[0]);
+          setEvents(res.data.data.Users[0].UserEvents.owned);
           setParsedAddressURL(
             `https://www.google.com/maps/search/${res.data.data.Users[0].address.replace(' ', '+')}`
           );
@@ -59,7 +61,7 @@ const Profile = () => {
             <Header user={user} setUser={setUser} loggedInUserId={loggedInUserId} userid={userid} />
             <div className="mainContainer">
               <LeftSide user={user} parsedAddressURL={parsedAddressURL} />
-              {user.UserEvents.owned.length > 0 && <RightSide user={user} />}
+              {user.UserEvents.owned.length > 0 && <RightSide events={events} setEvents={setEvents} />}
             </div>
           </Card>
         )}

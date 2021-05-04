@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ErrorMessage } from '@hookform/error-message';
 import MapboxAddressSearch from './mapbox-address-search';
 import { styles } from './mapbox-geocoder.styles';
-import {FlyToInterpolator} from 'react-map-gl';
+import { FlyToInterpolator } from 'react-map-gl';
 import * as d3 from 'd3-ease';
 
 function MapboxGeocoder({ errors, setValues, values, validate, setViewport }) {
@@ -20,19 +20,21 @@ function MapboxGeocoder({ errors, setValues, values, validate, setViewport }) {
         return { ...values, ...data };
       });
 
-      if(data.latitude) {
-        setViewport(prev => { 
+      if (data.latitude) {
+        setViewport((prev) => {
           return {
-          ...prev,
-          longitude: data.longitude,
-          latitude: data.latitude,
-          zoom: 16,
-          transitionDuration: 4000,
-          transitionInterpolator: new FlyToInterpolator(),
-          transistionEasing: d3.easeCubic
-        }});
+            ...prev,
+            longitude: data.longitude,
+            latitude: data.latitude,
+            zoom: 16,
+            transitionDuration: 4000,
+            transitionInterpolator: new FlyToInterpolator(),
+            transistionEasing: d3.easeCubic,
+          };
+        });
       }
     }
+    // eslint-disable-next-line
   }, [data, setValues]);
 
   useEffect(() => {
@@ -61,7 +63,7 @@ function MapboxGeocoder({ errors, setValues, values, validate, setViewport }) {
     setOpen(false);
   };
   return (
-    <div className={classnames.container + " input-with-error-message"}>
+    <div className={classnames.container + ' input-with-error-message'}>
       <MapboxAddressSearch
         setData={setData}
         handleBlur={handleBlur}
@@ -75,7 +77,11 @@ function MapboxGeocoder({ errors, setValues, values, validate, setViewport }) {
           name="address"
           errors={errors}
           message={errors.address[0]}
-          render={({ message }) => <p className="error-message" style={{ color: 'crimson' }}>{message}</p>}
+          render={({ message }) => (
+            <p className="error-message" style={{ color: 'crimson' }}>
+              {message}
+            </p>
+          )}
         />
       )}
     </div>
