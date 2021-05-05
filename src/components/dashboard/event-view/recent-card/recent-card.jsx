@@ -16,7 +16,7 @@ const RecentCard = (props) => {
       <Header {...props} />
       <Image {...props} />
       <Details {...props} />
-      <div style={{ borderTop: '.75px solid #F2F2F2', width: '90%', alignSelf: 'center' }} />
+      <div className={classes.dashboardLineBreak} />
       <CardContent>
         <div className={classes.statusButtonContainerDashboard}>
           <Typography variant="h6">Going?</Typography>

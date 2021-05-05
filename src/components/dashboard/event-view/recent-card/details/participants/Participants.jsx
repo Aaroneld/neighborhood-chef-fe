@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import AvatarGroup from '@material-ui/lab/AvatarGroup';
+import { cardStyles } from '../../../../../../styles';
 
 const Participants = ({ users }) => {
+  const classes = cardStyles();
   return (
     <div>
       {users.length > 0 && (
@@ -59,7 +61,7 @@ const Participants = ({ users }) => {
             )}
             );
           </AvatarGroup>
-          <div style={{ paddingRight: '6%' }}>
+          <div className={classes.participantText}>
             {users.length} {users.length === 1 ? 'neighbor' : 'neighbors'} going
           </div>
         </div>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Typography from '@material-ui/core/Typography';
@@ -10,10 +11,12 @@ import { parseTime } from '../../../../../utilities/functions';
 import { axiosWithAuth } from '../../../../../utilities/axiosWithAuth';
 import { ADD_FAVORITE_EVENT, REMOVE_FAVORITE_EVENT } from '../../../../../graphql/users/user-mutations';
 import Participants from './participants/Participants';
+import { cardStyles } from '../../../../../styles';
 
 const Details = (props) => {
   const [favorite, setFavorite] = useState(props.isFavorite);
   const timeObject = parseTime(props.startTime, props.endTime);
+  const classes = cardStyles();
 
   const addFavoriteEvent = () => {
     const favoriteEvent = {
@@ -50,18 +53,13 @@ const Details = (props) => {
   };
 
   return (
-    <CardContent
-      style={{
-        padding: '5px',
-        display: 'flex',
-        flexDirection: 'column',
-        paddingLeft: '5%',
-      }}
-    >
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <Typography variant="h4">
-          {props.title.length < 22 ? props.title : `${props.title.slice(0, 22)}...`}
-        </Typography>
+    <CardContent className={classes.dashboardDetailsContainer}>
+      <div className="titleAddFavoriteContainer">
+        <Link to={`/events/${props.id}`}>
+          <Typography variant="h4">
+            {props.title.length < 22 ? props.title : `${props.title.slice(0, 22)}...`}
+          </Typography>
+        </Link>
         <CardActions disableSpacing>
           {!favorite ? (
             <div style={{ cursor: 'pointer' }} onClick={addFavoriteEvent}>

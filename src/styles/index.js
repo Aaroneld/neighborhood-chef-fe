@@ -517,6 +517,18 @@ export const cardStyles = makeStyles((theme) => ({
       },
     },
   },
+  titleContainer: {
+    display: 'flex',
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+
+    '& div': {
+      display: 'flex',
+      width: '90%',
+      alignItems: 'center',
+    },
+  },
   title: {
     wordBreak: 'break-word',
     [theme.breakpoints.down('md')]: {
@@ -557,6 +569,49 @@ export const cardStyles = makeStyles((theme) => ({
   iconContainer: {
     display: 'flex',
     alignItems: 'center',
+  },
+  dashboardNavigateBtn: {
+    border: 'none',
+    borderRadius: '50%',
+    height: '45px',
+    width: '45px',
+    cursor: 'pointer',
+    fontSize: '3rem',
+    color: '#9597A1',
+    marginTop: '1%',
+    marginLeft: '2%',
+    outline: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '1.6rem',
+      height: '25px',
+      width: '25px',
+    },
+  },
+  dashboardDetailsContainer: {
+    padding: '5px',
+    display: 'flex',
+    flexDirection: 'column',
+    paddingLeft: '5%',
+
+    '& .titleAddFavoriteContainer': {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+    },
+  },
+  participantText: {
+    paddingRight: '6%',
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    },
+  },
+  dashboardLineBreak: {
+    borderTop: '.75px solid #F2F2F2',
+    width: '88%',
+    alignSelf: 'center',
   },
   textAndBtns: {
     display: 'flex',

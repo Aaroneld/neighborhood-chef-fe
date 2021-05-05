@@ -32,10 +32,8 @@ const Header = (props) => {
           </Avatar>
         }
         title={
-          <div
-            style={{ display: 'flex', width: '100%', alignItems: 'center', justifyContent: 'space-between' }}
-          >
-            <div style={{ display: 'flex', width: '80%', alignItems: 'center' }}>
+          <div className={classes.titleContainer}>
+            <div>
               <Link to={`/profile/${props.User.id}`} style={{ cursor: 'pointer' }}>
                 <Typography variant="h6">{`${props.User.firstName} `}</Typography>
               </Link>
@@ -43,20 +41,8 @@ const Header = (props) => {
                 &nbsp; created an event
               </Typography>
             </div>
-            <button
-              style={{ border: 'none', borderRadius: '50%', padding: '5px', cursor: 'pointer' }}
-              onClick={() => push(`events/${props.id}`)}
-            >
-              <Icon
-                icon={softwareUpload}
-                style={{
-                  fontSize: '3rem',
-                  color: '#9597A1',
-                  marginTop: '1%',
-                  marginLeft: '2%',
-                  alignSelf: 'right',
-                }}
-              />
+            <button className={classes.dashboardNavigateBtn} onClick={() => push(`events/${props.id}`)}>
+              <Icon icon={softwareUpload} />
             </button>
           </div>
         }
