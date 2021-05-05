@@ -241,7 +241,7 @@ export const cardStyles = makeStyles((theme) => ({
   },
   dashboard: {
     marginTop: '10px',
-    maxHeight: '470px',
+    maxHeight: '480px',
     maxWidth: '390px',
     overflowY: 'hidden',
   },
