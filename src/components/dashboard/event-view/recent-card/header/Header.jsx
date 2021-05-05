@@ -38,7 +38,7 @@ const Header = (props) => {
                 <Typography variant="h6">{`${props.User.firstName} `}</Typography>
               </Link>
               <Typography variant="h6" style={{ color: '#A2A4AD' }}>
-                &nbsp; created an event
+                &nbsp;created an event
               </Typography>
             </div>
             <button className={classes.dashboardNavigateBtn} onClick={() => push(`events/${props.id}`)}>
