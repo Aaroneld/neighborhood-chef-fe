@@ -211,6 +211,10 @@ export const cardStyles = makeStyles((theme) => ({
   iconContainer: {
     display: 'flex',
     alignItems: 'center',
+
+    '& svg': {
+      marginRight: '1%',
+    },
   },
   buttonContainer: {
     display: 'flex',
