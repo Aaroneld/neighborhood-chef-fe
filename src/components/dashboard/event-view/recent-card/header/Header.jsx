@@ -17,19 +17,21 @@ const Header = (props) => {
     <>
       <CardHeader
         avatar={
-          <Avatar
-            key={props.User.id}
-            title={`${props.User.firstName} ${props.User.lastName}`}
-            aria-label="avatar"
-            className={classes.avatar}
-            src={props.User.photo ? props.User.photo : ''}
-          >
-            {!props.User.photo && (
-              <Typography>{`${props.User.firstName.split('')[0].toUpperCase()}${props.User.lastName
-                .split('')[0]
-                .toUpperCase()}`}</Typography>
-            )}
-          </Avatar>
+          <Link to={`/profile/${props.User.id}`} style={{ cursor: 'pointer' }}>
+            <Avatar
+              key={props.User.id}
+              title={`${props.User.firstName} ${props.User.lastName}`}
+              aria-label="avatar"
+              className={classes.avatar}
+              src={props.User.photo ? props.User.photo : ''}
+            >
+              {!props.User.photo && (
+                <Typography>{`${props.User.firstName.split('')[0].toUpperCase()}${props.User.lastName
+                  .split('')[0]
+                  .toUpperCase()}`}</Typography>
+              )}
+            </Avatar>
+          </Link>
         }
         title={
           <div className={classes.titleContainer}>
