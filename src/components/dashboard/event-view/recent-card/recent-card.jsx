@@ -203,11 +203,18 @@ const RecentCard = (props) => {
           )}
         </div>
         {props.EventUsers.attending.length > 0 && (
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              marginBottom: '3%',
+            }}
+          >
             <AvatarGroup max={5}>
-              {props.EventUsers.attending.length > 0 &&
-                props.EventUsers.attending.map((user) => {
-                  console.log(user);
+              {props.EventUsers.attending
+                .slice(0, props.EventUsers.attending.length >= 4 ? 4 : props.EventUsers.attending.length)
+                .map((user) => {
                   return (
                     <Link
                       to={`/profile/${user.id}`}
@@ -253,7 +260,10 @@ const RecentCard = (props) => {
               )}
               );
             </AvatarGroup>
-            <div style={{ paddingRight: '6%' }}>{props.EventUsers.attending.length} neighbors going</div>
+            <div style={{ paddingRight: '6%' }}>
+              {props.EventUsers.attending.length}{' '}
+              {props.EventUsers.attending.length === 1 ? 'neighbor' : 'neighbors'} going
+            </div>
           </div>
         )}
         {props.EventUsers.attending.length === 0 && (
