@@ -26,19 +26,21 @@ const StatusButton = ({
       }}
       onClick={async (e) => {
         e.preventDefault();
-        changeStatusForSingleEvent({
-          status,
-          eventId,
-          userId,
-        });
-        // the code below is for updating the participants on the single-event-page
-        if (attending && setAttending) {
-          const updatedAttendingList = attending.filter((user) => user.id !== userId);
+        if (currStatus !== status) {
+          changeStatusForSingleEvent({
+            status,
+            eventId,
+            userId,
+          });
+          // the code below is for updating the participants on the single-event-page
+          if (attending && setAttending) {
+            const updatedAttendingList = attending.filter((user) => user.id !== userId);
 
-          if (status === 'GOING') {
-            updatedAttendingList.push(user);
+            if (status === 'GOING') {
+              updatedAttendingList.push(user);
+            }
+            setAttending(updatedAttendingList);
           }
-          setAttending(updatedAttendingList);
         }
       }}
     >

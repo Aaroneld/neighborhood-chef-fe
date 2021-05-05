@@ -5,7 +5,7 @@ import CardHeader from '@material-ui/core/CardHeader';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import { Icon } from '@iconify/react';
-import { timeAgo, parseTime } from '../../../../../utilities/functions';
+import { timeAgo } from '../../../../../utilities/functions';
 import softwareUpload from '@iconify-icons/gg/software-upload';
 
 const Header = (props) => {
