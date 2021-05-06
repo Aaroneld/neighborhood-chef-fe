@@ -25,7 +25,11 @@ export const styles = makeStyles((theme) => ({
       },
 
       [theme.breakpoints.down('sm')]: {
-        fontSize: '110%',
+        fontSize: '100%',
+      },
+
+      [theme.breakpoints.down('xs')]: {
+        fontSize: '80%',
       },
     },
 
@@ -35,7 +39,7 @@ export const styles = makeStyles((theme) => ({
       },
 
       [theme.breakpoints.down('sm')]: {
-        fontSize: '80%',
+        fontSize: '70%',
       },
     },
 
@@ -61,7 +65,7 @@ export const styles = makeStyles((theme) => ({
     },
 
     [theme.breakpoints.down('sm')]: {
-      top: '10%',
+      top: '-5%',
     },
   },
   attendingContainer: {
@@ -89,8 +93,38 @@ export const styles = makeStyles((theme) => ({
     },
 
     '& .MuiAvatar-root': {
-      height: '50px',
-      width: '50px',
+      height: '47px',
+      width: '47px',
+
+      '& p': {
+        fontSize: '130%',
+
+        [theme.breakpoints.down('sm')]: {
+          fontSize: '90%',
+        },
+      },
+
+      [theme.breakpoints.down('lg')]: {
+        height: '37px',
+        width: '37px',
+      },
+
+      [theme.breakpoints.down('sm')]: {
+        height: '25px',
+        width: '25px',
+      },
+    },
+
+    [theme.breakpoints.down('lg')]: {
+      left: '8%',
+    },
+
+    [theme.breakpoints.down('md')]: {
+      left: '-10%',
+    },
+
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
     },
   },
 }));

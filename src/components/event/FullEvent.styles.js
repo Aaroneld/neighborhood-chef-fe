@@ -33,6 +33,7 @@ export const fullEventStyles = makeStyles((theme) => ({
       height: '100%',
       marginLeft: '1%',
     },
+
     [theme.breakpoints.down('sm')]: {
       marginLeft: 0,
     },
@@ -47,6 +48,7 @@ export const fullEventStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down('md')]: {
       margin: '1% 0%',
+      flexDirection: 'column-reverse',
     },
   },
   singleEventTopRow: {
@@ -54,8 +56,8 @@ export const fullEventStyles = makeStyles((theme) => ({
     flexBasis: '20%',
     overflowY: 'hidden',
 
-    [theme.breakpoints.down('md')]: {
-      flexBasis: 0,
+    [theme.breakpoints.down('xs')]: {
+      flexBasis: '25%',
     },
   },
   singleEventCommentCard: {

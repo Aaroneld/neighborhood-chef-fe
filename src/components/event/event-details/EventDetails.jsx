@@ -29,6 +29,7 @@ import { DELETE_EVENT } from '../../../graphql/events/event-mutations';
 import { deleteEvent } from '../../../utilities/actions';
 
 import { print } from 'graphql';
+import Attending from './attending/attending';
 
 const EventDetails = ({ event }) => {
   const photo = event.photo ? event.photo : chooseDefaultPicture(event.title.charAt(0));
@@ -111,6 +112,7 @@ const EventDetails = ({ event }) => {
             <Description event={event} classes={classes} />
             <Divider variant="middle" style={{ margin: '1% auto', width: '95%' }} />
             <Details event={event} classes={classes} />
+            <Attending attending={event.EventUsers.attending} classes={classes} />
             <Hashtags event={event} classes={classes} />
             <Modifiers event={event} classes={classes} />
           </Card>

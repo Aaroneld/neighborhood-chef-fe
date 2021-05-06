@@ -9,8 +9,6 @@ import AttendingButtons from './event-details/attending-buttons/attending-button
 import Avatar from '@material-ui/core/Avatar';
 import AvatarGroup from '@material-ui/lab/AvatarGroup';
 
-import { pickRandomColor } from '../../utilities/functions';
-
 export default function EventHeader() {
   const eventInfo = useSelector((state) => state.focusedEventInfo);
   const classes = styles();
@@ -52,7 +50,7 @@ export default function EventHeader() {
   ];
 
   return (
-    <>
+    <div>
       <div className={classes.attendingContainer}>
         <Typography variant="h6">Attending:</Typography>
         <AvatarGroup max={5}>
@@ -74,9 +72,9 @@ export default function EventHeader() {
                   src={user.photo ? null : user.photo}
                 >
                   {!user.photo && (
-                    <Typography style={{ fontSize: '130%', paddingRight: '2%' }}>{`${
-                      user.firstName.split('')[0]
-                    }${user.lastName.split('')[0]}`}</Typography>
+                    <Typography style={{ paddingRight: '2%' }}>{`${user.firstName.split('')[0]}${
+                      user.lastName.split('')[0]
+                    }`}</Typography>
                   )}
                 </Avatar>
               </Link>
@@ -93,9 +91,7 @@ export default function EventHeader() {
                 background: '#DCDCDC',
               }}
             >
-              <Typography style={{ fontSize: '130%', paddingRight: '2%' }}>
-                +{testAvatar.length - 4}
-              </Typography>
+              <Typography style={{ paddingRight: '2%' }}>+{testAvatar.length - 4}</Typography>
             </Avatar>
           )}
           );
@@ -115,6 +111,6 @@ export default function EventHeader() {
           </>
         )}
       </div>
-    </>
+    </div>
   );
 }
