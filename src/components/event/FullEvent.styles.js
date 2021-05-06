@@ -56,6 +56,10 @@ export const fullEventStyles = makeStyles((theme) => ({
     flexBasis: '20%',
     overflowY: 'hidden',
 
+    [theme.breakpoints.down('md')]: {
+      flexBasis: '30%',
+    },
+
     [theme.breakpoints.down('xs')]: {
       flexBasis: '25%',
     },
