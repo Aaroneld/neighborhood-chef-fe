@@ -54,7 +54,6 @@ export const styles = makeStyles((theme) => ({
     '& .mainContainer': {
       display: 'flex',
       width: '100%',
-      paddingTop: '5px',
       [theme.breakpoints.down('md')]: {
         flexDirection: 'column',
       },
