@@ -18,6 +18,7 @@ export default function AttendingButtons({ event, classes, attending, setAttendi
           currentUserId={currentUserId}
           attending={attending}
           setAttending={setAttending}
+          event={event}
         />
       </div>
     </div>

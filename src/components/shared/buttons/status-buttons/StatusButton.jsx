@@ -1,6 +1,7 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { connect } from 'react-redux';
+import { updateFocusedEventInfo } from '../../../../utilities/actions';
 import { buttonStyles } from '../../../../styles';
 import { changeStatusForSingleEvent } from '../../../../utilities/actions';
 
@@ -13,9 +14,11 @@ const StatusButton = ({
   changeStatusForSingleEvent,
   attending,
   setAttending,
+  event,
 }) => {
   const classes = buttonStyles();
   const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
   return (
     <button
@@ -32,7 +35,7 @@ const StatusButton = ({
             eventId,
             userId,
           });
-          // the code below is for updating the participants on the single-event-page
+
           if (attending && setAttending) {
             const updatedAttendingList = attending.filter((user) => user.id !== userId);
 
@@ -40,6 +43,24 @@ const StatusButton = ({
               updatedAttendingList.push(user);
             }
             setAttending(updatedAttendingList);
+          }
+        }
+
+        if (event && Object.keys(event).length > 0) {
+          if (status === 'GOING') {
+            dispatch(
+              updateFocusedEventInfo({
+                ...event,
+                attending: [...event.attending, user],
+              })
+            );
+          } else {
+            dispatch(
+              updateFocusedEventInfo({
+                ...event,
+                attending: event.attending.filter((u) => u.id !== user.id),
+              })
+            );
           }
         }
       }}

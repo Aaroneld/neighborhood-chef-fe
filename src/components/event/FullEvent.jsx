@@ -44,6 +44,10 @@ const FullEvent = ({ match }) => {
               id: res.data.data.Events[0].id,
               title: res.data.data.Events[0].title,
               eventuser: res.data.data.Events[0].User,
+              attending:
+                res.data.data.Events[0].EventUsers.attending.length > 0
+                  ? res.data.data.Events[0].EventUsers.attending
+                  : [],
             })
           );
         },
