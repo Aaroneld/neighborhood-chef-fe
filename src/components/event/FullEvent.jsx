@@ -6,7 +6,6 @@ import Card from '@material-ui/core/Card';
 import { useDispatch } from 'react-redux';
 import { addFocusedEventInfo } from '../../utilities/actions';
 import EventDetails from './event-details/EventDetails';
-import ParticipantCard from './participant-card/ParticipantsCard';
 import ShareCard from './share-card/ShareCard';
 import CommentsCard from './comments-card/CommentsCard';
 import Spinner from '../shared/spinner/Spinner';

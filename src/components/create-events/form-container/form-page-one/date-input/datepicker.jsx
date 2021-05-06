@@ -154,7 +154,7 @@ export default function DatePicker({ setDate, values }) {
         </div>
         <div className="picker">
           {DAYS_OF_THE_WEEK.map((day, index) => (
-            <p key="day" className="picker-cell day" key={index}>
+            <p className="picker-cell day" key={index}>
               {day}
             </p>
           ))}

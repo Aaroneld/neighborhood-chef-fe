@@ -1,6 +1,5 @@
 // @ts-nocheck
 import { makeStyles, createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
-import { autoType } from 'd3-dsv';
 
 export const buttonStyles = makeStyles((theme) => ({
   root: {

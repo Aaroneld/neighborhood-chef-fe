@@ -11,9 +11,6 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import EmailIcon from '@material-ui/icons/Email';
 import MessageIcon from '@material-ui/icons/Message';
 import PinterestIcon from '@material-ui/icons/Pinterest';
-import LinkIcon from '@material-ui/icons/Link';
-
-import IconButton from '@material-ui/core/IconButton';
 
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 

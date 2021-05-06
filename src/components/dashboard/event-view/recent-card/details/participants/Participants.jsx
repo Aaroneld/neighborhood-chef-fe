@@ -7,6 +7,7 @@ import { cardStyles } from '../../../../../../styles';
 
 const Participants = ({ users }) => {
   const classes = cardStyles();
+
   return (
     <div>
       {users.length > 0 && (
