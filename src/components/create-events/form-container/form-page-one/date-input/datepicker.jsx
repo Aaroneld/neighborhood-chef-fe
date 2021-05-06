@@ -153,8 +153,8 @@ export default function DatePicker({ setDate, values }) {
           </div>
         </div>
         <div className="picker">
-          {DAYS_OF_THE_WEEK.map((day) => (
-            <p key="day" className="picker-cell day">
+          {DAYS_OF_THE_WEEK.map((day, index) => (
+            <p key="day" className="picker-cell day" key={index}>
               {day}
             </p>
           ))}
@@ -167,6 +167,7 @@ export default function DatePicker({ setDate, values }) {
                 selectedDate={selectedDate}
                 selectDate={selectDate}
                 isValid={isValid}
+                key={index}
               />
             ))}
         </div>
