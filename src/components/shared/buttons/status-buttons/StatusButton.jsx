@@ -5,17 +5,7 @@ import { updateFocusedEventInfo } from '../../../../utilities/actions';
 import { buttonStyles } from '../../../../styles';
 import { changeStatusForSingleEvent } from '../../../../utilities/actions';
 
-const StatusButton = ({
-  status,
-  color,
-  currStatus,
-  eventId,
-  userId,
-  changeStatusForSingleEvent,
-  attending,
-  setAttending,
-  event,
-}) => {
+const StatusButton = ({ status, color, currStatus, eventId, userId, changeStatusForSingleEvent, event }) => {
   const classes = buttonStyles();
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
@@ -35,17 +25,7 @@ const StatusButton = ({
             eventId,
             userId,
           });
-
-          if (attending && setAttending) {
-            const updatedAttendingList = attending.filter((user) => user.id !== userId);
-
-            if (status === 'GOING') {
-              updatedAttendingList.push(user);
-            }
-            setAttending(updatedAttendingList);
-          }
         }
-
         if (event && Object.keys(event).length > 0) {
           if (status === 'GOING') {
             dispatch(

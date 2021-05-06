@@ -14,7 +14,6 @@ import { fullEventStyles } from './FullEvent.styles';
 const FullEvent = ({ match }) => {
   const eventId = parseInt(match.params.id);
   const [event, setEvent] = useState(null);
-  const [attending, setAttending] = useState([]);
   const [loading, setLoading] = useState(false);
   const styles = fullEventStyles();
 
@@ -38,7 +37,6 @@ const FullEvent = ({ match }) => {
         (res) => {
           setLoading(false);
           setEvent(res.data.data.Events[0]);
-          setAttending(res.data.data.Events[0].EventUsers.attending);
           dispatch(
             addFocusedEventInfo({
               id: res.data.data.Events[0].id,
@@ -68,7 +66,7 @@ const FullEvent = ({ match }) => {
         <div className={styles.singleEventBox}>
           {event && (
             <>
-              <EventDetails event={event} attending={attending} setAttending={setAttending} />
+              <EventDetails event={event} />
               <div className={styles.singleEventRightColumn}>
                 <div className={styles.singleEventTopRow}>
                   <ShareCard />
