@@ -449,7 +449,7 @@ export const cardStyles = makeStyles((theme) => ({
     },
   },
   dashboardImg: {
-    maxHeight: '20%',
+    maxHeight: '30%',
   },
   description: {
     margin: '2.5% 0',
@@ -522,12 +522,6 @@ export const cardStyles = makeStyles((theme) => ({
     width: '100%',
     alignItems: 'center',
     justifyContent: 'space-between',
-
-    '& div': {
-      display: 'flex',
-      width: '90%',
-      alignItems: 'center',
-    },
   },
   title: {
     wordBreak: 'break-word',
@@ -570,26 +564,15 @@ export const cardStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
   },
-  dashboardNavigateBtn: {
+  headerBtn: {
     border: 'none',
-    borderRadius: '50%',
-    height: '45px',
-    width: '45px',
     cursor: 'pointer',
     outline: 'none',
+    fontSize: '3.5rem',
+    width: '15%',
     display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: '3rem',
-    '& svg': {
-      color: '#9597A1',
-      marginBottom: '15%',
-    },
-    [theme.breakpoints.down('xs')]: {
-      fontSize: '1.8rem',
-      height: '25px',
-      width: '25px',
-    },
+    justifyContent: 'flex-end',
+    color: 'rgb(88, 212, 115)',
   },
   dashboardDetailsContainer: {
     padding: '5px',
