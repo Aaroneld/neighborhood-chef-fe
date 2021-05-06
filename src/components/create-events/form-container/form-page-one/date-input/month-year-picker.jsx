@@ -33,7 +33,6 @@ export default function MonthYearPicker({
   });
 
   const currentMonth = new Date().getMonth();
-  console.log(currentMonth);
   const classnames = styles();
 
   const handleYearDecrement = (e) => {
@@ -78,6 +77,7 @@ export default function MonthYearPicker({
             ) {
               return (
                 <p
+                  key={month}
                   className={`day picker-cell ${index === currentSelectedMonth ? 'selected-month' : ''}`}
                   onClick={() => {
                     console.log(index);

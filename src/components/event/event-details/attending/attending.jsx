@@ -25,12 +25,12 @@ export default function Attending({ attending, classes }) {
                   border: '1px solid white',
                   background: '#DCDCDC',
                 }}
-                src={user.photo ? null : user.photo}
+                src={user.photo ? user.photo : ''}
               >
                 {!user.photo && (
-                  <Typography style={{ paddingRight: '2%' }}>{`${user.firstName.split('')[0]}${
-                    user.lastName.split('')[0]
-                  }`}</Typography>
+                  <Typography style={{ paddingRight: '2%' }}>{`${user.firstName
+                    .split('')[0]
+                    .toUpperCase()}${user.lastName.split('')[0].toUpperCase()}`}</Typography>
                 )}
               </Avatar>
             </Link>

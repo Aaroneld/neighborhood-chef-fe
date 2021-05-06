@@ -51,54 +51,58 @@ export default function EventHeader() {
 
   return (
     <div>
-      <div className={classes.attendingContainer}>
-        <Typography variant="h6">Attending:</Typography>
-        <AvatarGroup max={5}>
-          {testAvatar.slice(0, testAvatar.length >= 4 ? 4 : testAvatar.length).map((user) => {
-            return (
-              <Link
-                to={`/profile/${user.id}`}
-                style={{ border: 'none', background: 'transparent', overflow: 'hidden' }}
+      {eventInfo && eventInfo.attending && eventInfo.attending.length > 0 && (
+        <div className={classes.attendingContainer}>
+          <Typography variant="h6">Attending:</Typography>
+          <AvatarGroup max={5}>
+            {eventInfo.attending
+              .slice(0, eventInfo.attending.length >= 4 ? 4 : eventInfo.attending.length)
+              .map((user) => {
+                return (
+                  <Link
+                    to={`/profile/${user.id}`}
+                    style={{ border: 'none', background: 'transparent', overflow: 'hidden' }}
+                  >
+                    <Avatar
+                      key={user.id}
+                      title={`${user.firstName} ${user.lastName}`}
+                      aria-label="avatar"
+                      style={{
+                        cursor: 'pointer',
+                        border: '1px solid white',
+                        background: '#DCDCDC',
+                      }}
+                      src={user.photo ? user.photo : ''}
+                    >
+                      {!user.photo && (
+                        <Typography style={{ paddingRight: '2%' }}>{`${user.firstName
+                          .split('')[0]
+                          .toUpperCase()}${user.lastName.split('')[0].toUpperCase()}`}</Typography>
+                      )}
+                    </Avatar>
+                  </Link>
+                );
+              })}
+            {eventInfo.attending.length > 4 && (
+              <Avatar
+                key={'count'}
+                title={'count'}
+                aria-label="avatar"
+                style={{
+                  cursor: 'pointer',
+                  border: '1px solid white',
+                  background: '#DCDCDC',
+                }}
               >
-                <Avatar
-                  key={user.id}
-                  title={`${user.firstName} ${user.lastName}`}
-                  aria-label="avatar"
-                  style={{
-                    cursor: 'pointer',
-                    border: '1px solid white',
-                    background: '#DCDCDC',
-                  }}
-                  src={user.photo ? null : user.photo}
-                >
-                  {!user.photo && (
-                    <Typography style={{ paddingRight: '2%' }}>{`${user.firstName.split('')[0]}${
-                      user.lastName.split('')[0]
-                    }`}</Typography>
-                  )}
-                </Avatar>
-              </Link>
+                <Typography style={{ paddingRight: '2%' }}>+{eventInfo.attending.length - 4}</Typography>
+              </Avatar>
+            )}
             );
-          })}
-          {testAvatar.length > 4 && (
-            <Avatar
-              key={'count'}
-              title={'count'}
-              aria-label="avatar"
-              style={{
-                cursor: 'pointer',
-                border: '1px solid white',
-                background: '#DCDCDC',
-              }}
-            >
-              <Typography style={{ paddingRight: '2%' }}>+{testAvatar.length - 4}</Typography>
-            </Avatar>
-          )}
-          );
-        </AvatarGroup>
-      </div>
+          </AvatarGroup>
+        </div>
+      )}
       <div className={classes.container}>
-        {eventInfo && (
+        {Object.keys(eventInfo).length > 0 && (
           <>
             <Typography variant="h2">{eventInfo.title}</Typography>
             <Typography>

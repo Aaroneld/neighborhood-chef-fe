@@ -18,9 +18,7 @@ const LeftSide = ({ user, parsedAddressURL }) => {
         <div className="textIconContainer">
           <Typography variant="h6">Address</Typography>
           <div>
-            <span>
-              <Icon height="20" icon={globeIcon} />
-            </span>
+            <Icon style={{ fontSize: '3.5rem', marginRight: '1%' }} icon={globeIcon} />
             <a href={parsedAddressURL} target="_blank" rel="noopener noreferrer">
               {user.address}
             </a>
@@ -36,7 +34,7 @@ const LeftSide = ({ user, parsedAddressURL }) => {
         >
           <Typography variant="h6">Contact</Typography>
           <div>
-            <MailOutlineIcon style={{ fontSize: '2rem' }} />
+            <MailOutlineIcon style={{ fontSize: '3rem', marginRight: '1%' }} />
             <Typography style={{ cursor: 'pointer', maxWidth: '95%' }}>{user.email}</Typography>
           </div>
         </div>
@@ -44,7 +42,7 @@ const LeftSide = ({ user, parsedAddressURL }) => {
         <div className="textIconContainer">
           <Typography variant="h6">Gender</Typography>
           <div>
-            <WcIcon style={{ fontSize: '2rem' }} />
+            <WcIcon style={{ fontSize: '3rem', marginRight: '1%' }} />
             <Typography>{user.gender.charAt(0).toUpperCase() + user.gender.slice(1)}</Typography>
           </div>
         </div>

@@ -6,7 +6,7 @@ import Avatar from '@material-ui/core/Avatar';
 import curry from '../../../assets/curry.jpg';
 import { styles } from '../profile.styles.js';
 
-const Header = ({ user, setUser, userid, loggedInUserId }) => {
+const Header = ({ user, setUser, loggedInUserId }) => {
   const [showForm, setShowForm] = useState(false);
   const [formState, setFormState] = useState({ biography: '', charsLeft: 255 });
   const classes = styles();

@@ -20,7 +20,7 @@ const styles = makeStyles((theme) => ({
     alignItems: 'center',
     paddingBottom: '1%',
     marginTop: '0%',
-    position: "relative",
+    position: 'relative',
 
     [theme.breakpoints.down('md')]: {
       paddingLeft: 0,
@@ -41,10 +41,8 @@ function VariableHeader({ setEmpty }) {
   }, [location]);
 
   useEffect(() => {
-    console.log(urlLocation);
     if (matches) {
       if (!['create-event', 'view-events', 'dashboard', 'events'].includes(urlLocation)) {
-        console.log(urlLocation);
         setEmpty(true);
       } else {
         setEmpty(false);
@@ -71,7 +69,7 @@ function VariableHeader({ setEmpty }) {
     case 'events':
       return (
         <section className={classes['container']}>
-          <EventHeader/>
+          <EventHeader />
         </section>
       );
     default:

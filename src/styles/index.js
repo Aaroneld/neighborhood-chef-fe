@@ -1,6 +1,5 @@
 // @ts-nocheck
 import { makeStyles, createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
-import { autoType } from 'd3-dsv';
 
 export const buttonStyles = makeStyles((theme) => ({
   root: {
@@ -256,6 +255,9 @@ export const cardStyles = makeStyles((theme) => ({
     maxHeight: '480px',
     maxWidth: '390px',
     overflowY: 'hidden',
+    [theme.breakpoints.down('sm')]: {
+      maxHeight: '440px',
+    },
   },
   eventDetailsContainer: {
     width: '100%',
@@ -502,7 +504,7 @@ export const cardStyles = makeStyles((theme) => ({
     },
   },
   dashboardImg: {
-    maxHeight: '20%',
+    maxHeight: '30%',
   },
   description: {
     margin: '2.5% 0',
@@ -582,12 +584,6 @@ export const cardStyles = makeStyles((theme) => ({
     width: '100%',
     alignItems: 'center',
     justifyContent: 'space-between',
-
-    '& div': {
-      display: 'flex',
-      width: '90%',
-      alignItems: 'center',
-    },
   },
   title: {
     wordBreak: 'break-word',
@@ -636,26 +632,15 @@ export const cardStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
   },
-  dashboardNavigateBtn: {
+  headerBtn: {
     border: 'none',
-    borderRadius: '50%',
-    height: '45px',
-    width: '45px',
     cursor: 'pointer',
     outline: 'none',
+    fontSize: '3.5rem',
+    width: '15%',
     display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    fontSize: '3rem',
-    '& svg': {
-      color: '#9597A1',
-      marginBottom: '15%',
-    },
-    [theme.breakpoints.down('xs')]: {
-      fontSize: '1.8rem',
-      height: '25px',
-      width: '25px',
-    },
+    justifyContent: 'flex-end',
+    color: 'rgb(88, 212, 115)',
   },
   dashboardDetailsContainer: {
     padding: '5px',
@@ -772,6 +757,10 @@ export const cardStyles = makeStyles((theme) => ({
     '&:hover': {
       filter: 'brightness(70%)',
     },
+  },
+  dashboardAvatar: {
+    height: '55px',
+    width: '55px',
   },
   avatarNoHover: {
     backgroundColor: '#e8e8e8',
@@ -958,6 +947,9 @@ export const cardStyles = makeStyles((theme) => ({
         textDecoration: 'underline',
         cursor: 'pointer',
       },
+    },
+    [theme.breakpoints.down('md')]: {
+      position: 'relative',
     },
   },
   commentForm: {

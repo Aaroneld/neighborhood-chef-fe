@@ -6,7 +6,6 @@ import Card from '@material-ui/core/Card';
 import { useDispatch } from 'react-redux';
 import { addFocusedEventInfo } from '../../utilities/actions';
 import EventDetails from './event-details/EventDetails';
-import ParticipantCard from './participant-card/ParticipantsCard';
 import ShareCard from './share-card/ShareCard';
 import CommentsCard from './comments-card/CommentsCard';
 import Spinner from '../shared/spinner/Spinner';
@@ -15,7 +14,6 @@ import { fullEventStyles } from './FullEvent.styles';
 const FullEvent = ({ match }) => {
   const eventId = parseInt(match.params.id);
   const [event, setEvent] = useState(null);
-  const [attending, setAttending] = useState([]);
   const [loading, setLoading] = useState(false);
   const styles = fullEventStyles();
 
@@ -39,12 +37,15 @@ const FullEvent = ({ match }) => {
         (res) => {
           setLoading(false);
           setEvent(res.data.data.Events[0]);
-          setAttending(res.data.data.Events[0].EventUsers.attending);
           dispatch(
             addFocusedEventInfo({
               id: res.data.data.Events[0].id,
               title: res.data.data.Events[0].title,
               eventuser: res.data.data.Events[0].User,
+              attending:
+                res.data.data.Events[0].EventUsers.attending.length > 0
+                  ? res.data.data.Events[0].EventUsers.attending
+                  : [],
             })
           );
         },
@@ -65,7 +66,7 @@ const FullEvent = ({ match }) => {
         <div className={styles.singleEventBox}>
           {event && (
             <>
-              <EventDetails event={event} attending={attending} setAttending={setAttending} />
+              <EventDetails event={event} />
               <div className={styles.singleEventRightColumn}>
                 <div className={styles.singleEventTopRow}>
                   <ShareCard />
