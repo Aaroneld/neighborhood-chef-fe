@@ -145,14 +145,10 @@ export default function SubComment({
             className="comment-text"
           >{`${commentOwner.firstName} ${commentOwner.lastName}`}</Typography>
           <div>
-            <Typography
-              variant="caption"
-              className="comment-text"
-              style={{ color: '#5458F7', fontSize: '1.4rem' }}
-            >
+            <Typography variant="caption" className="comment-text" style={{ color: '#5458F7' }}>
               {parent ? `@${parent.firstName} ${parent.lastName} ` : ``}
             </Typography>
-            <Typography className="comment-text" variant="caption" style={{ fontSize: '1.4rem' }}>
+            <Typography className="comment-text" variant="caption">
               {subcomment}{' '}
             </Typography>
           </div>

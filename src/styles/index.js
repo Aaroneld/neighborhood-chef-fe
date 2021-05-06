@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { makeStyles, createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
 import { autoType } from 'd3-dsv';
 
@@ -239,6 +240,17 @@ export const cardStyles = makeStyles((theme) => ({
     zIndex: 1,
     position: 'relative',
   },
+  attendingContainer: {
+    display: 'none',
+
+    [theme.breakpoints.down('sm')]: {
+      display: 'flex',
+      margin: '1% 0% 4% 0',
+      flexDirection: 'column',
+      padding: '0 5%',
+      width: '100%',
+    },
+  },
   dashboard: {
     marginTop: '10px',
     maxHeight: '480px',
@@ -273,7 +285,7 @@ export const cardStyles = makeStyles((theme) => ({
       },
 
       [theme.breakpoints.down('md')]: {
-        fontSize: '100%',
+        width: '150px',
       },
     },
   },
@@ -388,6 +400,10 @@ export const cardStyles = makeStyles((theme) => ({
     '& >*': {
       flexBasis: '50%',
     },
+
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: 'column',
+    },
   },
   eventDetailsModifier: {
     justifyContent: 'center !important',
@@ -402,9 +418,19 @@ export const cardStyles = makeStyles((theme) => ({
           height: '30px !important',
         },
 
-        [theme.breakpoints.down('lg')]: {
+        [theme.breakpoints.down('md')]: {
           width: '40px !important',
           height: '40px !important',
+        },
+
+        [theme.breakpoints.down('sm')]: {
+          width: '45px !important',
+          height: '45px !important',
+        },
+
+        [theme.breakpoints.down('xs')]: {
+          width: '35px !important',
+          height: '35px !important',
         },
 
         '& svg': {
@@ -417,12 +443,20 @@ export const cardStyles = makeStyles((theme) => ({
           [theme.breakpoints.down('md')]: {
             fontSize: '2rem !Important',
           },
+
+          [theme.breakpoints.down('sm')]: {
+            fontSize: '1.8rem !Important',
+          },
         },
       },
 
       '& p': {
         display: 'none !important',
       },
+    },
+
+    [theme.breakpoints.down('sm')]: {
+      flexWrap: 'nowrap !important',
     },
   },
   iconsContainer: {
@@ -445,10 +479,29 @@ export const cardStyles = makeStyles((theme) => ({
       '&:hover': {
         transform: 'scale(1.1)',
       },
+
+      [theme.breakpoints.down('sm')]: {
+        padding: '.5% 1.5%',
+      },
     },
 
     '& p': {
       fontSize: '70%',
+    },
+
+    [theme.breakpoints.down('sm')]: {
+      marginBottom: '3%',
+      padding: 0,
+    },
+  },
+
+  mobileHeader: {
+    padding: '0 5%',
+    display: 'none',
+    width: '100%',
+
+    [theme.breakpoints.down('sm')]: {
+      display: 'block',
     },
   },
   dashboardImg: {
@@ -467,7 +520,11 @@ export const cardStyles = makeStyles((theme) => ({
         fontSize: '90%',
       },
 
-      [theme.breakpoints.down('md')]: {},
+      [theme.breakpoints.down('sm')]: {
+        fontSize: '70%',
+        paddiing: '0',
+        margin: '4% 0',
+      },
     },
   },
   details: {
@@ -478,6 +535,11 @@ export const cardStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'space-between',
     marginBottom: '1%',
+
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: 'column',
+      margin: '2% 0 4% 0',
+    },
   },
 
   iconTextContainer: {
@@ -494,9 +556,7 @@ export const cardStyles = makeStyles((theme) => ({
         fontSize: '80%',
       },
 
-      [theme.breakpoints.down('md')]: {
-        fontSize: '100%',
-      },
+      [theme.breakpoints.down('md')]: {},
     },
   },
   span: {
@@ -553,10 +613,16 @@ export const cardStyles = makeStyles((theme) => ({
       [theme.breakpoints.down('md')]: {
         fontSize: '120%',
       },
+
+      [theme.breakpoints.down('sm')]: {
+        marginTop: '2%',
+        fontSize: '100%',
+      },
     },
 
     [theme.breakpoints.down('md')]: {
-      height: '70vh',
+      padding: ' 0 5% 5% 5%',
+      height: '100%',
     },
   },
   cardContent: {
@@ -620,7 +686,7 @@ export const cardStyles = makeStyles((theme) => ({
       },
 
       [theme.breakpoints.down('sm')]: {
-        fontSize: '90%',
+        fontSize: '80%',
       },
     },
 
@@ -630,7 +696,7 @@ export const cardStyles = makeStyles((theme) => ({
       },
 
       [theme.breakpoints.down('sm')]: {
-        fontSize: '10%',
+        fontSize: '60% !important',
       },
     },
 
@@ -722,6 +788,10 @@ export const cardStyles = makeStyles((theme) => ({
         [theme.breakpoints.down('md')]: {
           fontSize: '2.5rem',
         },
+
+        [theme.breakpoints.down('xs')]: {
+          fontSize: '1.8rem',
+        },
       },
     },
 
@@ -736,6 +806,10 @@ export const cardStyles = makeStyles((theme) => ({
         fontSize: '120%',
         padding: '1% 0',
         whiteSpace: 'nowrap',
+
+        [theme.breakpoints.down('xs')]: {
+          fontSize: '80%',
+        },
       },
 
       '& input': {
@@ -747,7 +821,20 @@ export const cardStyles = makeStyles((theme) => ({
         padding: '1.5%',
         background: '#F5F5F5',
         fontSize: '101%',
+
+        [theme.breakpoints.down('xs')]: {
+          fontSize: '60%',
+        },
       },
+
+      [theme.breakpoints.down('xs')]: {
+        marginTop: '4%',
+        width: '90%',
+      },
+    },
+
+    [theme.breakpoints.down('md')]: {
+      background: 'rgb(255,255,255,.45)',
     },
   },
   shareButtons: {
@@ -806,6 +893,15 @@ export const cardStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('md')]: {
       width: '30px',
       height: '30px',
+    },
+
+    [theme.breakpoints.down('sm')]: {
+      width: '30px',
+      height: '30px',
+    },
+
+    [theme.breakpoints.down('xs')]: {
+      marginTop: '2%',
     },
   },
   accountEvent: {
@@ -869,7 +965,7 @@ export const cardStyles = makeStyles((theme) => ({
       padding: '3% 3%',
     },
     '& button': {
-      borderRadius: '10px',
+      borderRadius: '5px',
       padding: '15px 50px',
       marginLeft: '2%',
       width: '20%',
@@ -878,8 +974,16 @@ export const cardStyles = makeStyles((theme) => ({
       [theme.breakpoints.down('sm')]: {
         width: '30%',
         fontSize: '1rem',
-        padding: '2% 3%',
+        padding: '1.3% 3% 2% 3%',
       },
+    },
+
+    [theme.breakpoints.down('sm')]: {
+      width: '90%',
+    },
+
+    [theme.breakpoints.down('xs')]: {
+      left: '5%',
     },
   },
   singleCommentParent: {
@@ -896,6 +1000,14 @@ export const cardStyles = makeStyles((theme) => ({
 
       '& .comment-text': {
         fontSize: '100%',
+
+        [theme.breakpoints.down('sm')]: {
+          fontSize: '80%',
+        },
+      },
+
+      [theme.breakpoints.down('sm')]: {
+        padding: '5% 5% 5% 7%',
       },
     },
   },
@@ -915,7 +1027,24 @@ export const cardStyles = makeStyles((theme) => ({
 
       '& .comment-text': {
         fontSize: '100%',
+
+        [theme.breakpoints.down('sm')]: {
+          fontSize: '70%',
+        },
       },
+
+      [theme.breakpoints.down('sm')]: {
+        padding: '5% 5% 5% 7%',
+      },
+    },
+    [theme.breakpoints.down('lg')]: {
+      marginLeft: '7%',
+    },
+    [theme.breakpoints.down('md')]: {
+      marginLeft: '4%',
+    },
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: '11%',
     },
   },
   avatarContainer: {
@@ -931,30 +1060,37 @@ export const cardStyles = makeStyles((theme) => ({
     height: '26px',
   },
   replyBtnContainer: {
-    display: 'flex',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
     width: '100%',
     marginTop: '2px',
     marginLeft: '.5%',
+    marginBottom: '3%',
     '& .buttons': {
       display: 'flex',
-      flexBasis: '85%',
+      // flexBasis: '85%',
       alignItems: 'center',
       justifyContent: 'flex-start',
 
       '& >*': {
         margin: '0 3% 0 0',
+
+        [theme.breakpoints.down('sm')]: {
+          margin: '0 6% 0 0',
+        },
       },
 
       '& button': {
         background: '#58D573',
         color: 'white',
+
         '&:hover': {
           color: '#58D573',
           background: 'white',
         },
       },
+    },
+
+    [theme.breakpoints.down('sm')]: {
+      marginBottom: '5%',
     },
   },
 }));
