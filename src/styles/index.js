@@ -948,6 +948,9 @@ export const cardStyles = makeStyles((theme) => ({
         cursor: 'pointer',
       },
     },
+    [theme.breakpoints.down('md')]: {
+      position: 'relative',
+    },
   },
   commentForm: {
     display: 'flex',
