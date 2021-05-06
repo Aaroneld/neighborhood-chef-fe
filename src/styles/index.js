@@ -244,6 +244,9 @@ export const cardStyles = makeStyles((theme) => ({
     maxHeight: '480px',
     maxWidth: '390px',
     overflowY: 'hidden',
+    [theme.breakpoints.down('sm')]: {
+      maxHeight: '440px',
+    },
   },
   eventDetailsContainer: {
     width: '100%',
@@ -333,7 +336,7 @@ export const cardStyles = makeStyles((theme) => ({
     marginTop: '-14%',
     marginLeft: '5%',
     alignSelf: 'left',
-    width: '55px',
+    width: '50px',
     alignItems: 'center',
     position: 'relative',
   },
@@ -689,6 +692,10 @@ export const cardStyles = makeStyles((theme) => ({
     '&:hover': {
       filter: 'brightness(70%)',
     },
+  },
+  dashboardAvatar: {
+    height: '55px',
+    width: '55px',
   },
   avatarNoHover: {
     backgroundColor: '#e8e8e8',

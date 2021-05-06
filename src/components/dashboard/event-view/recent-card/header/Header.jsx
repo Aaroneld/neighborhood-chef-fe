@@ -60,8 +60,7 @@ const Header = (props) => {
               key={props.User.id}
               title={`${props.User.firstName} ${props.User.lastName}`}
               aria-label="avatar"
-              className={classes.avatar}
-              style={{ height: '55px', width: '55px' }}
+              className={`${classes.avatar} ${classes.dashboardAvatar}`}
               src={props.User.photo ? props.User.photo : ''}
             >
               {!props.User.photo && (
@@ -74,12 +73,17 @@ const Header = (props) => {
         }
         title={
           <div className={classes.titleContainer}>
-            <div style={{ display: 'flex', width: '85%', alignItems: 'center' }}>
+            <div style={{ display: 'flex', width: '85%', alignItems: 'center', flexWrap: 'wrap' }}>
               <Link to={`/profile/${props.User.id}`} style={{ cursor: 'pointer' }}>
-                <Typography variant="h6">{`${props.User.firstName} `}</Typography>
+                <Typography variant="h6">
+                  {props.User.firstName.length <= 15
+                    ? props.User.firstName
+                    : `${props.User.firstName.split('')[0].toUpperCase()}${props.User.lastName.split('')[0]}`}
+                  &nbsp;
+                </Typography>
               </Link>
               <Typography variant="h6" style={{ color: '#A2A4AD' }}>
-                &nbsp;created an event
+                created an event
               </Typography>
             </div>
             {!favorite ? (

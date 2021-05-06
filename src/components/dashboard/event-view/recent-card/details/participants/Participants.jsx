@@ -66,7 +66,7 @@ const Participants = ({ users }) => {
           </div>
         </div>
       )}
-      {users.length === 0 && <div style={{ margin: '3% 0' }}>Confirmed Attending: {users.length}</div>}
+      {users.length === 0 && <div style={{ margin: '4% 0' }}>Confirmed Attending: {users.length}</div>}
     </div>
   );
 };
