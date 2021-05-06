@@ -27,21 +27,15 @@ const StatusButton = ({ status, color, currStatus, eventId, userId, changeStatus
           });
         }
         if (event && Object.keys(event).length > 0) {
-          if (status === 'GOING') {
-            dispatch(
-              updateFocusedEventInfo({
-                ...event,
-                attending: [...event.attending, user],
-              })
-            );
-          } else {
-            dispatch(
-              updateFocusedEventInfo({
-                ...event,
-                attending: event.attending.filter((u) => u.id !== user.id),
-              })
-            );
-          }
+          dispatch(
+            updateFocusedEventInfo({
+              ...event,
+              attending:
+                status === 'GOING'
+                  ? [...event.attending, user]
+                  : event.attending.filter((u) => u.id !== user.id),
+            })
+          );
         }
       }}
     >
