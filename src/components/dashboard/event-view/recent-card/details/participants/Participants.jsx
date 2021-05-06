@@ -22,6 +22,7 @@ const Participants = ({ users }) => {
             {users.slice(0, users.length >= 4 ? 4 : users.length).map((user) => {
               return (
                 <Link
+                  key={user.id}
                   to={`/profile/${user.id}`}
                   style={{ border: 'none', background: 'transparent', overflow: 'hidden' }}
                 >

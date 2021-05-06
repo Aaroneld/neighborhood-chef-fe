@@ -336,7 +336,7 @@ export const cardStyles = makeStyles((theme) => ({
     marginTop: '-14%',
     marginLeft: '5%',
     alignSelf: 'left',
-    width: '50px',
+    width: '55px',
     alignItems: 'center',
     position: 'relative',
   },
