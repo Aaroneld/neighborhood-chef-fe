@@ -12,7 +12,7 @@ const RightSide = ({ events, setEvents }) => {
             {events
               .sort((a, b) => a.startTime - b.startTime)
               .map((event) => (
-                <EventCard event={event} setEvents={setEvents} />
+                <EventCard event={event} setEvents={setEvents} key={event.id} />
               ))}
           </div>
         </div>

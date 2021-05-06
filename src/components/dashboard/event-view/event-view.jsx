@@ -23,7 +23,6 @@ export default function EventView({ currentTab }) {
         }
       });
     }
-    console.log(eventList);
     return eventList;
   });
 
