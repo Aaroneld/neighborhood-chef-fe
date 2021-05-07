@@ -512,7 +512,7 @@ export const cardStyles = makeStyles((theme) => ({
     width: '100%',
 
     [theme.breakpoints.down('sm')]: {
-      display: 'block',
+      display: (props) => props.hashtags && props.hashtags.length && 'block',
     },
   },
   dashboardImg: {

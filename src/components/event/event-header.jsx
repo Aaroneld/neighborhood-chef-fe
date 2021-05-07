@@ -51,7 +51,7 @@ export default function EventHeader() {
 
   return (
     <div>
-      {eventInfo && eventInfo.attending && eventInfo.attending.length > 0 && (
+      {eventInfo && eventInfo.attending && (
         <div className={classes.attendingContainer}>
           <Typography variant="h6">Attending:</Typography>
           <AvatarGroup max={5}>
@@ -96,6 +96,14 @@ export default function EventHeader() {
               >
                 <Typography style={{ paddingRight: '2%' }}>+{eventInfo.attending.length - 4}</Typography>
               </Avatar>
+            )}
+            {eventInfo.attending.length === 0 && (
+              <Typography
+                variant="h6"
+                style={{ border: 'none', fontSize: '90%', maxWidth: '180px', textAlign: 'left' }}
+              >
+                No one has confirmed they are going to this event.
+              </Typography>
             )}
             );
           </AvatarGroup>
