@@ -33,6 +33,7 @@ export default function EventView({ currentTab }) {
       <div
         style={{
           overflow: 'auto',
+          width: '80vw',
           height: '80vh',
           display: 'flex',
           justifyContent: 'space-between',
@@ -42,8 +43,10 @@ export default function EventView({ currentTab }) {
           style={{
             display: 'flex',
             flexWrap: 'wrap',
-            justifyContent: 'space-evenly',
+            justifyContent: 'flex-start',
             textAlign: 'left',
+            padding: '0 8%',
+            width: '100%',
           }}
         >
           {events.length > 0 ? (

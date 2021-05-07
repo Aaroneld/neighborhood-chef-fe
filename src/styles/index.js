@@ -251,7 +251,8 @@ export const cardStyles = makeStyles((theme) => ({
     },
   },
   dashboard: {
-    marginTop: '10px',
+    margin: '0 1.5% 1% 1.5%',
+    flexBasis: '30%',
     maxHeight: '480px',
     maxWidth: '390px',
     overflowY: 'hidden',
@@ -504,7 +505,7 @@ export const cardStyles = makeStyles((theme) => ({
     },
   },
   dashboardImg: {
-    maxHeight: '30%',
+    maxHeight: '32%',
   },
   description: {
     margin: '2.5% 0',
@@ -652,6 +653,14 @@ export const cardStyles = makeStyles((theme) => ({
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
+
+      '& #dashboard-event-title': {
+        whiteSpace: 'nowrap',
+
+        '&:hover': {
+          textDecoration: 'underline',
+        },
+      },
     },
   },
   participantText: {

@@ -14,8 +14,8 @@ const Details = (props) => {
     <CardContent className={classes.dashboardDetailsContainer}>
       <div className="titleAddFavoriteContainer">
         <Link to={`/events/${props.id}`}>
-          <Typography variant="h4">
-            {props.title.length < 22 ? props.title : `${props.title.slice(0, 22)}...`}
+          <Typography variant="h4" id="dashboard-event-title">
+            {props.title.length < 16 ? props.title : `${props.title.slice(0, 16)}...`}
           </Typography>
         </Link>
       </div>
