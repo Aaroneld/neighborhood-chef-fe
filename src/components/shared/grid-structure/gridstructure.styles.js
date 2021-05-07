@@ -27,6 +27,7 @@ export const styles = makeStyles((theme) => {
       gridArea: 'Variable',
       overflowX: 'hidden',
       background: 'transparent',
+      overflowY: 'scroll',
 
       [theme.breakpoints.down('md')]: {
         width: '100vw',

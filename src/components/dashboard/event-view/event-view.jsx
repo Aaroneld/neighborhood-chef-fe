@@ -2,6 +2,22 @@ import React from 'react';
 import RecentCard from './recent-card/recent-card';
 import Typography from '@material-ui/core/Typography';
 import { useSelector } from 'react-redux';
+import makeStyles from '@material-ui/styles/makeStyles';
+
+export const styles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'flex-start',
+    textAlign: 'left',
+    padding: '0 8%',
+    width: '100%',
+    [theme.breakpoints.down('lg')]: {
+      padding: '0 0 0 0',
+      height: '100%',
+    },
+  },
+}));
 
 export default function EventView({ currentTab }) {
   const events = useSelector((state) => {
@@ -27,6 +43,7 @@ export default function EventView({ currentTab }) {
   });
 
   const currentUserId = useSelector((state) => state.user.id);
+  const classes = styles();
 
   return (
     <div>
@@ -34,21 +51,12 @@ export default function EventView({ currentTab }) {
         style={{
           overflow: 'auto',
           width: '80vw',
-          height: '80vh',
+          height: '100%',
           display: 'flex',
           justifyContent: 'space-between',
         }}
       >
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'flex-start',
-            textAlign: 'left',
-            padding: '0 8%',
-            width: '100%',
-          }}
-        >
+        <div className={classes.root}>
           {events.length > 0 ? (
             events
               .sort((a, b) => a.startTime - b.startTime)

@@ -253,11 +253,19 @@ export const cardStyles = makeStyles((theme) => ({
   dashboard: {
     margin: '0 1.5% 1% 1.5%',
     flexBasis: '30%',
-    maxHeight: '480px',
-    maxWidth: '390px',
     overflowY: 'hidden',
+    height: '56%',
+    [theme.breakpoints.down('lg')]: {
+      flexBasis: '30%',
+      height: '85%',
+    },
+    [theme.breakpoints.down('md')]: {
+      flexBasis: '46%',
+      height: '55%',
+    },
     [theme.breakpoints.down('sm')]: {
-      maxHeight: '440px',
+      flexBasis: '95%',
+      height: '65%',
     },
   },
   eventDetailsContainer: {
@@ -313,6 +321,9 @@ export const cardStyles = makeStyles((theme) => ({
     alignItems: 'center',
     width: '100%',
     paddingTop: '.5%',
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    },
     '& div': {
       width: '80%',
       display: 'flex',
@@ -505,7 +516,12 @@ export const cardStyles = makeStyles((theme) => ({
     },
   },
   dashboardImg: {
-    maxHeight: '32%',
+    width: '100%',
+    paddingTop: '39.375%',
+    backgroundImage: (props) => `url(${props.image})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
   },
   description: {
     margin: '2.5% 0',
@@ -665,14 +681,20 @@ export const cardStyles = makeStyles((theme) => ({
   },
   participantText: {
     paddingRight: '6%',
+    whiteSpace: 'nowrap',
+    fontSize: '80%',
+    paddingLeft: '1.5%',
     [theme.breakpoints.down('sm')]: {
-      display: 'none',
+      fontSize: '70%',
     },
   },
   dashboardLineBreak: {
     borderTop: '.75px solid #F2F2F2',
     width: '88%',
     alignSelf: 'center',
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    },
   },
   textAndBtns: {
     display: 'flex',

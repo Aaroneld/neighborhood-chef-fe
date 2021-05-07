@@ -73,7 +73,7 @@ const Header = (props) => {
         }
         title={
           <div className={classes.titleContainer}>
-            <div style={{ display: 'flex', width: '85%', alignItems: 'center', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', width: '85%', alignItems: 'center', flexWrap: 'nowrap' }}>
               <Link to={`/profile/${props.User.id}`} style={{ cursor: 'pointer' }}>
                 <Typography variant="h6">
                   {props.User.firstName.length <= 15
@@ -82,7 +82,7 @@ const Header = (props) => {
                   &nbsp;
                 </Typography>
               </Link>
-              <Typography variant="h6" style={{ color: '#A2A4AD' }}>
+              <Typography variant="h6" style={{ color: '#A2A4AD', whiteSpace: 'nowrap', fontSize: '115%' }}>
                 created an event
               </Typography>
             </div>
