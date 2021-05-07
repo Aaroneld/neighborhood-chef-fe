@@ -29,8 +29,8 @@ export const fullEventStyles = makeStyles((theme) => ({
       flexDirection: 'column',
       justifyContent: 'flex-start',
       alignItems: 'center',
-      maxHeight: '100%',
       height: '100%',
+      maxHeight: '100%',
       marginLeft: '1%',
     },
 

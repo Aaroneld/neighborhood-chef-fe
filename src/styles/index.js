@@ -360,7 +360,7 @@ export const cardStyles = makeStyles((theme) => ({
     width: '100%',
     paddingTop: '39.375%',
     backgroundImage: (props) => `url(${props.img})`,
-    backgroundSize: '100%',
+    backgroundSize: 'cover',
     backgroundPosition: 'bottom center',
     backgroundRepeat: 'no-repeat',
     borderRadius: '0 0 40% 0',
