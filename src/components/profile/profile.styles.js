@@ -28,7 +28,6 @@ export const styles = makeStyles((theme) => ({
         height: '160px',
         fontSize: '5rem',
         border: '6px solid rgba(33, 186, 66, 0.75)',
-        padding: '5px',
       },
 
       '& h2': {
@@ -55,7 +54,6 @@ export const styles = makeStyles((theme) => ({
     '& .mainContainer': {
       display: 'flex',
       width: '100%',
-      paddingTop: '5px',
       [theme.breakpoints.down('md')]: {
         flexDirection: 'column',
       },

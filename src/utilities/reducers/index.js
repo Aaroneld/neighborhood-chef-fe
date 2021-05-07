@@ -10,6 +10,7 @@ import {
   DELETE_EVENT,
   CHANGE_PAGE,
   ADD_FOCUSED_EVENT_INFO,
+  UPDATE_FOCUSED_EVENT_INFO,
 } from '../actions';
 
 const initialDate = new Date();
@@ -28,6 +29,7 @@ const initialState = {
   userList: [],
   inviteList: [],
   savedUserUpdateInfo: {},
+  focusedEventInfo: {},
 };
 
 export const rootReducer = (state = initialState, { type, payload }) => {
@@ -152,6 +154,11 @@ export const rootReducer = (state = initialState, { type, payload }) => {
         page: payload,
       };
     case ADD_FOCUSED_EVENT_INFO:
+      return {
+        ...state,
+        focusedEventInfo: payload,
+      };
+    case UPDATE_FOCUSED_EVENT_INFO:
       return {
         ...state,
         focusedEventInfo: payload,

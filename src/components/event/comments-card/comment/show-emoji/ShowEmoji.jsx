@@ -7,7 +7,6 @@ import emojiLaughingFill from '@iconify-icons/bi/emoji-laughing-fill';
 import emojiFrownFill from '@iconify-icons/bi/emoji-frown-fill';
 import emojiAngryFill from '@iconify-icons/bi/emoji-angry-fill';
 import emojiSmileFill from '@iconify-icons/bi/emoji-smile-fill';
-import { Translate } from '@material-ui/icons';
 
 const styles = makeStyles((theme) => ({
   container: {

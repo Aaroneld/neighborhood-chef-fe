@@ -1,17 +1,55 @@
-import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { cardStyles } from '../../../../../styles';
 import CardHeader from '@material-ui/core/CardHeader';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
+import { print } from 'graphql';
 import { Icon } from '@iconify/react';
+import starEmpty from '@iconify-icons/dashicons/star-empty';
+import starFilled from '@iconify-icons/carbon/star-filled';
 import { timeAgo } from '../../../../../utilities/functions';
-import softwareUpload from '@iconify-icons/gg/software-upload';
+import { axiosWithAuth } from '../../../../../utilities/axiosWithAuth';
+import { ADD_FAVORITE_EVENT, REMOVE_FAVORITE_EVENT } from '../../../../../graphql/users/user-mutations';
 
 const Header = (props) => {
+  const [favorite, setFavorite] = useState(props.isFavorite);
   const classes = cardStyles();
   const shownTime = timeAgo(props.createDateTime);
-  const { push } = useHistory();
+
+  const addFavoriteEvent = () => {
+    const favoriteEvent = {
+      event_id: Number(props.id),
+      user_id: Number(props.currentUserId),
+    };
+
+    axiosWithAuth()
+      .post(`${process.env.REACT_APP_BASE_URL}/graphql`, {
+        query: print(ADD_FAVORITE_EVENT),
+        variables: { favoriteEvent: favoriteEvent },
+      })
+      .then(() => {
+        setFavorite(!favorite);
+      })
+      .catch((err) => console.dir(err));
+  };
+
+  const removeFavoriteEvent = () => {
+    const favoriteEvent = {
+      event_id: Number(props.id),
+      user_id: Number(props.currentUserId),
+    };
+
+    axiosWithAuth()
+      .post(`${process.env.REACT_APP_BASE_URL}/graphql`, {
+        query: print(REMOVE_FAVORITE_EVENT),
+        variables: { favoriteEvent: favoriteEvent },
+      })
+      .then((res) => {
+        setFavorite(!favorite);
+      })
+      .catch((err) => console.dir(err));
+  };
 
   return (
     <>
@@ -22,7 +60,7 @@ const Header = (props) => {
               key={props.User.id}
               title={`${props.User.firstName} ${props.User.lastName}`}
               aria-label="avatar"
-              className={classes.avatar}
+              className={`${classes.avatar} ${classes.dashboardAvatar}`}
               src={props.User.photo ? props.User.photo : ''}
             >
               {!props.User.photo && (
@@ -35,17 +73,28 @@ const Header = (props) => {
         }
         title={
           <div className={classes.titleContainer}>
-            <div>
+            <div style={{ display: 'flex', width: '85%', alignItems: 'center', flexWrap: 'wrap' }}>
               <Link to={`/profile/${props.User.id}`} style={{ cursor: 'pointer' }}>
-                <Typography variant="h6">{`${props.User.firstName} `}</Typography>
+                <Typography variant="h6">
+                  {props.User.firstName.length <= 15
+                    ? props.User.firstName
+                    : `${props.User.firstName.split('')[0].toUpperCase()}${props.User.lastName.split('')[0]}`}
+                  &nbsp;
+                </Typography>
               </Link>
               <Typography variant="h6" style={{ color: '#A2A4AD' }}>
-                &nbsp;created an event
+                created an event
               </Typography>
             </div>
-            <button className={classes.dashboardNavigateBtn} onClick={() => push(`events/${props.id}`)}>
-              <Icon icon={softwareUpload} />
-            </button>
+            {!favorite ? (
+              <div className={classes.headerBtn} onClick={addFavoriteEvent}>
+                <Icon icon={starEmpty} />
+              </div>
+            ) : (
+              <div className={classes.headerBtn} onClick={removeFavoriteEvent}>
+                <Icon icon={starFilled} />
+              </div>
+            )}
           </div>
         }
         subheader={

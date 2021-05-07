@@ -7,6 +7,7 @@ import { cardStyles } from '../../../../../../styles';
 
 const Participants = ({ users }) => {
   const classes = cardStyles();
+
   return (
     <div>
       {users.length > 0 && (
@@ -22,6 +23,7 @@ const Participants = ({ users }) => {
             {users.slice(0, users.length >= 4 ? 4 : users.length).map((user) => {
               return (
                 <Link
+                  key={user.id}
                   to={`/profile/${user.id}`}
                   style={{ border: 'none', background: 'transparent', overflow: 'hidden' }}
                 >
@@ -66,7 +68,7 @@ const Participants = ({ users }) => {
           </div>
         </div>
       )}
-      {users.length === 0 && <div style={{ margin: '3% 0' }}>Confirmed Attending: {users.length}</div>}
+      {users.length === 0 && <div style={{ margin: '4% 0' }}>Confirmed Attending: {users.length}</div>}
     </div>
   );
 };
