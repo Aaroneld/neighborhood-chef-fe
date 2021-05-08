@@ -1,5 +1,3 @@
-import { ownerDocument } from '@material-ui/core';
-import { easeElastic } from 'd3-ease';
 import {
   CHANGE_MONTH,
   GET_EVENTS_SUCCESS,
@@ -189,12 +187,15 @@ export const rootReducer = (state = initialState, { type, payload }) => {
       };
       return {
         ...state,
-        user: payload,
-        UserEvents: {
-          attending: state.user.UserEvents.attending.map(callback),
-          owned: state.user.UserEvents.owned.map(callback),
-          local: state.user.UserEvents.local.map(callback),
-          invited: state.user.UserEvents.invited.map(callback),
+        user: {
+          ...payload,
+          UserEvents: {
+            attending: payload.UserEvents.attending.map(callback),
+            owned: payload.UserEvents.owned.map(callback),
+            local: payload.UserEvents.local.map(callback),
+            invited: payload.UserEvents.invited.map(callback),
+            favorited: payload.UserEvents.favorited,
+          },
         },
       };
     }
