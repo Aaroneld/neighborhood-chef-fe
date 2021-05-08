@@ -4,6 +4,7 @@ export const UPDATE_USER = gql`
   mutation inputUser($input: UserInput!) {
     inputUser(input: $input) {
       id
+      photo
     }
   }
 `;
