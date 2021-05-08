@@ -65,18 +65,23 @@ const Header = ({ user, setUser, loggedInUserId }) => {
     <div className="header">
       {user.photo && (
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <div id="upload-image-div" className="upload-image-div" onClick={() => fileRef.current.click()}>
-            <input
-              type="file"
-              name="file"
-              id="upload-image-div"
-              multiple={false}
-              onChange={handleChange}
-              accept="image/jpeg, image/gif, image/png, image/jpg"
-              style={{ display: 'none' }}
-              ref={fileRef}
-            />
-          </div>
+          {user.id !== loggedInUserId && (
+            <div id="non-loggedin-user-img" className="non-loggedin-user-img"></div>
+          )}
+          {user.id === loggedInUserId && (
+            <div id="upload-image-div" className="upload-image-div" onClick={(e) => fileRef.current.click()}>
+              <input
+                type="file"
+                name="file"
+                id="upload-image-div"
+                multiple={false}
+                onChange={user.id === loggedInUserId && handleChange}
+                accept="image/jpeg, image/gif, image/png, image/jpg"
+                style={{ display: 'none' }}
+                ref={fileRef}
+              />
+            </div>
+          )}
         </div>
       )}
       {user.id === loggedInUserId && !user.photo && (
@@ -98,7 +103,9 @@ const Header = ({ user, setUser, loggedInUserId }) => {
           />
         </>
       )}
-      {loading && <CircularProgress style={{ color: '#58D573', alignSelf: 'center' }} size={'3rem'} />}
+      {loading && (
+        <CircularProgress style={{ color: '#58D573', alignSelf: 'center', marginTop: '.4%' }} size={'3rem'} />
+      )}
       <Typography variant="h2" className={classes.title}>
         {`${user.firstName} ${user.lastName}`}
       </Typography>

@@ -38,6 +38,17 @@ export const styles = makeStyles((theme) => ({
         },
       },
 
+      '& #non-loggedin-user-img': {
+        backgroundImage: (props) => props.user && `url(${props.user.photo})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        width: '20%',
+        paddingTop: '20%',
+        borderRadius: '100%',
+        border: '5px solid #58D573',
+        marginTop: '1%',
+      },
+
       '& h2': {
         margin: '5px 0',
         fontSize: '3rem',
