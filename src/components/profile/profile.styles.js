@@ -23,11 +23,18 @@ export const styles = makeStyles((theme) => ({
         width: '100%',
       },
 
-      '& .avatar': {
-        width: '160px',
-        height: '160px',
-        fontSize: '5rem',
-        border: '6px solid rgba(33, 186, 66, 0.75)',
+      '& #upload-image-div': {
+        backgroundImage: (props) => props.user && `url(${props.user.photo})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        width: '20%',
+        paddingTop: '20%',
+        borderRadius: '100%',
+        cursor: 'pointer',
+        border: '5px solid #58D573',
+        '&:hover': {
+          filter: 'brightness(70%)',
+        },
       },
 
       '& h2': {
