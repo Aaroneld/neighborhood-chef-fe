@@ -8,6 +8,8 @@ import curry from '../../../assets/curry.jpg';
 import { styles } from '../profile.styles.js';
 import { axiosWithAuth } from '../../../utilities/axiosWithAuth';
 import { UPDATE_USER } from '../../../graphql/users/user-mutations';
+import { Icon } from '@iconify/react';
+import bxsCamera from '@iconify-icons/bx/bxs-camera';
 
 const Header = ({ user, setUser, loggedInUserId }) => {
   const [showForm, setShowForm] = useState(false);
@@ -76,6 +78,25 @@ const Header = ({ user, setUser, loggedInUserId }) => {
             />
           </div>
         </div>
+      )}
+      {user.id === loggedInUserId && !user.photo && (
+        <>
+          <Icon
+            icon={bxsCamera}
+            style={{ fontSize: '5rem', cursor: 'pointer' }}
+            onClick={() => fileRef.current.click()}
+          />
+          <input
+            type="file"
+            name="file"
+            id="upload-image-div"
+            multiple={false}
+            onChange={handleChange}
+            accept="image/jpeg, image/gif, image/png, image/jpg"
+            style={{ display: 'none' }}
+            ref={fileRef}
+          />
+        </>
       )}
       {loading && <CircularProgress style={{ color: '#58D573', alignSelf: 'center' }} size={'3rem'} />}
       <Typography variant="h2" className={classes.title}>
