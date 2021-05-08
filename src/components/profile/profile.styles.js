@@ -32,6 +32,7 @@ export const styles = makeStyles((theme) => ({
         borderRadius: '100%',
         cursor: 'pointer',
         border: '5px solid #58D573',
+        marginTop: '1%',
         '&:hover': {
           filter: 'brightness(70%)',
         },

@@ -62,20 +62,22 @@ const Header = ({ user, setUser, loggedInUserId }) => {
   return (
     <div className="header">
       {user.photo && (
-        <div id="upload-image-div" className="upload-image-div" onClick={() => fileRef.current.click()}>
-          <input
-            type="file"
-            name="file"
-            id="upload-image-div"
-            multiple={false}
-            onChange={handleChange}
-            accept="image/jpeg, image/gif, image/png, image/jpg"
-            style={{ display: 'none' }}
-            ref={fileRef}
-          />
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div id="upload-image-div" className="upload-image-div" onClick={() => fileRef.current.click()}>
+            <input
+              type="file"
+              name="file"
+              id="upload-image-div"
+              multiple={false}
+              onChange={handleChange}
+              accept="image/jpeg, image/gif, image/png, image/jpg"
+              style={{ display: 'none' }}
+              ref={fileRef}
+            />
+          </div>
         </div>
       )}
-      {loading && <CircularProgress style={{ color: '#58D573', alignSelf: 'center' }} size={'4rem'} />}
+      {loading && <CircularProgress style={{ color: '#58D573', alignSelf: 'center' }} size={'3rem'} />}
       <Typography variant="h2" className={classes.title}>
         {`${user.firstName} ${user.lastName}`}
       </Typography>
@@ -105,7 +107,7 @@ const Header = ({ user, setUser, loggedInUserId }) => {
           loggedInUserId={loggedInUserId}
         />
       )}
-      <div style={{ borderTop: '1px solid #F2F2F2', width: '95%', alignSelf: 'center', margin: '1% 0' }} />
+      <div style={{ borderTop: '1px solid #F2F2F2', width: '97%', alignSelf: 'center', margin: '1% 0' }} />
     </div>
   );
 };
