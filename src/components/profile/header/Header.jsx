@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { print } from 'graphql';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import UserBioForm from './user-bio-form/UserBioForm';
@@ -8,6 +9,7 @@ import curry from '../../../assets/curry.jpg';
 import { styles } from '../profile.styles.js';
 import { axiosWithAuth } from '../../../utilities/axiosWithAuth';
 import { UPDATE_USER } from '../../../graphql/users/user-mutations';
+import { updateUser } from '../../../utilities/actions';
 import { Icon } from '@iconify/react';
 import bxsCamera from '@iconify-icons/bx/bxs-camera';
 
@@ -18,7 +20,9 @@ const Header = ({ user, setUser, loggedInUserId }) => {
   const imageSizeLimit = 1500000;
   const classes = styles({ photo: user.photo ? user.photo : curry });
   const fileRef = useRef();
+  const reduxUser = useSelector((state) => state.user);
   const { push } = useHistory();
+  const dispatch = useDispatch();
 
   const submitImage = (image) => {
     setLoading(true);
@@ -38,6 +42,7 @@ const Header = ({ user, setUser, loggedInUserId }) => {
       (res) => {
         setLoading(false);
         setUser({ ...user, photo: res.data.data.inputUser.photo });
+        dispatch(updateUser({ ...reduxUser, photo: res.data.data.inputUser.photo }));
       },
       (err) => {
         setLoading(false);

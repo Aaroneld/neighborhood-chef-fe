@@ -11,6 +11,7 @@ import {
   CHANGE_PAGE,
   ADD_FOCUSED_EVENT_INFO,
   UPDATE_FOCUSED_EVENT_INFO,
+  UPDATE_USER,
 } from '../actions';
 
 const initialDate = new Date();
@@ -163,6 +164,12 @@ export const rootReducer = (state = initialState, { type, payload }) => {
         ...state,
         focusedEventInfo: payload,
       };
+    case UPDATE_USER: {
+      return {
+        ...state,
+        user: payload,
+      };
+    }
     default:
       return {
         ...state,
