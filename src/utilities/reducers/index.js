@@ -12,6 +12,7 @@ import {
   ADD_FOCUSED_EVENT_INFO,
   UPDATE_FOCUSED_EVENT_INFO,
   UPDATE_USER,
+  UPDATE_FAVORITE_EVENTS,
 } from '../actions';
 
 const initialDate = new Date();
@@ -195,6 +196,18 @@ export const rootReducer = (state = initialState, { type, payload }) => {
             local: payload.UserEvents.local.map(callback),
             invited: payload.UserEvents.invited.map(callback),
             favorited: payload.UserEvents.favorited,
+          },
+        },
+      };
+    }
+    case UPDATE_FAVORITE_EVENTS: {
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          UserEvents: {
+            ...state.user.UserEvents,
+            favorited: payload,
           },
         },
       };

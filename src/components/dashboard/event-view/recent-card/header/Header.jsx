@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { cardStyles } from '../../../../../styles';
 import CardHeader from '@material-ui/core/CardHeader';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
+import { useSelector } from 'react-redux';
 import { print } from 'graphql';
 import { Icon } from '@iconify/react';
 import starEmpty from '@iconify-icons/dashicons/star-empty';
@@ -11,11 +13,14 @@ import starFilled from '@iconify-icons/carbon/star-filled';
 import { timeAgo } from '../../../../../utilities/functions';
 import { axiosWithAuth } from '../../../../../utilities/axiosWithAuth';
 import { ADD_FAVORITE_EVENT, REMOVE_FAVORITE_EVENT } from '../../../../../graphql/users/user-mutations';
+import { updateFavoriteEvents } from '../../../../../utilities/actions';
 
 const Header = (props) => {
   const [favorite, setFavorite] = useState(props.isFavorite);
   const classes = cardStyles();
   const shownTime = timeAgo(props.createDateTime);
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
   const addFavoriteEvent = () => {
     const favoriteEvent = {
@@ -30,6 +35,7 @@ const Header = (props) => {
       })
       .then(() => {
         setFavorite(!favorite);
+        dispatch(updateFavoriteEvents([...user.UserEvents.favorited, Number(props.id)]));
       })
       .catch((err) => console.dir(err));
   };
@@ -47,6 +53,7 @@ const Header = (props) => {
       })
       .then((res) => {
         setFavorite(!favorite);
+        dispatch(updateFavoriteEvents(user.UserEvents.favorited.filter((id) => id !== Number(props.id))));
       })
       .catch((err) => console.dir(err));
   };
