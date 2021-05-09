@@ -51,7 +51,7 @@ export default function EventView({ currentTab }) {
   const classes = styles();
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} style={{ justifyContent: events.length === 0 ? 'center' : 'flex-start' }}>
       {events.length > 0 ? (
         events
           .sort((a, b) => a.startTime - b.startTime)
