@@ -12,6 +12,7 @@ import FirstName from './first-name/FirstName';
 import LastName from './last-name/LastName';
 import Biography from './biography/Biography';
 import Gender from './gender/Gender';
+import MapboxGeocoder from './mapbox-geocoder/MapboxGeocoder';
 
 const initialValues = {
   firstName: '',
@@ -99,10 +100,7 @@ const Settings = () => {
     <form className="main">
       <FirstName values={values} errors={errors} validate={validate} handleChange={handleChange} />
       <LastName values={values} errors={errors} validate={validate} handleChange={handleChange} />
-      <div className="textInputContainer">
-        <Typography variant="h6">Address</Typography>
-        <Typography>{user.address}</Typography>
-      </div>
+      <MapboxGeocoder values={values} setValues={setValues} errors={errors} validate={validate} />
       <Gender values={values} handleChange={handleChange} />
       <Biography values={values} setValues={setValues} setCharsLeft={setCharsLeft} />
       {message && (

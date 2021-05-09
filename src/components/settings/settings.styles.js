@@ -64,6 +64,31 @@ export const styles = makeStyles((theme) => ({
           fontSize: '1.6rem',
         },
       },
+      '& .mapboxContainer': {
+        '& h6': {
+          color: '#4E4E4E',
+          fontWeight: '700',
+          marginBottom: '5px',
+        },
+        '& .geocoderDiv': {
+          display: 'flex',
+          alignItems: 'center',
+          position: 'relative',
+          justifyContent: 'space-between',
+          border: '2px solid #f0f0f0',
+          borderRadius: '15px',
+          padding: '10px 15px',
+          background: 'white',
+          fontSize: '1.6rem',
+          width: '100%',
+
+          '& input': {
+            border: 'none',
+            fontSize: '1.6rem',
+            border: '1px solid red',
+          },
+        },
+      },
     },
     '& .message': {
       textAlign: 'center',
