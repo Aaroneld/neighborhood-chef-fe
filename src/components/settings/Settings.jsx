@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { print } from 'graphql';
 import * as yup from 'yup';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
 import Card from '@material-ui/core/Card';
 import Typography from '@material-ui/core/Typography';
 import { styles } from './settings.styles';
 import useForm from '../../hooks/useForm.js';
+import EventButtons from '../create-events/form-container/event-buttons/EventButtons';
+import { axiosWithAuth } from '../../utilities/axiosWithAuth';
+import { UPDATE_USER } from '../../graphql/users/user-mutations';
+import { updateUser } from '../../utilities/actions';
 
 const validationSchema = yup.object().shape({
   firstName: yup.string().required("'First name' is a required field"),
@@ -21,10 +24,11 @@ const validationSchema = yup.object().shape({
 });
 
 const Settings = () => {
-  const [charsLeft, setCharsLeft] = useState(255);
+  const [, setCharsLeft] = useState(255);
   const user = useSelector((state) => state.user);
   const { values, setValues, validate, errors } = useForm(validationSchema);
   const classes = styles();
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
@@ -32,7 +36,31 @@ const Settings = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(values);
+    axiosWithAuth()({
+      url: `${process.env.REACT_APP_BASE_URL}/graphql`,
+      method: 'post',
+      data: {
+        query: print(UPDATE_USER),
+        variables: {
+          input: {
+            ...values,
+            id: Number(user.id),
+          },
+        },
+      },
+    }).then(
+      (res) => {
+        dispatch(
+          updateUser({
+            ...user,
+            ...values,
+          })
+        );
+      },
+      (err) => {
+        console.dir(err);
+      }
+    );
   };
 
   useEffect(() => {
@@ -46,7 +74,6 @@ const Settings = () => {
         latitude: user.latitude,
         biography: user.biography,
       });
-      console.log(user.biography.length);
       setCharsLeft(255 - user.biography.length);
     }
   }, [user]);
@@ -82,7 +109,6 @@ const Settings = () => {
               name="biography"
               value={values.biography}
               onChange={(e) => {
-                console.log(charsLeft);
                 if (e.target.value.length <= 255) {
                   setValues({ ...values, biography: e.target.value });
                   setCharsLeft(e.target.value.length);
@@ -91,7 +117,22 @@ const Settings = () => {
             />
           </div>
         )}
-        <button type="submit">Save</button>
+        <EventButtons
+          leftBtnText="Cancel"
+          leftBtnClick={() =>
+            setValues({
+              firstName: user.firstName,
+              lastName: user.lastName,
+              gender: user.gender,
+              address: user.address,
+              longitude: user.longitude,
+              latitude: user.latitude,
+              biography: user.biography,
+            })
+          }
+          rightBtnText="Submit"
+          rightBtnClick={handleSubmit}
+        />
       </form>
     </Card>
   );

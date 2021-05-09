@@ -7,6 +7,7 @@ export const styles = makeStyles((theme) => ({
     width: '100%',
     boxShadow: '-2px 3px 31px -13px rgba(117,117,117,0.46)',
     background: 'transparent',
+    overflowY: 'scroll',
 
     '& .main': {
       padding: '20px',
@@ -31,9 +32,10 @@ export const styles = makeStyles((theme) => ({
           borderRadius: '15px',
           padding: '10px 15px',
           background: 'white',
+          fontSize: '1.6rem',
         },
         '& .textarea': {
-          border: '2px dashed #f0f0f0',
+          border: '2px solid #f0f0f0',
           borderRadius: '15px',
           outline: 'none',
           paddingTop: '10px',
@@ -52,6 +54,14 @@ export const styles = makeStyles((theme) => ({
             textIndent: '.5%',
             fontFamily: '"Arial", sans-serif',
           },
+        },
+        '& select': {
+          padding: '8px',
+          border: '2px solid #f0f0f0',
+          borderRadius: '15px',
+          outline: 'none',
+          cursor: 'pointer',
+          fontSize: '1.6rem',
         },
       },
     },
