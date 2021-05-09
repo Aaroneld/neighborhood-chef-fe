@@ -26,6 +26,7 @@ const validationSchema = yup.object().shape({
 const Settings = () => {
   const [, setCharsLeft] = useState(255);
   const user = useSelector((state) => state.user);
+  const [message, setMessage] = useState('');
   const { values, setValues, validate, errors } = useForm(validationSchema);
   const classes = styles();
   const dispatch = useDispatch();
@@ -36,6 +37,7 @@ const Settings = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setMessage('');
     axiosWithAuth()({
       url: `${process.env.REACT_APP_BASE_URL}/graphql`,
       method: 'post',
@@ -56,9 +58,11 @@ const Settings = () => {
             ...values,
           })
         );
+        setMessage('Your account has been updated!');
       },
       (err) => {
         console.dir(err);
+        setMessage('There was an error while submitting your request. Please try again.');
       }
     );
   };
@@ -116,6 +120,11 @@ const Settings = () => {
               }}
             />
           </div>
+        )}
+        {message && (
+          <Typography className="message" variant="h6">
+            {message}
+          </Typography>
         )}
         <EventButtons
           leftBtnText="Cancel"

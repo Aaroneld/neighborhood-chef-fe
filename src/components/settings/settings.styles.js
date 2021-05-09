@@ -65,5 +65,8 @@ export const styles = makeStyles((theme) => ({
         },
       },
     },
+    '& .message': {
+      textAlign: 'center',
+    },
   },
 }));
