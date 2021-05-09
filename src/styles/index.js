@@ -253,19 +253,19 @@ export const cardStyles = makeStyles((theme) => ({
   dashboard: {
     margin: '0 1.5% 1% 1.5%',
     flexBasis: '30%',
-    overflowY: 'hidden',
-    height: '56%',
-    [theme.breakpoints.down('lg')]: {
-      flexBasis: '30%',
-      height: '85%',
-    },
-    [theme.breakpoints.down('md')]: {
-      flexBasis: '46%',
-      height: '55%',
-    },
+
+    // height: '60%',
+    // [theme.breakpoints.down('lg')]: {
+    //   flexBasis: '30%',
+    //   height: '70%',
+    // },
+    // [theme.breakpoints.down('md')]: {
+    //   flexBasis: '46%',
+    //   height: '47%',
+    // },
     [theme.breakpoints.down('sm')]: {
-      flexBasis: '95%',
-      height: '65%',
+      flexBasis: '80%',
+      margin: '0 1.5% 4% 1.5%',
     },
   },
   eventDetailsContainer: {

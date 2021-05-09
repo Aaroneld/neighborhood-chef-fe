@@ -10,12 +10,11 @@ export const styles = makeStyles((theme) => ({
     display: 'flex',
     width: '80vw',
     boxShadow: '-2px 3px 31px -13px rgba(117,117,117,0.46)',
-    height: '100%',
     borderRadius: '20px',
     borderTopRightRadius: '0',
     background: 'transparent',
     overflowX: 'hidden',
-
+    height: '100%',
     '& .container': {
       display: 'flex',
       flexDirection: 'column',

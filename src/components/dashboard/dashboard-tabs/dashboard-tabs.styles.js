@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { makeStyles } from '@material-ui/core/styles';
 import tabImage from '../../../assets/tab.svg';
 
@@ -14,10 +15,6 @@ export const DashboardTabStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down('lg')]: {
       marginTop: '-9.4%',
-    },
-
-    [theme.breakpoints.down('lgmd')]: {
-      marginTop: '-8.4%',
     },
 
     [theme.breakpoints.down('md')]: {
@@ -65,7 +62,7 @@ export const DashboardTabStyles = makeStyles((theme) => ({
       zIndex: -1,
       [theme.breakpoints.down('lg')]: {
         width: '70%',
-        top: '-.5vw',
+        top: '-.6vw',
         left: (props) => {
           if (props.currentTab === 1) return '-2%';
           else if (props.currentTab === 2) return '33%';
@@ -83,12 +80,24 @@ export const DashboardTabStyles = makeStyles((theme) => ({
         },
       },
 
+      [theme.breakpoints.down('sm')]: {
+        height: '5.5vw',
+        width: '40%',
+        top: '-.7vw',
+        left: (props) => {
+          if (props.currentTab === 1) return '-3.4%';
+          else if (props.currentTab === 2) return '32.2%';
+          else return '66%';
+        },
+      },
+
       [theme.breakpoints.down('xs')]: {
         height: '5.5vw',
+        top: '-.4vw',
         left: (props) => {
-          if (props.currentTab === 1) return '-4%';
-          else if (props.currentTab === 2) return '30%';
-          else return '62.5%';
+          if (props.currentTab === 1) return '-1.9%';
+          else if (props.currentTab === 2) return '31.7%';
+          else return '64.5%';
         },
       },
     },
@@ -98,7 +107,7 @@ export const DashboardTabStyles = makeStyles((theme) => ({
     },
 
     [theme.breakpoints.down('md')]: {
-      marginTop: '-1.6%',
+      marginTop: '-1.5%',
     },
 
     [theme.breakpoints.down('sm')]: {
@@ -107,7 +116,7 @@ export const DashboardTabStyles = makeStyles((theme) => ({
     },
 
     [theme.breakpoints.down('xs')]: {
-      marginTop: '-2.4%',
+      marginTop: '-2.3%',
     },
   },
   tab: {

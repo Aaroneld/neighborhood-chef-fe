@@ -9,12 +9,17 @@ export const styles = makeStyles((theme) => ({
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'flex-start',
+    alignItems: 'flex-start',
     textAlign: 'left',
-    padding: '0 8%',
+    padding: '0 8% 2.5% 8%',
     width: '100%',
+
     [theme.breakpoints.down('lg')]: {
       padding: '0 0 0 0',
-      height: '100%',
+    },
+
+    [theme.breakpoints.down('sm')]: {
+      justifyContent: 'center',
     },
   },
 }));
@@ -46,33 +51,16 @@ export default function EventView({ currentTab }) {
   const classes = styles();
 
   return (
-    <div>
-      <div
-        style={{
-          overflow: 'auto',
-          width: '80vw',
-          height: '100%',
-          display: 'flex',
-          justifyContent: 'space-between',
-        }}
-      >
-        <div className={classes.root}>
-          {events.length > 0 ? (
-            events
-              .sort((a, b) => a.startTime - b.startTime)
-              .map((event) => (
-                <RecentCard
-                  {...event}
-                  key={event.id}
-                  isFavorite={event.favorite}
-                  currentUserId={currentUserId}
-                />
-              ))
-          ) : (
-            <Typography style={{ marginTop: '20px' }}>No recently created events.</Typography>
-          )}
-        </div>
-      </div>
+    <div className={classes.root}>
+      {events.length > 0 ? (
+        events
+          .sort((a, b) => a.startTime - b.startTime)
+          .map((event) => (
+            <RecentCard {...event} key={event.id} isFavorite={event.favorite} currentUserId={currentUserId} />
+          ))
+      ) : (
+        <Typography style={{ marginTop: '20px' }}>No recently created events.</Typography>
+      )}
     </div>
   );
 }
