@@ -254,18 +254,9 @@ export const cardStyles = makeStyles((theme) => ({
     margin: '0 1.5% 1% 1.5%',
     flexBasis: '30%',
 
-    // height: '60%',
-    // [theme.breakpoints.down('lg')]: {
-    //   flexBasis: '30%',
-    //   height: '70%',
-    // },
-    // [theme.breakpoints.down('md')]: {
-    //   flexBasis: '46%',
-    //   height: '47%',
-    // },
     [theme.breakpoints.down('sm')]: {
-      flexBasis: '80%',
-      margin: '0 1.5% 4% 1.5%',
+      flexBasis: '90%',
+      margin: '0 1.5% 1% 3.5%',
     },
   },
   eventDetailsContainer: {
