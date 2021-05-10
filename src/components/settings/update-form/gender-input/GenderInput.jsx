@@ -1,7 +1,7 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 
-const Gender = ({ values, handleChange }) => {
+const GenderInput = ({ values, handleChange }) => {
   return (
     <div className="textInputContainer">
       <Typography variant="h6">Gender</Typography>
@@ -14,4 +14,4 @@ const Gender = ({ values, handleChange }) => {
   );
 };
 
-export default Gender;
+export default GenderInput;

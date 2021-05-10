@@ -2,24 +2,24 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import { ErrorMessage } from '@hookform/error-message';
 
-const LastName = ({ values, validate, errors, handleChange }) => {
+const FirstNameInput = ({ values, validate, errors, handleChange }) => {
   return (
     <div className="textInputContainer">
-      <Typography variant="h6">Last Name</Typography>
+      <Typography variant="h6">First Name</Typography>
       <input
         type="text"
-        name="lastName"
-        value={values.lastName}
+        name="firstName"
+        value={values.firstName}
         onChange={handleChange}
         onBlur={() => {
-          validate('lastName');
+          validate('firstName');
         }}
       />
-      {errors.lastName && errors.lastName.length > 0 && (
+      {errors.firstName && errors.firstName.length > 0 && (
         <ErrorMessage
-          name="lastName"
+          name="firstName"
           errors={errors}
-          message={errors.lastName[0]}
+          message={errors.firstName[0]}
           render={({ message }) => (
             <p className="error-message" style={{ color: 'crimson' }}>
               {message}
@@ -31,4 +31,4 @@ const LastName = ({ values, validate, errors, handleChange }) => {
   );
 };
 
-export default LastName;
+export default FirstNameInput;

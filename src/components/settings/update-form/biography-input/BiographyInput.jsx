@@ -1,7 +1,7 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 
-const Biography = ({ values, setValues, setCharsLeft }) => {
+const BiographyInput = ({ values, setValues, setCharsLeft }) => {
   return (
     <div className="textInputContainer">
       <Typography variant="h6">Biography</Typography>
@@ -21,4 +21,4 @@ const Biography = ({ values, setValues, setCharsLeft }) => {
   );
 };
 
-export default Biography;
+export default BiographyInput;

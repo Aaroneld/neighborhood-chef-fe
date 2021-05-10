@@ -8,10 +8,10 @@ import EventButtons from '../../create-events/form-container/event-buttons/Event
 import { axiosWithAuth } from '../../../utilities/axiosWithAuth';
 import { UPDATE_USER } from '../../../graphql/users/user-mutations';
 import { updateUser } from '../../../utilities/actions';
-import FirstName from './first-name/FirstName';
-import LastName from './last-name/LastName';
-import Biography from './biography/Biography';
-import Gender from './gender/Gender';
+import FirstNameInput from './first-name-input/FirstNameInput';
+import LastNameInput from './last-name-input/LastNameInput';
+import BiographyInput from './biography-input/BiographyInput';
+import GenderInput from './gender-input/GenderInput';
 import MapboxGeocoder from './mapbox-geocoder/MapboxGeocoder';
 
 const initialValues = {
@@ -98,11 +98,11 @@ const Settings = () => {
 
   return (
     <form className="main">
-      <FirstName values={values} errors={errors} validate={validate} handleChange={handleChange} />
-      <LastName values={values} errors={errors} validate={validate} handleChange={handleChange} />
+      <FirstNameInput values={values} errors={errors} validate={validate} handleChange={handleChange} />
+      <LastNameInput values={values} errors={errors} validate={validate} handleChange={handleChange} />
       <MapboxGeocoder values={values} setValues={setValues} errors={errors} validate={validate} />
-      <Gender values={values} handleChange={handleChange} />
-      <Biography values={values} setValues={setValues} setCharsLeft={setCharsLeft} />
+      <GenderInput values={values} handleChange={handleChange} />
+      <BiographyInput values={values} setValues={setValues} setCharsLeft={setCharsLeft} />
       {message && (
         <Typography className="message" variant="h6">
           {message}
@@ -112,6 +112,7 @@ const Settings = () => {
         leftBtnText="Cancel"
         leftBtnClick={(e) => {
           e.preventDefault();
+          setMessage('');
           setValues({
             firstName: user.firstName,
             lastName: user.lastName,
@@ -122,7 +123,7 @@ const Settings = () => {
             biography: user.biography,
           });
         }}
-        rightBtnText="Submit"
+        rightBtnText="Save"
         rightBtnClick={handleSubmit}
       />
     </form>
