@@ -9,15 +9,21 @@ export const styles = makeStyles((theme) => ({
     background: 'transparent',
     overflowY: 'scroll',
 
+    '& h4': {
+      fontWeight: 'bold',
+      fontSize: 'rem',
+      textAlign: 'center',
+    },
+
     '& .main': {
-      padding: '20px',
+      padding: '0 20px',
       '& .textInputContainer': {
         display: 'flex',
         flexDirection: 'column',
         margin: '20px 0',
         wordBreak: 'break-word',
 
-        '& h6': {
+        '& label': {
           color: '#4E4E4E',
           fontWeight: '700',
           marginBottom: '5px',
@@ -33,6 +39,7 @@ export const styles = makeStyles((theme) => ({
           padding: '10px 15px',
           background: 'white',
           fontSize: '1.6rem',
+          outline: 'none',
         },
         '& .textarea': {
           border: '2px solid #f0f0f0',
@@ -65,7 +72,7 @@ export const styles = makeStyles((theme) => ({
         },
       },
       '& .mapboxContainer': {
-        '& h6': {
+        '& label': {
           color: '#4E4E4E',
           fontWeight: '700',
           marginBottom: '5px',
@@ -85,7 +92,17 @@ export const styles = makeStyles((theme) => ({
           '& input': {
             border: 'none',
             fontSize: '1.6rem',
-            border: '1px solid red',
+            outline: 'none',
+            width: '800px',
+            [theme.breakpoints.down('md')]: {
+              width: '600px',
+            },
+            [theme.breakpoints.down('sm')]: {
+              width: '400px',
+            },
+            [theme.breakpoints.down('xs')]: {
+              width: '240px',
+            },
           },
         },
       },

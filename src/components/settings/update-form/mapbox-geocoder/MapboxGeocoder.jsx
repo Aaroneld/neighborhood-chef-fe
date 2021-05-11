@@ -3,13 +3,11 @@ import Typography from '@material-ui/core/Typography';
 import { ErrorMessage } from '@hookform/error-message';
 import MapboxAddressSearch from './MapboxAddressSearch';
 
-function MapboxGeocoder({ errors, setValues, values, validate }) {
+function MapboxGeocoder({ errors, setValues, values, validate, user }) {
   const [data, setData] = useState({});
   const [open, setOpen] = useState(false);
   const [flagAddressValidation, flag] = useState(0);
-  const [mostRecentlyChosenAddress, setMostRecentlyChosenAddress] = useState(
-    values.address ? values.address : ''
-  );
+  const [mostRecentlyChosenAddress, setMostRecentlyChosenAddress] = useState(values.us);
 
   useEffect(() => {
     if (data) {
@@ -46,7 +44,7 @@ function MapboxGeocoder({ errors, setValues, values, validate }) {
   };
   return (
     <div className="mapboxContainer">
-      <Typography variant="h6">Address</Typography>
+      <label>Address</label>
       <div className="geocoderDiv">
         <MapboxAddressSearch
           setData={setData}
@@ -54,6 +52,7 @@ function MapboxGeocoder({ errors, setValues, values, validate }) {
           open={open}
           setOpen={setOpen}
           mostRecentlyChosenAddress={mostRecentlyChosenAddress}
+          user={user}
         />
       </div>
       {errors.address && errors.address.length > 0 && (

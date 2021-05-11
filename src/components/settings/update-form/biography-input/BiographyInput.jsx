@@ -1,10 +1,9 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
 
 const BiographyInput = ({ values, setValues, setCharsLeft }) => {
   return (
     <div className="textInputContainer">
-      <Typography variant="h6">Biography</Typography>
+      <label htmlFor="biography">Biography</label>
       <textarea
         className="textarea"
         name="biography"

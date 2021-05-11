@@ -59,7 +59,6 @@ export default function MapboxAddressSearch({
       renderInput={(params) => (
         <div ref={params.InputProps.ref}>
           <input
-            style={{ width: 300 }}
             type="text"
             {...params.inputProps}
             onClick={handleClick}

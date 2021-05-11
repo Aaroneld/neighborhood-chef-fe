@@ -1,11 +1,10 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
 import { ErrorMessage } from '@hookform/error-message';
 
 const FirstNameInput = ({ values, validate, errors, handleChange }) => {
   return (
     <div className="textInputContainer">
-      <Typography variant="h6">First Name</Typography>
+      <label htmlFor="firstName">First Name</label>
       <input
         type="text"
         name="firstName"
