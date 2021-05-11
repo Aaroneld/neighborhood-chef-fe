@@ -100,7 +100,7 @@ const Settings = () => {
     <form className="main">
       <FirstNameInput values={values} errors={errors} validate={validate} handleChange={handleChange} />
       <LastNameInput values={values} errors={errors} validate={validate} handleChange={handleChange} />
-      <MapboxGeocoder values={values} setValues={setValues} errors={errors} validate={validate} user={user} />
+      <MapboxGeocoder values={values} setValues={setValues} errors={errors} validate={validate} />
       <GenderInput values={values} handleChange={handleChange} />
       <BiographyInput values={values} setValues={setValues} setCharsLeft={setCharsLeft} />
       {message && (

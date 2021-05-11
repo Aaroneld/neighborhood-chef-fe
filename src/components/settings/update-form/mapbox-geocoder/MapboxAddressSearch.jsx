@@ -8,6 +8,7 @@ export default function MapboxAddressSearch({
   open,
   setOpen,
   mostRecentlyChosenAddress,
+  values,
 }) {
   const [addresses, setAddresses] = useState([]);
   const [innerData, setInnerData] = useState([]);
@@ -56,15 +57,10 @@ export default function MapboxAddressSearch({
       onClose={handleClose}
       filterOptions={(options) => options}
       defaultValue={mostRecentlyChosenAddress}
+      value={values.address}
       renderInput={(params) => (
         <div ref={params.InputProps.ref}>
-          <input
-            type="text"
-            {...params.inputProps}
-            onClick={handleClick}
-            onBlur={handleBlur}
-            placeholder="Address"
-          />
+          <input type="text" {...params.inputProps} onClick={handleClick} onBlur={handleBlur} />
         </div>
       )}
     />

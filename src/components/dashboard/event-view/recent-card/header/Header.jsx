@@ -83,7 +83,7 @@ const Header = (props) => {
             <div style={{ display: 'flex', width: '85%', alignItems: 'center', flexWrap: 'nowrap' }}>
               <Link to={`/profile/${props.User.id}`} style={{ cursor: 'pointer' }}>
                 <Typography variant="h6">
-                  {props.User.firstName.length <= 15
+                  {props.User.firstName.length <= 10
                     ? props.User.firstName
                     : `${props.User.firstName.split('')[0].toUpperCase()}${props.User.lastName.split('')[0]}`}
                   &nbsp;

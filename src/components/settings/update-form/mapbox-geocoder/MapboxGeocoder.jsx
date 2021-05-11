@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import Typography from '@material-ui/core/Typography';
 import { ErrorMessage } from '@hookform/error-message';
 import MapboxAddressSearch from './MapboxAddressSearch';
 
-function MapboxGeocoder({ errors, setValues, values, validate, user }) {
+function MapboxGeocoder({ errors, setValues, values, validate }) {
   const [data, setData] = useState({});
   const [open, setOpen] = useState(false);
   const [flagAddressValidation, flag] = useState(0);
-  const [mostRecentlyChosenAddress, setMostRecentlyChosenAddress] = useState(values.us);
+  const [mostRecentlyChosenAddress, setMostRecentlyChosenAddress] = useState(
+    values.address ? values.address : ''
+  );
 
   useEffect(() => {
     if (data) {
@@ -52,7 +53,7 @@ function MapboxGeocoder({ errors, setValues, values, validate, user }) {
           open={open}
           setOpen={setOpen}
           mostRecentlyChosenAddress={mostRecentlyChosenAddress}
-          user={user}
+          values={values}
         />
       </div>
       {errors.address && errors.address.length > 0 && (
