@@ -10,8 +10,8 @@ export const formPageOneStyles = makeStyles((theme) => ({
       width: '95%',
     },
 
-    "& #title-input, #date-div" : {
-      marginTop: 0
+    '& #title-input, #date-div': {
+      marginTop: 0,
     },
 
     '& .error-message': {
@@ -43,29 +43,29 @@ export const formPageOneStyles = makeStyles((theme) => ({
 
     '& #first-form-button': {
       marginLeft: 0,
-      marginRight: '4%'
+      marginRight: '4%',
     },
 
     '& #second-form-button': {
-      marginRight: 0
+      marginRight: 0,
     },
 
     '& .form-button': {
       width: '100%',
 
       [theme.breakpoints.down('lg')]: {
-        marginTop: "2%"
+        marginTop: '2%',
       },
-      
+
       [theme.breakpoints.down('md')]: {
-        width: "27%",
-        marginTop: "0%"
+        width: '27%',
+        marginTop: '0%',
       },
 
       [theme.breakpoints.down('sm')]: {
-        width: "35%"
-      }
-    }
+        width: '35%',
+      },
+    },
   },
   leftContainer: {
     width: '40%',
@@ -89,10 +89,10 @@ export const formPageOneStyles = makeStyles((theme) => ({
     borderRadius: '15px',
     margin: '40px 0',
     padding: '10px 15px',
-    background: "white",
+    background: 'white',
 
-    [theme.breakpoints.down("lg")] : {
-      margin: "1%"
+    [theme.breakpoints.down('lg')]: {
+      margin: '1%',
     },
 
     [theme.breakpoints.down('md')]: {
@@ -114,7 +114,7 @@ export const formPageOneStyles = makeStyles((theme) => ({
     borderRadius: '15px',
     outline: 'none',
     fontSize: '1.6rem',
-   
+
     width: '90%',
     '&::placeholder': {
       color: '#b7b7b7',

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { print } from 'graphql';
@@ -65,6 +65,8 @@ const Header = ({ user, setUser, loggedInUserId }) => {
       }
     }
   };
+
+  useEffect(() => {}, [user, reduxUser]);
 
   return (
     <div className="header">
