@@ -60,7 +60,13 @@ export default function MapboxAddressSearch({
       value={values.address}
       renderInput={(params) => (
         <div ref={params.InputProps.ref}>
-          <input type="text" {...params.inputProps} onClick={handleClick} onBlur={handleBlur} />
+          <input
+            type="text"
+            {...params.inputProps}
+            onClick={handleClick}
+            onBlur={handleBlur}
+            autoComplete="chrome-off"
+          />
         </div>
       )}
     />
