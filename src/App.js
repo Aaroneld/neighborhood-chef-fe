@@ -8,11 +8,8 @@ import LoginRedirect from './components/utils/login-redirect';
 import Register from './components/register/Register';
 import ChangePassword from './components/change-password/PasswordChangePage';
 import CheckEmail from './components/check-email/CheckEmail';
-import AboutUs from './components/about/AboutUs';
-import Community from './components/community/Community';
 import DatePicker from './components/create-events/form-container/form-page-one/date-input/datepicker';
 import MobileNavigation from './components/mobile-navigation/mobile-navigation';
-
 import Login from './components/login/Login';
 import GridStructure from './components/shared/grid-structure/gridstructure';
 
@@ -47,8 +44,6 @@ function App() {
         <PrivateRoute path="/profile/:userid" component={GridStructure} />
         <PrivateRoute path="/settings" component={GridStructure} />
         <Route path="/register-check-email" component={CheckEmail} />
-        <Route path="/community" component={Community} />
-        <Route path="/about" component={AboutUs} />
         <PrivateRoute path="/navigation" component={MobileNavigation} />
       </Switch>
     </div>
