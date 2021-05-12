@@ -45,16 +45,19 @@ export const styles = makeStyles((theme) => ({
           border: '2px solid #f0f0f0',
           borderRadius: '15px',
           outline: 'none',
-          paddingTop: '10px',
-          paddingBottom: '5%',
-          paddingLeft: '10px',
-          paddingRight: '10px',
+          padding: '10px 10px 30px 10px',
           fontSize: '1.6rem',
           width: '100%',
           whiteSpace: 'wrap',
           resize: 'none',
           fontFamily: '"Arial", sans-serif',
           overflow: 'hidden',
+          [theme.breakpoints.down('sm')]: {
+            padding: '10px 10px 100px 10px',
+          },
+          [theme.breakpoints.down('xs')]: {
+            padding: '10px 10px 120px 10px',
+          },
 
           '&::placeholder': {
             color: '#b7b7b7',

@@ -8,19 +8,23 @@ export const styles = makeStyles((theme) => ({
 
     [theme.breakpoints.down('md')]: {
       justifyContent: 'center',
-      margin: '4% 0'
+      margin: '4% 0',
     },
 
     '& button': {
       width: '15.75%',
       margin: '0 .8%',
 
+      '&:hover': {
+        filter: 'brightness(90%)',
+      },
+
       [theme.breakpoints.down('md')]: {
-        width: '25%'
+        width: '25%',
       },
 
       [theme.breakpoints.down('sm')]: {
-        width: '33.33%'
+        width: '33.33%',
       },
     },
 
@@ -29,12 +33,8 @@ export const styles = makeStyles((theme) => ({
       outline: 'none',
       marginRight: '6.8%',
 
-      '&:hover': {
-        filter: 'brightness(90%)'
-      },
-
       [theme.breakpoints.down('lg')]: {
-        marginRight: '2.4%'
+        marginRight: '2.4%',
       },
 
       [theme.breakpoints.down('md')]: {
