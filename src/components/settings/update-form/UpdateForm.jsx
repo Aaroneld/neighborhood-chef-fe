@@ -92,7 +92,9 @@ const Settings = () => {
         latitude: user.latitude,
         biography: user.biography,
       });
-      setCharsLeft(255 - user.biography.length);
+      if (user.biography) {
+        setCharsLeft(255 - user.biography.length);
+      }
     }
   }, [user]);
 

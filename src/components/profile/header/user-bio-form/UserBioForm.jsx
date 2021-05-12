@@ -1,10 +1,12 @@
 import React from 'react';
 import { print } from 'graphql';
+import { useDispatch, useSelector } from 'react-redux';
 import { axiosWithAuth } from '../../../../utilities/axiosWithAuth';
 import makeStyles from '@material-ui/styles/makeStyles';
 import { UPDATE_USER } from '../../../../graphql/users/user-mutations';
 import { buttonStyles } from '../../../../styles';
 import Typography from '@material-ui/core/Typography';
+import { updateUser } from '../../../../utilities/actions';
 
 export const styles = makeStyles((theme) => ({
   root: {
@@ -52,6 +54,8 @@ export const styles = makeStyles((theme) => ({
 const UserBioForm = ({ user, setUser, setShowForm, loggedInUserId, state, setState }) => {
   const btnStyles = buttonStyles();
   const classes = styles();
+  const dispatch = useDispatch();
+  const reduxUser = useSelector((state) => state.user);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -72,6 +76,7 @@ const UserBioForm = ({ user, setUser, setShowForm, loggedInUserId, state, setSta
         setUser({ ...user, biography: state.biography });
         setState({ biography: '', charsLeft: 255 });
         setShowForm(false);
+        dispatch(updateUser({ ...reduxUser, biography: state.biography }));
       },
       (err) => {
         console.dir(err);
