@@ -17,6 +17,8 @@ const Header = ({ user, setUser, loggedInUserId }) => {
   const [showForm, setShowForm] = useState(false);
   const [formState, setFormState] = useState({ biography: '', charsLeft: 255 });
   const [loading, setLoading] = useState(false);
+  const [imageHasLoaded, setImageHasLoaded] = useState(false);
+  const [image, setImage] = useState(null);
   const imageSizeLimit = 1500000;
   const classes = styles({ photo: user.photo ? user.photo : curry });
   const fileRef = useRef();
@@ -40,9 +42,11 @@ const Header = ({ user, setUser, loggedInUserId }) => {
       },
     }).then(
       (res) => {
+        console.log(res);
         setLoading(false);
-        setUser({ ...user, photo: res.data.data.inputUser.photo });
-        dispatch(updateUser({ ...reduxUser, photo: res.data.data.inputUser.photo }));
+        setUser({ ...user, photo: image });
+        dispatch(updateUser({ ...reduxUser, photo: image }));
+        setImage(null);
       },
       (err) => {
         setLoading(false);
@@ -60,13 +64,20 @@ const Header = ({ user, setUser, loggedInUserId }) => {
         let reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onloadend = () => {
-          submitImage(reader.result);
+          setImageHasLoaded(true);
+          setImage(reader.result);
         };
       }
     }
   };
 
-  useEffect(() => {}, [user, reduxUser]);
+  useEffect(() => {
+    if (image && imageHasLoaded) {
+      console.log(image);
+      submitImage(image);
+      setImageHasLoaded(false);
+    }
+  }, [imageHasLoaded, image]);
 
   return (
     <div className="header">
