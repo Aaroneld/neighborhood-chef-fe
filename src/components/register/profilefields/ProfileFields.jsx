@@ -134,11 +134,7 @@ const ProfileFields = (props) => {
           name="errorMessage"
           errors={{ errorMessage: props.errorMessage }}
           message={props.errorMessage}
-          render={({ message }) => (
-            <p className="error-message" style={{ color: 'crimson' }}>
-              {message}
-            </p>
-          )}
+          render={({ message }) => <p style={{ color: 'crimson', textAlign: 'center' }}>{message}</p>}
         />
       )}
     </div>
