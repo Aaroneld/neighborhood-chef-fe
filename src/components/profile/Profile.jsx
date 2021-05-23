@@ -58,10 +58,17 @@ const Profile = () => {
       <>
         {user && (
           <Card className={classes.root}>
-            <Header user={user} setUser={setUser} loggedInUserId={loggedInUserId} userid={userid} />
             <div className="mainContainer">
-              <LeftSide user={user} parsedAddressURL={parsedAddressURL} />
-              {user.UserEvents.owned.length > 0 && <RightSide events={events} setEvents={setEvents} />}
+              <LeftSide
+                user={user}
+                parsedAddressURL={parsedAddressURL}
+                setUser={setUser}
+                loggedInUserId={loggedInUserId}
+                userid={userid}
+              />
+              {user.UserEvents.owned.length > 0 && (
+                <RightSide events={events} setEvents={setEvents} userFirstName={user.firstName} />
+              )}
             </div>
           </Card>
         )}

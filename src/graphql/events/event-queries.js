@@ -31,6 +31,13 @@ export const EVENT_BY_ID = gql`
           lastName
           photo
         }
+        # maybeGoing {
+        #   id
+        #   email
+        #   firstName
+        #   lastName
+        #   photo
+        # }
         invited {
           id
           email

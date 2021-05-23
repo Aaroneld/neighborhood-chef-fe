@@ -1095,7 +1095,7 @@ export const cardStyles = makeStyles((theme) => ({
       justifyContent: 'flex-start',
 
       '& >*': {
-        margin: '0 3% 0 0',
+        margin: '0 3% 1% 0',
 
         [theme.breakpoints.down('sm')]: {
           margin: '0 6% 0 0',

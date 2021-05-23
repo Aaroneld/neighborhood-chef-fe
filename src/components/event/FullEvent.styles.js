@@ -60,8 +60,9 @@ export const fullEventStyles = makeStyles((theme) => ({
       flexBasis: '30%',
     },
 
-    [theme.breakpoints.down('xs')]: {
-      flexBasis: '25%',
+    [theme.breakpoints.down('sm')]: {
+      flexBasis: 'auto',
+      height: 'content',
     },
   },
   singleEventCommentCard: {

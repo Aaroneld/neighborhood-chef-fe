@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import { styles } from './event-header.styles.js';
 import { cardStyles } from '../../styles';
 import AttendingButtons from './event-details/attending-buttons/attending-buttons';
+import ViewEventRelatedUsersModal from './view-event-related-users-modal';
 
 import Avatar from '@material-ui/core/Avatar';
 import AvatarGroup from '@material-ui/lab/AvatarGroup';
@@ -13,74 +14,40 @@ export default function EventHeader() {
   const eventInfo = useSelector((state) => state.focusedEventInfo);
   const classes = styles();
   const statusButtonClasses = cardStyles();
-
-  const testAvatar = [
-    {
-      firstName: 'Aaron',
-      lastName: 'Merrifield',
-    },
-    {
-      firstName: 'Aaron',
-      lastName: 'Merrifield',
-    },
-    {
-      firstName: 'Aaron',
-      lastName: 'Merrifield',
-    },
-    {
-      firstName: 'Aaron',
-      lastName: 'Merrifield',
-    },
-    {
-      firstName: 'Aaron',
-      lastName: 'Merrifield',
-    },
-    {
-      firstName: 'Aaron',
-      lastName: 'Merrifield',
-    },
-    {
-      firstName: 'Aaron',
-      lastName: 'Merrifield',
-    },
-    {
-      firstName: 'Aaron',
-      lastName: 'Merrifield',
-    },
-  ];
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <div>
       {eventInfo && eventInfo.attending && (
         <div className={classes.attendingContainer}>
           <Typography variant="h6">Attending:</Typography>
-          <AvatarGroup max={5}>
+          <AvatarGroup
+            max={5}
+            onClick={() => {
+              setShowModal(true);
+            }}
+          >
             {eventInfo.attending
               .slice(0, eventInfo.attending.length >= 4 ? 4 : eventInfo.attending.length)
               .map((user) => {
                 return (
-                  <Link
-                    to={`/profile/${user.id}`}
-                    style={{ border: 'none', background: 'transparent', overflow: 'hidden' }}
+                  <Avatar
+                    key={user.id}
+                    title={`${user.firstName} ${user.lastName}`}
+                    aria-label="avatar"
+                    style={{
+                      cursor: 'pointer',
+                      border: '1px solid white',
+                      background: '#DCDCDC',
+                    }}
+                    src={user.photo ? user.photo : ''}
                   >
-                    <Avatar
-                      key={user.id}
-                      title={`${user.firstName} ${user.lastName}`}
-                      aria-label="avatar"
-                      style={{
-                        cursor: 'pointer',
-                        border: '1px solid white',
-                        background: '#DCDCDC',
-                      }}
-                      src={user.photo ? user.photo : ''}
-                    >
-                      {!user.photo && (
-                        <Typography style={{ paddingRight: '2%' }}>{`${user.firstName
-                          .split('')[0]
-                          .toUpperCase()}${user.lastName.split('')[0].toUpperCase()}`}</Typography>
-                      )}
-                    </Avatar>
-                  </Link>
+                    {!user.photo && (
+                      <Typography style={{ paddingRight: '2%' }}>{`${user.firstName
+                        .split('')[0]
+                        .toUpperCase()}${user.lastName.split('')[0].toUpperCase()}`}</Typography>
+                    )}
+                  </Avatar>
                 );
               })}
             {eventInfo.attending.length > 4 && (

@@ -4,6 +4,7 @@ export const styles = makeStyles((theme) => ({
   root: {
     borderRadius: '10px',
     width: '100%',
+    height: '100%',
     display: 'flex',
     justifyContent: 'center',
     flexDirection: 'column',
@@ -73,6 +74,7 @@ export const styles = makeStyles((theme) => ({
     '& .mainContainer': {
       display: 'flex',
       width: '100%',
+      height: '100%',
       [theme.breakpoints.down('md')]: {
         flexDirection: 'column',
       },
@@ -82,7 +84,6 @@ export const styles = makeStyles((theme) => ({
         flexDirection: 'column',
         width: (props) => (props.user && props.user.UserEvents.owned.length > 0 ? '50%' : '100%'),
         marginRight: '1%',
-        height: '65vh',
 
         [theme.breakpoints.down('md')]: {
           width: () => '100%',
@@ -135,7 +136,7 @@ export const styles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         borderRadius: '5px',
-        height: '65vh',
+        height: '95%',
         marginTop: '16px',
         [theme.breakpoints.down('md')]: {
           width: '100%',
@@ -147,6 +148,8 @@ export const styles = makeStyles((theme) => ({
           color: '#4E4E4E',
           fontWeight: '700',
           paddingLeft: '10px',
+          textAlign: 'center',
+
           [theme.breakpoints.down('md')]: {
             paddingLeft: '20px',
           },

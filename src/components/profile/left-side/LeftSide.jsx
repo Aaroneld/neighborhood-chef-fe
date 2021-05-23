@@ -4,10 +4,12 @@ import globeIcon from '@iconify/icons-flat-color-icons/globe';
 import { Icon } from '@iconify/react';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import WcIcon from '@material-ui/icons/Wc';
+import Header from '../header/Header';
 
-const LeftSide = ({ user, parsedAddressURL }) => {
+const LeftSide = ({ user, parsedAddressURL, setUser, loggedInUserId, userid }) => {
   return (
     <div className="leftSide">
+      <Header user={user} setUser={setUser} loggedInUserId={loggedInUserId} userid={userid} />
       <div className="details">
         {user.biography && (
           <div className="bio">

@@ -10,6 +10,8 @@ import ShareCard from './share-card/ShareCard';
 import CommentsCard from './comments-card/CommentsCard';
 import Spinner from '../shared/spinner/Spinner';
 import { fullEventStyles } from './FullEvent.styles';
+import ViewEventRelatedUserModal from './view-event-related-users-modal';
+import ViewEventRelatedUsersModal from './view-event-related-users-modal';
 
 const FullEvent = ({ match }) => {
   const eventId = parseInt(match.params.id);
@@ -62,23 +64,28 @@ const FullEvent = ({ match }) => {
     return <Spinner />;
   } else {
     return (
-      <Card className={styles.singleEventContainer}>
-        <div className={styles.singleEventBox}>
-          {event && (
-            <>
-              <EventDetails event={event} />
-              <div className={styles.singleEventRightColumn}>
-                <div className={styles.singleEventTopRow}>
-                  <ShareCard />
-                </div>
-                <div className={styles.singleEventCommentCard}>
-                  <CommentsCard eventId={eventId} initialComments={event.Comments} />
-                </div>
+      <div>
+        {event && (
+          <>
+            {/* <ViewEventRelatedUsersModal eventUsers={event.EventUsers} /> */}
+            <Card className={styles.singleEventContainer}>
+              <div className={styles.singleEventBox}>
+                <>
+                  <EventDetails event={event} />
+                  <div className={styles.singleEventRightColumn}>
+                    <div className={styles.singleEventTopRow}>
+                      <ShareCard />
+                    </div>
+                    <div className={styles.singleEventCommentCard}>
+                      <CommentsCard eventId={eventId} initialComments={event.Comments} />
+                    </div>
+                  </div>
+                </>
               </div>
-            </>
-          )}
-        </div>
-      </Card>
+            </Card>
+          </>
+        )}
+      </div>
     );
   }
 };

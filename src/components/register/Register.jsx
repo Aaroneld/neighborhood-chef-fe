@@ -143,10 +143,6 @@ const Register = () => {
             className={'register-map'}
             mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
             containerStyles
-            // latitude={values.latitude || 0}
-            // longitude={values.longitude || -30}
-            // zoom={values.latitude ? 16 : 2}
-            // {...mapStyle}
             {...viewport}
             mapStyle="mapbox://styles/aaroneld/ckmo07imp12x617o7q66m3hwm"
             onViewportChange={setViewport}
