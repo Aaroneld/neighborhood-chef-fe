@@ -12,6 +12,10 @@ export const styles = makeStyles((theme) => ({
     borderTopRightRadius: '0',
     background: 'transparent',
 
+    [theme.breakpoints.down('lg')]: {
+      overflowY: 'scroll',
+    },
+
     '& .header': {
       display: 'flex',
       alignItems: 'center',
@@ -85,9 +89,12 @@ export const styles = makeStyles((theme) => ({
         width: (props) => (props.user && props.user.UserEvents.owned.length > 0 ? '50%' : '100%'),
         marginRight: '1%',
 
+        [theme.breakpoints.down('lg')]: {
+          height: '100%',
+        },
+
         [theme.breakpoints.down('md')]: {
           width: () => '100%',
-          height: '100%',
         },
 
         '& .details': {
