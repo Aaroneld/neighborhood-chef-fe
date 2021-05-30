@@ -14,14 +14,15 @@ import { Icon } from '@iconify/react';
 import bxsCamera from '@iconify-icons/bx/bxs-camera';
 
 const Header = ({ user, setUser, loggedInUserId }) => {
-  const [showForm, setShowForm] = useState(false);
-  const [formState, setFormState] = useState({ biography: '', charsLeft: 255 });
   const [loading, setLoading] = useState(false);
   const [imageHasLoaded, setImageHasLoaded] = useState(false);
   const [image, setImage] = useState(null);
+  const [bannerImageHasLoaded, setBannerImageHasLoaded] = useState(false);
+  const [bannerImage, setBannerImage] = useState(null);
   const imageSizeLimit = 1500000;
   const classes = styles({ photo: user.photo ? user.photo : curry });
   const fileRef = useRef();
+  const bannerImageRef = useRef();
   const reduxUser = useSelector((state) => state.user);
   const { push } = useHistory();
   const dispatch = useDispatch();
@@ -55,7 +56,40 @@ const Header = ({ user, setUser, loggedInUserId }) => {
     );
   };
 
+  const submitBannerImage = (image) => {
+    setLoading(true);
+    axiosWithAuth()({
+      url: `${process.env.REACT_APP_BASE_URL}/graphql`,
+      method: 'post',
+      data: {
+        query: print(UPDATE_USER),
+        variables: {
+          input: {
+            id: Number(user.id),
+            bannerPhoto: bannerImage,
+          },
+        },
+      },
+    }).then(
+      (res) => {
+        console.log(res);
+        setLoading(false);
+        setUser({ ...user, bannerPhoto: bannerImage });
+        dispatch(updateUser({ ...reduxUser, bannerPhoto: bannerImage }));
+        setBannerImage(null);
+      },
+      (err) => {
+        setLoading(false);
+        console.dir(err);
+      }
+    );
+  };
+
   const handleChange = (e) => {
+    e.persist();
+    e.preventDefault();
+    e.stopPropagation();
+
     if (e.target.files[0]) {
       if (e.target.files[0].size > imageSizeLimit) {
         alert('File size is too large');
@@ -71,6 +105,25 @@ const Header = ({ user, setUser, loggedInUserId }) => {
     }
   };
 
+  const handleBannerChange = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    if (e.target.files[0]) {
+      if (e.target.files[0].size > imageSizeLimit) {
+        alert('File size is too large');
+      } else {
+        let file = e.target.files[0];
+        let reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onloadend = () => {
+          setBannerImageHasLoaded(true);
+          setBannerImage(reader.result);
+        };
+      }
+    }
+  };
+
   useEffect(() => {
     if (image && imageHasLoaded) {
       console.log(image);
@@ -79,26 +132,58 @@ const Header = ({ user, setUser, loggedInUserId }) => {
     }
   }, [imageHasLoaded, image]);
 
+  useEffect(() => {
+    if (bannerImage && bannerImageHasLoaded) {
+      console.log(image);
+      submitBannerImage(bannerImage);
+      setBannerImageHasLoaded(false);
+    }
+  }, [bannerImageHasLoaded, bannerImage]);
+
   return (
-    <div className="header">
+    <div
+      className="header"
+      onClick={() => {
+        bannerImageRef.current.click();
+      }}
+    >
       {user.photo && (
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           {user.id !== loggedInUserId && (
             <div id="non-loggedin-user-img" className="non-loggedin-user-img"></div>
           )}
           {user.id === loggedInUserId && (
-            <div id="upload-image-div" className="upload-image-div" onClick={(e) => fileRef.current.click()}>
+            <>
+              <div
+                id="upload-image-div"
+                className="upload-image-div"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  fileRef.current.click();
+                }}
+              >
+                <input
+                  type="file"
+                  name="file"
+                  id="upload-image-div"
+                  multiple={false}
+                  onChange={user.id === loggedInUserId && handleChange}
+                  accept="image/jpeg, image/gif, image/png, image/jpg"
+                  style={{ display: 'none' }}
+                  ref={fileRef}
+                />
+              </div>
               <input
                 type="file"
                 name="file"
                 id="upload-image-div"
                 multiple={false}
-                onChange={user.id === loggedInUserId && handleChange}
+                onChange={user.id === loggedInUserId && handleBannerChange}
                 accept="image/jpeg, image/gif, image/png, image/jpg"
                 style={{ display: 'none' }}
-                ref={fileRef}
+                ref={bannerImageRef}
               />
-            </div>
+            </>
           )}
         </div>
       )}
@@ -114,46 +199,17 @@ const Header = ({ user, setUser, loggedInUserId }) => {
             name="file"
             id="upload-image-div"
             multiple={false}
-            onChange={handleChange}
+            onChange={handleBannerChange}
             accept="image/jpeg, image/gif, image/png, image/jpg"
             style={{ display: 'none' }}
-            ref={fileRef}
+            ref={bannerImageRef}
           />
         </>
       )}
       {loading && (
         <CircularProgress style={{ color: '#58D573', alignSelf: 'center', marginTop: '.4%' }} size={'3rem'} />
       )}
-      <Typography variant="h2" className={classes.title}>
-        {`${user.firstName} ${user.lastName}`}
-      </Typography>
-      <div>
-        {loggedInUserId === user.id && (
-          <Typography variant="h6" onClick={() => push('/settings')}>
-            Edit Profile
-          </Typography>
-        )}
-        {!user.biography && !showForm && loggedInUserId === user.id && (
-          <Typography variant="h5">|</Typography>
-        )}
-        {!user.biography && user.id === loggedInUserId && !showForm && (
-          <Typography variant="h6" onClick={() => setShowForm(true)}>
-            Add Bio
-          </Typography>
-        )}
-      </div>
-
-      {!user.biography && user.id === loggedInUserId && showForm && (
-        <UserBioForm
-          state={formState}
-          setState={setFormState}
-          user={user}
-          setUser={setUser}
-          setShowForm={setShowForm}
-          loggedInUserId={loggedInUserId}
-        />
-      )}
-      <div style={{ borderTop: '1px solid #F2F2F2', width: '97%', alignSelf: 'center', margin: '1% 0' }} />
+      {/* <div style={{ borderTop: '1px solid #F2F2F2', width: '97%', alignSelf: 'center', margin: '1% 0' }} /> */}
     </div>
   );
 };

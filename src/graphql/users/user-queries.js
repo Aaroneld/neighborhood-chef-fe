@@ -20,6 +20,7 @@ User {
     firstName
     lastName
     photo
+    bannerPhoto
 }
 EventUsers {
     attending {
@@ -76,6 +77,7 @@ export const USER_BY_EMAIL = gql`
             longitude
             biography
             photo
+            bannerPhoto
             UserEvents {
                 attending {
                     ${getBYEmailEventString}
@@ -149,6 +151,7 @@ export const USER_BY_ID = gql`
             longitude
             biography
             photo
+            bannerPhoto
             UserEvents {
                 attending {
                     ${getBYEmailEventString}

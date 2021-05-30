@@ -8,6 +8,7 @@ import { USER_BY_ID } from '../../graphql/users/user-queries';
 import { styles } from './profile.styles.js';
 import Spinner from '../shared/spinner/Spinner';
 import Header from './header/Header';
+import Image from '../../assets/sushi.jpg';
 import LeftSide from './left-side/LeftSide';
 import RightSide from './right-side/RightSide';
 
@@ -18,7 +19,7 @@ const Profile = () => {
   const [parsedAddressURL, setParsedAddressURL] = useState('');
   const { userid } = useParams();
   const loggedInUserId = useSelector((state) => state.user.id);
-  const classes = styles({ user });
+  const classes = styles({ user, img: Image });
 
   useEffect(() => {
     if (userid) {

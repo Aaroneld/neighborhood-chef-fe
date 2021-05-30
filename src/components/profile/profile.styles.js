@@ -1,8 +1,11 @@
 import makeStyles from '@material-ui/styles/makeStyles';
 
 export const styles = makeStyles((theme) => ({
+  title: {
+    textAlign: 'center',
+    paddingTop: '2%',
+  },
   root: {
-    borderRadius: '10px',
     width: '100%',
     height: '100%',
     display: 'flex',
@@ -12,28 +15,45 @@ export const styles = makeStyles((theme) => ({
     borderTopRightRadius: '0',
     background: 'transparent',
 
+    borderTopLeftRadius: '10px',
+
     '& .header': {
+      backgroundImage: (props) => props.user && `url(${props.user.bannerPhoto})`,
+      backgroundPosition: 'center',
+      backgroundSize: 'cover',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'flexStart',
       flexDirection: 'column',
       width: '100%',
-      padding: '5px',
-      color: '#4E4E4E',
+      height: 0,
+      paddingTop: '37.49%',
+      color: 'white',
+      borderRadius: '10px 10px 0 0',
       [theme.breakpoints.down('md')]: {
         width: '100%',
+      },
+
+      '&:hover': {
+        backgroundImage: (props) =>
+          props.user &&
+          `   
+        linear-gradient(
+          rgba(0, 0, 0, 0.5), 
+          rgba(0, 0, 0, 0.5)
+        ), url(${props.user.bannerPhoto})`,
       },
 
       '& #upload-image-div': {
         backgroundImage: (props) => props.user && `url(${props.user.photo})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        width: '20%',
-        paddingTop: '20%',
+        width: '17%',
+        paddingTop: '17%',
         borderRadius: '100%',
         cursor: 'pointer',
-        border: '5px solid #58D573',
-        marginTop: '1%',
+        marginTop: 'calc(3px + 18% * -1)',
+        border: '3px solid white',
         '&:hover': {
           filter: 'brightness(70%)',
         },
@@ -43,10 +63,9 @@ export const styles = makeStyles((theme) => ({
         backgroundImage: (props) => props.user && `url(${props.user.photo})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        width: '20%',
-        paddingTop: '20%',
+        width: '15%',
+        paddingTop: '15%',
         borderRadius: '100%',
-        border: '5px solid #58D573',
         marginTop: '1%',
       },
 
@@ -64,9 +83,10 @@ export const styles = makeStyles((theme) => ({
           margin: '0 2%',
         },
         '& h6': {
-          color: '#4E4E4E',
+          color: 'white',
           fontWeight: '600',
           cursor: 'pointer',
+          paddingBottom: '2.5%',
         },
       },
     },
@@ -84,18 +104,28 @@ export const styles = makeStyles((theme) => ({
         flexDirection: 'column',
         width: (props) => (props.user && props.user.UserEvents.owned.length > 0 ? '50%' : '100%'),
         marginRight: '1%',
+        width: '60%',
+        borderLeft: '3px solid rgba(0,0,0,.092)',
+        borderTop: '3px solid rgba(0,0,0,.092)',
+        borderTopLeftRadius: '10px',
+        borderTopRightRadius: '10px',
 
         [theme.breakpoints.down('md')]: {
           width: () => '100%',
           height: '100%',
         },
 
+        '& #edit-profile': {
+          textAlign: 'center',
+        },
+
         '& .details': {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'flex-start',
-          padding: '20px',
+          padding: '5px 0',
           color: '#868686',
+          padding: '0 1% 0 2%',
 
           '& .bio': {
             wordBreak: 'break-word',
@@ -109,6 +139,9 @@ export const styles = makeStyles((theme) => ({
 
           '& .textIconContainer': {
             display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            whiteSpace: 'nowrap',
             flexDirection: 'column',
             margin: '15px 0',
             wordBreak: 'break-word',
@@ -123,25 +156,41 @@ export const styles = makeStyles((theme) => ({
             '& div': {
               display: 'flex',
               alignItems: 'center',
-              '& a': {
-                color: 'rgba(0, 0, 0, 0.54)',
+
+              '& a, p': {
+                color: 'rgba(0, 0, 0, 1)',
+                marginLeft: '2%',
+                fontWeight: '700',
               },
             },
+          },
+
+          '& .userDetailsText': {
+            padding: '2% 0',
+            display: 'flex',
+            justifyContent: 'center',
           },
         },
       },
       '& .rightSide': {
-        width: '50%',
+        width: '40%',
         background: 'transparent',
         display: 'flex',
         flexDirection: 'column',
         borderRadius: '5px',
         height: '95%',
-        marginTop: '16px',
         [theme.breakpoints.down('md')]: {
           width: '100%',
           height: '100%',
           marginTop: '0',
+        },
+
+        '& h6:first-child': {
+          background: 'rgba(0 ,0 ,0, .1)',
+          borderRadius: '10px',
+          width: '90%',
+          margin: '0 5% 1% 5%',
+          color: 'white',
         },
 
         '& h6': {
@@ -173,13 +222,13 @@ export const styles = makeStyles((theme) => ({
             alignSelf: 'center',
             zIndex: 3,
             paddingTop: '10px',
-            paddingLeft: '20px',
+
             [theme.breakpoints.down('md')]: {
               flexWrap: 'wrap',
               flexDirection: 'row',
               justifyContent: 'center',
               paddingTop: '20px',
-              paddingLeft: '0',
+              padding: '2% 4%',
             },
 
             [theme.breakpoints.down('sm')]: {
@@ -189,7 +238,7 @@ export const styles = makeStyles((theme) => ({
 
             '& .eventCard': {
               borderRadius: '10px',
-              width: '96%',
+              width: '90%',
               marginBottom: '2%',
               display: 'flex',
               flexDirection: 'column',
