@@ -217,7 +217,9 @@ function Logo() {
               onClick={() => push(`/profile/${user.id}`)}
             >
               {!user.photo && (
-                <Typography>{`${user.firstName.charAt(0)}${user.lastName.charAt(0)}`}</Typography>
+                <Typography>{`${user.firstName.charAt(0).toUpperCase()}${user.lastName
+                  .charAt(0)
+                  .toUpperCase()}`}</Typography>
               )}
             </Avatar>
           </div>
