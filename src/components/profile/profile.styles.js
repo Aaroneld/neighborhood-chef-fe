@@ -110,9 +110,12 @@ export const styles = makeStyles((theme) => ({
         borderTopLeftRadius: '10px',
         borderTopRightRadius: '10px',
 
+        [theme.breakpoints.down('lg')]: {
+          height: '100%',
+        },
+
         [theme.breakpoints.down('md')]: {
           width: () => '100%',
-          height: '100%',
         },
 
         '& #edit-profile': {
