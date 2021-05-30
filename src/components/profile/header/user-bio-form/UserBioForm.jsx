@@ -93,8 +93,8 @@ const UserBioForm = ({ user, setUser, setShowForm, loggedInUserId, state, setSta
         placeholder="Add a biography to your profile"
         value={state.biography}
         onChange={(e) => {
-          if (e.target.value.length <= 255) {
-            setState({ biography: e.target.value, charsLeft: 255 - e.target.value.length });
+          if (e.target.value.length <= 511) {
+            setState({ biography: e.target.value, charsLeft: 511 - e.target.value.length });
           }
         }}
         autoFocus

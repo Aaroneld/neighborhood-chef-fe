@@ -10,7 +10,7 @@ const BiographyInput = ({ values, setValues, setCharsLeft }) => {
         value={values.biography}
         placeholder="Add a biography to your profile"
         onChange={(e) => {
-          if (e.target.value.length <= 255) {
+          if (e.target.value.length <= 511) {
             setValues({ ...values, biography: e.target.value });
             setCharsLeft(e.target.value.length);
           }
