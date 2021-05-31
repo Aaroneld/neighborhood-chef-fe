@@ -1,12 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { print } from 'graphql';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import UserBioForm from './user-bio-form/UserBioForm';
-import Typography from '@material-ui/core/Typography';
-import curry from '../../../assets/curry.jpg';
-import { styles } from '../profile.styles.js';
 import { axiosWithAuth } from '../../../utilities/axiosWithAuth';
 import { UPDATE_USER } from '../../../graphql/users/user-mutations';
 import { updateUser } from '../../../utilities/actions';
@@ -20,11 +15,9 @@ const Header = ({ user, setUser, loggedInUserId }) => {
   const [bannerImageHasLoaded, setBannerImageHasLoaded] = useState(false);
   const [bannerImage, setBannerImage] = useState(null);
   const imageSizeLimit = 1500000;
-  const classes = styles({ photo: user.photo ? user.photo : curry });
   const fileRef = useRef();
   const bannerImageRef = useRef();
   const reduxUser = useSelector((state) => state.user);
-  const { push } = useHistory();
   const dispatch = useDispatch();
 
   const submitImage = (image) => {
@@ -56,7 +49,7 @@ const Header = ({ user, setUser, loggedInUserId }) => {
     );
   };
 
-  const submitBannerImage = (image) => {
+  const submitBannerImage = () => {
     setLoading(true);
     axiosWithAuth()({
       url: `${process.env.REACT_APP_BASE_URL}/graphql`,
@@ -147,38 +140,62 @@ const Header = ({ user, setUser, loggedInUserId }) => {
         bannerImageRef.current.click();
       }}
     >
-      {user.photo && (
+      {user && (
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           {user.id !== loggedInUserId && (
             <div id="non-loggedin-user-img" className="non-loggedin-user-img"></div>
           )}
+
           {user.id === loggedInUserId && (
             <>
-              <div
-                id="upload-image-div"
-                className="upload-image-div"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  fileRef.current.click();
-                }}
-              >
-                <input
-                  type="file"
-                  name="file"
+              {user.photo ? (
+                <div
                   id="upload-image-div"
-                  multiple={false}
-                  onChange={user.id === loggedInUserId && handleChange}
-                  accept="image/jpeg, image/gif, image/png, image/jpg"
-                  style={{ display: 'none' }}
-                  ref={fileRef}
-                />
-              </div>
+                  className="upload-image-div"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    fileRef.current.click();
+                  }}
+                >
+                  <input
+                    type="file"
+                    name="file"
+                    multiple={false}
+                    onChange={handleChange}
+                    accept="image/jpeg, image/gif, image/png, image/jpg"
+                    style={{ display: 'none' }}
+                    ref={fileRef}
+                  />
+                </div>
+              ) : (
+                <div
+                  style={{ margin: '1% 0' }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    fileRef.current.click();
+                  }}
+                >
+                  <Icon
+                    icon={bxsCamera}
+                    style={{ fontSize: '5rem', cursor: 'pointer', color: 'black', zIndex: 3 }}
+                  />
+                  <input
+                    type="file"
+                    name="file"
+                    multiple={false}
+                    onChange={handleChange}
+                    accept="image/jpeg, image/gif, image/png, image/jpg"
+                    style={{ display: 'none' }}
+                    ref={fileRef}
+                  />
+                </div>
+              )}
               <input
                 type="file"
                 name="file"
                 id="upload-image-div"
                 multiple={false}
-                onChange={user.id === loggedInUserId && handleBannerChange}
+                onChange={handleBannerChange}
                 accept="image/jpeg, image/gif, image/png, image/jpg"
                 style={{ display: 'none' }}
                 ref={bannerImageRef}
@@ -187,29 +204,12 @@ const Header = ({ user, setUser, loggedInUserId }) => {
           )}
         </div>
       )}
-      {user.id === loggedInUserId && !user.photo && (
-        <>
-          <Icon
-            icon={bxsCamera}
-            style={{ fontSize: '5rem', cursor: 'pointer' }}
-            onClick={() => fileRef.current.click()}
-          />
-          <input
-            type="file"
-            name="file"
-            id="upload-image-div"
-            multiple={false}
-            onChange={handleBannerChange}
-            accept="image/jpeg, image/gif, image/png, image/jpg"
-            style={{ display: 'none' }}
-            ref={bannerImageRef}
-          />
-        </>
-      )}
       {loading && (
-        <CircularProgress style={{ color: '#58D573', alignSelf: 'center', marginTop: '.4%' }} size={'3rem'} />
+        <CircularProgress
+          style={{ color: '#58D573', alignSelf: 'center', marginTop: '.4%', marginBottom: '1%' }}
+          size={'3rem'}
+        />
       )}
-      {/* <div style={{ borderTop: '1px solid #F2F2F2', width: '97%', alignSelf: 'center', margin: '1% 0' }} /> */}
     </div>
   );
 };

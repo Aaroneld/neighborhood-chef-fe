@@ -12,32 +12,30 @@ import UserBioForm from '../header/user-bio-form/UserBioForm';
 const LeftSide = ({ user, parsedAddressURL, setUser, loggedInUserId, userid }) => {
   const { push } = useHistory();
   const classes = styles();
-
   const [showForm, setShowForm] = useState(false);
-  const [formState, setFormState] = useState({ biography: '', charsLeft: 255 });
+  const [formState, setFormState] = useState({ biography: '', charsLeft: 511 });
 
   return (
     <div className="leftSide">
       <Header user={user} setUser={setUser} loggedInUserId={loggedInUserId} userid={userid} />
-      <div className="non-header-content">
+      <div className="non-header-content" style={{ marginTop: !user.photo && '3%' }}>
         <Typography variant="h2" className={classes.title}>
           {`${user.firstName} ${user.lastName}`}
         </Typography>
-        <div>
-          {loggedInUserId === user.id && (
+        {user.id === loggedInUserId && (
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
             <Typography variant="h6" onClick={() => push('/settings')} id="edit-profile">
               Edit Profile
             </Typography>
-          )}
-          {!user.biography && !showForm && loggedInUserId === user.id && (
-            <Typography variant="h5">|</Typography>
-          )}
-          {!user.biography && user.id === loggedInUserId && !showForm && (
-            <Typography variant="h6" onClick={() => setShowForm(true)}>
-              Add Bio
-            </Typography>
-          )}
-        </div>
+            {!user.biography && !showForm && <Typography variant="h5">&nbsp; | &nbsp;</Typography>}
+            {!user.biography && !showForm && (
+              <Typography style={{ cursor: 'pointer' }} variant="h6" onClick={() => setShowForm(true)}>
+                Add Bio
+              </Typography>
+            )}
+          </div>
+        )}
+
         {!user.biography && user.id === loggedInUserId && showForm && (
           <UserBioForm
             state={formState}
@@ -76,7 +74,7 @@ const LeftSide = ({ user, parsedAddressURL, setUser, loggedInUserId, userid }) =
             >
               <Typography variant="h6">Contact</Typography>
               <div>
-                <MailOutlineIcon style={{ fontSize: '3rem', marginRight: '1%' }} />
+                <MailOutlineIcon style={{ fontSize: '3rem', marginRight: '1%', color: 'rgba(0, 0, 0, 1)' }} />
                 <Typography style={{ cursor: 'pointer', maxWidth: '95%' }}>{user.email}</Typography>
               </div>
             </div>
@@ -84,20 +82,20 @@ const LeftSide = ({ user, parsedAddressURL, setUser, loggedInUserId, userid }) =
             <div className="textIconContainer">
               <Typography variant="h6">Gender</Typography>
               <div>
-                <WcIcon style={{ fontSize: '3rem', marginRight: '1%' }} />
+                <WcIcon style={{ fontSize: '3rem', marginRight: '1%', color: 'rgba(0, 0, 0, 1)' }} />
                 <Typography>{user.gender.charAt(0).toUpperCase() + user.gender.slice(1)}</Typography>
               </div>
             </div>
           </div>
 
-          {user.UserEvents.owned.length === 0 && (
+          {/* {user.UserEvents.owned.length === 0 && (
             <div className="textIconContainer">
               <Typography variant="h6">Events</Typography>
               <div>
                 <Typography>{`${user.firstName} has not created any events`}</Typography>
               </div>
             </div>
-          )}
+          )} */}
         </div>
       </div>
     </div>
