@@ -67,9 +67,7 @@ const Profile = () => {
                 loggedInUserId={loggedInUserId}
                 userid={userid}
               />
-              {user.UserEvents.owned.length > 0 && (
-                <RightSide events={events} setEvents={setEvents} userFirstName={user.firstName} />
-              )}
+              <RightSide events={events} setEvents={setEvents} userFirstName={user.firstName} />
             </div>
           </Card>
         )}

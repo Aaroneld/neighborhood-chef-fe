@@ -1,4 +1,5 @@
 import makeStyles from '@material-ui/styles/makeStyles';
+import FullCourse from '../../assets/full-course.jpg';
 
 export const styles = makeStyles((theme) => ({
   title: {
@@ -14,25 +15,26 @@ export const styles = makeStyles((theme) => ({
     boxShadow: 'none',
     borderTopRightRadius: '0',
     background: 'transparent',
-
     borderTopLeftRadius: '10px',
+    [theme.breakpoints.down('lg')]: {
+      overflowY: 'scroll',
+    },
 
     '& .header': {
-      backgroundImage: (props) => props.user && `url(${props.user.bannerPhoto})`,
+      backgroundImage: (props) =>
+        props.user && `url(${props.user.bannerPhoto ? props.user.bannerPhoto : FullCourse})`,
       backgroundPosition: 'center',
       backgroundSize: 'cover',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'flexStart',
       flexDirection: 'column',
+      cursor: 'pointer',
       width: '100%',
       height: 0,
       paddingTop: '37.49%',
       color: 'white',
       borderRadius: '10px 10px 0 0',
-      [theme.breakpoints.down('md')]: {
-        width: '100%',
-      },
 
       '&:hover': {
         backgroundImage: (props) =>
@@ -41,7 +43,7 @@ export const styles = makeStyles((theme) => ({
         linear-gradient(
           rgba(0, 0, 0, 0.5), 
           rgba(0, 0, 0, 0.5)
-        ), url(${props.user.bannerPhoto})`,
+        ), url(${props.user.bannerPhoto ? props.user.bannerPhoto : FullCourse})`,
       },
 
       '& #upload-image-div': {
@@ -102,9 +104,8 @@ export const styles = makeStyles((theme) => ({
       '& .leftSide': {
         display: 'flex',
         flexDirection: 'column',
-        width: (props) => (props.user && props.user.UserEvents.owned.length > 0 ? '50%' : '100%'),
+        width: (props) => (props.user && props.user.UserEvents.owned.length > 0 ? '60%' : '100%'),
         marginRight: '1%',
-        width: '60%',
         borderLeft: '3px solid rgba(0,0,0,.092)',
         borderTop: '3px solid rgba(0,0,0,.092)',
         borderTopLeftRadius: '10px',
@@ -120,6 +121,7 @@ export const styles = makeStyles((theme) => ({
 
         '& #edit-profile': {
           textAlign: 'center',
+          cursor: 'pointer',
         },
 
         '& .details': {
@@ -132,39 +134,12 @@ export const styles = makeStyles((theme) => ({
 
           '& .bio': {
             wordBreak: 'break-word',
+            cursor: 'pointer',
 
             '& h6': {
               color: '#4E4E4E',
               fontWeight: '700',
               marginBottom: '5px',
-            },
-          },
-
-          '& .textIconContainer': {
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            whiteSpace: 'nowrap',
-            flexDirection: 'column',
-            margin: '15px 0',
-            wordBreak: 'break-word',
-            width: '95%',
-
-            '& h6': {
-              color: '#4E4E4E',
-              fontWeight: '700',
-              marginBottom: '5px',
-            },
-
-            '& div': {
-              display: 'flex',
-              alignItems: 'center',
-
-              '& a, p': {
-                color: 'rgba(0, 0, 0, 1)',
-                marginLeft: '2%',
-                fontWeight: '700',
-              },
             },
           },
 
@@ -172,6 +147,43 @@ export const styles = makeStyles((theme) => ({
             padding: '2% 0',
             display: 'flex',
             justifyContent: 'center',
+            [theme.breakpoints.down('lg')]: {
+              flexDirection: 'column',
+              justifyContent: 'flex-start',
+            },
+
+            '& .textIconContainer': {
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              whiteSpace: 'nowrap',
+              flexDirection: 'column',
+              margin: '15px 0',
+              wordBreak: 'break-word',
+              width: '95%',
+
+              [theme.breakpoints.down('lg')]: {
+                justifyContent: 'flex-start',
+                alignItems: 'flex-start',
+              },
+
+              '& h6': {
+                color: '#4E4E4E',
+                fontWeight: '700',
+                marginBottom: '5px',
+              },
+
+              '& div': {
+                display: 'flex',
+                alignItems: 'center',
+
+                '& a, p': {
+                  color: 'rgba(0, 0, 0, 1)',
+                  marginLeft: '2%',
+                  fontWeight: '700',
+                },
+              },
+            },
           },
         },
       },

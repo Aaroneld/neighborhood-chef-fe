@@ -37,7 +37,7 @@ const validationSchema = yup.object().shape({
 });
 
 const Settings = () => {
-  const [, setCharsLeft] = useState(255);
+  const [, setCharsLeft] = useState(511);
   const user = useSelector((state) => state.user);
   const [message, setMessage] = useState('');
   const { values, setValues, validate, errors } = useForm(initialValues, validationSchema);
