@@ -79,7 +79,7 @@ const Header = ({
     <div
       className="header"
       onClick={() => {
-        bannerImageRef.current.click();
+        user.id === loggedInUserId && bannerImageRef.current.click();
       }}
     >
       {user && (

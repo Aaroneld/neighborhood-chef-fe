@@ -65,10 +65,12 @@ export const styles = makeStyles((theme) => ({
         backgroundImage: (props) => props.user && `url(${props.user.photo})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        width: '15%',
-        paddingTop: '15%',
+        width: '17%',
+        paddingTop: '17%',
         borderRadius: '100%',
-        marginTop: '1%',
+        cursor: 'pointer',
+        marginTop: 'calc(3px + 18% * -1)',
+        border: '3px solid white',
       },
 
       '& h2': {
