@@ -160,7 +160,7 @@ const LeftSide = ({ user, parsedAddressURL, setUser, loggedInUserId, userid }) =
             <div className="textIconContainer">
               <Typography variant="h6">Address</Typography>
               <div>
-                <Icon style={{ fontSize: '3.5rem', marginRight: '1%' }} icon={globeIcon} />
+                <Icon style={{ fontSize: '3.5rem' }} icon={globeIcon} />
                 <a href={parsedAddressURL} target="_blank" rel="noopener noreferrer">
                   {user.address}
                 </a>

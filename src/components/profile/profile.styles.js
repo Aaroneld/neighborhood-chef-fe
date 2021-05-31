@@ -180,7 +180,7 @@ export const styles = makeStyles((theme) => ({
 
                 '& a, p': {
                   color: 'rgba(0, 0, 0, 1)',
-                  marginLeft: '2%',
+                  marginLeft: '1%',
                   fontWeight: '700',
                 },
               },
