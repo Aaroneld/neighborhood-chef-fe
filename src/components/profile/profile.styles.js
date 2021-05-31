@@ -136,7 +136,6 @@ export const styles = makeStyles((theme) => ({
 
           '& .bio': {
             wordBreak: 'break-word',
-            cursor: 'pointer',
 
             '& h6': {
               color: '#4E4E4E',
