@@ -1,53 +1,25 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { print } from 'graphql';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import { axiosWithAuth } from '../../../utilities/axiosWithAuth';
 import { UPDATE_USER } from '../../../graphql/users/user-mutations';
 import { updateUser } from '../../../utilities/actions';
-import { Icon } from '@iconify/react';
-import bxsCamera from '@iconify-icons/bx/bxs-camera';
 
-const Header = ({ user, setUser, loggedInUserId }) => {
-  const [loading, setLoading] = useState(false);
-  const [imageHasLoaded, setImageHasLoaded] = useState(false);
-  const [image, setImage] = useState(null);
+const Header = ({
+  user,
+  setUser,
+  loggedInUserId,
+  handleChange,
+  setLoading,
+  image,
+  imageSizeLimit,
+  reduxUser,
+}) => {
   const [bannerImageHasLoaded, setBannerImageHasLoaded] = useState(false);
   const [bannerImage, setBannerImage] = useState(null);
-  const imageSizeLimit = 1500000;
   const fileRef = useRef();
   const bannerImageRef = useRef();
-  const reduxUser = useSelector((state) => state.user);
   const dispatch = useDispatch();
-
-  const submitImage = (image) => {
-    setLoading(true);
-    axiosWithAuth()({
-      url: `${process.env.REACT_APP_BASE_URL}/graphql`,
-      method: 'post',
-      data: {
-        query: print(UPDATE_USER),
-        variables: {
-          input: {
-            id: Number(user.id),
-            photo: image,
-          },
-        },
-      },
-    }).then(
-      (res) => {
-        console.log(res);
-        setLoading(false);
-        setUser({ ...user, photo: image });
-        dispatch(updateUser({ ...reduxUser, photo: image }));
-        setImage(null);
-      },
-      (err) => {
-        setLoading(false);
-        console.dir(err);
-      }
-    );
-  };
 
   const submitBannerImage = () => {
     setLoading(true);
@@ -65,7 +37,6 @@ const Header = ({ user, setUser, loggedInUserId }) => {
       },
     }).then(
       (res) => {
-        console.log(res);
         setLoading(false);
         setUser({ ...user, bannerPhoto: bannerImage });
         dispatch(updateUser({ ...reduxUser, bannerPhoto: bannerImage }));
@@ -76,26 +47,6 @@ const Header = ({ user, setUser, loggedInUserId }) => {
         console.dir(err);
       }
     );
-  };
-
-  const handleChange = (e) => {
-    e.persist();
-    e.preventDefault();
-    e.stopPropagation();
-
-    if (e.target.files[0]) {
-      if (e.target.files[0].size > imageSizeLimit) {
-        alert('File size is too large');
-      } else {
-        let file = e.target.files[0];
-        let reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onloadend = () => {
-          setImageHasLoaded(true);
-          setImage(reader.result);
-        };
-      }
-    }
   };
 
   const handleBannerChange = (e) => {
@@ -116,14 +67,6 @@ const Header = ({ user, setUser, loggedInUserId }) => {
       }
     }
   };
-
-  useEffect(() => {
-    if (image && imageHasLoaded) {
-      console.log(image);
-      submitImage(image);
-      setImageHasLoaded(false);
-    }
-  }, [imageHasLoaded, image]);
 
   useEffect(() => {
     if (bannerImage && bannerImageHasLoaded) {
@@ -148,7 +91,7 @@ const Header = ({ user, setUser, loggedInUserId }) => {
 
           {user.id === loggedInUserId && (
             <>
-              {user.photo ? (
+              {user.photo && (
                 <div
                   id="upload-image-div"
                   className="upload-image-div"
@@ -157,28 +100,6 @@ const Header = ({ user, setUser, loggedInUserId }) => {
                     fileRef.current.click();
                   }}
                 >
-                  <input
-                    type="file"
-                    name="file"
-                    multiple={false}
-                    onChange={handleChange}
-                    accept="image/jpeg, image/gif, image/png, image/jpg"
-                    style={{ display: 'none' }}
-                    ref={fileRef}
-                  />
-                </div>
-              ) : (
-                <div
-                  style={{ margin: '1% 0' }}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    fileRef.current.click();
-                  }}
-                >
-                  <Icon
-                    icon={bxsCamera}
-                    style={{ fontSize: '5rem', cursor: 'pointer', color: 'black', zIndex: 3 }}
-                  />
                   <input
                     type="file"
                     name="file"
@@ -203,12 +124,6 @@ const Header = ({ user, setUser, loggedInUserId }) => {
             </>
           )}
         </div>
-      )}
-      {loading && (
-        <CircularProgress
-          style={{ color: '#58D573', alignSelf: 'center', marginTop: '.4%', marginBottom: '1%' }}
-          size={'3rem'}
-        />
       )}
     </div>
   );
