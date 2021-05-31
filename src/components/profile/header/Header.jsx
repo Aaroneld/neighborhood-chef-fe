@@ -70,7 +70,6 @@ const Header = ({
 
   useEffect(() => {
     if (bannerImage && bannerImageHasLoaded) {
-      console.log(image);
       submitBannerImage(bannerImage);
       setBannerImageHasLoaded(false);
     }

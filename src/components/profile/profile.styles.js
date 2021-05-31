@@ -141,11 +141,6 @@ export const styles = makeStyles((theme) => ({
               fontWeight: '700',
               marginBottom: '5px',
             },
-
-            '& p': {
-              // color: 'rgba(0, 0, 0, 1)',
-              // fontWeight: '700',
-            },
           },
 
           '& .userDetailsText': {

@@ -57,7 +57,6 @@ const LeftSide = ({ user, parsedAddressURL, setUser, loggedInUserId, userid }) =
   };
 
   const handleChange = (e) => {
-    console.log('here');
     e.persist();
     e.preventDefault();
     e.stopPropagation();
@@ -79,7 +78,6 @@ const LeftSide = ({ user, parsedAddressURL, setUser, loggedInUserId, userid }) =
 
   useEffect(() => {
     if (image && imageHasLoaded) {
-      console.log(image);
       submitImage(image);
       setImageHasLoaded(false);
     }
@@ -99,12 +97,9 @@ const LeftSide = ({ user, parsedAddressURL, setUser, loggedInUserId, userid }) =
         reduxUser={reduxUser}
       />
       {loading && (
-        <CircularProgress
-          style={{ color: '#58D573', alignSelf: 'center', marginTop: '.4%', marginBottom: '1%' }}
-          size={'3rem'}
-        />
+        <CircularProgress style={{ color: '#58D573', alignSelf: 'center', marginTop: '1%' }} size={'3rem'} />
       )}
-      <div className="non-header-content" style={{ marginTop: !user.photo && '3%' }}>
+      <div className="non-header-content">
         <Typography variant="h2" className={classes.title}>
           {`${user.firstName} ${user.lastName}`}
         </Typography>
