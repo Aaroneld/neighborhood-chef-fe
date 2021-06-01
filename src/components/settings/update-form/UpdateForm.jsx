@@ -96,6 +96,7 @@ const Settings = () => {
         setCharsLeft(255 - user.biography.length);
       }
     }
+    // eslint-disable-next-line
   }, [user]);
 
   return (

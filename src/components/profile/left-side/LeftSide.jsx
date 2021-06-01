@@ -81,6 +81,7 @@ const LeftSide = ({ user, parsedAddressURL, setUser, loggedInUserId, userid }) =
       submitImage(image);
       setImageHasLoaded(false);
     }
+    // eslint-disable-next-line
   }, [imageHasLoaded, image]);
 
   return (
@@ -189,15 +190,6 @@ const LeftSide = ({ user, parsedAddressURL, setUser, loggedInUserId, userid }) =
               </div>
             </div>
           </div>
-
-          {/* {user.UserEvents.owned.length === 0 && (
-            <div className="textIconContainer">
-              <Typography variant="h6">Events</Typography>
-              <div>
-                <Typography>{`${user.firstName} has not created any events`}</Typography>
-              </div>
-            </div>
-          )} */}
         </div>
       </div>
     </div>

@@ -73,6 +73,7 @@ const Header = ({
       submitBannerImage(bannerImage);
       setBannerImageHasLoaded(false);
     }
+    // eslint-disable-next-line
   }, [bannerImageHasLoaded, bannerImage]);
 
   return (

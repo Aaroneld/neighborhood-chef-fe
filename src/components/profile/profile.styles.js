@@ -9,96 +9,14 @@ export const styles = makeStyles((theme) => ({
   root: {
     width: '100%',
     height: '100%',
-    display: 'flex',
-    justifyContent: 'center',
-    flexDirection: 'column',
-    boxShadow: 'none',
-    borderTopRightRadius: '0',
-    background: 'transparent',
-    borderTopLeftRadius: '10px',
     [theme.breakpoints.down('lg')]: {
       overflowY: 'scroll',
-    },
-
-    '& .header': {
-      backgroundImage: (props) =>
-        props.user && `url(${props.user.bannerPhoto ? props.user.bannerPhoto : FullCourse})`,
-      backgroundPosition: 'center',
-      backgroundSize: 'cover',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'flexStart',
-      flexDirection: 'column',
-      cursor: 'pointer',
-      width: '100%',
-      height: 0,
-      paddingTop: '37.49%',
-      color: 'white',
-      borderRadius: '10px 10px 0 0',
-
-      '&:hover': {
-        backgroundImage: (props) =>
-          props.user &&
-          `   
-        linear-gradient(
-          rgba(0, 0, 0, 0.5), 
-          rgba(0, 0, 0, 0.5)
-        ), url(${props.user.bannerPhoto ? props.user.bannerPhoto : FullCourse})`,
-      },
-
-      '& #upload-image-div': {
-        backgroundImage: (props) => props.user && `url(${props.user.photo})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        width: '17%',
-        paddingTop: '17%',
-        borderRadius: '100%',
-        cursor: 'pointer',
-        marginTop: 'calc(3px + 18% * -1)',
-        border: '3px solid white',
-        '&:hover': {
-          filter: 'brightness(70%)',
-        },
-      },
-
-      '& #non-loggedin-user-img': {
-        backgroundImage: (props) => props.user && `url(${props.user.photo})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        width: '17%',
-        paddingTop: '17%',
-        borderRadius: '100%',
-        cursor: 'pointer',
-        marginTop: 'calc(3px + 18% * -1)',
-        border: '3px solid white',
-      },
-
-      '& h2': {
-        margin: '5px 0',
-        fontSize: '3rem',
-        fontWeight: 'bold',
-      },
-
-      '& div': {
-        width: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        '& :nth-child(2)': {
-          margin: '0 2%',
-        },
-        '& h6': {
-          color: 'white',
-          fontWeight: '600',
-          cursor: 'pointer',
-          paddingBottom: '2.5%',
-        },
-      },
     },
 
     '& .mainContainer': {
       display: 'flex',
       width: '100%',
-      height: '100%',
+      //height: '100%',
       [theme.breakpoints.down('md')]: {
         flexDirection: 'column',
       },
@@ -113,12 +31,83 @@ export const styles = makeStyles((theme) => ({
         borderTopLeftRadius: '10px',
         borderTopRightRadius: '10px',
 
-        [theme.breakpoints.down('lg')]: {
-          height: '100%',
-        },
-
         [theme.breakpoints.down('md')]: {
           width: () => '100%',
+        },
+
+        '& .header': {
+          backgroundImage: (props) =>
+            props.user && `url(${props.user.bannerPhoto ? props.user.bannerPhoto : FullCourse})`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'flexStart',
+          flexDirection: 'column',
+          cursor: 'pointer',
+          width: '100%',
+          height: 0,
+          paddingTop: '37.49%',
+          color: 'white',
+          borderRadius: '10px 10px 0 0',
+
+          '&:hover': {
+            backgroundImage: (props) =>
+              props.user &&
+              `   
+            linear-gradient(
+              rgba(0, 0, 0, 0.5), 
+              rgba(0, 0, 0, 0.5)
+            ), url(${props.user.bannerPhoto ? props.user.bannerPhoto : FullCourse})`,
+          },
+
+          '& #upload-image-div': {
+            backgroundImage: (props) => props.user && `url(${props.user.photo})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            width: '17%',
+            paddingTop: '17%',
+            borderRadius: '100%',
+            cursor: 'pointer',
+            marginTop: 'calc(3px + 18% * -1)',
+            border: '3px solid white',
+            '&:hover': {
+              filter: 'brightness(70%)',
+            },
+          },
+
+          '& #non-loggedin-user-img': {
+            backgroundImage: (props) => props.user && `url(${props.user.photo})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            width: '17%',
+            paddingTop: '17%',
+            borderRadius: '100%',
+            cursor: 'pointer',
+            marginTop: 'calc(3px + 18% * -1)',
+            border: '3px solid white',
+          },
+
+          '& h2': {
+            margin: '5px 0',
+            fontSize: '3rem',
+            fontWeight: 'bold',
+          },
+
+          '& div': {
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            '& :nth-child(2)': {
+              margin: '0 2%',
+            },
+            '& h6': {
+              color: 'white',
+              fontWeight: '600',
+              cursor: 'pointer',
+              paddingBottom: '2.5%',
+            },
+          },
         },
 
         '& #edit-profile': {
@@ -130,7 +119,6 @@ export const styles = makeStyles((theme) => ({
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'flex-start',
-          padding: '5px 0',
           color: '#868686',
           padding: '0 1% 0 2%',
 
@@ -233,11 +221,14 @@ export const styles = makeStyles((theme) => ({
             flexDirection: 'column',
             alignItems: 'center',
             width: '100%',
-            minHeight: '100%',
-            height: '100%',
             alignSelf: 'center',
             zIndex: 3,
             paddingTop: '10px',
+            maxHeight: '680px',
+
+            [theme.breakpoints.down('lg')]: {
+              maxHeight: '780px',
+            },
 
             [theme.breakpoints.down('md')]: {
               flexWrap: 'wrap',
@@ -245,6 +236,28 @@ export const styles = makeStyles((theme) => ({
               justifyContent: 'center',
               paddingTop: '20px',
               padding: '2% 4%',
+              maxHeight: '100%',
+              height: '100%',
+            },
+
+            [theme.breakpoints.down('md')]: {
+              flexWrap: 'wrap',
+              flexDirection: 'row',
+              justifyContent: 'center',
+              paddingTop: '20px',
+              padding: '2% 4%',
+              maxHeight: '100%',
+              height: '100%',
+            },
+
+            [theme.breakpoints.down('md')]: {
+              flexWrap: 'wrap',
+              flexDirection: 'row',
+              justifyContent: 'center',
+              paddingTop: '20px',
+              padding: '2% 4%',
+              maxHeight: '100%',
+              height: '100%',
             },
 
             [theme.breakpoints.down('sm')]: {

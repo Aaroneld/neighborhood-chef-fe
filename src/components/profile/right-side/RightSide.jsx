@@ -17,7 +17,7 @@ const RightSide = ({ events, setEvents, userFirstName }) => {
           </div>
         </div>
       )}
-      {events.length == 0 && (
+      {events.length === 0 && (
         <Typography style={{ marginLeft: '5%' }}>{userFirstName} has no upcoming events</Typography>
       )}
     </div>

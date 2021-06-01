@@ -30,7 +30,6 @@ import { deleteEvent } from '../../../utilities/actions';
 
 import { print } from 'graphql';
 import Attending from './attending/attending';
-import { propTypes } from 'react-mapbox-gl-geocoder';
 
 const EventDetails = ({ event }) => {
   const photo = event.photo ? event.photo : chooseDefaultPicture(event.title.charAt(0));
