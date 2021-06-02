@@ -78,7 +78,13 @@ const FullEvent = ({ match }) => {
     return <Spinner />;
   } else {
     return (
-      <div>
+      <div
+        onClick={() => {
+          if (showModal) {
+            dispatch(toggleModal(true));
+          }
+        }}
+      >
         {event && (
           <>
             {showModal && <ViewEventRelatedUsersModal />}
