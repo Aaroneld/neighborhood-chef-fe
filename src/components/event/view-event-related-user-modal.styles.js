@@ -38,4 +38,14 @@ export const styles = makeStyles((theme) => ({
     bottom: 0,
     right: 0,
   },
+  link: {
+    border: 'none',
+    background: 'transparent',
+    overflow: 'hidden',
+  },
+  avatar: {
+    cursor: 'pointer',
+    border: '1px solid white',
+    background: '#DCDCDC',
+  },
 }));

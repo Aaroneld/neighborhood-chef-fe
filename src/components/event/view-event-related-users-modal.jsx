@@ -30,19 +30,12 @@ export default function ViewEventRelatedUsersModal() {
               <AvatarGroup max={15}>
                 {focusedEventInfo.attending.map((user) => {
                   return (
-                    <Link
-                      to={`/profile/${user.id}`}
-                      style={{ border: 'none', background: 'transparent', overflow: 'hidden' }}
-                    >
+                    <Link to={`/profile/${user.id}`} className={classes.link}>
                       <Avatar
                         key={user.id}
                         title={`${user.firstName} ${user.lastName}`}
                         aria-label="avatar"
-                        style={{
-                          cursor: 'pointer',
-                          border: '1px solid white',
-                          background: '#DCDCDC',
-                        }}
+                        className={classes.avatar}
                         src={user.photo ? user.photo : ''}
                       >
                         {!user.photo && (
@@ -68,19 +61,12 @@ export default function ViewEventRelatedUsersModal() {
               <AvatarGroup max={15}>
                 {focusedEventInfo.invited.map((user) => {
                   return (
-                    <Link
-                      to={`/profile/${user.id}`}
-                      style={{ border: 'none', background: 'transparent', overflow: 'hidden' }}
-                    >
+                    <Link to={`/profile/${user.id}`} className={classes.link}>
                       <Avatar
                         key={user.id}
                         title={`${user.firstName} ${user.lastName}`}
                         aria-label="avatar"
-                        style={{
-                          cursor: 'pointer',
-                          border: '1px solid white',
-                          background: '#DCDCDC',
-                        }}
+                        className={classes.avatar}
                         src={user.photo ? user.photo : ''}
                       >
                         {!user.photo && (
@@ -107,19 +93,12 @@ export default function ViewEventRelatedUsersModal() {
               <AvatarGroup max={15}>
                 {focusedEventInfo.maybeGoing.map((user) => {
                   return (
-                    <Link
-                      to={`/profile/${user.id}`}
-                      style={{ border: 'none', background: 'transparent', overflow: 'hidden' }}
-                    >
+                    <Link to={`/profile/${user.id}`} className={classes.link}>
                       <Avatar
                         key={user.id}
                         title={`${user.firstName} ${user.lastName}`}
                         aria-label="avatar"
-                        style={{
-                          cursor: 'pointer',
-                          border: '1px solid white',
-                          background: '#DCDCDC',
-                        }}
+                        className={classes.avatar}
                         src={user.photo ? user.photo : ''}
                       >
                         {!user.photo && (
