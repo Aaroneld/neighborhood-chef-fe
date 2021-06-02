@@ -12,6 +12,9 @@ export const styles = makeStyles((theme) => ({
     zIndex: 20,
     transform: 'translate(-50%, -50%)',
     borderRadius: '20px',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-around',
   },
   overlay: {
     position: 'absolute',

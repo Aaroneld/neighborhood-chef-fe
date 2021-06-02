@@ -18,7 +18,11 @@ export default function EventHeader() {
   return (
     <div>
       {eventInfo && eventInfo.attending && (
-        <div className={classes.attendingContainer} onClick={() => dispatch(toggleModal())}>
+        <div
+          className={classes.attendingContainer}
+          onClick={() => dispatch(toggleModal())}
+          style={{ cursor: 'pointer' }}
+        >
           <Typography variant="h6">Attending:</Typography>
           <AvatarGroup max={5}>
             {eventInfo.attending

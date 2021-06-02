@@ -224,10 +224,10 @@ export const styles = makeStyles((theme) => ({
             alignSelf: 'center',
             zIndex: 3,
             paddingTop: '10px',
-            maxHeight: '680px',
+            maxHeight: '690px',
 
             [theme.breakpoints.down('lg')]: {
-              maxHeight: '780px',
+              maxHeight: '820px',
             },
 
             [theme.breakpoints.down('md')]: {

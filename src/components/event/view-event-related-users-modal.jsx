@@ -17,6 +17,7 @@ export default function ViewEventRelatedUsersModal() {
     if (matches) {
       dispatch(toggleModal(true));
     }
+    // eslint-disable-next-line
   }, [matches]);
 
   return (
@@ -25,8 +26,8 @@ export default function ViewEventRelatedUsersModal() {
         <div className={classes.container}>
           {focusedEventInfo.attending && (
             <div className={classes.avatarContainer}>
-              <Typography variant="h6">Attending</Typography>
-              <AvatarGroup>
+              <Typography variant="h6">Attending:</Typography>
+              <AvatarGroup max={15}>
                 {focusedEventInfo.attending.map((user) => {
                   return (
                     <Link
@@ -58,14 +59,13 @@ export default function ViewEventRelatedUsersModal() {
                     No one has confirmed they are going to this event.
                   </Typography>
                 )}
-                ;
               </AvatarGroup>
             </div>
           )}
           {focusedEventInfo.invited && (
             <div className={classes.avatarContainer}>
-              <Typography variant="h6">Invited</Typography>
-              <AvatarGroup>
+              <Typography variant="h6">Invited:</Typography>
+              <AvatarGroup max={15}>
                 {focusedEventInfo.invited.map((user) => {
                   return (
                     <Link
@@ -103,8 +103,8 @@ export default function ViewEventRelatedUsersModal() {
           )}
           {focusedEventInfo.maybeGoing && (
             <div className={classes.avatarContainer}>
-              <Typography variant="h6">Maybe Going</Typography>
-              <AvatarGroup>
+              <Typography variant="h6">Maybe Going:</Typography>
+              <AvatarGroup max={15}>
                 {focusedEventInfo.maybeGoing.map((user) => {
                   return (
                     <Link
@@ -140,9 +140,11 @@ export default function ViewEventRelatedUsersModal() {
               </AvatarGroup>
             </div>
           )}
-          <Typography variant="h5" onClick={() => dispatch(toggleModal())} className={classes.closeBtn}>
-            CLOSE
-          </Typography>
+          <div>
+            <Typography variant="h5" onClick={() => dispatch(toggleModal())} className={classes.closeBtn}>
+              CLOSE
+            </Typography>
+          </div>
         </div>
       </div>
       <div>

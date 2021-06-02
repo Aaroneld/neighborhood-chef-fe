@@ -18,10 +18,7 @@ const FullEvent = ({ match }) => {
   const [loading, setLoading] = useState(false);
   const styles = fullEventStyles();
   const showModal = useSelector((state) => state.showModal);
-  const focusedEventInfo = useSelector((state) => state.focusedEvent);
   const dispatch = useDispatch();
-
-  console.log(focusedEventInfo);
 
   useEffect(() => {
     if (eventId) {
@@ -74,6 +71,7 @@ const FullEvent = ({ match }) => {
     return () => {
       dispatch(toggleModal(true));
     };
+    // eslint-disable-next-line
   }, []);
 
   if (loading) {
