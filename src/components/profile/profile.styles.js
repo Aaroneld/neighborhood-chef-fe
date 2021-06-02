@@ -227,7 +227,7 @@ export const styles = makeStyles((theme) => ({
             maxHeight: '690px',
 
             [theme.breakpoints.down('lg')]: {
-              maxHeight: '820px',
+              maxHeight: '780px',
             },
 
             [theme.breakpoints.down('md')]: {
