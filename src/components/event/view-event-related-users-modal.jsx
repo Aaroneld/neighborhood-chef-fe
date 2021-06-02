@@ -46,10 +46,7 @@ export default function ViewEventRelatedUsersModal() {
                   );
                 })}
                 {focusedEventInfo.attending.length === 0 && (
-                  <Typography
-                    variant="h6"
-                    style={{ border: 'none', fontSize: '90%', maxWidth: '180px', textAlign: 'left' }}
-                  >
+                  <Typography variant="h6" style={{ border: 'none', fontSize: '90%', textAlign: 'left' }}>
                     No one has confirmed they are going to this event.
                   </Typography>
                 )}
@@ -88,10 +85,7 @@ export default function ViewEventRelatedUsersModal() {
                   );
                 })}
                 {focusedEventInfo.invited.length === 0 && (
-                  <Typography
-                    variant="h6"
-                    style={{ border: 'none', fontSize: '90%', maxWidth: '180px', textAlign: 'left' }}
-                  >
+                  <Typography variant="h6" style={{ border: 'none', fontSize: '90%', textAlign: 'left' }}>
                     No one has been invited to this event.
                   </Typography>
                 )}
@@ -130,19 +124,16 @@ export default function ViewEventRelatedUsersModal() {
                   );
                 })}
                 {focusedEventInfo.maybeGoing.length === 0 && (
-                  <Typography
-                    variant="h6"
-                    style={{ border: 'none', fontSize: '90%', maxWidth: '180px', textAlign: 'left' }}
-                  >
-                    No one has been invited to this event.
+                  <Typography variant="h6" style={{ border: 'none', fontSize: '90%', textAlign: 'left' }}>
+                    No one has confirmed they are maybe going to this event.
                   </Typography>
                 )}
                 ;
               </AvatarGroup>
             </div>
           )}
-          <Typography variant="h6" onClick={() => dispatch(toggleModal())} style={{ cursor: 'pointer' }}>
-            Close
+          <Typography variant="h5" onClick={() => dispatch(toggleModal())} className={classes.closeBtn}>
+            CLOSE
           </Typography>
         </div>
       </div>
