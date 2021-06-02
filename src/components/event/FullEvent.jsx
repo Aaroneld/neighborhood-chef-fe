@@ -3,14 +3,13 @@ import { axiosWithAuth } from '../../utilities/axiosWithAuth';
 import { print } from 'graphql';
 import { EVENT_BY_ID } from '../../graphql/events/event-queries';
 import Card from '@material-ui/core/Card';
-import { useDispatch } from 'react-redux';
-import { addFocusedEventInfo } from '../../utilities/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { addFocusedEventInfo, toggleModal } from '../../utilities/actions';
 import EventDetails from './event-details/EventDetails';
 import ShareCard from './share-card/ShareCard';
 import CommentsCard from './comments-card/CommentsCard';
 import Spinner from '../shared/spinner/Spinner';
 import { fullEventStyles } from './FullEvent.styles';
-import ViewEventRelatedUserModal from './view-event-related-users-modal';
 import ViewEventRelatedUsersModal from './view-event-related-users-modal';
 
 const FullEvent = ({ match }) => {
@@ -18,7 +17,7 @@ const FullEvent = ({ match }) => {
   const [event, setEvent] = useState(null);
   const [loading, setLoading] = useState(false);
   const styles = fullEventStyles();
-
+  const showModal = useSelector((state) => state.showModal);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -48,6 +47,14 @@ const FullEvent = ({ match }) => {
                 res.data.data.Events[0].EventUsers.attending.length > 0
                   ? res.data.data.Events[0].EventUsers.attending
                   : [],
+              maybeGoing:
+                res.data.data.Events[0].EventUsers.maybeGoing.length > 0
+                  ? res.data.data.Events[0].EventUsers.maybeGoing
+                  : [],
+              invited:
+                res.data.data.Events[0].EventUsers.invited.length > 0
+                  ? res.data.data.Events[0].EventUsers.invited
+                  : [],
             })
           );
         },
@@ -60,14 +67,27 @@ const FullEvent = ({ match }) => {
     // eslint-disable-next-line
   }, [eventId]);
 
+  useEffect(() => {
+    return () => {
+      dispatch(toggleModal(true));
+    };
+    // eslint-disable-next-line
+  }, []);
+
   if (loading) {
     return <Spinner />;
   } else {
     return (
-      <div>
+      <div
+        onClick={() => {
+          if (showModal) {
+            dispatch(toggleModal(true));
+          }
+        }}
+      >
         {event && (
           <>
-            {/* <ViewEventRelatedUsersModal eventUsers={event.EventUsers} /> */}
+            {showModal && <ViewEventRelatedUsersModal />}
             <Card className={styles.singleEventContainer}>
               <div className={styles.singleEventBox}>
                 <>

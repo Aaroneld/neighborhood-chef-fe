@@ -11,6 +11,10 @@ export const styles = makeStyles((theme) => ({
     height: '40vw',
     zIndex: 20,
     transform: 'translate(-50%, -50%)',
+    borderRadius: '20px',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-around',
   },
   overlay: {
     position: 'absolute',
@@ -22,5 +26,16 @@ export const styles = makeStyles((theme) => ({
     zIndex: 19,
     opacity: 0.4,
     transform: 'translate(-50%, -50%)',
+  },
+  avatarContainer: {
+    padding: '20px',
+  },
+  closeBtn: {
+    fontWeight: 'bold',
+    padding: '20px',
+    cursor: 'pointer',
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
   },
 }));
