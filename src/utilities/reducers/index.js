@@ -13,6 +13,7 @@ import {
   UPDATE_FOCUSED_EVENT_INFO,
   UPDATE_USER,
   UPDATE_FAVORITE_EVENTS,
+  SHOW_MODAL,
 } from '../actions';
 
 const initialDate = new Date();
@@ -32,6 +33,7 @@ const initialState = {
   inviteList: [],
   savedUserUpdateInfo: {},
   focusedEventInfo: {},
+  showModal: false,
 };
 
 export const rootReducer = (state = initialState, { type, payload }) => {
@@ -211,6 +213,19 @@ export const rootReducer = (state = initialState, { type, payload }) => {
           },
         },
       };
+    }
+    case SHOW_MODAL: {
+      if (!payload) {
+        return {
+          ...state,
+          showModal: !state.showModal,
+        };
+      } else {
+        return {
+          ...state,
+          showModal: false,
+        };
+      }
     }
     default:
       return {

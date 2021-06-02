@@ -19,6 +19,7 @@ const StatusButton = ({ status, color, currStatus, eventId, userId, changeStatus
       }}
       onClick={async (e) => {
         e.preventDefault();
+        console.log(status);
         if (currStatus !== status) {
           changeStatusForSingleEvent({
             status,
@@ -26,15 +27,31 @@ const StatusButton = ({ status, color, currStatus, eventId, userId, changeStatus
             userId,
           });
           if (event && Object.keys(event).length > 0) {
-            dispatch(
-              updateFocusedEventInfo({
-                ...event,
-                attending:
-                  status === 'GOING'
-                    ? [...event.attending, user]
-                    : event.attending.filter((u) => u.id !== user.id),
-              })
-            );
+            if (status === 'GOING') {
+              dispatch(
+                updateFocusedEventInfo({
+                  ...event,
+                  attending: [...event.attending, user],
+                  maybeGoing: event.maybeGoing.filter((u) => u.id !== user.id),
+                })
+              );
+            } else if (status === 'NOT_GOING') {
+              dispatch(
+                updateFocusedEventInfo({
+                  ...event,
+                  attending: event.attending.filter((u) => u.id !== user.id),
+                  maybeGoing: event.maybeGoing.filter((u) => u.id !== user.id),
+                })
+              );
+            } else {
+              dispatch(
+                updateFocusedEventInfo({
+                  ...event,
+                  attending: event.attending.filter((u) => u.id !== user.id),
+                  maybeGoing: [...event.maybeGoing, user],
+                })
+              );
+            }
           }
         }
       }}

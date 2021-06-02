@@ -17,6 +17,7 @@ export const ADD_FOCUSED_EVENT_INFO = 'ADD_FOCUSED_EVENT_INFO';
 export const UPDATE_FOCUSED_EVENT_INFO = 'UPDATE_FOCUSED_EVENT_INFO';
 export const UPDATE_USER = 'UPDATE_USER';
 export const UPDATE_FAVORITE_EVENTS = 'UPDATE_FAVORITE_EVENTS';
+export const SHOW_MODAL = 'SHOW_MODAL';
 
 export const changeStatusForSingleEvent = (data) => (dispatch) => {
   axiosWithAuth()
@@ -94,5 +95,10 @@ export const updateUser = (user) => ({
 
 export const updateFavoriteEvents = (payload) => ({
   type: UPDATE_FAVORITE_EVENTS,
+  payload: payload,
+});
+
+export const toggleModal = (payload) => ({
+  type: SHOW_MODAL,
   payload: payload,
 });

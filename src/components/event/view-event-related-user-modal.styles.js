@@ -23,4 +23,7 @@ export const styles = makeStyles((theme) => ({
     opacity: 0.4,
     transform: 'translate(-50%, -50%)',
   },
+  avatarContainer: {
+    padding: '10px',
+  },
 }));

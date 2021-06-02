@@ -1,32 +1,26 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Typography from '@material-ui/core/Typography';
 import { styles } from './event-header.styles.js';
 import { cardStyles } from '../../styles';
 import AttendingButtons from './event-details/attending-buttons/attending-buttons';
-import ViewEventRelatedUsersModal from './view-event-related-users-modal';
-
 import Avatar from '@material-ui/core/Avatar';
 import AvatarGroup from '@material-ui/lab/AvatarGroup';
+import { toggleModal } from '../../utilities/actions';
 
 export default function EventHeader() {
   const eventInfo = useSelector((state) => state.focusedEventInfo);
   const classes = styles();
   const statusButtonClasses = cardStyles();
-  const [showModal, setShowModal] = useState(false);
+  const dispatch = useDispatch();
 
   return (
     <div>
       {eventInfo && eventInfo.attending && (
-        <div className={classes.attendingContainer}>
+        <div className={classes.attendingContainer} onClick={() => dispatch(toggleModal())}>
           <Typography variant="h6">Attending:</Typography>
-          <AvatarGroup
-            max={5}
-            onClick={() => {
-              setShowModal(true);
-            }}
-          >
+          <AvatarGroup max={5}>
             {eventInfo.attending
               .slice(0, eventInfo.attending.length >= 4 ? 4 : eventInfo.attending.length)
               .map((user) => {
