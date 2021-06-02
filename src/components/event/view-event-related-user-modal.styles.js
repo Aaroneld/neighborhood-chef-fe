@@ -11,7 +11,7 @@ export const styles = makeStyles((theme) => ({
     height: '40vw',
     zIndex: 20,
     transform: 'translate(-50%, -50%)',
-    borderRadius: '10px',
+    borderRadius: '20px',
   },
   overlay: {
     position: 'absolute',

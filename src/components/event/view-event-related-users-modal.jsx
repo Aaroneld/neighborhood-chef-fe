@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Avatar, Typography } from '@material-ui/core';
 import { AvatarGroup } from '@material-ui/lab';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { styles } from './view-event-related-user-modal.styles';
 import { toggleModal } from '../../utilities/actions';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 export default function ViewEventRelatedUsersModal() {
   const classes = styles();
   const focusedEventInfo = useSelector((state) => state.focusedEventInfo);
   const dispatch = useDispatch();
+  const matches = useMediaQuery((theme) => theme.breakpoints.down('sm'));
+
+  useEffect(() => {
+    if (matches) {
+      dispatch(toggleModal(true));
+    }
+  }, [matches]);
 
   return (
     <>
