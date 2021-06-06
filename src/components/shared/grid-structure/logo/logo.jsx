@@ -72,8 +72,8 @@ export const logoStyles = makeStyles((theme) => ({
         },
         [theme.breakpoints.down('sm')]: {
           fontSize: '4.5rem',
-          transform: 'translateX(50%)',
-          marginTop: '4%',
+          transform: 'translateX(40%)',
+          marginTop: '1.5%',
           width: '100%',
           height: '100px',
           // background: 'rgb(88,213,115)',

@@ -9,8 +9,13 @@ export const styles = makeStyles((theme) => ({
   root: {
     width: '100%',
     height: '100%',
+    background: 'transparent',
     [theme.breakpoints.down('lg')]: {
       overflowY: 'scroll',
+    },
+
+    [theme.breakpoints.down('md')]: {
+      paddingTop: '2%',
     },
 
     '& .mainContainer': {
@@ -26,13 +31,10 @@ export const styles = makeStyles((theme) => ({
         flexDirection: 'column',
         width: (props) => (props.user && props.user.UserEvents.owned.length > 0 ? '60%' : '100%'),
         marginRight: '1%',
-        borderLeft: '3px solid rgba(0,0,0,.092)',
-        borderTop: '3px solid rgba(0,0,0,.092)',
-        borderTopLeftRadius: '10px',
-        borderTopRightRadius: '10px',
 
         [theme.breakpoints.down('md')]: {
-          width: () => '100%',
+          width: () => '95%',
+          margin: '0 2.5%',
         },
 
         '& .header': {
@@ -50,15 +52,22 @@ export const styles = makeStyles((theme) => ({
           paddingTop: '37.49%',
           color: 'white',
           borderRadius: '10px 10px 0 0',
+          position: 'relative',
 
           '&:hover': {
-            backgroundImage: (props) =>
-              props.user &&
-              `   
-            linear-gradient(
-              rgba(0, 0, 0, 0.5), 
-              rgba(0, 0, 0, 0.5)
-            ), url(${props.user.bannerPhoto ? props.user.bannerPhoto : FullCourse})`,
+            cursor: 'default',
+          },
+
+          '& .edit-icon': {
+            position: 'absolute',
+            top: '5%',
+            left: '45%',
+
+            '&:hover': {
+              cursor: 'pointer',
+              opacity: 1,
+              color: 'white',
+            },
           },
 
           '& #upload-image-div': {
@@ -195,6 +204,13 @@ export const styles = makeStyles((theme) => ({
           width: '90%',
           margin: '0 5% 1% 5%',
           color: 'white',
+
+          [theme.breakpoints.down('md')]: {
+            width: '95%',
+            margin: '0 2.5%',
+            fontSize: '200%',
+            background: 'rgba(0 ,0 ,0, .2)',
+          },
         },
 
         '& h6': {
@@ -267,22 +283,28 @@ export const styles = makeStyles((theme) => ({
 
             '& .eventCard': {
               borderRadius: '10px',
-              width: '90%',
+              width: '80%',
               marginBottom: '2%',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
-              padding: '5px',
               textAlign: 'center',
               height: '100%',
               minHeight: 225,
+              paddingBottom: '2%',
               msOverflowStyle: 'none' /* Hide scrollbar for IE and Edge */,
               scrollbarWidth: 'none' /* Hide scrollbar for Firefox */,
               '&::-webkit-scrollbar': {
                 display: 'none' /* Hide scrollbar for Chrome, Safari and Opera */,
               },
+
+              '&:hover': {
+                transform: 'scale(1.025)',
+                cursor: 'pointer',
+              },
+
               [theme.breakpoints.down('md')]: {
-                width: '45%',
+                width: '47%',
                 margin: '1%',
               },
               [theme.breakpoints.down('sm')]: {

@@ -5,6 +5,10 @@ import { axiosWithAuth } from '../../../utilities/axiosWithAuth';
 import { UPDATE_USER } from '../../../graphql/users/user-mutations';
 import { updateUser } from '../../../utilities/actions';
 
+import { Icon } from '@iconify/react';
+import pencilIcon from '@iconify/icons-mdi/pencil';
+import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
+
 const Header = ({
   user,
   setUser,
@@ -77,12 +81,18 @@ const Header = ({
   }, [bannerImageHasLoaded, bannerImage]);
 
   return (
-    <div
-      className="header"
-      onClick={() => {
-        user.id === loggedInUserId && bannerImageRef.current.click();
-      }}
-    >
+    <div className="header">
+      {user.id === loggedInUserId && (
+        <div className="edit-icon">
+          <Icon
+            icon={pencilIcon}
+            onClick={() => {
+              user.id === loggedInUserId && bannerImageRef.current.click();
+            }}
+            style={{ color: 'white', fontSize: '3rem', opacity: 0.7 }}
+          />
+        </div>
+      )}
       {user && (
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
           {user.id !== loggedInUserId && (

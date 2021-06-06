@@ -10,6 +10,7 @@ export const calendarStyles = makeStyles((theme) => ({
     boxShadow: '-2px 3px 31px -13px rgba(117,117,117,0.46)',
     borderRadius: '20px',
     borderTopRightRadius: '0',
+   
 
     [theme.breakpoints.down('md')]: {
       maxWidth: '100vw',
@@ -139,6 +140,7 @@ export const cardStyles = makeStyles((theme) => ({
     //these next two lines hide scrollbars on cards
     '&::-webkit-scrollbar': { display: 'none' },
     '-ms-overflow-style': 'none',
+
   },
   fullEvent: {
     maxWidth: '100%',
