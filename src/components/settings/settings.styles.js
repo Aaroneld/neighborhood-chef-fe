@@ -134,17 +134,13 @@ export const styles = makeStyles((theme) => ({
         },
       },
       '& #form-buttons': {
-        width: '60%',
-        justifyContent: 'center',
+        width: '96%',
         [theme.breakpoints.down('md')]: {
           width: '100%',
           margin: '5px 0',
         },
         '& button': {
-          width: '30%',
-          [theme.breakpoints.down('sm')]: {
-            width: '40%',
-          },
+          padding: '10px',
         },
       },
     },
