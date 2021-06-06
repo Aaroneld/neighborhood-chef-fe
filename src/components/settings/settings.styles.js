@@ -10,6 +10,7 @@ export const styles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+
     [theme.breakpoints.down('lg')]: {
       overflowY: 'scroll',
     },
@@ -22,9 +23,11 @@ export const styles = makeStyles((theme) => ({
 
     '& .main': {
       padding: '4px 20px',
+      marginTop: ".5%",
       width: '100%',
       display: 'flex',
       flexDirection: 'column',
+    
       marginLeft: '10%',
       [theme.breakpoints.down('md')]: {
         marginLeft: '0',
@@ -63,7 +66,7 @@ export const styles = makeStyles((theme) => ({
           border: '2px solid #f0f0f0',
           borderRadius: '15px',
           outline: 'none',
-          padding: '10px 10px 60px 10px',
+          padding: '1.5% 10px 60px 1.5%',
           fontSize: '1.6rem',
           width: '100%',
           whiteSpace: 'wrap',
@@ -135,12 +138,13 @@ export const styles = makeStyles((theme) => ({
       },
       '& #form-buttons': {
         width: '96%',
+        marginTop: "12%",
         [theme.breakpoints.down('md')]: {
           width: '100%',
           margin: '5px 0',
         },
         '& button': {
-          padding: '10px',
+          padding: '1% 5%',
         },
       },
     },
