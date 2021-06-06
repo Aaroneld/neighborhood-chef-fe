@@ -18,11 +18,7 @@ export default function EventHeader() {
   return (
     <div>
       {eventInfo && eventInfo.attending && (
-        <div
-          className={classes.attendingContainer}
-          onClick={() => dispatch(toggleModal())}
-          style={{ cursor: 'pointer' }}
-        >
+        <div className={classes.attendingContainer}>
           <Typography variant="h6">Attending:</Typography>
           <AvatarGroup max={5}>
             {eventInfo.attending
@@ -38,6 +34,8 @@ export default function EventHeader() {
                       border: '1px solid white',
                       background: '#DCDCDC',
                     }}
+                    onClick={() => dispatch(toggleModal())}
+                    style={{ cursor: 'pointer' }}
                     src={user.photo ? user.photo : ''}
                   >
                     {!user.photo && (

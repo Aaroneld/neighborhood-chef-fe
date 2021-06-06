@@ -23,11 +23,11 @@ export const styles = makeStyles((theme) => ({
 
     '& .main': {
       padding: '4px 20px',
-      marginTop: ".5%",
+      marginTop: '.5%',
       width: '100%',
       display: 'flex',
       flexDirection: 'column',
-    
+
       marginLeft: '10%',
       [theme.breakpoints.down('md')]: {
         marginLeft: '0',
@@ -138,13 +138,19 @@ export const styles = makeStyles((theme) => ({
       },
       '& #form-buttons': {
         width: '96%',
-        marginTop: "12%",
+        marginTop: '12%',
+        [theme.breakpoints.down('lg')]: {
+          marginTop: '0',
+        },
         [theme.breakpoints.down('md')]: {
           width: '100%',
           margin: '5px 0',
         },
         '& button': {
           padding: '1% 5%',
+          [theme.breakpoints.down('sm')]: {
+            padding: '3% 5%',
+          },
         },
       },
     },
