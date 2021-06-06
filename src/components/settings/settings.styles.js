@@ -7,7 +7,12 @@ export const styles = makeStyles((theme) => ({
     width: '100%',
     boxShadow: '-2px 3px 31px -13px rgba(117,117,117,0.46)',
     background: 'transparent',
-    overflowY: 'scroll',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    [theme.breakpoints.down('lg')]: {
+      overflowY: 'scroll',
+    },
 
     '& h4': {
       fontWeight: 'bold',
@@ -16,16 +21,28 @@ export const styles = makeStyles((theme) => ({
     },
 
     '& .main': {
-      padding: '0 20px',
+      padding: '4px 20px',
+      width: '100%',
+      display: 'flex',
+      flexDirection: 'column',
+      marginLeft: '10%',
+      [theme.breakpoints.down('md')]: {
+        marginLeft: '0',
+      },
+
       '& .textInputContainer': {
         display: 'flex',
         flexDirection: 'column',
-        margin: '20px 0',
+        width: '60%',
+        margin: '10px 0',
         wordBreak: 'break-word',
+        [theme.breakpoints.down('md')]: {
+          width: '100%',
+        },
 
         '& label': {
-          color: '#4E4E4E',
-          fontWeight: '700',
+          color: 'black',
+          opacity: 0.5,
           marginBottom: '5px',
         },
 
@@ -36,22 +53,26 @@ export const styles = makeStyles((theme) => ({
           justifyContent: 'space-between',
           border: '2px solid #f0f0f0',
           borderRadius: '15px',
-          padding: '10px 15px',
+          padding: '14px',
           background: 'white',
           fontSize: '1.6rem',
           outline: 'none',
+          width: '100%',
         },
         '& .textarea': {
           border: '2px solid #f0f0f0',
           borderRadius: '15px',
           outline: 'none',
-          padding: '10px 10px 30px 10px',
+          padding: '10px 10px 60px 10px',
           fontSize: '1.6rem',
           width: '100%',
           whiteSpace: 'wrap',
           resize: 'none',
           fontFamily: '"Arial", sans-serif',
           overflow: 'hidden',
+          [theme.breakpoints.down('lg')]: {
+            padding: '10px 10px 60px 10px',
+          },
           [theme.breakpoints.down('sm')]: {
             padding: '10px 10px 100px 10px',
           },
@@ -66,18 +87,23 @@ export const styles = makeStyles((theme) => ({
           },
         },
         '& select': {
-          padding: '8px',
+          padding: '14px',
           border: '2px solid #f0f0f0',
           borderRadius: '15px',
           outline: 'none',
           cursor: 'pointer',
           fontSize: '1.6rem',
+          width: '100%',
         },
       },
       '& .mapboxContainer': {
+        width: '60%',
+        [theme.breakpoints.down('md')]: {
+          width: '100%',
+        },
         '& label': {
-          color: '#4E4E4E',
-          fontWeight: '700',
+          color: 'black',
+          opacity: 0.5,
           marginBottom: '5px',
         },
         '& .geocoderDiv': {
@@ -87,7 +113,7 @@ export const styles = makeStyles((theme) => ({
           justifyContent: 'space-between',
           border: '2px solid #f0f0f0',
           borderRadius: '15px',
-          padding: '10px 15px',
+          padding: '14px',
           background: 'white',
           fontSize: '1.6rem',
           width: '100%',
@@ -96,16 +122,28 @@ export const styles = makeStyles((theme) => ({
             border: 'none',
             fontSize: '1.6rem',
             outline: 'none',
-            width: '800px',
-            [theme.breakpoints.down('md')]: {
-              width: '600px',
-            },
+            minWidth: '500px',
+
             [theme.breakpoints.down('sm')]: {
-              width: '400px',
+              minWidth: '340px',
             },
             [theme.breakpoints.down('xs')]: {
-              width: '240px',
+              minWidth: '240px',
             },
+          },
+        },
+      },
+      '& #form-buttons': {
+        width: '60%',
+        justifyContent: 'center',
+        [theme.breakpoints.down('md')]: {
+          width: '100%',
+          margin: '5px 0',
+        },
+        '& button': {
+          width: '30%',
+          [theme.breakpoints.down('sm')]: {
+            width: '40%',
           },
         },
       },
