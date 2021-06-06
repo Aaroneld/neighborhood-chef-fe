@@ -70,6 +70,7 @@ const FullEvent = ({ match }) => {
   useEffect(() => {
     return () => {
       dispatch(toggleModal(true));
+      dispatch(addFocusedEventInfo({}));
     };
     // eslint-disable-next-line
   }, []);
