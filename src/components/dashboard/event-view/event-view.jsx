@@ -18,8 +18,13 @@ export const styles = makeStyles((theme) => ({
       padding: '0 0 0 0',
     },
 
+    [theme.breakpoints.down('md')]: {
+      padding: "0 0 0 3%"
+    },
+
     [theme.breakpoints.down('sm')]: {
       justifyContent: 'center',
+      padding: '0 0 0 0',
     },
   },
 }));

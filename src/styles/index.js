@@ -254,10 +254,25 @@ export const cardStyles = makeStyles((theme) => ({
     margin: '0 1.5% 1% 1.5%',
     flexBasis: '30%',
 
-    [theme.breakpoints.down('sm')]: {
-      flexBasis: '90%',
-      margin: '0 1.5% 1% 3.5%',
+    
+    [theme.breakpoints.down('md')]: {
+      flexBasis: '45%',
+      margin: '0 1.5% 2.5% 1.5%',
     },
+   
+
+    [theme.breakpoints.down('sm')]: {
+      flexBasis: '85%',
+      margin: '0 0 3.5% 7.5%',
+      
+    },
+
+    "& .dashboard-card-content": {
+      [theme.breakpoints.down('sm')]: {
+        display: "none"
+        
+      },
+    }
   },
   eventDetailsContainer: {
     width: '100%',
@@ -353,6 +368,11 @@ export const cardStyles = makeStyles((theme) => ({
     width: '55px',
     alignItems: 'center',
     position: 'relative',
+
+    [theme.breakpoints.down('sm')] : {
+      marginTop: "-9.5%",
+      background: "#F0F0F0"
+    }
   },
   icon: {
     fontSize: '2rem',
@@ -667,6 +687,10 @@ export const cardStyles = makeStyles((theme) => ({
         '&:hover': {
           textDecoration: 'underline',
         },
+
+        [theme.breakpoints.down('sm')]: {
+          paddingTop: "4%"
+        },
       },
     },
   },
@@ -783,6 +807,11 @@ export const cardStyles = makeStyles((theme) => ({
   dashboardAvatar: {
     height: '55px',
     width: '55px',
+    
+    '& p': {
+      fontSize: "170%",
+      fontWeight: 400
+    }
   },
   avatarNoHover: {
     backgroundColor: '#e8e8e8',

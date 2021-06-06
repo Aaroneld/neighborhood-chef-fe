@@ -28,6 +28,9 @@ export const styles = makeStyles((theme) => {
       overflowX: 'hidden',
       background: 'transparent',
       overflowY: 'scroll',
+          //these next two lines hide scrollbars on cards
+      '&::-webkit-scrollbar': { display: 'none' },
+      '-ms-overflow-style': 'none',
 
       [theme.breakpoints.down('md')]: {
         width: '100vw',
@@ -37,6 +40,7 @@ export const styles = makeStyles((theme) => {
     Header: {
       gridArea: 'Header',
       height: '16.66vh',
+      width: "100vw",
 
       [theme.breakpoints.down('md')]: {
         height: '10vh',
@@ -44,7 +48,8 @@ export const styles = makeStyles((theme) => {
       },
 
       [theme.breakpoints.down('sm')]: {
-        margin: '4% 0%',
+        margin: '4% 0% 0% 0%',
+        height: '5vh',
       },
     },
     Sidebar: {

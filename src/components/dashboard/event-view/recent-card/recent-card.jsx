@@ -17,7 +17,7 @@ const RecentCard = (props) => {
       <Image {...props} />
       <Details {...props} />
       <div className={classes.dashboardLineBreak} />
-      <CardContent>
+      <CardContent className="dashboard-card-content">
         <div className={classes.statusButtonContainerDashboard}>
           <Typography variant="h6">Going?</Typography>
           <StatusButtons id={props.id} currentUserId={props.currentUserId} />

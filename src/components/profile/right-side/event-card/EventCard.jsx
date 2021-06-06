@@ -79,25 +79,22 @@ const AccountEventCard = ({ event, setEvents }) => {
         marginTop: '10px',
         zIndex: 20,
       }}
+      onClick={() => {
+        push(`/events/${event.id}`);
+      }}
     >
       <CardMedia style={{ maxHeight: 100 }} component="img" src={photo} title="Event Photo" />
-      <Typography
-        variant="h6"
-        style={{ fontWeight: 'bold', cursor: 'pointer' }}
-        onClick={() => {
-          push(`/events/${event.id}`);
-        }}
-      >
-        {event.title.length < 22 ? event.title : `${event.title.slice(0, 22)}...`}
+      <Typography variant="h6" style={{ fontWeight: 'bold', cursor: 'pointer' }}>
+        {event.title.length < 35 ? event.title : `${event.title.slice(0, 35)}...`}
       </Typography>
       <Typography>{`${attending.length || '0'} attending`}</Typography>
       <Typography>{timeObject.commentTime}</Typography>
-      {event.User.id === currentUserId && (
+      {/* {event.User.id === currentUserId && (
         <div className="iconContainer">
           <DeleteOutlinedIcon onClick={removeEvent} />
           <Icon icon={pencilIcon} onClick={redirectToEventEdit} />
         </div>
-      )}
+      )} */}
     </Card>
   );
 };

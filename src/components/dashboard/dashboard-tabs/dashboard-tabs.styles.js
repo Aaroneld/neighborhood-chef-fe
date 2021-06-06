@@ -26,7 +26,7 @@ export const DashboardTabStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down('sm')]: {
       maxWidth: '100vw',
-      marginTop: '-10%',
+      marginTop: '-8%',
     },
 
     [theme.breakpoints.down('xs')]: {
