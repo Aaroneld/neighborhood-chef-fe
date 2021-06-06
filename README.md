@@ -74,7 +74,7 @@ Neighborhood Chef provides a uniquely intimate approach to social culinary gathe
 - allows full support for SSL and other security measures
 - atomic and consistent
 
-#### Back end deployed using AWS Amplify
+#### Back end deployed using Heroku
 
 # APIs
 
@@ -85,12 +85,6 @@ Robust and trusted authentication platform that is easily integrated into React 
 # Environment Variables
 
 In order for the app to function correctly, the user must set up their own environment variables. Please refer to the .env.example file contained within the src folder for a list of up to date environment variables. You will need to create a new .env file on the root level to match the variables in the example file.
-
-# Content Licenses
-
-| Image Filename | Source / Creator | License |
-| -------------- | ---------------- | ------- |
-| (none)         |                  |
 
 # Testing
 

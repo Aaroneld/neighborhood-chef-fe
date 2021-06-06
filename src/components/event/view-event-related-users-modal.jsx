@@ -30,7 +30,11 @@ export default function ViewEventRelatedUsersModal() {
               <AvatarGroup max={15}>
                 {focusedEventInfo.attending.map((user) => {
                   return (
-                    <Link to={`/profile/${user.id}`} className={classes.link}>
+                    <Link
+                      onClick={(e) => e.stopPropagation()}
+                      to={`/profile/${user.id}`}
+                      className={classes.link}
+                    >
                       <Avatar
                         key={user.id}
                         title={`${user.firstName} ${user.lastName}`}
@@ -61,7 +65,11 @@ export default function ViewEventRelatedUsersModal() {
               <AvatarGroup max={15}>
                 {focusedEventInfo.invited.map((user) => {
                   return (
-                    <Link to={`/profile/${user.id}`} className={classes.link}>
+                    <Link
+                      onClick={(e) => e.stopPropagation()}
+                      to={`/profile/${user.id}`}
+                      className={classes.link}
+                    >
                       <Avatar
                         key={user.id}
                         title={`${user.firstName} ${user.lastName}`}
@@ -93,7 +101,11 @@ export default function ViewEventRelatedUsersModal() {
               <AvatarGroup max={15}>
                 {focusedEventInfo.maybeGoing.map((user) => {
                   return (
-                    <Link to={`/profile/${user.id}`} className={classes.link}>
+                    <Link
+                      onClick={(e) => e.stopPropagation()}
+                      to={`/profile/${user.id}`}
+                      className={classes.link}
+                    >
                       <Avatar
                         key={user.id}
                         title={`${user.firstName} ${user.lastName}`}
