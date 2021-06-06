@@ -40,7 +40,7 @@ export const styles = makeStyles((theme) => {
     Header: {
       gridArea: 'Header',
       height: '16.66vh',
-      width: "100vw",
+      
 
       [theme.breakpoints.down('md')]: {
         height: '10vh',
