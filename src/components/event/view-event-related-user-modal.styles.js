@@ -37,6 +37,9 @@ export const styles = makeStyles((theme) => ({
     position: 'absolute',
     bottom: 0,
     right: 0,
+    [theme.breakpoints.down('md')]: {
+      fontSize: '1.8rem',
+    },
   },
   link: {
     border: 'none',
